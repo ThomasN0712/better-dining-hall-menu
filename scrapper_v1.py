@@ -1,7 +1,6 @@
 import json
 from bs4 import BeautifulSoup
 import requests
-import re
 
 url = "https://www.csulb.edu/beach-shops/residential-dining-menus"
 headers = {
@@ -21,65 +20,17 @@ def parse_sections(soup):
         "Allergens": {}
     }
 
-    # Loop through all relevant card-wrap sections
-    for card_wrap in soup.find_all("div", class_="card-wrap"):
-        header = card_wrap.find("h2", class_="accordion-heading")
-        if not header:
-            continue
-
-        title = header.get_text(strip=True)
-        accordion_id = card_wrap.find("div", {"id": True}).get("id")
-
-        # Parse Cycle Dates
-        if "Cycle Dates" in title or "accordion-10541566" in accordion_id or "accordion-10885581" in accordion_id:
-            cycle_table = []
-            table = card_wrap.find("table")
-            if table:
-                rows = table.find("tbody").find_all("tr")
-                for row in rows:
-                    columns = row.find_all("td")
-                    week_of = columns[0].get_text(strip=True)
-                    menu_cycle = columns[1].get_text(strip=True)
-                    cycle_table.append({"week_of": week_of, "menu_cycle": menu_cycle})
-            dining_data["Cycle Dates"][title] = cycle_table
-
-        # Parse Always Available section
-        elif "accordion-10541616" in accordion_id:
-            always_available = {}
-            for meal_section in card_wrap.find_all("h3"):
-                meal_time = meal_section.get_text(strip=True).replace(" always includes:", "")
-                items = [item.get_text(strip=True) for item in meal_section.find_next("ul").find_all("li")]
-                always_available[meal_time] = items
-            dining_data["Always Available"] = always_available
-
-        # Parse Allergen Identification
-        elif "accordion-10541941" in accordion_id:
-            allergens = {}
-            allergen_section = card_wrap.find("div", class_="card-body row")
-            if allergen_section:
-                for line in allergen_section.find_all("p"):
-                    for strong_tag in line.find_all("strong"):
-                        allergen_code = strong_tag.get_text(strip=True)
-                        allergen_desc = strong_tag.next_sibling.strip("= ").strip()
-                        allergens[allergen_code] = allergen_desc
-            dining_data["Allergens"] = allergens
-            
     current_cycle = None
     current_day = None
-    
-     # Loop through all relevant field__item sections to detect cycles
+
+    # Loop through all relevant field__item sections to detect cycles
     for field_item in soup.find_all("div", class_="field__item"):
-        # Match cycle headers strictly to "Cycle X Menu" format
+        # Detect Cycle Headers by matching <h2> tags with text like "Cycle 1 Menu"
         cycle_header = field_item.find("h2")
-        if cycle_header:
-            cycle_text = cycle_header.get_text(strip=True)
-            # Use regular expression to match "Cycle X Menu" where X is a digit
-            if re.match(r"Cycle \d+ Menu", cycle_text):
-                current_cycle = cycle_text
-                dining_data["Daily Menus"][current_cycle] = {}
-                print(cycle_text)
-                continue
-            
+        if cycle_header and "Cycle" in cycle_header.get_text(strip=True) and "Menu" in cycle_header.get_text(strip=True):
+            current_cycle = cycle_header.get_text(strip=True)
+            dining_data["Daily Menus"][current_cycle] = {}
+            continue
 
         # If we're in a cycle, continue parsing days
         if current_cycle:
@@ -115,6 +66,28 @@ def parse_sections(soup):
                     day_menu[meal_name] = meal_data
 
                 dining_data["Daily Menus"][current_cycle][day_name] = day_menu
+
+        # Parse other sections like Always Available and Allergens as before
+        # Parse Always Available section
+        if "accordion-10541616" in field_item.get("id", ""):
+            always_available = {}
+            for meal_section in field_item.find_all("h3"):
+                meal_time = meal_section.get_text(strip=True).replace(" always includes:", "")
+                items = [item.get_text(strip=True) for item in meal_section.find_next("ul").find_all("li")]
+                always_available[meal_time] = items
+            dining_data["Always Available"] = always_available
+
+        # Parse Allergen Identification
+        if "accordion-10541941" in field_item.get("id", ""):
+            allergens = {}
+            allergen_section = field_item.find("div", class_="card-body row")
+            if allergen_section:
+                for line in allergen_section.find_all("p"):
+                    for strong_tag in line.find_all("strong"):
+                        allergen_code = strong_tag.get_text(strip=True)
+                        allergen_desc = strong_tag.next_sibling.strip("= ").strip()
+                        allergens[allergen_code] = allergen_desc
+            dining_data["Allergens"] = allergens
 
     return dining_data
 

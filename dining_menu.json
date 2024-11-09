@@ -174,20 +174,191 @@
         ]
     },
     "Daily Menus": {
-        "Monday": {
-            "Breakfast": [],
-            "Lunch": [],
-            "Dinner": []
+        "Cycle 1 Menu": {
+            "Monday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Tuesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Wednesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Thursday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Friday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Saturday": {
+                "Brunch": [],
+                "Dinner": []
+            },
+            "Sunday": {
+                "Brunch": [],
+                "Dinner": []
+            }
         },
-        "Tuesday": {
-            "Breakfast": [],
-            "Lunch": [],
-            "Dinner": []
+        "Cycle 2 Menu": {
+            "Monday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Tuesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Wednesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Thursday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Friday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Saturday": {
+                "Brunch": [],
+                "Dinner": []
+            },
+            "Sunday": {
+                "Brunch": [],
+                "Dinner": []
+            }
         },
-        "Wednesday": {
-            "Breakfast": [],
-            "Lunch": [],
-            "Dinner": []
+        "Cycle 3 Menu": {
+            "Monday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Tuesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Wednesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Thursday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Friday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Saturday": {
+                "Brunch": [],
+                "Dinner": []
+            },
+            "Sunday": {
+                "Brunch": [],
+                "Dinner": []
+            }
+        },
+        "Cycle 4 Menu": {
+            "Monday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Tuesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Wednesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Thursday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Friday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Saturday": {
+                "Brunch": [],
+                "Dinner": []
+            },
+            "Sunday": {
+                "Brunch": [],
+                "Dinner": []
+            }
+        },
+        "Cycle 5 Menu": {
+            "Monday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Tuesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Wednesday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Thursday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Friday": {
+                "Breakfast": [],
+                "Lunch": [],
+                "Dinner": []
+            },
+            "Saturday": {
+                "Brunch": [],
+                "Dinner": []
+            },
+            "Sunday": {
+                "Brunch": [],
+                "Dinner": []
+            },
+            "Allergen": {
+                "M": [],
+                "F": [],
+                "S": [],
+                "P": [],
+                "TN": [],
+                "W": [],
+                "E": [],
+                "SF-C": [],
+                "SS": []
+            }
         }
     },
     "Allergens": {

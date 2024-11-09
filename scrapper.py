@@ -15,7 +15,9 @@ def fetch_page(url):
 def parse_sections(soup):
     dining_data = {
         "Cycle Dates": {},
-        "Always Available": {}
+        "Always Available": {},
+        "Daily Menus": {},
+        "Allergens": {}
     }
 
     # Loop through all relevant card-wrap sections
@@ -27,7 +29,7 @@ def parse_sections(soup):
         title = header.get_text(strip=True)
         accordion_id = card_wrap.find("div", {"id": True}).get("id")
 
-        # Check if the section is "Cycle Dates" based on ID pattern or keywords in title
+        # Parse Cycle Dates
         if "Cycle Dates" in title or "accordion-10541566" in accordion_id or "accordion-10885581" in accordion_id:
             cycle_table = []
             table = card_wrap.find("table")
@@ -40,7 +42,7 @@ def parse_sections(soup):
                     cycle_table.append({"week_of": week_of, "menu_cycle": menu_cycle})
             dining_data["Cycle Dates"][title] = cycle_table
 
-        # Check if the section is "Always Available" based on ID pattern or keywords in title
+        # Parse Always Available section
         elif "accordion-10541616" in accordion_id:
             always_available = {}
             for meal_section in card_wrap.find_all("h3"):
@@ -48,6 +50,46 @@ def parse_sections(soup):
                 items = [item.get_text(strip=True) for item in meal_section.find_next("ul").find_all("li")]
                 always_available[meal_time] = items
             dining_data["Always Available"] = always_available
+
+        # Parse Daily Menus (5 Cycles, 7 Days)
+        elif "accordion-10541646" in accordion_id or "accordion-10541651" in accordion_id or "accordion-10541656" in accordion_id:
+            day_menu = {}
+            day_name = title.split()[0]  # Get the day name, e.g., "Monday"
+            for meal_time in card_wrap.find_all("strong"):
+                meal_name = meal_time.get_text(strip=True)  # Breakfast, Lunch, Dinner
+                meal_data = []
+                location = None
+
+                # Loop through all sibling elements to get location, item, and allergen information
+                sibling = meal_time.find_next_sibling()
+                while sibling and sibling.name in ["em", "p", "ul"]:
+                    if sibling.name == "em":  # Dining location
+                        location = sibling.get_text(strip=True)
+                    elif sibling.name == "p":
+                        item = sibling.get_text(strip=True)
+                        allergens = [tag.get_text(strip=True) for tag in sibling.find_all("em")]
+                        meal_data.append({
+                            "location": location,
+                            "item": item,
+                            "allergens": allergens
+                        })
+                    sibling = sibling.find_next_sibling()
+
+                day_menu[meal_name] = meal_data
+            
+            dining_data["Daily Menus"][day_name] = day_menu
+
+        # Parse Allergen Identification
+        elif "accordion-10541941" in accordion_id:
+            allergens = {}
+            allergen_section = card_wrap.find("div", class_="card-body row")
+            if allergen_section:
+                for line in allergen_section.find_all("p"):
+                    for strong_tag in line.find_all("strong"):
+                        allergen_code = strong_tag.get_text(strip=True)
+                        allergen_desc = strong_tag.next_sibling.strip("= ").strip()
+                        allergens[allergen_code] = allergen_desc
+            dining_data["Allergens"] = allergens
 
     return dining_data
 

@@ -20,7 +20,6 @@ def parse_sections(soup):
         "Daily Menus": {},
         "Allergens": {}
     }
-    allowed_meal_times = {"Breakfast", "Lunch", "Brunch", "Dinner"}
 
     # Loop through all relevant card-wrap sections
     for card_wrap in soup.find_all("div", class_="card-wrap"):
@@ -66,7 +65,6 @@ def parse_sections(soup):
             dining_data["Allergens"] = allergens
             
     current_cycle = None
-    dining_data = {"Daily Menus": {}}
     allowed_meal_times = ["Breakfast", "Brunch", "Lunch", "Dinner"]
     valid_locations = ["Parkside", "Hillside", "Beachside"]
 
@@ -120,7 +118,6 @@ def parse_sections(soup):
                                     if location not in dining_data["Daily Menus"][current_cycle][day_name][meal_time]:
                                         dining_data["Daily Menus"][current_cycle][day_name][meal_time][location] = {}
                                     dining_data["Daily Menus"][current_cycle][day_name][meal_time][location][clean_item] = allergens
-
 
     return dining_data
 

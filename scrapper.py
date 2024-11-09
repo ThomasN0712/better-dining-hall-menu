@@ -20,7 +20,6 @@ def parse_sections(soup):
         "Daily Menus": {},
         "Allergens": {}
     }
-    allowed_meal_times = {"Breakfast", "Lunch", "Brunch", "Dinner"}
 
     # Loop through all relevant card-wrap sections
     for card_wrap in soup.find_all("div", class_="card-wrap"):
@@ -66,7 +65,6 @@ def parse_sections(soup):
             dining_data["Allergens"] = allergens
             
     current_cycle = None
-    dining_data = {"Daily Menus": {}}
     allowed_meal_times = ["Breakfast", "Brunch", "Lunch", "Dinner"]
     valid_locations = ["Parkside", "Hillside", "Beachside"]
 
@@ -93,6 +91,9 @@ def parse_sections(soup):
                     meal_time = None
                     location = None
                     for tag in card_wrap.find_all(["strong", "em", "p", "br"]):
+                        # print("Name:", tag.name)
+                        # if tag.name == "br" and tag.next_sibling.next_sibling.name == "em":
+                        #     print("hewqweqw")
                         if tag.name == "strong":
                             # Identify meal time
                             meal_time = tag.get_text(strip=True)
@@ -108,18 +109,23 @@ def parse_sections(soup):
                                     if location not in dining_data["Daily Menus"][current_cycle][day_name][meal_time]:
                                         dining_data["Daily Menus"][current_cycle][day_name][meal_time][location] = {}
                         elif tag.name == "br" and location and meal_time:
-                            # Collect items with allergens for current location and meal time
-                            items = tag.next_sibling.string.strip().splitlines()
-                            for item_text in items:
-                                # Extract allergens in the format (e.g., <em>M</em> for Milk)
-                                allergens = re.findall(r'\b[A-Z]\b', item_text)
-                                # Remove allergen markers from item text
-                                clean_item = re.sub(r'<em>.*?</em>', '', item_text).strip()
-                                if clean_item:
-                                    # Ensure location dictionary exists
-                                    if location not in dining_data["Daily Menus"][current_cycle][day_name][meal_time]:
-                                        dining_data["Daily Menus"][current_cycle][day_name][meal_time][location] = {}
-                                    dining_data["Daily Menus"][current_cycle][day_name][meal_time][location][clean_item] = allergens
+                            # Handle items without allergens
+                            item_text = tag.next_sibling
+                            if isinstance(item_text, str):
+                                item_name = item_text.strip()
+                                if item_name:
+                                    # No allergens; add item with an empty allergen list
+                                    dining_data["Daily Menus"][current_cycle][day_name][meal_time][location][item_name] = []
+                            
+                            try:
+                                # Attempt to check for allergens in the next sibling
+                                if tag.next_sibling.next_sibling.name == "em":
+                                    allergen_tag = tag.next_sibling.next_sibling
+                                    allergens = re.findall(r'\b[A-Z]\b', allergen_tag.get_text(strip=True))
+                                    # Assign allergens to the item
+                                    dining_data["Daily Menus"][current_cycle][day_name][meal_time][location][item_name] = allergens
+                            except AttributeError as e:
+                                continue  # Proceed with the next item
 
 
     return dining_data

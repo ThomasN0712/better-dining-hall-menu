@@ -1,465 +1,640 @@
 {
+  "Cycle Dates": {
+    "Fall 2024 Residential Dining Menu Cycle Dates": [
+      {
+        "week_of": "Aug 26",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Sept 2",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Sept 9",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Sept 16",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Sept 23",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "Sept 30",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Oct 7",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Oct 14",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Oct 21",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Oct 28",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "Nov 4",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Nov 11",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Nov 18",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Nov 25",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Dec 2",
+        "menu_cycle": "5"
+      }
+    ],
+    "Spring 2025 Residential Dining Menu Cycle Dates": [
+      {
+        "week_of": "Jan 20",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Jan 27",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Feb 3",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Feb 10",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Feb 17",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "Feb 24",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Mar 3",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Mar 10",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Mar 17",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Mar 24",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "Mar 31",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Apr 7",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Apr 14",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Apr 21",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Apr 28",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "May 5",
+        "menu_cycle": "1"
+      }
+    ]
+  },
+  "Always Available": {
+    "Breakfast": [
+      "Scrambled Eggs",
+      "Oatmeal",
+      "Waffle Bar",
+      "Assorted Fruit Juice",
+      "Milk and Non-Dairy Milk",
+      "Assorted Cereals",
+      "Fresh Fruit",
+      "Deli Bar",
+      "Assorted Sparkling Water",
+      "Assorted Flavored Waters",
+      "Assorted Soft Drinks",
+      "Assorted Breakfast Pastries"
+    ],
+    "Lunch": [
+      "Assorted Fruit Juice",
+      "Milk and Non-Dairy Milk",
+      "Assorted Cereals",
+      "Fresh Fruit",
+      "Chef's Choice",
+      "Salad Bar",
+      "Deli Bar",
+      "Assorted Sparkling Water",
+      "Assorted Flavored Waters",
+      "Assorted Soft Drinks",
+      "Assorted Desserts",
+      "Novelty Ice Creams"
+    ],
+    "Dinner": [
+      "Assorted Fruit Juice",
+      "Milk and Non-Dairy Milk",
+      "Assorted Cereals",
+      "Fresh Fruit",
+      "Salad Bar",
+      "Deli Bar",
+      "Chef's Choice",
+      "Assorted Sparkling Water",
+      "Assorted Flavored Waters",
+      "Assorted Soft Drinks",
+      "Assorted Desserts",
+      "Novelty Ice Creams"
+    ]
+  },
   "Daily Menus": {
     "Cycle 1 Menu": {
       "Monday": {
         "Breakfast": {
           "Beachside": {
-            "Spinach and Feta Frittata": [],
+            "Spinach and Feta Frittata": ["E", "M"],
             "Kielbasa": [],
             "Country Potatoes": []
           },
           "Hillside": {
-            "Chilaquiles Rojos": [],
+            "Chilaquiles Rojos": ["M"],
             "Turkey Sausage Patties": [],
             "Southwestern Potatoes": []
           },
           "Parkside": {
-            "Pancakes": [],
+            "Pancakes": ["M", "W", "S"],
             "Bacon": [],
             "Cajun Potatoes": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Kale and Sweet Potato Soup": [],
-            "Chicken Noodle Soup": [],
-            "Greek Salad": [],
-            "Spicy Miso Pork Ramen": [],
-            "Harissa Chicken": [],
-            "Cauliflower and Quinoa Bowl": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
-            "Chicken Marsala": [],
-            "Gardein Chicken Marsala": [],
-            "Cuban Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken Noodle Soup": ["W", "E"],
+            "Chicken Marsala": ["M", "W"],
+            "Gardein Chicken Marsala": ["S", "W"],
+            "Cuban Sandwich": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Chicken Dumpling Soup": [],
-            "Butternut Squash Soup": [],
-            "Pesto Tortellini Salad": [],
-            "Breaded Chicken Creamy Chipotle Pasta": [],
-            "BBQ Pulled Pork Sandwich": [],
+            "Chicken Dumpling Soup": ["E", "M", "W", "S"],
+            "Butternut Squash Soup": ["M"],
+            "Pesto Tortellini Salad": ["M", "W", "E"],
+            "Breaded Chicken Creamy Chipotle Pasta": ["M", "W"],
+            "BBQ Pulled Pork Sandwich": ["W"],
             "The Buddha Bowl": [],
             "Build Your Own Grain Bowl": [],
-            "Char Sui Pork Stir-Fry": []
+            "Char Sui Pork Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Kale and Sweet Potato Soup": [],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Greek Salad": ["M"],
+            "Spicy Miso Pork Ramen": ["E", "F", "W", "S"],
+            "Harissa Chicken": [],
+            "Cauliflower and Quinoa Bowl": [],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Kale and Sweet Potato Soup": [],
-            "Chicken Noodle Soup": [],
-            "Greek Salad": [],
-            "Chicken Tenders": [],
-            "Creamy Tomato Tortellini": [],
-            "Spicy Gardein Chicken Stir-Fry": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
+            "Chicken Noodle Soup": ["W", "E"],
             "Pork w/Chile Verde": [],
-            "Gardein Pork Tacos": [],
-            "Frisco Burger and Hotdogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Gardein Pork Tacos": ["S", "W"],
+            "Frisco Burger and Hotdogs": ["W", "E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Chicken Dumpling Soup": [],
-            "Butternut Squash Soup": [],
-            "Pesto Tortellini Salad": [],
-            "Beef Taquitos": [],
-            "Butter Chicken": [],
-            "Creamy Vegan Cauliflower Mac and Cheese": [],
+            "Chicken Dumpling Soup": ["E", "M", "W", "S"],
+            "Butternut Squash Soup": ["M"],
+            "Pesto Tortellini Salad": ["E", "M", "W"],
+            "Beef Taquitos": ["S", "W"],
+            "Butter Chicken": ["M"],
+            "Creamy Vegan Cauliflower Mac and Cheese": ["W"],
             "Build Your Own Grain Bowl": [],
-            "Char Sui Pork Stir-Fry": []
+            "Char Sui Pork Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Kale and Sweet Potato Soup": [],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Greek Salad": ["M"],
+            "Chicken Tenders": ["W"],
+            "Creamy Tomato Tortellini": ["M", "W", "S", "E"],
+            "Spicy Gardein Chicken Stir-Fry": ["W", "S"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         }
       },
       "Tuesday": {
         "Breakfast": {
           "Beachside": {
-            "Breakfast Burrito": [],
+            "Breakfast Burrito": ["E", "W", "M"],
             "Bacon": [],
-            "Potatoes O'Brien": ["O"]
+            "Potatoes O'Brien": []
           },
           "Hillside": {
-            "Banana Pancakes": [],
+            "Banana Pancakes": ["M", "W", "S"],
             "Bacon": [],
             "Hash Browns": []
           },
           "Parkside": {
-            "Biscuit and Country Gravy": [],
+            "Biscuit and Country Gravy": ["M", "W", "S"],
             "Kielbasa": [],
             "Hash Browns": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Minestrone Soup": [],
-            "Corn Chowder": [],
-            "Turkey Club Sandwich": [],
-            "Filipino Pork": [],
-            "Steak Quesadilla": [],
-            "Baked Pasta w/Gardein Meat Sauce": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
             "Flank Steak with Onions": [],
-            "Pasta with Gardein Meat Sauce": [],
-            "Bahn Mi Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pasta with Gardein Meat Sauce": ["S", "W"],
+            "Bahn Mi Sandwich": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Potato Leek Soup": [],
-            "Chicken Tortilla Soup": [],
-            "Caprese Sandwich on Focaccia": [],
-            "Filipino Pork": [],
-            "Beef Hot Dog Bar": [],
-            "Fried Mushroom Tacos": [],
+            "Potato Leek Soup": ["M", "W", "S"],
+            "Chicken Tortilla Soup": ["S", "W"],
+            "Caprese Sandwich on Focaccia": ["M", "W"],
+            "Filipino Pork": ["S", "W"],
+            "Beef Hot Dog Bar": ["W", "M"],
+            "Fried Mushroom Tacos": ["W", "M", "S", "E"],
             "Build Your Own Grain Bowl": [],
-            "Hawaiian Ham and Cheese Sliders": []
+            "Hawaiian Ham and Cheese Sliders": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Minestrone Soup": ["W"],
+            "Corn Chowder": ["M", "S", "W"],
+            "Turkey Club Sandwich": ["E", "W"],
+            "Filipino Pork": ["S", "W"],
+            "Steak Quesadilla": ["M", "W"],
+            "Baked Pasta w/Gardein Meat Sauce": ["S", "W"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Minestrone Soup": [],
-            "Corn Chowder": [],
-            "Turkey Club Sandwich": [],
-            "Meat Lasagna": [],
-            "Barbacoa Chicken Mulita": [],
-            "Korean Gardein Beef Bowl": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
             "Cajun Chicken": [],
-            "Tofu Fried Rice": [],
-            "Spicy Chicken Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tofu Fried Rice": ["S", "W"],
+            "Spicy Chicken Sandwich": ["W", "E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Potato Leek Soup": [],
-            "Chicken Tortilla Soup": [],
-            "Caprese Sandwich on Focaccia": [],
-            "Chicken with Black Pepper Sauce": [],
-            "Nacho Bar": [],
+            "Potato Leek Soup": ["M", "W", "S"],
+            "Chicken Tortilla Soup": ["S", "W"],
+            "Caprese Sandwich on Focaccia": ["M", "W"],
+            "Chicken with Black Pepper Sauce": ["S", "W"],
+            "Nacho Bar": ["M"],
             "Black Bean Tostones": [],
             "Build Your Own Grain Bowl": [],
-            "Hawaiian Ham and Cheese Sliders": []
+            "Hawaiian Ham and Cheese Sliders": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Minestrone Soup": ["W"],
+            "Corn Chowder": ["M", "S", "W"],
+            "Turkey Club Sandwich": ["E", "W"],
+            "Meat Lasagna": ["M", "W", "S"],
+            "Barbacoa Chicken Mulita": ["M"],
+            "Korean Gardein Beef Bowl": ["W", "S"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         }
       },
       "Wednesday": {
         "Breakfast": {
           "Beachside": {
-            "Egg Salad Toast": [],
+            "Egg Salad Toast": ["E", "W", "M", "S"],
             "Spam Hash": [],
             "Tater Tots": []
           },
           "Hillside": {
-            "Breakfast Burrito": [],
+            "Breakfast Burrito": ["E", "M", "W"],
             "Pork Links": [],
             "Country Potatoes": []
           },
           "Parkside": {
-            "Soyrizo Chorizo, Egg, Potato and Cheese Burrito": [],
+            "Soyrizo Chorizo, Egg, Potato and Cheese Burrito": [
+              "E",
+              "W",
+              "M",
+              "S"
+            ],
             "Turkey Sausage Links": [],
             "Hash Brown Patties": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Chicken and Poblano Chile Soup": [],
-            "Pork Pozole": [],
-            "Caesar Salad": [],
-            "Shrimp Tacos": [],
-            "Chicken and Waffles": [],
-            "Gardein Chicken Alfredo Pasta w/Broccoli": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
-            "Crusted Catfish with Lemon Piccata Sauce": [],
-            "Gardein Beef Tips with Sweet and Sour Sauce": [],
-            "Shrimp Basket": [],
-            "Pepperoni and Cheese Pizza": []
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Crusted Catfish with Lemon Piccata Sauce": ["W", "F", "M"],
+            "Gardein Beef Tips with Sweet and Sour Sauce": ["S", "W"],
+            "Shrimp Basket": ["W", "E", "M", "C", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Tomato Basil Soup": [],
-            "Chicken Noodle Soup": [],
-            "Elote in a Cup": [],
-            "Orange Chicken Bowl with Jasmine Rice": [],
-            "Pasta Beef Bolognese": [],
-            "Vegan Irish Stew": [],
+            "Tomato Basil Soup": ["M", "W"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Elote in a Cup": ["E", "M"],
+            "Orange Chicken Bowl with Jasmine Rice": ["S", "W"],
+            "Pasta Beef Bolognese": ["W"],
+            "Vegan Irish Stew": ["W"],
             "Build Your Own Grain Bowl": [],
-            "Beef and Broccoli Stir-Fry": []
+            "Beef and Broccoli Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Chicken and Poblano Chile Soup": ["M", "W"],
+            "Pork Pozole": [],
+            "Caesar Salad": ["E", "M", "W", "S", "F"],
+            "Shrimp Tacos": ["C"],
+            "Chicken and Waffles": ["M", "E", "W", "S"],
+            "Gardein Chicken Alfredo Pasta w/Broccoli": ["W", "S"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Chicken and Poblano Chile Soup": [],
-            "Pork Pozole": [],
-            "Caesar Salad": [],
-            "Grilled Beef Flank Steak w/Chimichurri Sauce": [],
-            "Loaded Mashed Potato Bar": [],
-            "Plant-Based Chicken Tenders": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
-            "Mongolian Beef Stir-Fry": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Mongolian Beef Stir-Fry": ["S", "W"],
             "Thai Chickpea Curry": [],
-            "Patty Melt and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Patty Melt and Hot Dogs": ["E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Tomato Basil Soup": [],
-            "Chicken Noodle Soup": [],
-            "Elote in a Cup": [],
-            "Cajun Fish": [],
-            "Beef Bulgogi Fries": [],
-            "Gardein Beef Fajitas": [],
+            "Tomato Basil Soup": ["M", "W"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Elote in a Cup": ["E", "M"],
+            "Cajun Fish": ["F"],
+            "Beef Bulgogi Fries": ["M", "W", "S"],
+            "Gardein Beef Fajitas": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Beef and Broccoli Stir-Fry": []
+            "Beef and Broccoli Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Chicken and Poblano Chile Soup": ["M", "W"],
+            "Pork Pozole": [],
+            "Caesar Salad": ["M"],
+            "Plant-Based Chicken Tenders": ["S", "W"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         }
       },
       "Thursday": {
         "Breakfast": {
           "Beachside": {
-            "Pineapple Egg Fried Rice": [],
+            "Pineapple Egg Fried Rice": ["S", "W", "E"],
             "Pork Links": [],
             "Hash Browns": []
           },
           "Hillside": {
-            "Biscuit and Country Gravy": [],
+            "Biscuit and Country Gravy": ["M", "W", "S"],
             "Turkey Bacon": [],
             "Hash Brown Patties": []
           },
           "Parkside": {
-            "Sausage, Egg and Cheese Sandwich on English Muffin": [],
+            "Sausage, Egg and Cheese Sandwich on English Muffin": [
+              "E",
+              "M",
+              "W",
+              "S"
+            ],
             "Sausage Patties": [],
             "Tater Tots": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Chicken and Rice Soup": [],
-            "Tomato Basil Soup": [],
-            "California Sushi Bowl": [],
-            "Hamburger Bar": [],
-            "Pasta w/Marinara Sauce": [],
-            "Gardein Beef w/Black Pepper Sauce": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Orange Chicken": [],
-            "Gardein Beef Broccoli": [],
-            "Turkey Club Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Orange Chicken": ["W", "S"],
+            "Gardein Beef Broccoli": ["S", "W"],
+            "Turkey Club Sandwich": ["E", "M", "S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Broccoli Cheddar Soup": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
             "Caldo de Res": [],
-            "Artichoke and Spinach Dip with Pita Chips": [],
+            "Artichoke and Spinach Dip with Pita Chips": ["M", "S", "W"],
             "Beef Tri Tip with Caramelized Onions": [],
-            "Chicken Tenders": [],
-            "Gardein Chicken Stir-Fry": [],
+            "Chicken Tenders": ["M", "W", "S"],
+            "Gardein Chicken Stir-Fry": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Breakfast Quesadilla": []
+            "Breakfast Quesadilla": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Chicken and Rice Soup": [],
+            "Tomato Basil Soup": ["M", "W"],
+            "California Sushi Bowl": ["E", "W", "S", "F", "C"],
+            "Hamburger Bar": ["W"],
+            "Pasta w/Marinara Sauce": ["M", "W"],
+            "Gardein Beef w/Black Pepper Sauce": ["W", "S"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Chicken and Rice Soup": [],
-            "Tomato Basil Soup": [],
-            "California Sushi Bowl": [],
-            "Teriyaki Chicken": [],
-            "Loaded Grilled Cheese Sandwich": [],
-            "Stuffed Zucchini Boat": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Rotini Pasta Bolognese": [],
-            "Spicy Harissa Tofu": [],
-            "Teriyaki Pineapple Burger and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Rotini Pasta Bolognese": ["M", "W"],
+            "Spicy Harissa Tofu": ["S", "W"],
+            "Teriyaki Pineapple Burger and Hot Dogs": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Broccoli Cheddar Soup": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
             "Caldo de Res": [],
-            "Artichoke and Spinach Dip with Pita Chips": [],
-            "Mac and Cheese": [],
+            "Artichoke and Spinach Dip with Pita Chips": ["M", "S", "W"],
+            "Mac and Cheese": ["M", "W", "S"],
             "Chipotle Chicken Bowl": [],
-            "Vegetable Barley Stew": [],
+            "Vegetable Barley Stew": ["W"],
             "Build Your Own Grain Bowl": [],
-            "Breakfast Quesadilla": []
+            "Breakfast Quesadilla": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Chicken and Rice Soup": [],
+            "Tomato Basil Soup": ["M", "W"],
+            "California Sushi Bowl": ["E", "W", "S", "F", "C"],
+            "Teriyaki Chicken": ["W", "S"],
+            "Loaded Grilled Cheese Sandwich": ["M", "W", "S"],
+            "Stuffed Zucchini Boat": ["S"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         }
       },
       "Friday": {
         "Breakfast": {
           "Beachside": {
-            "Sausage, Egg and Cheese Sandwich on English Muffin": [],
+            "Sausage, Egg and Cheese Sandwich on English Muffin": [
+              "W",
+              "E",
+              "M",
+              "S"
+            ],
             "Turkey Sausage Patties": [],
             "Papas Ala Mexicana": []
           },
           "Hillside": {
-            "Ham, Egg and Cheese on Croissant Sandwich": [],
+            "Ham, Egg and Cheese on Croissant Sandwich": ["E", "W", "M", "S"],
             "Chicken and Apple Sausage": [],
-            "Potatoes O'Brien": ["O"]
+            "Potatoes O'Brien": []
           },
           "Parkside": {
-            "French Toast": [],
+            "French Toast": ["E", "W", "M"],
             "Bacon": [],
-            "Potatoes O'Brien": ["O"]
+            "Potatoes O'Brien": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Apple Walnut Salad": [],
-            "Lemon Pepper Salmon": [],
-            "Crispy Beef & Broccoli": [],
-            "Edamame Fried Rice": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
-            "Baked Salmon": [],
-            "Tofu and Long Beans Stir Fry": [],
-            "Pepperoni and Cheese Pizza": []
+            "Clam Chowder": ["M", "W", "C"],
+            "Baked Salmon": ["F"],
+            "Tofu and Long Beans Stir Fry": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Minestrone Soup": [],
-            "Clam Chowder": [],
+            "Minestrone Soup": ["W"],
+            "Clam Chowder": ["M", "W", "C"],
             "Cowboy Caviar with Corn Chips": [],
-            "Fish Tacos": [],
-            "Chicken Shawarma Bowl": [],
-            "Thai Curry Tofu": [],
+            "Fish Tacos": ["F", "E"],
+            "Chicken Shawarma Bowl": ["M"],
+            "Thai Curry Tofu": ["S"],
             "Build Your Own Grain Bowl": [],
-            "Mongolian Stir-Fry Chicken": []
+            "Mongolian Stir-Fry Chicken": ["S", "W"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Apple Walnut Salad": ["S"],
+            "Lemon Pepper Salmon": ["F"],
+            "Crispy Beef & Broccoli": ["W", "S", "C"],
+            "Edamame Fried Rice": ["W", "S"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Apple Walnut Salad": [],
-            "Beef Red Chile Colorado": [],
-            "Fish and Chips": [],
-            "Gardein Chicken and Broccoli Stir-Fry": [],
-            "Meat Lover's Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
+            "Clam Chowder": ["M", "W", "C"],
             "Baby Back Ribs with Baked Beans": [],
-            "Cheese Ravioli w/Creamy Tomato Sauce": [],
-            "Pepperoni and Cheese Pizza": []
+            "Cheese Ravioli w/Creamy Tomato Sauce": ["W", "E", "S", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Minestrone Soup": [],
-            "Clam Chowder": [],
+            "Minestrone Soup": ["W"],
+            "Clam Chowder": ["M", "W", "C"],
             "Cowboy Caviar with Corn Chips": [],
             "Lemon Herb Chicken": [],
-            "Coconut Shrimp": [],
-            "Tofu Fried Rice": [],
+            "Coconut Shrimp": ["W", "C"],
+            "Tofu Fried Rice": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Mongolian Stir-Fry Chicken": []
+            "Mongolian Stir-Fry Chicken": ["S", "W"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Apple Walnut Salad": ["S"],
+            "Beef Red Chile Colorado": [],
+            "Fish and Chips": ["M", "W", "F"],
+            "Gardein Chicken and Broccoli Stir-Fry": ["W", "S"],
+            "Meat Lover's Pizza": ["W", "M", "S"]
           }
         }
       },
       "Saturday": {
         "Brunch": {
           "Beachside": {
-            "Blueberry Pancakes": [],
+            "Blueberry Pancakes": ["M", "W", "S"],
             "Chicken Apple Sausage": [],
             "Home Fries": [],
-            "Potato Bacon Soup": [],
-            "Chicken Enchiladas": [],
-            "Cheese Enchiladas": [],
-            "Pepperoni and Cheese Pizza": []
+            "Potato Bacon Soup": ["W", "M", "S"],
+            "Chicken Enchiladas": ["M", "S", "W"],
+            "Cheese Enchiladas": ["M", "S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Pancakes": [],
+            "Pancakes": ["M", "W", "S"],
             "Kielbasa": [],
             "Tater Tots": [],
-            "Vegetarian Chili": [],
-            "Miso Soup": [],
+            "Vegetarian Chili": ["W"],
+            "Miso Soup": ["F", "M", "S"],
             "Smoothie Bar": []
           }
         },
         "Dinner": {
-          "Hillside": {
-            "Beachside": [],
-            "Vegetarian Chili": [],
-            "Miso Soup": [],
-            "Chips and Salsa Bar": [],
-            "Chicken Tikka Masala": [],
-            "Shrimp Pesto Pasta": [],
-            "Gardein Enchilada Scaloppine": [],
-            "Arancini": []
-          },
           "Beachside": {
-            "Potato Bacon Soup": [],
+            "Potato Bacon Soup": ["W", "M", "S"],
             "Jerk Chicken": [],
-            "Crispy Tofu w/Noodles": [],
-            "Pepperoni and Cheese Pizza": []
+            "Crispy Tofu w/Noodles": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
+          "Hillside": {
+            "Vegetarian Chili": ["W"],
+            "Miso Soup": ["F", "M", "S"],
+            "Chips and Salsa Bar": [],
+            "Chicken Tikka Masala": ["M"],
+            "Shrimp Pesto Pasta": ["M", "W", "C"],
+            "Gardein Enchilada Scaloppine": ["S", "W"],
+            "Arancini": ["M", "W", "S"]
           }
         }
       },
       "Sunday": {
         "Brunch": {
           "Beachside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W", "S"],
             "Sausage Links": [],
             "Hash Brown Patties": [],
-            "Lobster Bisque": [],
-            "Pasta Bar": [],
-            "Gardein Scallopini": [],
-            "Pepperoni and Cheese Pizza": []
+            "Lobster Bisque": ["M", "W", "C", "F"],
+            "Pasta Bar": ["W", "S", "M"],
+            "Gardein Scallopini": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Parkside": {
-            "Waffle Sticks": [],
+            "Waffle Sticks": ["E", "W", "M", "S"],
             "Sausage Links": [],
             "Hash Brown Patties": [],
-            "Potato Leek Soup": [],
+            "Potato Leek Soup": ["M", "W", "S"],
             "Chef's Choice Soup": [],
             "Smoothie of the Day": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Potato Leek Soup": [],
-            "Chef's Choice Soup": [],
-            "Chicken Parmesan": [],
-            "Pork Chile Verde": [],
-            "Spicy Tofu and Eggplant": [],
-            "Pepperoni and Cheese Pizza": []
-          },
           "Beachside": {
-            "Lobster Bisque": [],
-            "Lemon Pepper Tilapia": [],
-            "Gardein Chicken Teriyaki": [],
-            "Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Lobster Bisque": ["M", "W", "C", "F"],
+            "Lemon Pepper Tilapia": ["F", "W", "S"],
+            "Gardein Chicken Teriyaki": ["S", "W"],
+            "Burgers and Hot Dogs": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
+          "Parkside": {
+            "Potato Leek Soup": ["M", "W", "S"],
+            "Chef's Choice Soup": [],
+            "Chicken Parmesan": ["M", "W", "S"],
+            "Pork Chile Verde": [],
+            "Spicy Tofu and Eggplant": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           }
         }
       }
@@ -468,462 +643,455 @@
       "Monday": {
         "Breakfast": {
           "Beachside": {
-            "Chilaquiles Verdes": [],
+            "Chilaquiles Verdes": ["M"],
             "Grilled Breakfast Steak": [],
             "Tater Tots": []
           },
           "Hillside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W"],
             "Canadian Bacon": [],
             "Hash Browns": []
           },
           "Parkside": {
-            "Pancakes": [],
+            "Pancakes": ["W", "S", "M"],
             "Turkey Sausage": [],
             "Tater Tots": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Chicken Gumbo Soup": [],
-            "Miso Soup": [],
-            "Tuna Rotini Salad": [],
-            "Breaded Chicken Creamy Chipotle Pasta": [],
-            "Beef Tri Tip with Mustard Sauce": [],
-            "The Buddha Bowl": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
-            "Chicken Shawarma": [],
-            "Gardein Chicken Shawarma": [],
-            "Asada Nachos": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken Noodle Soup": ["W", "E"],
+            "Chicken Shawarma": ["W", "M", "E", "S"],
+            "Gardein Chicken Shawarma": ["S", "W"],
+            "Asada Nachos": ["M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Broccoli Cheddar Soup": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
             "Chicken and Rice Soup": [],
             "Citrus and Berry Salad": [],
             "Yucatan Chicken Grain Bowl": [],
-            "Baked Ziti": [],
+            "Baked Ziti": ["M", "W"],
             "Potato and Cauliflower Curry": [],
             "Build Your Own Grain Bowl": [],
-            "Teriyaki Pork Stir-Fry": []
+            "Teriyaki Pork Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Chicken Gumbo Soup": ["S", "W"],
+            "Miso Soup": ["F", "S", "M"],
+            "Tuna Rotini Salad": ["E", "W", "F"],
+            "Breaded Chicken Creamy Chipotle Pasta": ["M", "W"],
+            "Beef Tri Tip with Mustard Sauce": ["M", "W"],
+            "The Buddha Bowl": [],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Chicken Gumbo Soup": [],
-            "Miso Soup": [],
-            "Tuna Rotini Salad": [],
-            "Cajun Fish": [],
-            "Grilled Chicken Bowl": [],
-            "Vegan Creamy Mac and Cheese": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
-            "Lemon Baked Chicken": [],
-            "Kung Pao Cauliflower with Tofu": [],
-            "Tuna Melt": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken Noodle Soup": ["W", "E"],
+            "Lemon Baked Chicken": ["W", "M"],
+            "Kung Pao Cauliflower with Tofu": ["S", "W"],
+            "Tuna Melt": ["E", "F", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Broccoli Cheddar Soup": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
             "Chicken and Rice Soup": [],
             "Citrus and Baby Kale Salad": [],
-            "Kalbi Beef Bowl": [],
-            "BBQ Chicken Flatbread\u00a0with Potato Chips": [],
-            "Kung Pao Tofu": [],
+            "Kalbi Beef Bowl": ["S", "W"],
+            "BBQ Chicken Flatbread\u00a0with Potato Chips": ["M", "W"],
+            "Kung Pao Tofu": ["S"],
             "Build Your Own Grain Bowl": [],
-            "Teriyaki Pork Stir-Fry": []
+            "Teriyaki Pork Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Chicken Gumbo Soup": ["S", "W"],
+            "Miso Soup": ["F", "S", "M"],
+            "Tuna Rotini Salad": ["E", "W", "F"],
+            "Cajun Fish": ["F"],
+            "Grilled Chicken Bowl": [],
+            "Vegan Creamy Mac and Cheese": ["W"],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         }
       },
       "Tuesday": {
         "Breakfast": {
           "Beachside": {
-            "Pancakes": [],
+            "Pancakes": ["M", "W", "S"],
             "Bacon": [],
             "Hash Browns": []
           },
           "Hillside": {
-            "Sausage, Egg and Cheese English Muffin Sandwich": [],
+            "Sausage, Egg and Cheese English Muffin Sandwich": [
+              "W",
+              "E",
+              "M",
+              "S"
+            ],
             "Pork Links": [],
             "Southwestern Potatoes": []
           },
           "Parkside": {
-            "Chilaquiles": [],
+            "Chilaquiles": ["M"],
             "Bacon": [],
             "Hash Browns": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Tomato Basil": [],
-            "Chicken Tortilla Soup": [],
-            "Roll Your Own Spicy California": [],
-            "Orange Chicken Bowl": [],
-            "Pasta Beef Bolognese": [],
-            "Vegetable Tagine with Brown Rice": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
             "Beef Flank Steak with Chimichurri Sauce": [],
-            "Pesto Alfredo Tortellini": [],
-            "Gyro Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pesto Alfredo Tortellini": ["M", "W", "E"],
+            "Gyro Sandwich": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Chicken Dumpling Soup": [],
-            "Vegetable Noodle Soup": [],
+            "Chicken Dumpling Soup": ["E", "M", "W", "S"],
+            "Vegetable Noodle Soup": ["W", "E"],
             "Cauliflower Ceviche": [],
-            "Mongolian Chicken Drumstick": [],
+            "Mongolian Chicken Drumstick": ["S", "W"],
             "Beef Fajitas": [],
-            "Gardein Meatball Pasta": [],
+            "Gardein Meatball Pasta": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Hawaiian Chicken Bowl": []
+            "Hawaiian Chicken Bowl": ["S", "W"]
+          },
+          "Parkside": {
+            "Tomato Basil": ["M", "W"],
+            "Chicken Tortilla Soup": ["M", "S"],
+            "Roll Your Own Spicy California": ["E", "F", "C"],
+            "Orange Chicken Bowl": ["W", "S"],
+            "Pasta Beef Bolognese": ["M", "W"],
+            "Vegetable Tagine with Brown Rice": [],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Tomato Basil": [],
-            "Chicken Tortilla Soup": [],
-            "Roll Your Own Spicy California": [],
-            "Grilled Ortega Chicken Sandwich": [],
-            "Beef Taquitos": [],
-            "Spicy Korean Tofu Bowl": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
-            "Korean Beef Bowl": [],
-            "Thai Basil Tofu": [],
-            "BBQ Western Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Korean Beef Bowl": ["S", "W"],
+            "Thai Basil Tofu": ["W", "S"],
+            "BBQ Western Burgers and Hot Dogs": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Chicken Dumpling Soup": [],
-            "Vegetable Noodle Soup": [],
+            "Chicken Dumpling Soup": ["E", "M", "W", "S"],
+            "Vegetable Noodle Soup": ["W", "E"],
             "Cauliflower Ceviche": [],
-            "Steak Quesadilla": [],
-            "Popcorn Chicken Bowl": [],
-            "Gardein Beef Teriyaki Bowl": [],
+            "Steak Quesadilla": ["M", "W"],
+            "Popcorn Chicken Bowl": ["M", "W", "S"],
+            "Gardein Beef Teriyaki Bowl": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Hawaiian Chicken Bowl": []
+            "Hawaiian Chicken Bowl": ["S", "W"]
+          },
+          "Parkside": {
+            "Tomato Basil": ["M", "W"],
+            "Chicken Tortilla Soup": ["M", "S"],
+            "Roll Your Own Spicy California": ["E", "F", "C"],
+            "Grilled Ortega Chicken Sandwich": ["E", "M", "W", "S"],
+            "Beef Taquitos": ["S", "W"],
+            "Spicy Korean Tofu Bowl": ["S", "W"],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         }
       },
       "Wednesday": {
         "Breakfast": {
           "Beachside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "S", "W"],
             "Sausage Patties": [],
             "Country Potatoes": []
           },
           "Hillside": {
-            "Hawaiian Breakfast": [],
+            "Hawaiian Breakfast": ["E"],
             "Spam/Ham": [],
             "Country Potatoes/Rice": []
           },
           "Parkside": {
-            "Egg, Potato and Cheese Breakfast Burrito": [],
+            "Egg, Potato and Cheese Breakfast Burrito": ["E", "W", "M"],
             "Pork Links": [],
             "Spicy Potatoes": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Moroccan Lentil": [],
-            "Chicken Noodle Soup": [],
-            "Chicken Caesar Salad Wrap": [],
-            "Teriyaki Chicken": [],
-            "Beef Bulgogi Fries": [],
-            "Spiced Tofu with Purple Rice": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
             "Yucatan Chicken": [],
-            "Gardein Fajitas": [],
-            "Meatball Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Gardein Fajitas": ["S", "W"],
+            "Meatball Sandwich": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Tomato Basil Soup": [],
-            "Beef Barley Soup": [],
-            "Arugula Salad": [],
-            "Hamburger Bar with Fries": [],
-            "Tandoori\u00a0Chicken": [],
-            "Baked Gnocchi": [],
+            "Tomato Basil Soup": ["M", "W"],
+            "Beef Barley Soup": ["W"],
+            "Arugula Salad": ["M"],
+            "Hamburger Bar with Fries": ["W"],
+            "Tandoori\u00a0Chicken": ["M", "W", "S"],
+            "Baked Gnocchi": ["E", "M", "W"],
             "Build Your Own Grain Bowl": [],
-            "French Toast Bar": []
+            "French Toast Bar": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Moroccan Lentil": [],
+            "Chicken Noodle Soup": ["E", "W"],
+            "Chicken Caesar Salad Wrap": ["E", "M", "W", "S", "F"],
+            "Teriyaki Chicken": ["W", "S"],
+            "Beef Bulgogi Fries": ["M", "W", "S"],
+            "Spiced Tofu with Purple Rice": ["S"],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Moroccan Lentil": [],
-            "Chicken Noodle Soup": [],
-            "Chicken Caesar Salad Wrap": [],
-            "Carnitas Tacos": [],
-            "Chicken Alfredo Pasta": [],
-            "Black Bean Enchilada Casserole": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
-            "Teriyaki Chicken": [],
-            "Gardein Teriyaki Beef": [],
-            "Turkey Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Teriyaki Chicken": ["S", "W"],
+            "Gardein Teriyaki Beef": ["S", "W"],
+            "Turkey Burgers and Hot Dogs": ["W", "E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Tomato Basil Soup": [],
-            "Beef Barley Soup": [],
-            "Arugula Salad": [],
-            "Chicken Alfredo Pasta": [],
-            "Herb Roasted Turkey with Stuffing": [],
-            "Gardein Chicken Barbacoa Tacos": [],
+            "Tomato Basil Soup": ["M", "W"],
+            "Beef Barley Soup": ["W"],
+            "Arugula Salad": ["M"],
+            "Chicken Alfredo Pasta": ["M", "W"],
+            "Herb Roasted Turkey with Stuffing": ["S", "W"],
+            "Gardein Chicken Barbacoa Tacos": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "French Toast Bar": []
+            "French Toast Bar": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Moroccan Lentil": [],
+            "Chicken Noodle Soup": ["E", "W"],
+            "Chicken Caesar Salad Wrap": ["E", "M", "W", "S", "F"],
+            "Carnitas Tacos": [],
+            "Chicken Alfredo Pasta": ["M", "W"],
+            "Black Bean Enchilada Casserole": [],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         }
       },
       "Thursday": {
         "Breakfast": {
           "Beachside": {
-            "Bacon Fried Rice": [],
+            "Bacon Fried Rice": ["S", "W", "E"],
             "Grilled Spam": [],
-            "Potatoes O' Brien": ["O"]
+            "Potatoes O' Brien": []
           },
           "Hillside": {
-            "Blueberry Pancakes": [],
+            "Blueberry Pancakes": ["M", "W", "S"],
             "Bacon": [],
             "Hash Brown Patties": []
           },
           "Parkside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W"],
             "Turkey Bacon": [],
             "Tater Tots": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Broccoli Cheddar Soup": [],
-            "French Onion Soup": [],
-            "Cobb Salad": [],
-            "Chicken Shawarma Bowl": [],
-            "Beef and Potato Quesadilla": [],
-            "Gardein Chicken Stir Fry": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Shrimp Alfredo Pasta": [],
-            "Vegetable Strudel": [],
-            "BBQ Quesadilla": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Shrimp Alfredo Pasta": ["C", "M", "W"],
+            "Vegetable Strudel": ["W"],
+            "BBQ Quesadilla": ["M", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Potato Chowder": [],
+            "Potato Chowder": ["M", "W", "S"],
             "Chicken Pozole Verde": [],
-            "Chicken Caesar Salad": [],
-            "Cheese Ravioli with Creamy Tomato Sauce": [],
+            "Chicken Caesar Salad": ["M", "E", "W"],
+            "Cheese Ravioli with Creamy Tomato Sauce": ["M", "W", "E"],
             "BBQ Pork Ribs": [],
-            "Lentil Chili Mac": [],
+            "Lentil Chili Mac": ["W"],
             "Build Your Own Grain Bowl": [],
-            "Kung Pao Chicken": []
+            "Kung Pao Chicken": ["S"]
+          },
+          "Parkside": {
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "French Onion Soup": [],
+            "Cobb Salad": ["E", "M", "S"],
+            "Chicken Shawarma Bowl": [],
+            "Beef and Potato Quesadilla": ["W", "M"],
+            "Gardein Chicken Stir Fry": ["S", "W"],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Broccoli Cheddar Soup": [],
-            "French Onion Soup": [],
-            "Cobb Salad": [],
-            "Beef Tamale": [],
-            "Shrimp Tempura Udon": [],
-            "Tofu Fajitas": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Popcorn Chicken\u00a0Bowl": [],
-            "Pasta w/Gardein Sauce": [],
-            "Chili Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Popcorn Chicken\u00a0Bowl": ["W", "M", "S"],
+            "Pasta w/Gardein Sauce": ["S", "W"],
+            "Chili Burgers and Hot Dogs": ["W", "E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Potato Chowder": [],
+            "Potato Chowder": ["M", "W", "S"],
             "Chicken Pozole Verde": [],
-            "Chicken Caesar Salad": [],
-            "Tuna Melt Sandwich": [],
+            "Chicken Caesar Salad": ["M", "W", "E"],
+            "Tuna Melt Sandwich": ["F", "W", "E", "M", "S"],
             "Cowboy Beef Flank Steak": [],
-            "Tofu Fried Rice and Vegetables": [],
+            "Tofu Fried Rice and Vegetables": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Kung Pao Chicken": []
+            "Kung Pao Chicken": ["S"]
+          },
+          "Parkside": {
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "French Onion Soup": [],
+            "Cobb Salad": ["E", "M", "S"],
+            "Beef Tamale": ["W", "S"],
+            "Shrimp Tempura Udon": ["W", "S", "F", "C"],
+            "Tofu Fajitas": ["S", "W"],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         }
       },
       "Friday": {
         "Breakfast": {
           "Beachside": {
-            "Eggs Benedict": [],
+            "Eggs Benedict": ["E", "M", "W", "S"],
             "Bacon": [],
             "Homestyle Potatoes": []
           },
           "Hillside": {
-            "Breakfast Burrito": [],
+            "Breakfast Burrito": ["E", "W", "M"],
             "Kielbasa": [],
-            "Soyrizo and Potato Hash": []
+            "Soyrizo and Potato Hash": ["S"]
           },
           "Parkside": {
-            "Egg, Ham and Cheese Sandwich on Croissant": [],
+            "Egg, Ham and Cheese Sandwich on Croissant": ["E", "W", "M", "S"],
             "Chicken Apple Sausage": [],
-            "Potatoes O'Brien": ["O"]
+            "Potatoes O'Brien": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Caprese Salad": [],
-            "Salmon Florentine": [],
-            "BBQ Pulled Pork Sandwich": [],
-            "Thai Curry Tofu": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
-            "Creamy Tuscan Salmon": [],
-            "Cheese Enchiladas Suizas": [],
-            "Pepperoni and Cheese Pizza": []
+            "Clam Chowder": ["M", "W", "C"],
+            "Creamy Tuscan Salmon": ["F", "M", "W"],
+            "Cheese Enchiladas Suizas": ["M", "W", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Minestrone Soup": [],
-            "Clam Chowder": [],
+            "Minestrone Soup": ["W"],
+            "Clam Chowder": ["M", "W", "C"],
             "Roll Your Own Veggie Sushi": [],
-            "Meatloaf": [],
-            "Beurre Blanc Salmon": [],
-            "Szechuan Tofu and Veggies": [],
+            "Meatloaf": ["E", "M", "S", "W"],
+            "Beurre Blanc Salmon": ["F", "S", "W", "M"],
+            "Szechuan Tofu and Veggies": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Fruit Crepes": []
+            "Fruit Crepes": ["W"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Caprese Salad": ["M"],
+            "Salmon Florentine": ["M", "W", "F"],
+            "BBQ Pulled Pork Sandwich": ["E", "M", "W"],
+            "Thai Curry Tofu": ["S"],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Caprese Salad": [],
-            "Paprika Chicken Tacos": [],
-            "Fish Tacos": [],
-            "Asian Noodles with Vegetables and Tofu": [],
-            "BBQ Chicken Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
-            "Beef and Broccoli": [],
-            "Spicy Korean Tofu Bowl": [],
-            "Pepperoni and Cheese Pizza": []
+            "Clam Chowder": ["M", "W", "C"],
+            "Beef and Broccoli": ["S", "W"],
+            "Spicy Korean Tofu Bowl": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Minestrone Soup": [],
-            "Clam Chowder": [],
+            "Minestrone Soup": ["W"],
+            "Clam Chowder": ["M", "C", "W"],
             "Roll Your Own Veggie Sushi": [],
-            "Wing Bar": [],
-            "Shrimp Scampi\u00a0with Bread Sticks": [],
-            "Eggplant and Tofu Rollatini": [],
+            "Wing Bar": ["W"],
+            "Shrimp Scampi\u00a0with Bread Sticks": ["C", "M", "W"],
+            "Eggplant and Tofu Rollatini": ["S"],
             "Build Your Own Grain Bowl": [],
-            "Fruit Crepes": []
+            "Fruit Crepes": ["W"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Caprese Salad": ["M"],
+            "Paprika Chicken Tacos": [],
+            "Fish Tacos": [],
+            "Asian Noodles with Vegetables and Tofu": ["W", "S"],
+            "BBQ Chicken Pizza": ["W", "M", "S"]
           }
         }
       },
       "Saturday": {
         "Brunch": {
           "Beachside": {
-            "Banana Pancakes": [],
+            "Banana Pancakes": ["M", "W", "S"],
             "Turkey Sausage": [],
             "Tater Tots": [],
-            "Potato Bacon Soup": [],
-            "Pasta Bar": [],
-            "Pasta with Gardein Meatballs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Potato Bacon Soup": ["W", "M", "S"],
+            "Pasta Bar": ["W", "S", "M"],
+            "Pasta with Gardein Meatballs": ["W", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Waffle Sticks": [],
+            "Waffle Sticks": ["E", "M", "S", "W"],
             "Turkey Sausage Patties": [],
             "Tater Tots": [],
-            "Chicken Gumbo": [],
-            "Cream of Celery Soup": [],
+            "Chicken Gumbo": ["E", "M", "S", "W", "F"],
+            "Cream of Celery Soup": ["M", "W", "S"],
             "Juice Bar": []
           }
         },
         "Dinner": {
-          "Hillside": {
-            "Beachside": [],
-            "Chicken Gumbo": [],
-            "Cream of Celery Soup": [],
-            "Italian Pasta Salad": [],
-            "Beef Bolognese Pasta": [],
-            "Chicken Nuggets": [],
-            "Chana Masala Chickpeas": [],
-            "Steamed Dumplings": []
-          },
           "Beachside": {
-            "Potato Bacon Soup": [],
-            "Taco Bar": [],
-            "BBQ Tofu Steak with Corn Relish": [],
-            "Pepperoni and Cheese Pizza": []
+            "Potato Bacon Soup": ["W", "M", "S"],
+            "Taco Bar": ["M", "W", "C", "S"],
+            "BBQ Tofu Steak with Corn Relish": ["S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
+          "Hillside": {
+            "Chicken Gumbo": ["E", "M", "S", "W", "F"],
+            "Cream of Celery Soup": ["M", "W", "S"],
+            "Italian Pasta Salad": ["W"],
+            "Beef Bolognese Pasta": ["M", "W"],
+            "Chicken Nuggets": ["W"],
+            "Chana Masala Chickpeas": [],
+            "Steamed Dumplings": ["S", "W"]
           }
         }
       },
       "Sunday": {
         "Brunch": {
           "Beachside": {
-            "Crepes with Fruit Compote": [],
+            "Crepes with Fruit Compote": ["W", "E", "S"],
             "Sausage Links": [],
             "Hash Brown Patties": [],
-            "Lobster Bisque": [],
-            "Beef and Chicken Tamales": [],
-            "Cheese Tamales": [],
-            "Pepperoni and Cheese Pizza": []
+            "Lobster Bisque": ["M", "W", "C", "F"],
+            "Beef and Chicken Tamales": ["M"],
+            "Cheese Tamales": ["M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Parkside": {
-            "Chocolate Chip Pancakes": [],
+            "Chocolate Chip Pancakes": ["M", "W", "S"],
             "Sausage Patties": [],
             "Hash Brown Patties": [],
-            "Vegetable Noodle Soup": [],
+            "Vegetable Noodle Soup": ["W", "E"],
             "Chef's Choice Soup": [],
             "Fresh Juice of the Day": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
+          "Beachside": {
+            "Lobster Bisque": ["M", "W", "C", "F"],
+            "Baked Turkey": [],
+            "Gardein Beef Fajitas": ["S", "W"],
+            "Burgers and Hot Dogs": ["W", "E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
           "Parkside": {
-            "Beachside": [],
-            "Vegetable Noodle Soup": [],
+            "Vegetable Noodle Soup": ["W", "E"],
             "Chef's Choice Soup": [],
             "Cowboy Flank Steak": [],
-            "Buffalo Wings": [],
-            "Tofu Ratatouille": [],
-            "Pepperoni and Cheese Pizza": []
-          },
-          "Beachside": {
-            "Lobster Bisque": [],
-            "Baked Turkey": [],
-            "Gardein Beef Fajitas": [],
-            "Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Buffalo Wings": ["W"],
+            "Tofu Ratatouille": ["S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           }
         }
       }
@@ -932,462 +1100,468 @@
       "Monday": {
         "Breakfast": {
           "Beachside": {
-            "Sausage, Egg and Cheese Sandwich on English Muffin": [],
+            "Sausage, Egg and Cheese Sandwich on English Muffin": [
+              "W",
+              "E",
+              "M",
+              "S"
+            ],
             "Kielbasa": [],
             "Homestyle Potatoes": []
           },
           "Hillside": {
-            "Chocolate Chip Pancakes": [],
+            "Chocolate Chip Pancakes": ["M", "W", "S"],
             "Sausage Patties": [],
             "Country Potatoes": []
           },
           "Parkside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W"],
             "Kielbasa": [],
             "Hash Browns": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Broccoli Cheddar Soup": [],
-            "Chicken and Rice Soup": [],
-            "Citrus Kale Salad": [],
-            "Beef Milanesa Sandwich": [],
-            "Baked Feta Pasta": [],
-            "Gardein Meatball Sub Sandwich": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
-            "Orange Chicken": [],
-            "Lo Mein with Vegetable": [],
-            "Carnita Torta": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken Noodle Soup": ["W", "E"],
+            "Orange Chicken": ["S", "W"],
+            "Lo Mein with Vegetable": ["S", "W"],
+            "Carnita Torta": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
             "Coconut Curry Soup": [],
-            "Chicken Noodle Soup": [],
-            "Mandarin Spinach Salad": [],
-            "Crispy Fish Po Boy Sandwich": [],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Mandarin Spinach Salad": ["S", "W"],
+            "Crispy Fish Po Boy Sandwich": ["F", "W", "S"],
             "Chicken Fajitas": [],
             "Vegan Cauliflower Tacos": [],
             "Build Your Own Grain Bowl": [],
-            "Crab Cakes": []
+            "Crab Cakes": ["F", "E", "W", "S", "C"]
+          },
+          "Parkside": {
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Chicken and Rice Soup": [],
+            "Citrus Kale Salad": [],
+            "Beef Milanesa Sandwich": ["W", "S", "E"],
+            "Baked Feta Pasta": ["W", "M"],
+            "Gardein Meatball Sub Sandwich": ["W", "S"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Broccoli Cheddar Soup": [],
-            "Chicken and Rice Soup": [],
-            "Citrus Kale Salad": [],
-            "Beijing Beef": [],
-            "Fiesta Pork Bowl": [],
-            "Plant-Based Fish Taco": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
-            "Chicken and Shrimp Fajita": [],
-            "Chile Relleno": [],
-            "BBQ Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken Noodle Soup": ["W", "E"],
+            "Chicken and Shrimp Fajita": ["C"],
+            "Chile Relleno": ["M", "W", "E", "S"],
+            "BBQ Burgers and Hot Dogs": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
             "Lentil and Vegetable Soup": [],
-            "Chicken Noodle Soup": [],
-            "Mandarin Spinach Salad": [],
-            "Kahlua Pork Bowl": [],
-            "Pasta with Tukey Meat Sauce": [],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Mandarin Spinach Salad": ["S", "W"],
+            "Kahlua Pork Bowl": ["W", "S"],
+            "Pasta with Tukey Meat Sauce": ["W", "M"],
             "Thai Chickpea Curry": [],
             "Build Your Own Grain Bowl": [],
-            "Crab Cakes": []
+            "Crab Cakes": ["F", "E", "W", "S", "C"]
+          },
+          "Parkside": {
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Chicken and Rice Soup": [],
+            "Citrus Kale Salad": [],
+            "Beijing Beef": ["S", "W", "C"],
+            "Fiesta Pork Bowl": [],
+            "Plant-Based Fish Taco": ["W", "S"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         }
       },
       "Tuesday": {
         "Breakfast": {
           "Beachside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W", "S"],
             "Chorizo Patties": [],
             "Hash Browns": []
           },
           "Hillside": {
-            "Chilaquiles Verdes": [],
+            "Chilaquiles Verdes": ["M"],
             "Bacon": [],
             "Hash Browns": []
           },
           "Parkside": {
-            "Sausage, Egg and Cheese Sandwich on English Muffin": [],
+            "Sausage, Egg and Cheese Sandwich on English Muffin": [
+              "W",
+              "E",
+              "M",
+              "S"
+            ],
             "Bacon": [],
             "Hash Brown Patties": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Miso Soup": [],
-            "Minestrone Soup": [],
-            "Jicama Ceviche": [],
-            "Grilled Mongolian Chicken": [],
-            "Beef Fajitas": [],
-            "Pasta Alla Norma": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
             "Beef Brisket": [],
-            "Vegetarian Chili with Sweet Potato": [],
-            "Street Dog and Fries": [],
-            "Pepperoni and Cheese Pizza": []
+            "Vegetarian Chili with Sweet Potato": ["S", "W"],
+            "Street Dog and Fries": ["W", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Corn\u00a0Chowder": [],
-            "Chicken Tortilla Soup": [],
-            "BBQ Chicken Salad": [],
-            "Chicken Shawarma": [],
-            "Pesto Alfredo Tortellini": [],
-            "Edamame Fried Rice": [],
+            "Corn\u00a0Chowder": ["M", "S", "W"],
+            "Chicken Tortilla Soup": ["W", "S"],
+            "BBQ Chicken Salad": ["M"],
+            "Chicken Shawarma": ["W", "M", "E"],
+            "Pesto Alfredo Tortellini": ["M", "W", "E"],
+            "Edamame Fried Rice": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Beef and Vegetables Stir-Fry": []
+            "Beef and Vegetables Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Miso Soup": ["F", "S", "M"],
+            "Minestrone Soup": ["W"],
+            "Jicama Ceviche": [],
+            "Grilled Mongolian Chicken": ["W", "S"],
+            "Beef Fajitas": ["W"],
+            "Pasta Alla Norma": ["W"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Miso Soup": [],
-            "Minestrone Soup": [],
-            "Jicama Ceviche": [],
-            "Mac and Cheese": [],
-            "Fried Chicken Plate": [],
-            "Gardein Beef Teriyaki Bowl": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
-            "Korean Ground Beef Bowl": [],
-            "Spicy Harissa Tofu": [],
-            "Teriyaki Chicken Breast Burger": [],
-            "Pepperoni and Cheese Pizza": []
+            "Korean Ground Beef Bowl": ["S", "W"],
+            "Spicy Harissa Tofu": ["S"],
+            "Teriyaki Chicken Breast Burger": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Corn\u00a0Chowder": [],
-            "Chicken Tortilla Soup": [],
-            "BBQ Chicken Salad": [],
-            "Kimchi Fried Rice with Beef": [],
+            "Corn\u00a0Chowder": ["M", "S", "W"],
+            "Chicken Tortilla Soup": ["W", "S"],
+            "BBQ Chicken Salad": ["M"],
+            "Kimchi Fried Rice with Beef": ["S", "W", "F", "C"],
             "Chicken Al Pastor Tacos": [],
-            "Gardein Orange Chicken": [],
+            "Gardein Orange Chicken": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Beef and Vegetables Stir-Fry": []
+            "Beef and Vegetables Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Miso Soup": ["F", "S", "M"],
+            "Minestrone Soup": ["W"],
+            "Jicama Ceviche": [],
+            "Mac and Cheese": ["M", "W", "S"],
+            "Fried Chicken Plate": ["W", "M"],
+            "Gardein Beef Teriyaki Bowl": ["S", "W"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         }
       },
       "Wednesday": {
         "Breakfast": {
           "Beachside": {
-            "Breakfast Burrito": [],
+            "Breakfast Burrito": ["E", "W", "M"],
             "Turkey Sausage": [],
             "Papas Ala Mexicana": []
           },
           "Hillside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W"],
             "Pork Links": [],
             "Tater Tots": []
           },
           "Parkside": {
-            "Hawaiian Breakfast": [],
+            "Hawaiian Breakfast": ["E", "S", "W"],
             "Spam": [],
             "Country Potatoes and Rice": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Tomato Basil Soup": [],
-            "Vegetable Noodle Soup": [],
-            "Roll Your Own Tempura Roll": [],
-            "BBQ Pork Ribs": [],
-            "Ortega Chili & Cheese Quesadilla": [],
-            "Kung Pao Deep Fried Tofu": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
-            "Lemon Baked Chicken": [],
-            "Vegetable Pad Thai": [],
-            "Italian Sausage Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Lemon Baked Chicken": ["W", "M"],
+            "Vegetable Pad Thai": ["S", "W"],
+            "Italian Sausage Sandwich": ["W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Cream of Broccoli Soup": [],
-            "Albondigas Soup": [],
-            "Lemon Basil Pasta Salad": [],
-            "Hamburgers": [],
-            "Chicken Meatballs with Plum Sauce": [],
-            "Vegetable Strudel": [],
+            "Cream of Broccoli Soup": ["M", "W", "S"],
+            "Albondigas Soup": ["E"],
+            "Lemon Basil Pasta Salad": ["M", "W"],
+            "Hamburgers": ["W"],
+            "Chicken Meatballs with Plum Sauce": ["S", "W"],
+            "Vegetable Strudel": ["W"],
             "Build Your Own Grain Bowl": [],
-            "Breakfast Bowl": []
+            "Breakfast Bowl": ["E", "M"]
+          },
+          "Parkside": {
+            "Tomato Basil Soup": ["M", "W"],
+            "Vegetable Noodle Soup": ["E", "W"],
+            "Roll Your Own Tempura Roll": ["C", "W"],
+            "BBQ Pork Ribs": [],
+            "Ortega Chili & Cheese Quesadilla": ["W", "M"],
+            "Kung Pao Deep Fried Tofu": ["S"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Tomato Basil Soup": [],
-            "Vegetable Noodle Soup": [],
-            "Roll Your Own Tempura Roll": [],
-            "Pasta Bar": [],
-            "Mozzarella Sticks with Marinara Sauce": [],
-            "Lentil Tacos": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
-            "Breakfast at Dinner": [],
-            "Crispy Tofu Bowl": [],
-            "Breakfast Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Breakfast at Dinner": ["E", "W", "S", "M"],
+            "Crispy Tofu Bowl": ["S", "W"],
+            "Breakfast Burgers and Hot Dogs": ["W", "M", "S", "E"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Cream of Broccoli Soup": [],
-            "Albondigas Soup": [],
-            "Lemon Basil Pasta Salad": [],
-            "Teriyaki Chicken": [],
-            "Brisket Mac and Cheese": [],
-            "Teriyaki Tofu": [],
+            "Cream of Broccoli Soup": ["M", "W", "S"],
+            "Albondigas Soup": ["E"],
+            "Lemon Basil Pasta Salad": ["M", "W"],
+            "Teriyaki Chicken": ["S", "W"],
+            "Brisket Mac and Cheese": ["M", "W", "S"],
+            "Teriyaki Tofu": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Breakfast Bowl": []
+            "Breakfast Bowl": ["E", "M"]
+          },
+          "Parkside": {
+            "Tomato Basil Soup": ["M", "W"],
+            "Vegetable Noodle Soup": ["E", "W"],
+            "Roll Your Own Tempura Roll": ["C", "W"],
+            "Pasta Bar": ["W", "M"],
+            "Mozzarella Sticks with Marinara Sauce": ["M", "W"],
+            "Lentil Tacos": [],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         }
       },
       "Thursday": {
         "Breakfast": {
           "Beachside": {
-            "Waffle Sticks": [],
+            "Waffle Sticks": ["E", "M", "S", "W"],
             "Bacon": [],
             "Country Style Potatoes": []
           },
           "Hillside": {
-            "Breakfast Quesadilla": [],
+            "Breakfast Quesadilla": ["E", "W", "M"],
             "Turkey Sausage Patties": [],
             "Hash Brown Patties": []
           },
           "Parkside": {
-            "Blueberry Pancakes": [],
+            "Blueberry Pancakes": ["M", "W", "S"],
             "Pork Links": [],
             "Tater Tots": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Potato Chowder": [],
-            "Chicken Pozole with Tomatillo": [],
-            "BBQ Chicken Salad": [],
-            "Cheese Ravioli with Creamy Tomato Sauce": [],
-            "Crispy Chicken Sandwich": [],
-            "Gardein Beef Burrito": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Chicken Katsu": [],
-            "Gardein Orange Chicken": [],
-            "Poke Bowl": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Chicken Katsu": ["W", "S", "M"],
+            "Gardein Orange Chicken": ["S", "W"],
+            "Poke Bowl": ["F", "S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Vegetable Noodle Soup": [],
-            "Tomato Basil Soup": [],
-            "Israeli Couscous on Arugula": [],
+            "Vegetable Noodle Soup": ["W", "E"],
+            "Tomato Basil Soup": ["M", "W"],
+            "Israeli Couscous on Arugula": ["W"],
             "Cuban Mojo Chicken": [],
-            "Loaded Grilled Cheese Sandwich": [],
-            "Pasta Arrabbiata": [],
+            "Loaded Grilled Cheese Sandwich": ["W", "M", "S"],
+            "Pasta Arrabbiata": ["W"],
             "Build Your Own Grain Bowl": [],
-            "Chicken Mulitas": []
+            "Chicken Mulitas": ["M"]
+          },
+          "Parkside": {
+            "Potato Chowder": ["W", "M", "S"],
+            "Chicken Pozole with Tomatillo": [],
+            "BBQ Chicken Salad": ["E", "M", "S"],
+            "Cheese Ravioli with Creamy Tomato Sauce": ["W", "M", "S"],
+            "Crispy Chicken Sandwich": ["W", "M", "S"],
+            "Gardein Beef Burrito": ["W", "S"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Potato Chowder": [],
-            "Chicken Pozole w/ Tomatillo": [],
-            "BBQ Chicken Salad": [],
-            "Turkey Pesto Flatbread Sandwich": [],
-            "Carne Asada Fries": [],
-            "Tofu and Vegetables Fried Rice": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Beef Bourguignon": [],
-            "Crispy Brussel Sprouts Fried Rice with Veggie Crumbles": [],
-            "Loaded Grilled Cheese and Tomato Soup": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Beef Bourguignon": ["M", "W"],
+            "Crispy Brussel Sprouts Fried Rice with Veggie Crumbles": [
+              "S",
+              "W"
+            ],
+            "Loaded Grilled Cheese and Tomato Soup": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Vegetable Noodle Soup": [],
-            "Tomato Basil Soup": [],
-            "Israeli Couscous on Arugula": [],
-            "Orange Chicken": [],
+            "Vegetable Noodle Soup": ["W"],
+            "Tomato Basil Soup": ["M", "W"],
+            "Israeli Couscous on Arugula": ["W"],
+            "Orange Chicken": ["S", "W"],
             "Beef Flank Steak with Chimichurri Sauce": [],
-            "Gardein Chicken Fajitas": [],
+            "Gardein Chicken Fajitas": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Chicken Mulitas": []
+            "Chicken Mulitas": ["M"]
+          },
+          "Parkside": {
+            "Potato Chowder": ["W", "M", "S"],
+            "Chicken Pozole w/ Tomatillo": [],
+            "BBQ Chicken Salad": ["E", "M", "S"],
+            "Turkey Pesto Flatbread Sandwich": ["M", "W", "E"],
+            "Carne Asada Fries": ["M"],
+            "Tofu and Vegetables Fried Rice": ["S", "W"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         }
       },
       "Friday": {
         "Breakfast": {
           "Beachside": {
-            "Egg, Turkey and Cheese Sandwich on Croissant": [],
+            "Egg, Turkey and Cheese Sandwich on Croissant": [
+              "E",
+              "M",
+              "S",
+              "W"
+            ],
             "Pork Link Sausage": [],
             "Tater Tots": []
           },
           "Hillside": {
-            "Ham, Egg and Cheese English Muffin Sandwich": [],
+            "Ham, Egg and Cheese English Muffin Sandwich": ["E", "W", "M", "S"],
             "Chicken and Apple Sausage": [],
             "Homestyle Potatoes": []
           },
           "Parkside": {
-            "Egg, Potato and Cheese Breakfast Burrito": [],
+            "Egg, Potato and Cheese Breakfast Burrito": ["E", "W", "M"],
             "Turkey Sausage": [],
-            "Potatoes O'Brien": ["O"]
+            "Potatoes O'Brien": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Arugula Salad": [],
-            "Beef Tri Tip Roast": [],
-            "Firecracker Salmon": [],
-            "Spicy Tofu and Veggies": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
-            "Firecracker Salmon": [],
-            "Eggplant and Tofu with Sweet and Sour Sauce": [],
-            "Pepperoni and Cheese Pizza": []
+            "Clam Chowder": ["M", "W", "C"],
+            "Firecracker Salmon": ["S", "W", "F"],
+            "Eggplant and Tofu with Sweet and Sour Sauce": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Clam Chowder": [],
+            "Clam Chowder": ["M", "W", "C"],
             "Lentil and Vegetable Soup": [],
             "Spicy Fruit Cup": [],
-            "Hot Dog Bar": [],
-            "Shrimp Pasta Alfredo": [],
-            "Pineapple Thai Fried Rice with Gardein Chicken": [],
+            "Hot Dog Bar": ["M", "W", "S"],
+            "Shrimp Pasta Alfredo": ["C", "M", "E", "W"],
+            "Pineapple Thai Fried Rice with Gardein Chicken": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Mongolian Stir-Fry Chicken": []
+            "Mongolian Stir-Fry Chicken": ["S", "W"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Arugula Salad": ["M"],
+            "Beef Tri Tip Roast": [],
+            "Firecracker Salmon": ["F", "S", "W"],
+            "Spicy Tofu and Veggies": ["S", "W"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Arugula Salad": [],
-            "Sweet and Spicy Pork": [],
-            "Shrimp Scampi": [],
-            "Pasta with Gardein Meat Sauce": [],
-            "Soyrizo Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
+            "Clam Chowder": ["M", "W", "C"],
             "Southern BBQ Chicken": [],
-            "Pasta Alla Norma": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pasta Alla Norma": ["W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Clam Chowder": [],
+            "Clam Chowder": ["M", "W", "C"],
             "Lentil and Vegetable Soup": [],
             "Spicy Fruit Cup": [],
-            "Pork Udon": [],
-            "Tilapia with Roasted Bell Pepper Sauce": [],
-            "Sweet Potato Patties": [],
+            "Pork Udon": ["W", "F", "E", "S"],
+            "Tilapia with Roasted Bell Pepper Sauce": ["F"],
+            "Sweet Potato Patties": ["E", "M", "W"],
             "Build Your Own Grain Bowl": [],
-            "Mongolian Stir-Fry Chicken": []
+            "Mongolian Stir-Fry Chicken": ["S", "W"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Arugula Salad": ["M"],
+            "Sweet and Spicy Pork": ["W", "S"],
+            "Shrimp Scampi": ["C", "W", "M"],
+            "Pasta with Gardein Meat Sauce": ["S", "W"],
+            "Soyrizo Pizza": ["W", "M", "S"]
           }
         }
       },
       "Saturday": {
         "Brunch": {
           "Beachside": {
-            "Blueberry Pancakes": [],
+            "Blueberry Pancakes": ["M", "W", "S"],
             "Chicken Apple Sausage": [],
-            "Potatoes O'Brien": ["O"],
-            "Potato Bacon Soup": [],
+            "Potatoes O'Brien": [],
+            "Potato Bacon Soup": ["W", "M", "S"],
             "Roasted Rosemary Chicken": [],
-            "Gardein Fish": [],
-            "Pepperoni and Cheese Pizza": []
+            "Gardein Fish": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Pancakes with Fruit Topping": [],
+            "Pancakes with Fruit Topping": ["M", "W", "S"],
             "Turkey Bacon": [],
             "Tater Tots": [],
             "Vegetable Rice Soup": [],
-            "Beef and Barley Soup": [],
-            "Yogurt Parfait Bar": []
+            "Beef and Barley Soup": ["W"],
+            "Yogurt Parfait Bar": ["M", "W"]
           }
         },
         "Dinner": {
-          "Hillside": {
-            "Beachside": [],
-            "Vegetable Rice Soup": [],
-            "Beef and Barley Soup": [],
-            "Tuna Rotini Pasta Salad": [],
-            "Irish Nacho Bar": [],
-            "Spicy Ranch Chicken Sandwich": [],
-            "Vegetable and Tofu Fried Rice": [],
-            "Mac and Cheese Bites": []
-          },
           "Beachside": {
-            "Potato Bacon Soup": [],
-            "Chicken Enchilada": [],
-            "Cheese Enchilada": [],
-            "Pepperoni and Cheese Pizza": []
+            "Potato Bacon Soup": ["W", "M", "S"],
+            "Chicken Enchilada": ["S", "M", "W"],
+            "Cheese Enchilada": ["S", "M", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
+          "Hillside": {
+            "Vegetable Rice Soup": [],
+            "Beef and Barley Soup": ["W"],
+            "Tuna Rotini Pasta Salad": ["M", "W", "F"],
+            "Irish Nacho Bar": ["M"],
+            "Spicy Ranch Chicken Sandwich": ["W", "S", "E", "M"],
+            "Vegetable and Tofu Fried Rice": ["S", "W"],
+            "Mac and Cheese Bites": ["W", "M", "S"]
           }
         }
       },
       "Sunday": {
         "Brunch": {
           "Beachside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "S", "W"],
             "Sausage Links": [],
             "Hash Brown Patties": [],
-            "Lobster Bisque": [],
-            "Taquito Bar": [],
+            "Lobster Bisque": ["M", "W", "C", "F"],
+            "Taquito Bar": ["W", "M", "S"],
             "Curry Chickpea Vegetables": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Parkside": {
-            "French Toast Sticks": [],
+            "French Toast Sticks": ["E", "M", "W", "S"],
             "Sausage Links": [],
             "Hash Bown Patties": [],
             "Albondigas Soup": [],
             "Chef's Choice Soup": [],
-            "Yogurt Parfait Bar": [],
-            "Pepperoni and Cheese Pizza": []
+            "Yogurt Parfait Bar": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
+          "Beachside": {
+            "Lobster Bisque": ["M", "W", "C", "F"],
+            "Chicken Bacon Alfredo Pasta": ["M", "W"],
+            "Gardein Chicken and Broccoli": ["S", "W"],
+            "Burgers and Hot Dogs": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
           "Parkside": {
-            "Beachside": [],
             "Albondigas Soup": [],
             "Chef's Choice Soup": [],
             "Red Chile Colorado": [],
-            "Chicken Chipotle Pesto Pasta": [],
-            "Gardein Beef Fajitas": [],
-            "Pepperoni and Cheese Pizza": []
-          },
-          "Beachside": {
-            "Lobster Bisque": [],
-            "Chicken Bacon Alfredo Pasta": [],
-            "Gardein Chicken and Broccoli": [],
-            "Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken Chipotle Pesto Pasta": ["M", "W"],
+            "Gardein Beef Fajitas": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           }
         }
       }
@@ -1396,461 +1570,464 @@
       "Monday": {
         "Breakfast": {
           "Beachside": {
-            "Oreo Pancakes": [],
+            "Oreo Pancakes": ["M", "W", "S"],
             "Bacon": [],
             "Tater Tots": []
           },
           "Hillside": {
-            "Confetti Pancakes": [],
+            "Confetti Pancakes": ["M", "W", "S"],
             "Canadian Bacon": [],
-            "Potatoes O'Brien": ["O"]
+            "Potatoes O'Brien": []
           },
           "Parkside": {
-            "Chocolate Chip Pancakes": [],
+            "Chocolate Chip Pancakes": ["M", "W", "S"],
             "Sausage Patties": [],
             "Tater Tots": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Broccoli Cheddar": [],
-            "Chicken Noodle Soup": [],
-            "Mandarin Spinach Salad": [],
-            "Pesto Alfredo Tortellini": [],
-            "Grilled Thai Chicken": [],
-            "Vegan Cauliflower Tacos": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
-            "Indian Butter Chicken": [],
-            "Madras Potato": [],
-            "Pastrami Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken Noodle Soup": ["W", "E"],
+            "Indian Butter Chicken": ["M"],
+            "Madras Potato": ["S", "W"],
+            "Pastrami Sandwich": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
             "Pork Pozole Rojo": [],
-            "Broccoli Cheddar Soup": [],
-            "Chicken Taco Salad": [],
-            "Creamy Tomato Cheese Ravioli": [],
-            "Chicken Tenders": [],
-            "Vegan Tenders": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Chicken Taco Salad": ["M", "W", "E"],
+            "Creamy Tomato Cheese Ravioli": ["W", "M", "E"],
+            "Chicken Tenders": ["W"],
+            "Vegan Tenders": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "BBQ Pulled Pork Grilled Cheese Sandwich": []
+            "BBQ Pulled Pork Grilled Cheese Sandwich": ["M", "W", "S"]
+          },
+          "Parkside": {
+            "Broccoli Cheddar": ["M", "W", "S"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Mandarin Spinach Salad": ["W", "S"],
+            "Pesto Alfredo Tortellini": ["M", "W", "E"],
+            "Grilled Thai Chicken": [],
+            "Vegan Cauliflower Tacos": [],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Broccoli Cheddar": [],
-            "Chicken Noodle Soup": [],
-            "Mandarin Spinach Salad": [],
-            "Kahlua Pork Bowl": [],
-            "Chicken Fajitas": [],
-            "Thai Chickpea Curry": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
+            "Chicken Noodle Soup": ["W", "E"],
             "Beef Brisket": [],
-            "Meatless Pasta Bar": [],
-            "BBQ Western Burger": [],
-            "Pepperoni and Cheese Pizza": []
+            "Meatless Pasta Bar": ["W", "S"],
+            "BBQ Western Burger": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
             "Pork Pozole Rojo": [],
-            "Broccoli Cheddar Soup": [],
-            "Chicken Taco Salad": [],
-            "Pasta w/Alfredo Sauce": [],
-            "BBQ Western Burger": [],
-            "Tahini Chickpea Bowl": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Chicken Taco Salad": ["M", "W", "E"],
+            "Pasta w/Alfredo Sauce": ["W", "M"],
+            "BBQ Western Burger": ["W"],
+            "Tahini Chickpea Bowl": ["W"],
             "Build Your Own Grain Bowl": [],
-            "BBQ Pulled Pork Grilled Cheese Sandwich": []
+            "BBQ Pulled Pork Grilled Cheese Sandwich": ["M", "W", "S"]
+          },
+          "Parkside": {
+            "Broccoli Cheddar": ["M", "W", "S"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Mandarin Spinach Salad": ["W", "S"],
+            "Kahlua Pork Bowl": ["S", "W"],
+            "Chicken Fajitas": ["W"],
+            "Thai Chickpea Curry": [],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         }
       },
       "Tuesday": {
         "Breakfast": {
           "Beachside": {
-            "Egg, Ham and Cheese Sandwich on a Croissant": [],
+            "Egg, Ham and Cheese Sandwich on a Croissant": ["E", "M", "W", "S"],
             "Kielbasa": [],
             "Homestyle Potatoes": []
           },
           "Hillside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W"],
             "Kielbasa": [],
             "Hash Browns": []
           },
           "Parkside": {
-            "Chilaquiles": [],
+            "Chilaquiles": ["M", "E"],
             "Pork Links": [],
             "Hash Browns": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Miso Soup": [],
-            "Chicken Tortilla Soup": [],
-            "Santa Fe Chicken Wrap": [],
-            "Dynamite Pork Bao": [],
-            "Pasta Arrabiata": [],
-            "Tofu Edamame Fried Rice": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
-            "Baked Salmon": [],
-            "Tofu and Long Beans Stir Fry": [],
-            "French Dip Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Baked Salmon": ["F"],
+            "Tofu and Long Beans Stir Fry": ["S", "W"],
+            "French Dip Sandwich": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Tomato Basil Soup": [],
-            "Italian Wedding Soup": [],
-            "Bionico": [],
+            "Tomato Basil Soup": ["M", "W"],
+            "Italian Wedding Soup": ["S", "W", "M"],
+            "Bionico": ["M"],
             "Carnitas Bowl": [],
-            "Thai Chicken Drunken Noodles": [],
-            "Baked Gnocchi": [],
+            "Thai Chicken Drunken Noodles": ["W", "S"],
+            "Baked Gnocchi": ["E", "M", "W"],
             "Build Your Own Grain Bowl": [],
-            "Kung Pao Chicken Stir-Fry": []
+            "Kung Pao Chicken Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Miso Soup": ["M", "F", "S"],
+            "Chicken Tortilla Soup": ["M", "S"],
+            "Santa Fe Chicken Wrap": ["M", "W"],
+            "Dynamite Pork Bao": ["S", "W"],
+            "Pasta Arrabiata": ["W", "M"],
+            "Tofu Edamame Fried Rice": ["S", "W"],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Miso Soup": [],
-            "Chicken Tortilla Soup": [],
-            "Santa Fe Chicken Wrap": [],
-            "Pasta with Meatballs": [],
-            "Hot Chicken Sandwich": [],
-            "Gardein Chicken Alfredo Pasta": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
-            "Thai Basil Chicken": [],
-            "Thai Basil Tofu": [],
-            "Taco Bar": [],
-            "Pepperoni and Cheese Pizza": []
+            "Thai Basil Chicken": ["W", "S"],
+            "Thai Basil Tofu": ["W", "S"],
+            "Taco Bar": ["W", "C", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Tomato Basil Soup": [],
-            "Italian Wedding Soup": [],
-            "Bionico": [],
-            "Beef Lomo Saltado": [],
-            "Turkey Pesto Sandwich": [],
+            "Tomato Basil Soup": ["M", "W"],
+            "Italian Wedding Soup": ["S", "W", "M"],
+            "Bionico": ["M"],
+            "Beef Lomo Saltado": ["S", "W"],
+            "Turkey Pesto Sandwich": ["M", "W", "E"],
             "Black Bean Tostones": [],
             "Build Your Own Grain Bowl": [],
-            "Kung Pao Chicken Stir-Fry": []
+            "Kung Pao Chicken Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Miso Soup": ["M", "F", "S"],
+            "Chicken Tortilla Soup": ["M", "S"],
+            "Santa Fe Chicken Wrap": ["M", "W"],
+            "Pasta with Meatballs": ["M", "W", "S"],
+            "Hot Chicken Sandwich": ["W", "S", "E"],
+            "Gardein Chicken Alfredo Pasta": ["S", "W"],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         }
       },
       "Wednesday": {
         "Breakfast": {
           "Beachside": {
-            "Mexican Eggs Benedict": [],
+            "Mexican Eggs Benedict": ["E", "M", "W", "S"],
             "Chicken Apple Sausage": [],
             "Country Potatoes": []
           },
           "Hillside": {
-            "Breakfast Burrito": [],
+            "Breakfast Burrito": ["E", "W", "M"],
             "Turkey Sausage": [],
             "Homestyle Potatoes": []
           },
           "Parkside": {
-            "Pancakes": [],
+            "Pancakes": ["W", "S", "M"],
             "Turkey Sausage": [],
             "Country Potatoes": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Tomato Basil Soup": [],
-            "Kale and Sweet Potato": [],
-            "Ranch Chopped Salad": [],
-            "Beef Sliders": [],
-            "Chicken Katsu Curry Plate": [],
-            "Gardein Beef Wellington": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
             "Cajun Chicken": [],
-            "Kung Pao Gardein Chicken": [],
-            "Spicy Sushi Bowl": [],
-            "Pepperoni and Cheese Pizza": []
+            "Kung Pao Gardein Chicken": ["S", "W"],
+            "Spicy Sushi Bowl": ["E", "M", "C", "F", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Butternut Squash Soup": [],
-            "Chicken Noodle Soup": [],
-            "Italian Pasta Salad": [],
-            "Corn Dogs": [],
-            "Kalbi Beef Bowl": [],
-            "Gardein Swedish Meatballs": [],
+            "Butternut Squash Soup": ["M"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Italian Pasta Salad": ["W"],
+            "Corn Dogs": ["W", "M", "E"],
+            "Kalbi Beef Bowl": ["S", "W"],
+            "Gardein Swedish Meatballs": ["M", "W", "S"],
             "Build Your Own Grain Bowl": [],
-            "Sweet and Sour Chicken\u00a0Stir-Fry": []
+            "Sweet and Sour Chicken\u00a0Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Tomato Basil Soup": ["M", "W"],
+            "Kale and Sweet Potato": [],
+            "Ranch Chopped Salad": ["M", "E", "S"],
+            "Beef Sliders": ["W"],
+            "Chicken Katsu Curry Plate": ["W", "S"],
+            "Gardein Beef Wellington": ["W", "S"],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Tomato Basil Soup": [],
-            "Kale and Sweet Potato": [],
-            "Ranch Chopped Salad": [],
-            "Teriyaki Chicken": [],
-            "Loaded Grilled Cheese Sandwich": [],
-            "Teriyaki Tofu": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
-            "Loco Moco": [],
-            "Meatless Taco": [],
-            "Ortega Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Loco Moco": ["W", "E"],
+            "Meatless Taco": ["S", "W"],
+            "Ortega Burgers and Hot Dogs": ["W", "E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Butternut Squash Soup": [],
-            "Chicken Noodle Soup": [],
-            "Italian Pasta Salad": [],
+            "Butternut Squash Soup": ["M"],
+            "Chicken Noodle Soup": ["W"],
+            "Italian Pasta Salad": ["W"],
             "BBQ Chicken with Roasted Potatoes": [],
-            "Baked Cheese Manicotti": [],
-            "Thai Curry Tofu": [],
+            "Baked Cheese Manicotti": ["M", "W", "E"],
+            "Thai Curry Tofu": ["S"],
             "Build Your Own Grain Bowl": [],
-            "Sweet and Sour Chicken\u00a0Stir-Fry": []
+            "Sweet and Sour Chicken\u00a0Stir-Fry": ["S", "W"]
+          },
+          "Parkside": {
+            "Tomato Basil Soup": ["M", "W"],
+            "Kale and Sweet Potato": [],
+            "Ranch Chopped Salad": ["M", "E", "S"],
+            "Teriyaki Chicken": ["S", "W"],
+            "Loaded Grilled Cheese Sandwich": ["M", "W", "S"],
+            "Teriyaki Tofu": ["S", "W"],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         }
       },
       "Thursday": {
         "Breakfast": {
           "Beachside": {
-            "Spinach & Feta Frittata": [],
+            "Spinach & Feta Frittata": ["E", "M"],
             "Sausage Patties": [],
             "Hash Brown Patties": []
           },
           "Hillside": {
-            "Waffle Sticks": [],
+            "Waffle Sticks": ["E", "M", "S", "W"],
             "Sausage Patties": [],
             "Hash Brown Patties": []
           },
           "Parkside": {
-            "Turkey, Egg and Cheese Breakfast Sandwich on Naan Bread": [],
+            "Turkey, Egg and Cheese Breakfast Sandwich on Naan Bread": [
+              "E",
+              "W",
+              "M",
+              "S"
+            ],
             "Chicken Apple Sausage": [],
             "Cajun Potatoes": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Vegetable Noodle Soup": [],
-            "Potato Bacon Soup": [],
-            "Esquite Cup": [],
-            "Pork Udon": [],
-            "Beef Flank Steak with Chimichurri Sauce": [],
-            "Spicy Plant-Based Chicken Stir-Fry": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
+            "Tom Yum Soup": ["W", "C", "S"],
             "Beef Brisket": [],
-            "Gardein Fajitas": [],
-            "Meatball Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Gardein Fajitas": ["S", "W"],
+            "Meatball Sandwich": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Potato Chowder": [],
+            "Potato Chowder": ["M", "W", "S"],
             "Caldo de Res": [],
-            "Apple and Spinach Salad": [],
-            "Spaghetti with Meatballs": [],
-            "Chicken Adobo": [],
-            "Gardein Orange Chicken": [],
+            "Apple and Spinach Salad": ["M"],
+            "Spaghetti with Meatballs": ["W", "M"],
+            "Chicken Adobo": ["S", "W"],
+            "Gardein Orange Chicken": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Breakfast Quesadilla": []
+            "Breakfast Quesadilla": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Vegetable Noodle Soup": ["W", "E"],
+            "Potato Bacon Soup": ["M", "W", "S"],
+            "Esquite Cup": ["E", "M"],
+            "Pork Udon": ["W", "F", "S", "E"],
+            "Beef Flank Steak with Chimichurri Sauce": [],
+            "Spicy Plant-Based Chicken Stir-Fry": ["S"],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Vegetable Noodle Soup": [],
-            "Potato Bacon Soup": [],
-            "Esquite Cup": [],
-            "Taco Bar": [],
-            "Nacho Bar": [],
-            "Gardein Chicken Fajitas": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Chicken Parmesan": [],
-            "Hummus Bowl": [],
-            "Coconut Shrimp Bowl": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Chicken Parmesan": ["M", "W", "S"],
+            "Hummus Bowl": ["W", "M"],
+            "Coconut Shrimp Bowl": ["W", "C", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Potato Chowder": [],
+            "Potato Chowder": ["M", "W", "S"],
             "Caldo de Res": [],
-            "Apple and Spinach Salad": [],
-            "Banh Mi Chicken Sandwich": [],
+            "Apple and Spinach Salad": ["M"],
+            "Banh Mi Chicken Sandwich": ["S", "W"],
             "Beef Fajitas": [],
             "Ratatouille": [],
             "Build Your Own Grain Bowl": [],
-            "Breakfast Quesadilla": []
+            "Breakfast Quesadilla": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Vegetable Noodle Soup": ["W", "E"],
+            "Potato Bacon Soup": ["M", "W", "S"],
+            "Esquite Cup": ["E", "M"],
+            "Taco Bar": ["W"],
+            "Nacho Bar": [],
+            "Gardein Chicken Fajitas": ["S", "W"],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         }
       },
       "Friday": {
         "Breakfast": {
           "Beachside": {
-            "Chorizo and Egg Burrito": [],
+            "Chorizo and Egg Burrito": ["M", "E"],
             "Bacon": [],
             "Papas Ala Mexicana": []
           },
           "Hillside": {
-            "Turkey, Egg and Cheese on Croissant Sandwich": [],
+            "Turkey, Egg and Cheese on Croissant Sandwich": [
+              "E",
+              "M",
+              "S",
+              "W"
+            ],
             "Chicken and Apple Sausage": [],
-            "Soyrizo and Potato Hash": []
+            "Soyrizo and Potato Hash": ["S"]
           },
           "Parkside": {
-            "Ham, Egg and Cheese Sandwich on English Muffin": [],
+            "Ham, Egg and Cheese Sandwich on English Muffin": [
+              "E",
+              "M",
+              "W",
+              "S"
+            ],
             "Bacon": [],
             "Hash Browns": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Fried Chicken Salad": [],
-            "Yucatan Chicken Grain Bowl": [],
-            "Shrimp Ceviche": [],
-            "Black Bean Enchilada Casserole": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
-            "Korean Short Ribs": [],
-            "Szechuan Tofu with Peppers S": ["S"],
-            "Pepperoni and Cheese Pizza": []
+            "Clam Chowder": ["M", "W", "C"],
+            "Korean Short Ribs": ["S", "W"],
+            "Szechuan Tofu with Peppers S": ["W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Miso Soup": [],
-            "Clam Chowder": [],
-            "Chicken Caesar Salad with Cilantro Dressing": [],
-            "Chicken and Cheese Enchiladas": [],
-            "Battered Pollock": [],
-            "Fried Artichokes with Red Pepper Aioli": [],
+            "Miso Soup": ["F", "M", "S"],
+            "Clam Chowder": ["M", "W", "C"],
+            "Chicken Caesar Salad with Cilantro Dressing": ["M"],
+            "Chicken and Cheese Enchiladas": ["M", "S", "W"],
+            "Battered Pollock": ["F", "W", "M"],
+            "Fried Artichokes with Red Pepper Aioli": ["W", "E"],
             "Build your Own Grain Bowl": [],
-            "Hawaiian Ham and Cheese Sandwich": []
+            "Hawaiian Ham and Cheese Sandwich": ["M", "W", "E"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Fried Chicken Salad": ["M", "W", "S", "E"],
+            "Yucatan Chicken Grain Bowl": [],
+            "Shrimp Ceviche": ["C"],
+            "Black Bean Enchilada Casserole": [],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Fried Chicken Salad": [],
-            "Orange Chicken": [],
-            "Lemon Pepper Tilapia": [],
-            "Plant-Based Kung Pao Chicken": [],
-            "Buffalo Chicken Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
-            "Fish Taco Bowl": [],
-            "Cheese Ravioli": [],
-            "Pepperoni and Cheese Pizza": []
+            "Clam Chowder": ["M", "W", "C"],
+            "Fish Taco Bowl": ["F", "M"],
+            "Cheese Ravioli": ["W", "E", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Miso Soup": [],
-            "Clam Chowder": [],
-            "Chicken Caesar Salad with Cilantro Dressing": [],
-            "Mac and Cheese Bar": [],
-            "Shrimp Etouffee": [],
-            "Eggplant Parmesan": [],
+            "Miso Soup": ["F", "M", "S"],
+            "Clam Chowder": ["M", "W", "C"],
+            "Chicken Caesar Salad with Cilantro Dressing": ["M"],
+            "Mac and Cheese Bar": ["M", "S", "W"],
+            "Shrimp Etouffee": ["M", "C", "W"],
+            "Eggplant Parmesan": ["E", "M", "W"],
             "Build your Own Grain Bowl": [],
-            "Hawaiian Ham and Cheese Sandwich": []
+            "Hawaiian Ham and Cheese Sandwich": ["M", "W", "E"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Fried Chicken Salad": ["M", "W", "S", "E"],
+            "Orange Chicken": ["W", "S"],
+            "Lemon Pepper Tilapia": ["F"],
+            "Plant-Based Kung Pao Chicken": ["S"],
+            "Buffalo Chicken Pizza": ["W", "M", "S", "E"]
           }
         }
       },
       "Saturday": {
         "Brunch": {
           "Beachside": {
-            "Chocolate Chip Pancakes": [],
+            "Chocolate Chip Pancakes": ["M", "W", "S"],
             "Grilled Ham": [],
             "Tater Tots": [],
-            "Potato Bacon Soup": [],
-            "Pasta Bar": [],
-            "Pepperoni and Cheese Pizza": []
+            "Potato Bacon Soup": ["W", "M", "S"],
+            "Pasta Bar": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Blueberry Pancakes": [],
+            "Blueberry Pancakes": ["M", "W", "S"],
             "Bacon": [],
             "Tater Tots": [],
-            "Vegetable\u00a0Noodle Soup": [],
-            "Chicken Tortilla Soup": [],
+            "Vegetable\u00a0Noodle Soup": ["W", "E"],
+            "Chicken Tortilla Soup": ["S", "W"],
             "Smoothie Bar": []
           }
         },
         "Dinner": {
+          "Beachside": {
+            "Potato Bacon Soup": ["W", "M", "S"],
+            "Kung Pao Chicken": ["S", "W"],
+            "Teriyaki Tofu with Rice Noodles": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
           "Hillside": {
-            "Beachside": [],
-            "Vegetable\u00a0Noodle Soup": [],
-            "Chicken Tortilla Soup": [],
-            "Elote in a Cup": [],
-            "Tomato and Garlic Pesto Alfredo Pasta": [],
+            "Vegetable\u00a0Noodle Soup": ["W", "E"],
+            "Chicken Tortilla Soup": ["S", "W"],
+            "Elote in a Cup": ["E", "M"],
+            "Tomato and Garlic Pesto Alfredo Pasta": ["M", "W"],
             "Roasted Lemon Herb Chicken": [],
             "Sweet Potato and Cauliflower Stew": [],
-            "Breaded Zucchini": []
-          },
-          "Beachside": {
-            "Potato Bacon Soup": [],
-            "Kung Pao Chicken": [],
-            "Teriyaki Tofu with Rice Noodles": [],
-            "Pepperoni and Cheese Pizza": []
+            "Breaded Zucchini": ["S", "W", "E"]
           }
         }
       },
       "Sunday": {
         "Brunch": {
           "Beachside": {
-            "Biscuit and Country Gravy": [],
+            "Biscuit and Country Gravy": ["M", "W", "S"],
             "Turkey Sausage": [],
             "Hash Browns": [],
-            "Lobster Bisque": [],
-            "Honey Citrus Chicken": [],
-            "Chow Mein with Vegetables": [],
-            "Pepperoni and Cheese Pizza": []
+            "Lobster Bisque": ["M", "W", "C", "F"],
+            "Honey Citrus Chicken": ["S", "W"],
+            "Chow Mein with Vegetables": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Parkside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W"],
             "Sausage Links": [],
             "Hash Brown Patties": [],
             "Vegetable Rice Soup": [],
             "Chef's Choice Soup": [],
             "Breakfast Smoothie Bowl": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pepperoni and Cheese Pizza": ["M", "W", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Vegetable Rice Soup": [],
-            "Chef's Choice Soup": [],
-            "Chicken Quesadilla": [],
-            "Kimchi Fried Rice with Beef": [],
-            "Vegan Gardein Chicken Tenders": [],
-            "Pepperoni and Cheese Pizza": []
-          },
           "Beachside": {
-            "Lobster Bisque": [],
+            "Lobster Bisque": ["M", "W", "C", "F"],
             "Homestyle Beef Stew with Mushrooms": [],
             "Lentil Taco": [],
-            "Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Burgers and Hot Dogs": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
+          "Parkside": {
+            "Vegetable Rice Soup": [],
+            "Chef's Choice Soup": [],
+            "Chicken Quesadilla": ["M", "W"],
+            "Kimchi Fried Rice with Beef": ["W", "S", "F"],
+            "Vegan Gardein Chicken Tenders": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           }
         }
       }
@@ -1859,466 +2036,484 @@
       "Monday": {
         "Breakfast": {
           "Beachside": {
-            "Breakfast Sandwich on Naan Bread": [],
+            "Breakfast Sandwich on Naan Bread": ["E", "W", "M", "S"],
             "Chorizo Patties": [],
             "Homestyle Potatoes": []
           },
           "Hillside": {
-            "Pancakes with Fruit Topping": [],
+            "Pancakes with Fruit Topping": ["M", "W", "S"],
             "Kielbasa": [],
             "Hash Browns": []
           },
           "Parkside": {
-            "Confetti Pancakes": [],
+            "Confetti Pancakes": ["M", "W", "S"],
             "Kielbasa": [],
             "Cajun Potatoes": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Pork Pozole": [],
-            "Broccoli Cheddar Soup": [],
-            "Caprese Sandwich": [],
-            "Beef Taquitos": [],
-            "Pineapple Thai Chicken Fried Rice": [],
-            "Vegan Lasagna": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
-            "Beef Stroganoff": [],
-            "Kung Pao Cauliflower": [],
-            "Gyro Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken Noodle Soup": ["W", "E"],
+            "Beef Stroganoff": ["W", "M"],
+            "Kung Pao Cauliflower": ["S", "W", "E"],
+            "Gyro Sandwich": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Cream of Celery Soup": [],
-            "Chicken Noodle Soup": [],
-            "Caesar Salad": [],
-            "Pesto Turkey and Provolone on Ciabatta": [],
-            "Crispy Chicken Taquitos": [],
+            "Cream of Celery Soup": ["M", "W", "S"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Caesar Salad": ["M", "W", "E"],
+            "Pesto Turkey and Provolone on Ciabatta": ["M", "W", "S"],
+            "Crispy Chicken Taquitos": ["S", "W"],
             "Crispy Potato Taco": [],
             "Build Your Own Grain Bowl": [],
-            "Monte Cristo": []
+            "Monte Cristo": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Pork Pozole": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Caprese Sandwich": ["M", "W"],
+            "Beef Taquitos": ["W", "S"],
+            "Pineapple Thai Chicken Fried Rice": [],
+            "Vegan Lasagna": ["S"],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Pork Pozole": [],
-            "Broccoli Cheddar Soup": [],
-            "Caprese Sandwich": [],
-            "Hamburger Bar": [],
-            "Hot Dog": [],
-            "Tahini Chickpea Bowl": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
-            "Chicken Noodle Soup": [],
+            "Chicken Noodle Soup": ["W", "E"],
             "Chicken Birria": [],
-            "Eggplant Parmesan": [],
-            "Turkey Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Eggplant Parmesan": ["W", "M", "S"],
+            "Turkey Burgers and Hot Dogs": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Cream of Celery Soup": [],
-            "Chicken Noodle Soup": [],
-            "Caesar Salad": [],
-            "Create Your Own Chicken Fries": [],
+            "Cream of Celery Soup": ["M", "W", "S"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Caesar Salad": ["M", "W", "E"],
+            "Create Your Own Chicken Fries": ["W"],
             "Texas Style Pork Ribs": [],
-            "Kung Pao Gardein Chicken": [],
+            "Kung Pao Gardein Chicken": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Monte Cristo": []
+            "Monte Cristo": ["E", "M", "W"]
+          },
+          "Parkside": {
+            "Pork Pozole": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Caprese Sandwich": ["M", "W"],
+            "Hamburger Bar": ["W"],
+            "Hot Dog": ["W"],
+            "Tahini Chickpea Bowl": ["W"],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         }
       },
       "Tuesday": {
         "Breakfast": {
           "Beachside": {
-            "Bacon Fried Rice": [],
+            "Bacon Fried Rice": ["S", "W", "E"],
             "Kielbasa": [],
             "Hash Brown Patties": []
           },
           "Hillside": {
-            "Biscuit and Country Gravy": [],
+            "Biscuit and Country Gravy": ["M", "W", "S"],
             "Canadian Bacon": [],
             "Country Potatoes": []
           },
           "Parkside": {
-            "Soyrizo Chorizo, Egg, Potato and Cheese Breakfast Burrito": [],
+            "Soyrizo Chorizo, Egg, Potato and Cheese Breakfast Burrito": [
+              "E",
+              "M",
+              "W",
+              "S"
+            ],
             "Bacon": [],
             "Hash Browns": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Miso Soup": [],
-            "Italian Wedding Soup": [],
-            "Kale and Quinoa Salad": [],
-            "Beef Birria Ramen": [],
-            "Chicken Tenders": [],
-            "Plant-Based Chicken Chow Mein": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
-            "Chicken\u00a0Piccata": [],
-            "Manicotti with Pesto Kale Sauce": [],
-            "Rueben Sandwich": [],
-            "Pepperoni and Cheese Pizza": []
+            "Chicken\u00a0Piccata": ["W", "M"],
+            "Manicotti with Pesto Kale Sauce": ["W", "M", "E", "S"],
+            "Rueben Sandwich": ["W", "E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Minestrone Soup": [],
-            "Potato and Bacon Soup": [],
+            "Minestrone Soup": ["W"],
+            "Potato and Bacon Soup": ["M", "W", "S"],
             "Spicy Fruit Cup": [],
             "Grilled Thai Chicken": [],
-            "Carnitas Sopes": [],
-            "Pasta w/Gardein Meat Sauce": [],
+            "Carnitas Sopes": ["M"],
+            "Pasta w/Gardein Meat Sauce": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Kung Pao Chicken": []
+            "Kung Pao Chicken": ["S", "W"]
+          },
+          "Parkside": {
+            "Miso Soup": ["F", "S", "M"],
+            "Italian Wedding Soup": ["S", "W", "M"],
+            "Kale and Quinoa Salad": [],
+            "Beef Birria Ramen": ["W", "E"],
+            "Chicken Tenders": ["W"],
+            "Plant-Based Chicken Chow Mein": ["W", "S"],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Miso Soup": [],
-            "Italian Wedding Soup": [],
-            "Kale and Quinoa Salad": [],
-            "Chicken Pesto Pasta": [],
-            "Honey Cream Shrimp": [],
-            "Gardein Enchilada Scaloppine": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
             "Pork Pozole": [],
-            "Citrus Peppercorn Tilapia": [],
-            "Jackfruit Chile Verde": [],
-            "Mushroom Swiss Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Citrus Peppercorn Tilapia": ["F", "S"],
+            "Jackfruit Chile Verde": ["S", "W"],
+            "Mushroom Swiss Burgers and Hot Dogs": ["W", "E", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Minestrone Soup": [],
-            "Potato and Bacon Soup": [],
+            "Minestrone Soup": ["W"],
+            "Potato and Bacon Soup": ["M", "W", "S"],
             "Spicy Fruit Cup": [],
             "Pork Chile Verde": [],
             "Roasted Harissa Chicken": [],
-            "Brown Rice and Quinoa W/Roasted Tomatoes": ["W"],
+            "Brown Rice and Quinoa W/Roasted Tomatoes": [],
             "Build Your Own Grain Bowl": [],
-            "Kung Pao Chicken": []
+            "Kung Pao Chicken": ["S", "W"]
+          },
+          "Parkside": {
+            "Miso Soup": ["F", "S", "M"],
+            "Italian Wedding Soup": ["S", "W", "M"],
+            "Kale and Quinoa Salad": [],
+            "Chicken Pesto Pasta": ["W", "M"],
+            "Honey Cream Shrimp": ["W", "M", "C"],
+            "Gardein Enchilada Scaloppine": ["S", "W"],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         }
       },
       "Wednesday": {
         "Breakfast": {
           "Beachside": {
-            "Breakfast Burrito": [],
+            "Breakfast Burrito": ["E", "W", "M"],
             "Pork Links": [],
             "Country Potatoes": []
           },
           "Hillside": {
-            "Soyrizo and Egg Burrito": [],
+            "Soyrizo and Egg Burrito": ["E", "W", "S"],
             "Turkey Sausage Patties": [],
-            "Potatoes O'Brien": ["O"]
+            "Potatoes O'Brien": []
           },
           "Parkside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W"],
             "Turkey Sausage": [],
             "Hash Brown Patties": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Potato and Bacon Soup": [],
-            "Chicken Noodle Soup": [],
-            "Spinach Salad": [],
-            "Upside Down Beef Tostada": [],
-            "Garlic Parmesan Fried Chicken Sandwich": [],
-            "Falafel Bowl": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
             "Beef Flank Steak with Chimichurri Sauce": [],
-            "Mac 'n Cheese Bar": [],
-            "Souvlaki Chicken Wrap": [],
-            "Pepperoni and Cheese Pizza": []
+            "Mac 'n Cheese Bar": ["W", "M", "S"],
+            "Souvlaki Chicken Wrap": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Corn Chowder": [],
+            "Corn Chowder": ["M", "S", "W"],
             "Pork Pozole Rojo": [],
-            "Greek Salad": [],
-            "Baked Ziti": [],
+            "Greek Salad": ["M"],
+            "Baked Ziti": ["M", "W"],
             "Grilled Beef Flank Steak with Chimichurri Sauce": [],
-            "Gardein Orange Chicken": [],
+            "Gardein Orange Chicken": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Chicken Mulitas": []
+            "Chicken Mulitas": ["M"]
+          },
+          "Parkside": {
+            "Potato and Bacon Soup": ["M", "S", "W"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Spinach Salad": [],
+            "Upside Down Beef Tostada": [],
+            "Garlic Parmesan Fried Chicken Sandwich": ["M", "W", "S"],
+            "Falafel Bowl": [],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Potato and Bacon Soup": [],
-            "Chicken Noodle Soup": [],
-            "Spinach Salad": [],
-            "Butter Chicken": [],
-            "Beef and Broccoli Stir-Fry": [],
-            "Thai Curry Tofu": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
-            "Broccoli Cheddar Soup": [],
-            "Tandoori Chicken": [],
-            "Ratatouille": [],
-            "BBQ Western Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Tandoori Chicken": ["M"],
+            "Ratatouille": ["S"],
+            "BBQ Western Burgers and Hot Dogs": ["W", "M", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Corn Chowder Soup": [],
+            "Corn Chowder Soup": ["M", "S", "W"],
             "Pork Pozole Rojo": [],
-            "Greek Salad": [],
-            "BBQ Chicken Sandwich": [],
-            "Meat Lasagna": [],
-            "Gardein Chicken Tenders": [],
+            "Greek Salad": ["M"],
+            "BBQ Chicken Sandwich": ["W"],
+            "Meat Lasagna": ["M", "W", "S"],
+            "Gardein Chicken Tenders": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Chicken Mulitas": []
+            "Chicken Mulitas": ["M"]
+          },
+          "Parkside": {
+            "Potato and Bacon Soup": ["M", "S", "W"],
+            "Chicken Noodle Soup": ["W", "E"],
+            "Spinach Salad": [],
+            "Butter Chicken": ["M"],
+            "Beef and Broccoli Stir-Fry": ["S", "W"],
+            "Thai Curry Tofu": ["S"],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         }
       },
       "Thursday": {
         "Breakfast": {
           "Beachside": {
-            "Egg, Spinach and Cheese Sandwich on a Croissant": [],
+            "Egg, Spinach and Cheese Sandwich on a Croissant": [
+              "E",
+              "M",
+              "W",
+              "S"
+            ],
             "Bacon": [],
             "Hash Browns": []
           },
           "Hillside": {
-            "French Toast": [],
+            "French Toast": ["E", "M", "W"],
             "Sausage Pork Links": [],
             "Hash Brown Patties": []
           },
           "Parkside": {
-            "Waffle Sticks": [],
+            "Waffle Sticks": ["E", "M", "S", "W"],
             "Sausage Patties": [],
             "Tater Tots": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Tomato Basil Soup": [],
-            "Caldo de Res": [],
-            "Veggie Purple Rice Kimbap": [],
-            "Cheese Ravioli with Marinara": [],
-            "Cajun Shrimp Boil": [],
-            "Plant-Based Orange Chicken": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Chicken Bacon Alfredo Pasta": [],
-            "Pasta with Gardein Meatballs": [],
-            "Poke Bowl": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Chicken Bacon Alfredo Pasta": ["M", "W"],
+            "Pasta with Gardein Meatballs": ["S", "W"],
+            "Poke Bowl": ["W", "F", "S"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
             "Chicken and Rice Soup": [],
-            "Tomato Basil Soup": [],
+            "Tomato Basil Soup": ["M", "W"],
             "Apple Walnut Salad": [],
-            "Creamy Mushroom Alfredo Pasta": [],
-            "Bacon Cheeseburger": [],
-            "General Tso's Gardein Beef": [],
+            "Creamy Mushroom Alfredo Pasta": ["M", "W"],
+            "Bacon Cheeseburger": ["W", "M"],
+            "General Tso's Gardein Beef": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Korean BBQ Pork Nuggets": []
+            "Korean BBQ Pork Nuggets": ["W", "S"]
+          },
+          "Parkside": {
+            "Tomato Basil Soup": ["M", "W"],
+            "Caldo de Res": [],
+            "Veggie Purple Rice Kimbap": ["E"],
+            "Cheese Ravioli with Marinara": ["M", "W"],
+            "Cajun Shrimp Boil": ["C"],
+            "Plant-Based Orange Chicken": ["S", "W"],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Tomato Basil Soup": [],
-            "Caldo de Res": [],
-            "Veggie Purple Rice Kimbap": [],
-            "Spicy Korean Chicken Bao": [],
-            "Beef Lomo Saltado": [],
-            "Pasta with Vegan Meatballs": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
-            "Tom Yum Soup": [],
-            "Teriyaki Chicken": [],
-            "Gardein Beef Teriayaki": [],
-            "Guacamole Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Tom Yum Soup": ["W", "C", "S"],
+            "Teriyaki Chicken": ["S", "W"],
+            "Gardein Beef Teriayaki": ["S", "W"],
+            "Guacamole Burgers and Hot Dogs": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
             "Chicken and Rice Soup": [],
-            "Tomato Basil Soup": [],
+            "Tomato Basil Soup": ["M", "W"],
             "Apple Walnut Salad": [],
-            "Teriyaki Chicken S": ["S"],
-            "Loaded Grilled Cheese Sandwich": [],
-            "Vegetable Egg Rolls": [],
+            "Teriyaki Chicken S": ["W"],
+            "Loaded Grilled Cheese Sandwich": ["M", "W", "S"],
+            "Vegetable Egg Rolls": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Korean BBQ Pork Nuggets": []
+            "Korean BBQ Pork Nuggets": ["W", "S"]
+          },
+          "Parkside": {
+            "Tomato Basil Soup": ["M", "W"],
+            "Caldo de Res": [],
+            "Veggie Purple Rice Kimbap": ["E"],
+            "Spicy Korean Chicken Bao": ["W", "S"],
+            "Beef Lomo Saltado": ["S", "W"],
+            "Pasta with Vegan Meatballs": ["S", "W"],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         }
       },
       "Friday": {
         "Breakfast": {
           "Beachside": {
-            "Chilaquiles Verdes": [],
+            "Chilaquiles Verdes": ["M"],
             "Grilled Breakfast Steak": [],
             "Papas Ala Mexicana": []
           },
           "Hillside": {
-            "Sausage, Egg and Cheese on English Muffin Sandwich": [],
+            "Sausage, Egg and Cheese on English Muffin Sandwich": [
+              "W",
+              "E",
+              "M",
+              "S"
+            ],
             "Bacon": [],
-            "Soyrizo and Potato Hash": []
+            "Soyrizo and Potato Hash": ["S"]
           },
           "Parkside": {
-            "Turkey, Egg and Cheese Sandwich on Croissant": [],
+            "Turkey, Egg and Cheese Sandwich on Croissant": [
+              "E",
+              "M",
+              "S",
+              "W"
+            ],
             "Bacon": [],
-            "Potatoes O'Brien": ["O"]
+            "Potatoes O'Brien": []
           }
         },
         "Lunch": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Chicken Caesar Salad with Cilantro Dressing": [],
-            "Chicken and Cheese Enchiladas": [],
-            "White Fish with Herb Cream Sauce": [],
-            "Spicy Korean Tofu Bowl": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
-            "Creole Style Shrimp, Chicken and Sausage Gumbo": [],
-            "Edamame and Tofu Fried Rice": [],
-            "Pepperoni and Cheese Pizza": []
+            "Clam Chowder": ["M", "W", "C"],
+            "Creole Style Shrimp, Chicken and Sausage Gumbo": ["C"],
+            "Edamame and Tofu Fried Rice": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Clam Chowder": [],
-            "Vegetable Noodle Soup": [],
-            "Roll Your Own California Sushi": [],
-            "Salmon Florentine": [],
-            "Spicy Miso Pork Ramen": [],
-            "Edamame Fried Rice": [],
+            "Clam Chowder": ["M", "W", "C"],
+            "Vegetable Noodle Soup": ["W", "E"],
+            "Roll Your Own California Sushi": ["F", "E", "W", "S", "C"],
+            "Salmon Florentine": ["F", "W", "M"],
+            "Spicy Miso Pork Ramen": ["F", "E", "W", "S"],
+            "Edamame Fried Rice": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Fruit Crepes": []
+            "Fruit Crepes": ["E", "W", "S"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Chicken Caesar Salad with Cilantro Dressing": ["M"],
+            "Chicken and Cheese Enchiladas": ["M", "S", "W"],
+            "White Fish with Herb Cream Sauce": ["F", "M", "W"],
+            "Spicy Korean Tofu Bowl": ["S", "W"],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
-          "Parkside": {
-            "Beachside": [],
-            "Clam Chowder": [],
-            "Chef's Choice Soup": [],
-            "Chicken Caesar Salad with Cilantro Dressing": [],
-            "Breakfast for Dinner": [],
-            "Wasabi Ginger Salmon": [],
-            "Ratatouille": [],
-            "Supreme Pizza": []
-          },
           "Beachside": {
-            "Clam Chowder": [],
-            "Spicy Crusted Salmon with Coconut Sauce": [],
-            "Tofu and Eggplant Stir Fry": [],
-            "Pepperoni and Cheese Pizza": []
+            "Clam Chowder": ["M", "W", "C"],
+            "Spicy Crusted Salmon with Coconut Sauce": ["F", "M", "W", "S"],
+            "Tofu and Eggplant Stir Fry": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "Clam Chowder": [],
-            "Vegetable Noodle Soup": [],
-            "Roll Your Own California Sushi": [],
+            "Clam Chowder": ["M", "W", "C"],
+            "Vegetable Noodle Soup": ["W", "E"],
+            "Roll Your Own California Sushi": ["F", "E", "W", "S", "C"],
             "Beef Red Chile Colorado": [],
-            "Sweet Chili Stir-Fry Shrimp": [],
-            "Vegan Fish and Chips": [],
+            "Sweet Chili Stir-Fry Shrimp": ["C"],
+            "Vegan Fish and Chips": ["S", "W"],
             "Build Your Own Grain Bowl": [],
-            "Fruit Crepes": []
+            "Fruit Crepes": ["E", "W", "S"]
+          },
+          "Parkside": {
+            "Clam Chowder": ["M", "W", "S", "C"],
+            "Chef's Choice Soup": [],
+            "Chicken Caesar Salad with Cilantro Dressing": ["M"],
+            "Breakfast for Dinner": ["E", "W", "M", "S"],
+            "Wasabi Ginger Salmon": ["F", "S", "W"],
+            "Ratatouille": [],
+            "Supreme Pizza": ["W", "M", "S"]
           }
         }
       },
       "Saturday": {
         "Brunch": {
           "Beachside": {
-            "French Toast": [],
+            "French Toast": ["E", "W", "M", "S"],
             "Grilled Ham": [],
             "Tater Tots": [],
-            "Potato Bacon Soup": [],
-            "Taquito Bar": [],
-            "Gardein Beef Fajitas": [],
-            "Pepperoni and Cheese Pizza": []
+            "Potato Bacon Soup": ["W", "M", "S"],
+            "Taquito Bar": ["W", "M", "S"],
+            "Gardein Beef Fajitas": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Hillside": {
-            "French Toast Sticks": [],
+            "French Toast Sticks": ["E", "M", "W"],
             "Chicken and Apple Sausage": [],
             "Tater Tots": [],
-            "Italian Wedding Soup": [],
-            "Broccoli Cheddar Soup": [],
-            "Yogurt Parfait Bar": []
+            "Italian Wedding Soup": ["M", "W", "S"],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Yogurt Parfait Bar": ["M", "W"]
           }
         },
         "Dinner": {
-          "Hillside": {
-            "Beachside": [],
-            "Italian Wedding Soup": [],
-            "Broccoli Cheddar Soup": [],
-            "Agua Fresca Bar": [],
-            "Chicken and Cheese Enchiladas": [],
-            "Eggrolls with Fried Rice": [],
-            "Gardein Fajitas": [],
-            "Mozzarella Sticks": []
-          },
           "Beachside": {
-            "Potato Bacon Soup": [],
-            "Sweet and Sour Chicken": [],
-            "Cheese Ravioli": [],
-            "Pepperoni and Cheese Pizza": []
+            "Potato Bacon Soup": ["W", "M", "S"],
+            "Sweet and Sour Chicken": ["W", "S"],
+            "Cheese Ravioli": ["E", "M", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
+          "Hillside": {
+            "Italian Wedding Soup": ["M", "W", "S"],
+            "Broccoli Cheddar Soup": ["M", "W", "S"],
+            "Agua Fresca Bar": [],
+            "Chicken and Cheese Enchiladas": ["W", "M", "S"],
+            "Eggrolls with Fried Rice": ["S", "W"],
+            "Gardein Fajitas": ["S", "W"],
+            "Mozzarella Sticks": ["M", "W"]
           }
         }
       },
       "Sunday": {
         "Brunch": {
           "Beachside": {
-            "Chocolate Chip Pancakes": [],
+            "Chocolate Chip Pancakes": ["M", "W", "S"],
             "Sausage Patties": [],
             "Hash Brown Patties": [],
-            "Lobster Bisque": [],
+            "Lobster Bisque": ["M", "W", "C", "F"],
             "Herb Chicken": [],
-            "Pasta with Gardein Meat Sauce": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pasta with Gardein Meat Sauce": ["S", "W"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           },
           "Parkside": {
-            "French Toast Sticks": [],
+            "French Toast Sticks": ["E", "M", "W", "S"],
             "Sausage Links": [],
             "Hash Brown Patties": [],
             "Beef and Rice Soup": [],
             "Chef's Choice Soup": [],
             "Fresh Juice of the Day": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
           }
         },
         "Dinner": {
+          "Beachside": {
+            "Lobster Bisque": ["M", "W", "C", "F"],
+            "Meatloaf": ["W", "E", "S"],
+            "Curry Chickpea and Vegetables": [],
+            "Burgers and Hot Dogs": ["W", "M"],
+            "Pepperoni and Cheese Pizza": ["W", "M", "S"]
+          },
           "Parkside": {
-            "Beachside": [],
             "Beef and Rice Soup": [],
             "Chef's Choice Soup": [],
-            "Kung Pao Chicken": [],
+            "Kung Pao Chicken": ["S"],
             "Carne Asada Taco": [],
             "The Buddha Bowl": [],
-            "Pepperoni and Cheese Pizza": []
-          },
-          "Beachside": {
-            "Lobster Bisque": [],
-            "Meatloaf": [],
-            "Curry Chickpea and Vegetables": [],
-            "Burgers and Hot Dogs": [],
-            "Pepperoni and Cheese Pizza": []
+            "Pepperoni and Cheese Pizza": ["M", "W", "S"]
           }
         }
-      },
-      "Allergen": {}
+      }
     }
+  },
+  "Allergens": {
+    "M": "Milk",
+    "F": "Fish",
+    "S": "Soy",
+    "P": "Peanuts",
+    "TN": "Tree Nuts",
+    "W": "Wheat",
+    "E": "Eggs",
+    "SF-C": "Shellfish/Crustacean",
+    "SS": "Sesame Seeds"
   }
 }

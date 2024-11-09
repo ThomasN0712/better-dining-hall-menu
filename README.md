@@ -18,6 +18,9 @@
 - Presenting data in a user-friendly interface.
 - Allowing users to track favorite menu items.
 - Sending daily email reminders and alerts for favorite items.
+- User can rate the item, make a leader board.
+- Put flyer in the dining hall (ask for permission)
+- Leave public comment about the item (use bot to detect bad comment)
 
 ---
 

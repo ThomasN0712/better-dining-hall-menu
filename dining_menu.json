@@ -1,375 +1,375 @@
 {
-    "Cycle Dates": {
-        "Fall 2024 Residential Dining Menu Cycle Dates": [
-            {
-                "week_of": "Aug 26",
-                "menu_cycle": "1"
-            },
-            {
-                "week_of": "Sept 2",
-                "menu_cycle": "2"
-            },
-            {
-                "week_of": "Sept 9",
-                "menu_cycle": "3"
-            },
-            {
-                "week_of": "Sept 16",
-                "menu_cycle": "4"
-            },
-            {
-                "week_of": "Sept 23",
-                "menu_cycle": "5"
-            },
-            {
-                "week_of": "Sept 30",
-                "menu_cycle": "1"
-            },
-            {
-                "week_of": "Oct 7",
-                "menu_cycle": "2"
-            },
-            {
-                "week_of": "Oct 14",
-                "menu_cycle": "3"
-            },
-            {
-                "week_of": "Oct 21",
-                "menu_cycle": "4"
-            },
-            {
-                "week_of": "Oct 28",
-                "menu_cycle": "5"
-            },
-            {
-                "week_of": "Nov 4",
-                "menu_cycle": "1"
-            },
-            {
-                "week_of": "Nov 11",
-                "menu_cycle": "2"
-            },
-            {
-                "week_of": "Nov 18",
-                "menu_cycle": "3"
-            },
-            {
-                "week_of": "Nov 25",
-                "menu_cycle": "4"
-            },
-            {
-                "week_of": "Dec 2",
-                "menu_cycle": "5"
-            }
-        ],
-        "Spring 2025 Residential Dining Menu Cycle Dates": [
-            {
-                "week_of": "Jan 20",
-                "menu_cycle": "1"
-            },
-            {
-                "week_of": "Jan 27",
-                "menu_cycle": "2"
-            },
-            {
-                "week_of": "Feb 3",
-                "menu_cycle": "3"
-            },
-            {
-                "week_of": "Feb 10",
-                "menu_cycle": "4"
-            },
-            {
-                "week_of": "Feb 17",
-                "menu_cycle": "5"
-            },
-            {
-                "week_of": "Feb 24",
-                "menu_cycle": "1"
-            },
-            {
-                "week_of": "Mar 3",
-                "menu_cycle": "2"
-            },
-            {
-                "week_of": "Mar 10",
-                "menu_cycle": "3"
-            },
-            {
-                "week_of": "Mar 17",
-                "menu_cycle": "4"
-            },
-            {
-                "week_of": "Mar 24",
-                "menu_cycle": "5"
-            },
-            {
-                "week_of": "Mar 31",
-                "menu_cycle": "1"
-            },
-            {
-                "week_of": "Apr 7",
-                "menu_cycle": "2"
-            },
-            {
-                "week_of": "Apr 14",
-                "menu_cycle": "3"
-            },
-            {
-                "week_of": "Apr 21",
-                "menu_cycle": "4"
-            },
-            {
-                "week_of": "Apr 28",
-                "menu_cycle": "5"
-            },
-            {
-                "week_of": "May 5",
-                "menu_cycle": "1"
-            }
-        ]
+  "Cycle Dates": {
+    "Fall 2024 Residential Dining Menu Cycle Dates": [
+      {
+        "week_of": "Aug 26",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Sept 2",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Sept 9",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Sept 16",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Sept 23",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "Sept 30",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Oct 7",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Oct 14",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Oct 21",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Oct 28",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "Nov 4",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Nov 11",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Nov 18",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Nov 25",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Dec 2",
+        "menu_cycle": "5"
+      }
+    ],
+    "Spring 2025 Residential Dining Menu Cycle Dates": [
+      {
+        "week_of": "Jan 20",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Jan 27",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Feb 3",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Feb 10",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Feb 17",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "Feb 24",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Mar 3",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Mar 10",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Mar 17",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Mar 24",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "Mar 31",
+        "menu_cycle": "1"
+      },
+      {
+        "week_of": "Apr 7",
+        "menu_cycle": "2"
+      },
+      {
+        "week_of": "Apr 14",
+        "menu_cycle": "3"
+      },
+      {
+        "week_of": "Apr 21",
+        "menu_cycle": "4"
+      },
+      {
+        "week_of": "Apr 28",
+        "menu_cycle": "5"
+      },
+      {
+        "week_of": "May 5",
+        "menu_cycle": "1"
+      }
+    ]
+  },
+  "Always Available": {
+    "Breakfast": [
+      "Scrambled Eggs",
+      "Oatmeal",
+      "Waffle Bar",
+      "Assorted Fruit Juice",
+      "Milk and Non-Dairy Milk",
+      "Assorted Cereals",
+      "Fresh Fruit",
+      "Deli Bar",
+      "Assorted Sparkling Water",
+      "Assorted Flavored Waters",
+      "Assorted Soft Drinks",
+      "Assorted Breakfast Pastries"
+    ],
+    "Lunch": [
+      "Assorted Fruit Juice",
+      "Milk and Non-Dairy Milk",
+      "Assorted Cereals",
+      "Fresh Fruit",
+      "Chef's Choice",
+      "Salad Bar",
+      "Deli Bar",
+      "Assorted Sparkling Water",
+      "Assorted Flavored Waters",
+      "Assorted Soft Drinks",
+      "Assorted Desserts",
+      "Novelty Ice Creams"
+    ],
+    "Dinner": [
+      "Assorted Fruit Juice",
+      "Milk and Non-Dairy Milk",
+      "Assorted Cereals",
+      "Fresh Fruit",
+      "Salad Bar",
+      "Deli Bar",
+      "Chef's Choice",
+      "Assorted Sparkling Water",
+      "Assorted Flavored Waters",
+      "Assorted Soft Drinks",
+      "Assorted Desserts",
+      "Novelty Ice Creams"
+    ]
+  },
+  "Daily Menus": {
+    "Cycle 1 Menu": {
+      "Monday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Tuesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Wednesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Thursday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Friday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Saturday": {
+        "Brunch": [],
+        "Dinner": []
+      },
+      "Sunday": {
+        "Brunch": [],
+        "Dinner": []
+      }
     },
-    "Always Available": {
-        "Breakfast": [
-            "Scrambled Eggs",
-            "Oatmeal",
-            "Waffle Bar",
-            "Assorted Fruit Juice",
-            "Milk and Non-Dairy Milk",
-            "Assorted Cereals",
-            "Fresh Fruit",
-            "Deli Bar",
-            "Assorted Sparkling Water",
-            "Assorted Flavored Waters",
-            "Assorted Soft Drinks",
-            "Assorted Breakfast Pastries"
-        ],
-        "Lunch": [
-            "Assorted Fruit Juice",
-            "Milk and Non-Dairy Milk",
-            "Assorted Cereals",
-            "Fresh Fruit",
-            "Chef's Choice",
-            "Salad Bar",
-            "Deli Bar",
-            "Assorted Sparkling Water",
-            "Assorted Flavored Waters",
-            "Assorted Soft Drinks",
-            "Assorted Desserts",
-            "Novelty Ice Creams"
-        ],
-        "Dinner": [
-            "Assorted Fruit Juice",
-            "Milk and Non-Dairy Milk",
-            "Assorted Cereals",
-            "Fresh Fruit",
-            "Salad Bar",
-            "Deli Bar",
-            "Chef's Choice",
-            "Assorted Sparkling Water",
-            "Assorted Flavored Waters",
-            "Assorted Soft Drinks",
-            "Assorted Desserts",
-            "Novelty Ice Creams"
-        ]
+    "Cycle 2 Menu": {
+      "Monday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Tuesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Wednesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Thursday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Friday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Saturday": {
+        "Brunch": [],
+        "Dinner": []
+      },
+      "Sunday": {
+        "Brunch": [],
+        "Dinner": []
+      }
     },
-    "Daily Menus": {
-        "Cycle 1 Menu": {
-            "Monday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Tuesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Wednesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Thursday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Friday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Saturday": {
-                "Brunch": [],
-                "Dinner": []
-            },
-            "Sunday": {
-                "Brunch": [],
-                "Dinner": []
-            }
-        },
-        "Cycle 2 Menu": {
-            "Monday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Tuesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Wednesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Thursday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Friday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Saturday": {
-                "Brunch": [],
-                "Dinner": []
-            },
-            "Sunday": {
-                "Brunch": [],
-                "Dinner": []
-            }
-        },
-        "Cycle 3 Menu": {
-            "Monday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Tuesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Wednesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Thursday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Friday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Saturday": {
-                "Brunch": [],
-                "Dinner": []
-            },
-            "Sunday": {
-                "Brunch": [],
-                "Dinner": []
-            }
-        },
-        "Cycle 4 Menu": {
-            "Monday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Tuesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Wednesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Thursday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Friday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Saturday": {
-                "Brunch": [],
-                "Dinner": []
-            },
-            "Sunday": {
-                "Brunch": [],
-                "Dinner": []
-            }
-        },
-        "Cycle 5 Menu": {
-            "Monday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Tuesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Wednesday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Thursday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Friday": {
-                "Breakfast": [],
-                "Lunch": [],
-                "Dinner": []
-            },
-            "Saturday": {
-                "Brunch": [],
-                "Dinner": []
-            },
-            "Sunday": {
-                "Brunch": [],
-                "Dinner": []
-            },
-            "Allergen": {
-                "M": [],
-                "F": [],
-                "S": [],
-                "P": [],
-                "TN": [],
-                "W": [],
-                "E": [],
-                "SF-C": [],
-                "SS": []
-            }
-        }
+    "Cycle 3 Menu": {
+      "Monday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Tuesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Wednesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Thursday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Friday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Saturday": {
+        "Brunch": [],
+        "Dinner": []
+      },
+      "Sunday": {
+        "Brunch": [],
+        "Dinner": []
+      }
     },
-    "Allergens": {
-        "M": "Milk",
-        "F": "Fish",
-        "S": "Soy",
-        "P": "Peanuts",
-        "TN": "Tree Nuts",
-        "W": "Wheat",
-        "E": "Eggs",
-        "SF-C": "Shellfish/Crustacean",
-        "SS": "Sesame Seeds"
+    "Cycle 4 Menu": {
+      "Monday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Tuesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Wednesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Thursday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Friday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Saturday": {
+        "Brunch": [],
+        "Dinner": []
+      },
+      "Sunday": {
+        "Brunch": [],
+        "Dinner": []
+      }
+    },
+    "Cycle 5 Menu": {
+      "Monday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Tuesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Wednesday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Thursday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Friday": {
+        "Breakfast": [],
+        "Lunch": [],
+        "Dinner": []
+      },
+      "Saturday": {
+        "Brunch": [],
+        "Dinner": []
+      },
+      "Sunday": {
+        "Brunch": [],
+        "Dinner": []
+      },
+      "Allergen": {
+        "M": [],
+        "F": [],
+        "S": [],
+        "P": [],
+        "TN": [],
+        "W": [],
+        "E": [],
+        "SF-C": [],
+        "SS": []
+      }
     }
+  },
+  "Allergens": {
+    "M": "Milk",
+    "F": "Fish",
+    "S": "Soy",
+    "P": "Peanuts",
+    "TN": "Tree Nuts",
+    "W": "Wheat",
+    "E": "Eggs",
+    "SF-C": "Shellfish/Crustacean",
+    "SS": "Sesame Seeds"
+  }
 }

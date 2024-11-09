@@ -1,8 +1,14 @@
 # better-dining-hall-menu
 
-Sure! Here's a summarized version of the tech stack and development steps for your project that you can include in your notes.
+## \*\* Scrapping Note:
 
----
+- Cycle Date start on Monday
+- Section:
+
+1. Cycle date
+2. always available
+3. beach days (can ignore for now)
+4. 5 cycles and 7 days of the week
 
 ## **Project Summary**
 

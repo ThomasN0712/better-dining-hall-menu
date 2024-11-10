@@ -1,14 +1,22 @@
 import json
+import os
 import psycopg2
+import re
 from datetime import datetime
+from dotenv import load_dotenv
 
 # Load JSON data
 with open('dining_menu.json') as f:
     data = json.load(f)
 
-# Connect to the database
+# Connect to the database using environment variables
+load_dotenv()
 conn = psycopg2.connect(
-    dbname="dining_hall_menu", user="postgres", password="0712", host="localhost"
+    dbname=os.getenv("DB_NAME"),
+    user=os.getenv("DB_USER"),
+    password=os.getenv("DB_PASSWORD"),
+    host=os.getenv("DB_HOST"),
+    port=os.getenv("DB_PORT")
 )
 cur = conn.cursor()
 
@@ -18,23 +26,30 @@ def fix_month_abbr(week_of):
 
 # Insert into Cycle and Day tables
 for cycle_name, cycle_data in data["Cycle Dates"].items():
+    # Extract the year from the cycle_name using a regular expression
+    year_match = re.search(r"\b\d{4}\b", cycle_name)
+    year = year_match.group() if year_match else "2024"  # default to 2024 if not found
+    
     for entry in cycle_data:
-        week_of = fix_month_abbr(entry["week_of"])  # Apply the fix here
+        week_of = fix_month_abbr(entry["week_of"]) 
         cycle_identifier = entry["menu_cycle"]
-        start_date = datetime.strptime(week_of, "%b %d")  # convert "Aug 26" to date
-        
+
+        # Append the extracted year to the date string
+        full_date_str = f"{week_of} {year}"
+        start_date = datetime.strptime(full_date_str, "%b %d %Y")  # Now it includes the year
+
         # Insert into Cycle table with the cycle identifier
         cur.execute(
             """
             INSERT INTO Cycle (cycle_name, cycle_identifier, start_date) 
             VALUES (%s, %s, %s) 
-            ON CONFLICT (cycle_name, cycle_identifier) DO NOTHING 
+            ON CONFLICT DO NOTHING 
             RETURNING cycle_id
             """,
             (cycle_name, cycle_identifier, start_date)
         )
         result = cur.fetchone()
-        
+
         # Ensure cycle_id exists if the cycle already existed
         if result:
             cycle_id = result[0]

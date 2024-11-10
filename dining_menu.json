@@ -2513,7 +2513,8 @@
     "TN": "Tree Nuts",
     "W": "Wheat",
     "E": "Eggs",
-    "SF-C": "Shellfish/Crustacean",
+    "SF": "Shellfish",
+    "C": "Crustacean",
     "SS": "Sesame Seeds"
   }
 }

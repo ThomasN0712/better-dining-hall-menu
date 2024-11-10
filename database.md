@@ -51,3 +51,59 @@
 
 - **Definition**: A junction table that links specific menu items (`item_id`) to days, locations, meal types, and allergens. It has foreign keys for `day_id`, `meal_type_id`, `location_id`, `item_id`, and `allergen_id`.
 - **Purpose**: Acts as a comprehensive connector for all menu data, specifying when (day), where (location), and for which meal (meal type) each item is available, along with any allergens it may contain. This table supports flexible querying of item availability and allergen details for each day, meal, and location.
+
+-- Cycle Table
+CREATE TABLE Cycle (
+cycle_id SERIAL PRIMARY KEY,
+cycle_name VARCHAR(50) NOT NULL,
+start_date DATE NOT NULL
+);
+
+-- Day Table
+CREATE TABLE Day (
+day_id SERIAL PRIMARY KEY,
+day_name VARCHAR(10) NOT NULL,
+cycle_id INTEGER REFERENCES Cycle(cycle_id) ON DELETE CASCADE
+);
+
+-- Location Table
+CREATE TABLE Location (
+location_id SERIAL PRIMARY KEY,
+location_name VARCHAR(50) NOT NULL
+);
+
+-- Meal_Type Table
+CREATE TABLE Meal_Type (
+meal_type_id SERIAL PRIMARY KEY,
+meal_type_name VARCHAR(20) NOT NULL
+);
+
+-- Menu_Item Table
+CREATE TABLE Menu_Item (
+item_id SERIAL PRIMARY KEY,
+item_name VARCHAR(100) NOT NULL
+);
+
+-- Allergen Table
+CREATE TABLE Allergen (
+allergen_id SERIAL PRIMARY KEY,
+allergen_code VARCHAR(5) NOT NULL,
+description VARCHAR(50) NOT NULL
+);
+
+-- Always_Available Table
+CREATE TABLE Always_Available (
+meal_type_id INTEGER REFERENCES Meal_Type(meal_type_id) ON DELETE CASCADE,
+item_id INTEGER REFERENCES Menu_Item(item_id) ON DELETE CASCADE,
+PRIMARY KEY (meal_type_id, item_id)
+);
+
+-- Menu_Availability Table (junction table linking days, locations, meal types, and items with allergens)
+CREATE TABLE Menu_Availability (
+availability_id SERIAL PRIMARY KEY,
+day_id INTEGER REFERENCES Day(day_id) ON DELETE CASCADE,
+meal_type_id INTEGER REFERENCES Meal_Type(meal_type_id) ON DELETE CASCADE,
+location_id INTEGER REFERENCES Location(location_id) ON DELETE CASCADE,
+item_id INTEGER REFERENCES Menu_Item(item_id) ON DELETE CASCADE,
+allergen_id INTEGER REFERENCES Allergen(allergen_id) ON DELETE SET NULL
+);

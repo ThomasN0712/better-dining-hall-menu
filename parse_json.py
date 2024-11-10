@@ -126,9 +126,9 @@ for code, description in allergens.items():
         (code, description)
     )
 
-# Insert Daily Menus
+# Insert Daily Menus with support for multiple allergens
 for cycle, days in data["Daily Menus"].items():
-    cycle_identifier = cycle.split()[1]  # Extract "1" from "Cycle 1 Menu"
+    cycle_identifier = cycle.split()[1] 
     cur.execute("SELECT cycle_id FROM Cycle WHERE cycle_identifier = %s", (cycle_identifier,))
     cycle_id = cur.fetchone()[0]
 
@@ -145,20 +145,13 @@ for cycle, days in data["Daily Menus"].items():
                 location_id = cur.fetchone()[0]
 
                 for item_name, allergen_codes in items.items():
-                    # Attempt to insert the item, handling cases where the item already exists
+                    # Insert menu item if not already present
                     cur.execute(
                         "INSERT INTO Menu_Item (item_name) VALUES (%s) ON CONFLICT (item_name) DO NOTHING RETURNING item_id",
                         (item_name,)
                     )
-                    result = cur.fetchone()
-                    
-                    # If result is None, the item already exists, so fetch its id
-                    if result:
-                        item_id = result[0]
-                    else:
-                        # Fetch the existing item_id since the item was not inserted due to conflict
-                        cur.execute("SELECT item_id FROM Menu_Item WHERE item_name = %s", (item_name,))
-                        item_id = cur.fetchone()[0]
+                    item_id_result = cur.fetchone()
+                    item_id = item_id_result[0] if item_id_result else None
 
                     # Insert availability with item_id, day_id, meal_type_id, and location_id
                     cur.execute(
@@ -167,23 +160,16 @@ for cycle, days in data["Daily Menus"].items():
                     )
                     availability_id = cur.fetchone()[0]
 
-                    # Add allergen information for the item
+                    # Insert each allergen into Menu_Item_Allergen table
                     for allergen_code in allergen_codes:
-                        # Fetch allergen_id based on allergen_code
                         cur.execute("SELECT allergen_id FROM Allergen WHERE allergen_code = %s", (allergen_code,))
-                        result = cur.fetchone()
-
-                        # Check if allergen_id was found
-                        if result:
-                            allergen_id = result[0]
-                            # Update the Menu_Availability with the found allergen_id
+                        allergen_result = cur.fetchone()
+                        if allergen_result:
+                            allergen_id = allergen_result[0]
                             cur.execute(
-                                "UPDATE Menu_Availability SET allergen_id = %s WHERE availability_id = %s",
-                                (allergen_id, availability_id)
+                                "INSERT INTO Menu_Item_Allergen (availability_id, allergen_id) VALUES (%s, %s) ON CONFLICT DO NOTHING",
+                                (availability_id, allergen_id)
                             )
-                        else:
-                            print(f"Warning: Allergen code '{allergen_code}' not found in Allergen table.")
-
 
 # Commit all changes and close the connection
 conn.commit()

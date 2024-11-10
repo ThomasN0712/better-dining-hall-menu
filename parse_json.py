@@ -12,31 +12,31 @@ with open('dining_menu.json') as f:
 # Connect to the database using environment variables
 load_dotenv()
 conn = psycopg2.connect(
-    dbname=os.getenv("DB_NAME"),
-    user=os.getenv("DB_USER"),
-    password=os.getenv("DB_PASSWORD"),
-    host=os.getenv("DB_HOST"),
-    port=os.getenv("DB_PORT")
+    dbname=os.getenv("DATABASE_NAME"),
+    user=os.getenv("DATABASE_USER"),
+    password=os.getenv("DATABASE_PASSWORD"),
+    host=os.getenv("DATABASE_HOST"),
+    port=os.getenv("DATABASE_PORT")
 )
 cur = conn.cursor()
 
 # Month abbreviation fix function
 def fix_month_abbr(week_of):
-    return week_of.replace("Sept", "Sep") # who store September as SEPT??? thanks school
+    return week_of.replace("Sept", "Sep")  # Convert "Sept" to "Sep"
 
 # Insert into Cycle and Day tables
 for cycle_name, cycle_data in data["Cycle Dates"].items():
-    # Extract the year from the cycle_name using a regular expression
+    # Extract the year from the cycle_name
     year_match = re.search(r"\b\d{4}\b", cycle_name)
-    year = year_match.group() if year_match else "2024"  # default to 2024 if not found
+    year = year_match.group() if year_match else "2024"  # Default to 2024 if not found
     
     for entry in cycle_data:
         week_of = fix_month_abbr(entry["week_of"]) 
         cycle_identifier = entry["menu_cycle"]
-
-        # Append the extracted year to the date string
+        
+        # Construct the full date string with the year
         full_date_str = f"{week_of} {year}"
-        start_date = datetime.strptime(full_date_str, "%b %d %Y")  # Now it includes the year
+        start_date = datetime.strptime(full_date_str, "%b %d %Y")  # Includes the year now
 
         # Insert into Cycle table with the cycle identifier
         cur.execute(
@@ -49,7 +49,7 @@ for cycle_name, cycle_data in data["Cycle Dates"].items():
             (cycle_name, cycle_identifier, start_date)
         )
         result = cur.fetchone()
-
+        
         # Ensure cycle_id exists if the cycle already existed
         if result:
             cycle_id = result[0]
@@ -89,7 +89,7 @@ for location in locations:
         (location,)
     )
 
-# Insert Menu Items and Allergens (with ON CONFLICT to avoid duplicates)
+# Insert Menu Items and Allergens (to avoid duplicates)
 for meal_type, items in data["Always Available"].items():
     cur.execute("SELECT meal_type_id FROM Meal_Type WHERE meal_type_name = %s", (meal_type,))
     meal_type_id = cur.fetchone()[0]
@@ -101,11 +101,10 @@ for meal_type, items in data["Always Available"].items():
         )
         result = cur.fetchone()
         
-        # If no result, fetch the existing item_id
+        # Fetch the item_id if it already exists
         if result:
             item_id = result[0]
         else:
-            # The item already exists, so we fetch its id
             cur.execute("SELECT item_id FROM Menu_Item WHERE item_name = %s", (item_name,))
             item_id = cur.fetchone()[0]
         
@@ -118,7 +117,7 @@ for meal_type, items in data["Always Available"].items():
 # Insert Allergens into Allergen table
 allergens = {
     "E": "Eggs", "M": "Milk", "W": "Wheat", "S": "Soy",
-    "P": "Peanuts", "TN": "Tree Nuts", "F": "Fish", "SF": "Crustacean","C": "Crustacean", "SS": "Sesame Seeds"
+    "P": "Peanuts", "TN": "Tree Nuts", "F": "Fish", "SF": "Crustacean", "SS": "Sesame Seeds"
 }
 for code, description in allergens.items():
     cur.execute(
@@ -128,7 +127,7 @@ for code, description in allergens.items():
 
 # Insert Daily Menus with support for multiple allergens
 for cycle, days in data["Daily Menus"].items():
-    cycle_identifier = cycle.split()[1] 
+    cycle_identifier = cycle.split()[1]
     cur.execute("SELECT cycle_id FROM Cycle WHERE cycle_identifier = %s", (cycle_identifier,))
     cycle_id = cur.fetchone()[0]
 
@@ -151,25 +150,43 @@ for cycle, days in data["Daily Menus"].items():
                         (item_name,)
                     )
                     item_id_result = cur.fetchone()
-                    item_id = item_id_result[0] if item_id_result else None
+                    if item_id_result:
+                        item_id = item_id_result[0]
+                    else:
+                        # The item already exists, so fetch its ID
+                        cur.execute("SELECT item_id FROM Menu_Item WHERE item_name = %s", (item_name,))
+                        item_id = cur.fetchone()[0]
 
-                    # Insert availability with item_id, day_id, meal_type_id, and location_id
+                    # Insert availability with unique day_id, meal_type_id, location_id, and item_id
                     cur.execute(
-                        "INSERT INTO Menu_Availability (day_id, meal_type_id, location_id, item_id) VALUES (%s, %s, %s, %s) RETURNING availability_id",
+                        """
+                        INSERT INTO Menu_Availability (day_id, meal_type_id, location_id, item_id) 
+                        VALUES (%s, %s, %s, %s)
+                        ON CONFLICT (day_id, meal_type_id, location_id, item_id) DO NOTHING 
+                        RETURNING availability_id
+                        """,
                         (day_id, meal_type_id, location_id, item_id)
                     )
-                    availability_id = cur.fetchone()[0]
+                    availability_result = cur.fetchone()
+                    
+                    # If availability was inserted, insert allergens for that availability_id
+                    if availability_result:
+                        availability_id = availability_result[0]
+                        # Insert each allergen for this availability
+                        for allergen_code in allergen_codes:
+                            cur.execute("SELECT allergen_id FROM Allergen WHERE allergen_code = %s", (allergen_code,))
+                            allergen_result = cur.fetchone()
+                            if allergen_result:
+                                allergen_id = allergen_result[0]
+                                cur.execute(
+                                    """
+                                    INSERT INTO Menu_Item_Allergen (availability_id, allergen_id) 
+                                    VALUES (%s, %s) 
+                                    ON CONFLICT DO NOTHING
+                                    """,
+                                    (availability_id, allergen_id)
+                                )
 
-                    # Insert each allergen into Menu_Item_Allergen table
-                    for allergen_code in allergen_codes:
-                        cur.execute("SELECT allergen_id FROM Allergen WHERE allergen_code = %s", (allergen_code,))
-                        allergen_result = cur.fetchone()
-                        if allergen_result:
-                            allergen_id = allergen_result[0]
-                            cur.execute(
-                                "INSERT INTO Menu_Item_Allergen (availability_id, allergen_id) VALUES (%s, %s) ON CONFLICT DO NOTHING",
-                                (availability_id, allergen_id)
-                            )
 
 # Commit all changes and close the connection
 conn.commit()

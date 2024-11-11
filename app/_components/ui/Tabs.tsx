@@ -1,4 +1,5 @@
 "use client";
+// I dont think this is use anywhere, can delete
 
 import { useState } from "react";
 import { motion } from "framer-motion";
@@ -23,7 +24,9 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
             key={tab.name}
             onClick={() => setActiveTab(tab.name)}
             className={`py-2 px-4 rounded-lg font-semibold ${
-              activeTab === tab.name ? "bg-gray-800 text-white" : "bg-gray-300 text-black"
+              activeTab === tab.name
+                ? "bg-gray-800 text-white"
+                : "bg-gray-300 text-black"
             }`}
           >
             {tab.name}

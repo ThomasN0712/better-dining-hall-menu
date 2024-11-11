@@ -5,9 +5,9 @@ import {
   UserRound,
 } from "lucide-react";
 import { Navbar } from "@/app/_components/ui/Navbar";
-import HeroSection from "@/app/_components/HeroSection";
-import Background from "@/app/_components/Background";
 import Footer from "@/app/_components/Footer";
+import Carousel3D from "./_components/Carousel3D";
+import AlwaysAvailableCard from "./_components/AlwaysAvailableCard";
 
 const navItems = [
   { name: "Home", link: "#home", icon: <House /> },
@@ -17,13 +17,16 @@ const navItems = [
 
 const Homepage = () => {
   return (
-    <main className="flex flex-col px-5 sm:px-10 relative">
-      <div className="max-w-7xl mx-auto w-full">
+    <main className="flex flex-col min-h-screen justify-between">
+      <div className="flex flex-col items-center">
         <Navbar navItems={navItems} />
-        <HeroSection />
-        {/* <Background /> */}
-        <Footer />
+
+        <div className="h-screen flex items-center justify-center space-x-20">
+          <Carousel3D />
+          <AlwaysAvailableCard />
+        </div>
       </div>
+      <Footer />
     </main>
   );
 };

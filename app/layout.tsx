@@ -7,11 +7,10 @@ const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    template: "Thomas's Website",
-    default: "Thomas's Website",
+    template: "Better Dining Hall",
+    default: "Better Dining Hall",
   },
-  description:
-    "",
+  description: "",
 };
 
 export default function RootLayout({

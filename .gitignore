@@ -16,3 +16,7 @@
 /.env*.local
 
 .vercel
+
+# cache files
+.next/cache
+.next/cache-loader

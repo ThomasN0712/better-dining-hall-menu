@@ -23,6 +23,8 @@ const Homepage = () => {
 
         <div className="h-screen flex items-center justify-center space-x-20">
           <Carousel3D />
+        </div>
+        <div className="flex flex-col items-center space-y-10">
           <AlwaysAvailableCard />
         </div>
       </div>

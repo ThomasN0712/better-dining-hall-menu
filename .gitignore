@@ -17,6 +17,4 @@
 
 .vercel
 
-# cache files
-.next/cache
-.next/cache-loader
+.next

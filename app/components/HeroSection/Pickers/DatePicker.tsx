@@ -14,24 +14,34 @@ const CustomDatePicker: React.FC<DatePickerProps> = ({
 }) => {
   const handleDateChange = (date: Date | null) => {
     if (date) {
-      const updatedDates = selectedDates.length < 7
-        ? [...selectedDates, date]
-        : selectedDates; // Restrict to max 7 dates
-      onChange(updatedDates);
+      // Add the new date if it's not already selected
+      const updatedDates = selectedDates.some(
+        (selectedDate) => selectedDate.toDateString() === date.toDateString()
+      )
+        ? selectedDates.filter(
+            (selectedDate) => selectedDate.toDateString() !== date.toDateString()
+          ) // Remove date if already selected
+        : [...selectedDates, date]; // Add new date
+
+      // Restrict to max 7 dates
+      if (updatedDates.length <= 7) {
+        onChange(updatedDates);
+      }
     }
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-col items-center">
       <DatePicker
-        selected={selectedDates[selectedDates.length - 1] || null}
-        onChange={handleDateChange}
-        multiple
         inline
+        selected={null} // Disable default selection behavior
+        onChange={handleDateChange} // Handle each selected date
+        highlightDates={selectedDates} // Highlight already selected dates
         className="rounded-md bg-white dark:bg-dark-100 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
+        shouldCloseOnSelect={false} // Keep calendar open for multiple selections
       />
-      <p className="text-sm text-gray-500 dark:text-gray-400">
-        Select up to 7 dates.
+      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+        Select up to 7 dates
       </p>
     </div>
   );

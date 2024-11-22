@@ -1,10 +1,10 @@
-// src/app/menu/page.tsx
-import MenuDisplay from "./MenuDisplay";
+import HeroSection from "./sections/HeroSection";
+
 
 export default function MenuPage() {
   return (
     <main>
-      <MenuDisplay />
+      <HeroSection/>
     </main>
   );
 }

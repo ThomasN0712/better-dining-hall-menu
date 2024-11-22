@@ -1,0 +1,6 @@
+@tailwind base;
+/* Tailwind reset and base styles */
+@tailwind components;
+/* Predefined components */
+@tailwind utilities;
+/* Utility classes */

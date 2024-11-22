@@ -1,16 +1,13 @@
-import "@/app/_styles/globals.css";
+// app/layout.tsx
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
-import { ThemeProvider } from "./_components/ThemeProvider";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: {
-    template: "Better Dining Hall",
-    default: "Better Dining Hall",
-  },
-  description: "",
+  title: "Better Dining Hall",
+  description: "A modern interface for checking dining hall menus.",
 };
 
 export default function RootLayout({
@@ -23,14 +20,7 @@ export default function RootLayout({
       <body
         className={`${raleway.className} antialiased bg-white dark:bg-dark-100 text-dark-200 dark:text-stone-200`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children} {/* Render the children inside the layout */}
       </body>
     </html>
   );

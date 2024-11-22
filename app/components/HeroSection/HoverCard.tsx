@@ -1,4 +1,3 @@
-// components/HeroSection/HoverCard.tsx
 import React from "react";
 
 type HoverCardProps = {

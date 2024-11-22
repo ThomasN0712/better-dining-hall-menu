@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
     "@mui/lab": "^6.0.0-beta.14",
-    "@mui/material": "^6.1.6",
+    "@mui/material": "^6.1.8",
+    "@mui/x-date-pickers": "^7.22.3",
+    "@mui/x-date-pickers-pro": "^7.22.3",
     "clsx": "^2.1.1",
-    "date-fns": "^4.1.0",
+    "date-fns": "^2.29.3",
     "framer-motion": "^11.11.11",
     "lucide-react": "^0.436.0",
     "mini-svg-data-uri": "^1.4.4",

@@ -1,17 +1,6 @@
-// HoverCard.tsx
-import React, { useState } from "react";
-import { useSpring, animated } from "react-spring";
-
-interface MenuItem {
-  id: number;
-  name: string;
-  description: string;
-}
-
-interface MealType {
-  type: string;
-  menuItems: MenuItem[];
-}
+// src/components/HoverCard.tsx
+import React from "react";
+import { MealType } from "../types";
 
 interface HoverCardProps {
   location: string;
@@ -19,45 +8,31 @@ interface HoverCardProps {
   onClick?: () => void;
 }
 
-const HoverCard: React.FC<HoverCardProps> = ({
-  location,
-  mealTypes,
-  onClick,
-}) => {
-  const [hovered, setHovered] = useState(false);
-
-  const styleProps = useSpring({
-    transform: hovered ? "scale(1.03)" : "scale(1)",
-    boxShadow: hovered
-      ? "0 20px 25px rgba(0, 0, 0, 0.25)"
-      : "0 2px 10px rgba(0, 0, 0, 0.1)",
-  });
-
+const HoverCard: React.FC<HoverCardProps> = ({ location, mealTypes, onClick }) => {
   return (
-    <animated.div
-      className="w-96 bg-white rounded-lg shadow-lg p-4 text-center flex flex-col items-center justify-center"
-      style={styleProps}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+    <div
+      className="bg-gray-100 dark:bg-dark-700 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 cursor-pointer"
       onClick={onClick}
     >
-      <h2 className="text-xl font-bold mb-4 text-gray-900">{location}</h2>
-      {mealTypes.map((mealType, idx) => (
-        <div key={idx} className="w-full">
-          <h3 className="text-lg text-gray-900 font-semibold border-b-2 border-gray-200 pb-1 mb-2">
-            {mealType.type}
-          </h3>
-          <ul className="space-y-2 mb-4">
-            {mealType.menuItems.map((item) => (
-              <li key={item.id} className="text-sm">
-                <p className="font-semibold text-gray-900">{item.name}</p>
-                <p className="text-gray-800">{item.description}</p>
+      <h3 className="text-lg font-bold mb-3">{location}</h3>
+      {mealTypes.map((meal, index) => (
+        <div key={index} className="mb-4">
+          <h4 className="text-md font-semibold">{meal.type}</h4>
+          <ul className="list-disc list-inside text-sm">
+            {meal.menuItems.map((item, itemIndex) => (
+              <li key={itemIndex}>
+                {item.name}{" "}
+                {item.allergens.length > 0 && (
+                  <span className="text-xs text-gray-500">
+                    (Allergens: {item.allergens.join(", ")})
+                  </span>
+                )}
               </li>
             ))}
           </ul>
         </div>
       ))}
-    </animated.div>
+    </div>
   );
 };
 

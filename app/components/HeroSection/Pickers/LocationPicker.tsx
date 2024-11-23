@@ -1,4 +1,3 @@
-// LocationPicker.tsx
 import React, { useEffect, useState } from "react";
 
 type Location = {
@@ -7,11 +6,11 @@ type Location = {
 };
 
 type LocationPickerProps = {
-  selectedLocationId: number | null;
-  onLocationChange: (locationId: number) => void;
+  selectedLocationIds: number[];
+  onLocationsChange: (locationIds: number[]) => void;
 };
 
-const LocationPicker: React.FC<LocationPickerProps> = ({ selectedLocationId, onLocationChange }) => {
+const LocationPicker: React.FC<LocationPickerProps> = ({ selectedLocationIds, onLocationsChange }) => {
   const [locations, setLocations] = useState<Location[]>([]);
 
   useEffect(() => {
@@ -28,21 +27,30 @@ const LocationPicker: React.FC<LocationPickerProps> = ({ selectedLocationId, onL
     fetchLocations();
   }, []);
 
+  const handleCheckboxChange = (locationId: number) => {
+    if (selectedLocationIds.includes(locationId)) {
+      onLocationsChange(selectedLocationIds.filter((id) => id !== locationId));
+    } else {
+      onLocationsChange([...selectedLocationIds, locationId]);
+    }
+  };
+
   return (
     <div>
-      <label htmlFor="location">Select Location:</label>
-      <select
-        id="location"
-        value={selectedLocationId || ""}
-        onChange={(e) => onLocationChange(Number(e.target.value))}
-      >
-        <option value="">-- Select Location --</option>
+      <h3 className="text-sm font-medium text-gray-700">Select Locations</h3>
+      <div className="mt-2 space-y-1">
         {locations.map((location) => (
-          <option key={location.location_id} value={location.location_id}>
+          <label key={location.location_id} className="flex items-center">
+            <input
+              type="checkbox"
+              checked={selectedLocationIds.includes(location.location_id)}
+              onChange={() => handleCheckboxChange(location.location_id)}
+              className="mr-2"
+            />
             {location.location_name}
-          </option>
+          </label>
         ))}
-      </select>
+      </div>
     </div>
   );
 };

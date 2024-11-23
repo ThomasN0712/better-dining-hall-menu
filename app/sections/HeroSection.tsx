@@ -1,13 +1,11 @@
 "use client"
-
 import React, { useState, useEffect } from "react";
 import CardGrid from "@/components/HeroSection/CardGrid";
 import { DatePicker, LocationPicker, MealTypePicker, AllergenPicker } from "@/components/HeroSection/Pickers";
 
-
 type MenuItem = {
   name: string;
-  allergens: number[]; // Array of allergen IDs
+  allergens: number[];
 };
 
 type CardData = {
@@ -17,55 +15,70 @@ type CardData = {
 };
 
 const HeroSection: React.FC = () => {
-  const [selectedDateId, setSelectedDateId] = useState<number | null>(null);
-  const [selectedLocationId, setSelectedLocationId] = useState<number | null>(null);
-  const [selectedMealTypeId, setSelectedMealTypeId] = useState<number | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [selectedLocationIds, setSelectedLocationIds] = useState<number[]>([]);
+  const [selectedMealTypeIds, setSelectedMealTypeIds] = useState<number[]>([]);
   const [selectedAllergens, setSelectedAllergens] = useState<number[]>([]);
   const [cardsData, setCardsData] = useState<CardData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
-  // Fetch menu items whenever selections change
   useEffect(() => {
     const fetchMenuItems = async () => {
-      if (selectedDateId && selectedLocationId && selectedMealTypeId !== null) {
+      if (selectedDate && selectedLocationIds.length > 0 && selectedMealTypeIds.length > 0) {
         setLoading(true);
         try {
-          const response = await fetch(
-            `http://127.0.0.1:8000/menu_items?day_id=${selectedDateId}&location_id=${selectedLocationId}&meal_type_id=${selectedMealTypeId}`
-          );
-          const data = await response.json();
+          const dateStr = selectedDate.toISOString().split("T")[0];
 
-          // Transform data to match CardGrid's expected structure
-          const transformedData: CardData[] = [
-            {
-              location: data.length > 0 ? data[0].location : "Unknown Location",
-              mealType: data.length > 0 ? data[0].meal_type : "Unknown Meal Type",
-              menuItems: data.map((item: any) => ({
-                name: item.item_name,
-                allergens: item.allergens, // Array of allergen IDs
-              })),
-            },
-          ];
+          const fetchPromises = [];
 
-          setCardsData(transformedData);
+          for (const locationId of selectedLocationIds) {
+            for (const mealTypeId of selectedMealTypeIds) {
+              const url = `http://127.0.0.1:8000/menu_items?date=${dateStr}&location_id=${locationId}&meal_type_id=${mealTypeId}`;
+              fetchPromises.push(fetch(url).then((response) => response.json()));
+            }
+          }
+
+          const results = await Promise.all(fetchPromises);
+
+          // Flatten the results and group by location and meal type
+          const newCardsData: CardData[] = [];
+
+          results.forEach((data, index) => {
+            if (data.length > 0) {
+              const firstItem = data[0];
+              const card: CardData = {
+                location: firstItem.location,
+                mealType: firstItem.meal_type,
+                menuItems: data.map((item: any) => ({
+                  name: item.item_name,
+                  allergens: item.allergens,
+                })),
+              };
+              newCardsData.push(card);
+            }
+          });
+
+          setCardsData(newCardsData);
         } catch (error) {
           console.error("Error fetching menu items:", error);
         } finally {
           setLoading(false);
         }
+      } else {
+        setCardsData([]);
       }
     };
 
     fetchMenuItems();
-  }, [selectedDateId, selectedLocationId, selectedMealTypeId]);
+  }, [selectedDate, selectedLocationIds, selectedMealTypeIds]);
 
   return (
     <div className="container mx-auto p-4">
       {/* Pickers */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <DatePicker selectedDateId={selectedDateId} onDateChange={setSelectedDateId} />
-        <LocationPicker selectedLocationId={selectedLocationId} onLocationChange={setSelectedLocationId} />
-        <MealTypePicker selectedMealTypeId={selectedMealTypeId} onMealTypeChange={setSelectedMealTypeId} />
+        <DatePicker selectedDate={selectedDate} onDateChange={setSelectedDate} />
+        <LocationPicker selectedLocationIds={selectedLocationIds} onLocationsChange={setSelectedLocationIds} />
+        <MealTypePicker selectedMealTypeIds={selectedMealTypeIds} onMealTypesChange={setSelectedMealTypeIds} />
         <AllergenPicker selectedAllergens={selectedAllergens} onAllergensChange={setSelectedAllergens} />
       </div>
 

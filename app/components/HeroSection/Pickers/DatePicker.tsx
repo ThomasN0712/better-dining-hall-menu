@@ -1,30 +1,53 @@
 // components/HeroSection/Pickers/DatePicker.tsx
-import React from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useEffect, useState } from "react";
 
-type DatePickerProps = {
-  selectedDate: Date | null; // Currently selected date
-  onChange: (date: Date | null) => void; // Callback to update the selected date
+type Day = {
+  day_id: number;
+  day_name: string;
 };
 
-const CustomDatePicker: React.FC<DatePickerProps> = ({
-  selectedDate,
-  onChange,
-}) => {
+type DatePickerProps = {
+  selectedDateId: number | null;
+  onDateChange: (dayId: number) => void;
+};
+
+const DatePicker: React.FC<DatePickerProps> = ({ selectedDateId, onDateChange }) => {
+  const [days, setDays] = useState<Day[]>([]);
+
+  useEffect(() => {
+    const fetchDays = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/days");
+        const data = await response.json();
+        setDays(data);
+      } catch (error) {
+        console.error("Error fetching days:", error);
+      }
+    };
+
+    fetchDays();
+  }, []);
+
   return (
-    <div className="flex flex-col items-center">
-      <DatePicker
-        selected={selectedDate} // The selected date
-        onChange={onChange} // Update the selected date
-        inline
-        className="rounded-md bg-white dark:bg-dark-100 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300"
-      />
-      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
-        Select a date to view the menu.
-      </p>
+    <div>
+      <label htmlFor="date-picker" className="block text-sm font-medium text-gray-700">
+        Select Date
+      </label>
+      <select
+        id="date-picker"
+        value={selectedDateId || ""}
+        onChange={(e) => onDateChange(Number(e.target.value))}
+        className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
+      >
+        <option value="">-- Select Date --</option>
+        {days.map((day) => (
+          <option key={day.day_id} value={day.day_id}>
+            {day.day_name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
 
-export default CustomDatePicker;
+export default DatePicker;

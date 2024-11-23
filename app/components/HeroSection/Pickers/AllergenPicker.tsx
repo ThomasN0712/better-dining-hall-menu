@@ -1,40 +1,60 @@
-// components/HeroSection/Pickers/AllergenPicker.tsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-type AllergenPickerProps = {
-  allergens: string[]; // Array of available allergens
-  selectedAllergens: string[]; // Currently selected allergens
-  onChange: (allergens: string[]) => void; // Callback to update selected allergens
+type Allergen = {
+  allergen_id: number;
+  description: string;
 };
 
-const AllergenPicker: React.FC<AllergenPickerProps> = ({
-  allergens,
-  selectedAllergens,
-  onChange,
-}) => {
-  // Handle toggle selection
-  const toggleAllergen = (allergen: string) => {
-    const updatedAllergens = selectedAllergens.includes(allergen)
-      ? selectedAllergens.filter((item) => item !== allergen) // Remove if already selected
-      : [...selectedAllergens, allergen]; // Add if not selected
-    onChange(updatedAllergens);
+type AllergenPickerProps = {
+  selectedAllergens: number[];
+  onAllergensChange: (allergens: number[]) => void;
+};
+
+const AllergenPicker: React.FC<AllergenPickerProps> = ({ selectedAllergens, onAllergensChange }) => {
+  const [allergens, setAllergens] = useState<Allergen[]>([]);
+
+  useEffect(() => {
+    const fetchAllergens = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/allergens");
+        const data = await response.json();
+        setAllergens(data);
+      } catch (error) {
+        console.error("Error fetching allergens:", error);
+      }
+    };
+
+    fetchAllergens();
+  }, []);
+
+  const handleCheckboxChange = (allergenId: number) => {
+    if (selectedAllergens.includes(allergenId)) {
+      onAllergensChange(selectedAllergens.filter((id) => id !== allergenId));
+    } else {
+      onAllergensChange([...selectedAllergens, allergenId]);
+    }
   };
 
   return (
-    <div className="flex flex-wrap gap-2">
-      {allergens.map((allergen) => (
-        <label key={allergen} className="flex items-center gap-2">
-          <input
-            type="checkbox"
-            checked={selectedAllergens.includes(allergen)}
-            onChange={() => toggleAllergen(allergen)}
-            className="form-checkbox h-5 w-5 text-primary-light dark:text-primary-dark"
-          />
-          <span className="text-gray-700 dark:text-gray-400">{allergen}</span>
-        </label>
-      ))}
+    <div>
+      <h3 className="text-sm font-medium text-gray-700">Exclude Allergens</h3>
+      <div className="mt-2 space-y-1">
+        {allergens.map((allergen) => (
+          <label key={allergen.allergen_id} className="flex items-center">
+            <input
+              type="checkbox"
+              checked={selectedAllergens.includes(allergen.allergen_id)}
+              onChange={() => handleCheckboxChange(allergen.allergen_id)}
+              className="mr-2"
+            />
+            {allergen.description}
+          </label>
+        ))}
+      </div>
     </div>
   );
 };
 
 export default AllergenPicker;
+
+

@@ -1,5 +1,3 @@
-# app/db/queries.py
-
 from sqlalchemy.orm import Session
 from app.db.models import MenuItem, AlwaysAvailable, MenuAvailability, Location, MealType, Day
 import datetime
@@ -27,13 +25,19 @@ def get_menu_items(db: Session, date_str: str, location_id: int, meal_type_id: i
 
     result = []
     for ma in menu_availability_list:
+        # Fetch allergens for the menu item
+        allergens = db.query(Allergen.allergen_code).join(MenuItemAllergen).filter(
+            MenuItemAllergen.availability_id == ma.availability_id
+        ).all()
+        allergen_codes = [a[0] for a in allergens]
+
         item = {
             "item_name": ma.menu_item.item_name,
             "location": ma.location.location_name,
             "meal_type": ma.meal_type.meal_type_name,
+            "allergens": allergen_codes,
         }
         result.append(item)
-
     return result
 
 def get_always_available_items(db: Session):

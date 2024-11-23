@@ -1,40 +1,51 @@
 // components/HeroSection/Pickers/MealTypePicker.tsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-type MealTypePickerProps = {
-  mealTypes: string[]; // Array of available meal types
-  selectedMealTypes: string[]; // Currently selected meal types
-  onChange: (mealTypes: string[]) => void; // Callback to update selected meal types
+type MealType = {
+  meal_type_id: number;
+  meal_type_name: string;
 };
 
-const MealTypePicker: React.FC<MealTypePickerProps> = ({
-  mealTypes,
-  selectedMealTypes,
-  onChange,
-}) => {
-  // Handle toggle selection
-  const toggleMealType = (mealType: string) => {
-    const updatedMealTypes = selectedMealTypes.includes(mealType)
-      ? selectedMealTypes.filter((type) => type !== mealType) // Remove if already selected
-      : [...selectedMealTypes, mealType]; // Add if not selected
-    onChange(updatedMealTypes);
-  };
+type MealTypePickerProps = {
+  selectedMealTypeId: number | null;
+  onMealTypeChange: (mealTypeId: number) => void;
+};
+
+const MealTypePicker: React.FC<MealTypePickerProps> = ({ selectedMealTypeId, onMealTypeChange }) => {
+  const [mealTypes, setMealTypes] = useState<MealType[]>([]);
+
+  useEffect(() => {
+    const fetchMealTypes = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/meal_types");
+        const data = await response.json();
+        setMealTypes(data);
+      } catch (error) {
+        console.error("Error fetching meal types:", error);
+      }
+    };
+
+    fetchMealTypes();
+  }, []);
 
   return (
-    <div className="flex flex-wrap gap-2">
-      {mealTypes.map((mealType) => (
-        <button
-          key={mealType}
-          onClick={() => toggleMealType(mealType)}
-          className={`px-4 py-2 rounded border ${
-            selectedMealTypes.includes(mealType)
-              ? "bg-primary-light text-white border-primary-light dark:bg-primary-dark"
-              : "bg-gray-200 text-gray-700 border-gray-300 dark:bg-gray-800 dark:text-gray-400"
-          }`}
-        >
-          {mealType}
-        </button>
-      ))}
+    <div>
+      <label htmlFor="meal-type-picker" className="block text-sm font-medium text-gray-700">
+        Select Meal Type
+      </label>
+      <select
+        id="meal-type-picker"
+        value={selectedMealTypeId || ""}
+        onChange={(e) => onMealTypeChange(Number(e.target.value))}
+        className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md"
+      >
+        <option value="">-- Select Meal Type --</option>
+        {mealTypes.map((mealType) => (
+          <option key={mealType.meal_type_id} value={mealType.meal_type_id}>
+            {mealType.meal_type_name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

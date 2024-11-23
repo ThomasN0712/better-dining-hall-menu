@@ -1,10 +1,15 @@
 import React from "react";
 
+type MenuItem = {
+  name: string;
+  allergens: number[];
+};
+
 type HoverCardProps = {
   location: string;
   mealType: string;
-  menuItems: { name: string; hasAllergen: boolean }[];
-  selectedAllergens: string[];
+  menuItems: MenuItem[];
+  selectedAllergens: number[];
 };
 
 const HoverCard: React.FC<HoverCardProps> = ({
@@ -14,15 +19,14 @@ const HoverCard: React.FC<HoverCardProps> = ({
   selectedAllergens,
 }) => {
   // Filter menu items based on allergens
-  const filteredMenuItems = menuItems.filter(
-    (item) =>
-      !item.hasAllergen || !selectedAllergens.includes(item.name.toLowerCase())
-  );
+  const filteredMenuItems = menuItems.filter((item) => {
+    const itemAllergens = item.allergens || [];
+    // Check if any of the item's allergens are in the selected allergens
+    return !itemAllergens.some((allergenId) => selectedAllergens.includes(allergenId));
+  });
 
   return (
-    <div
-      className="hover:shadow-lg hover:scale-105 transition-transform duration-300 bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark rounded-lg shadow-md p-4 flex flex-col"
-    >
+    <div className="hover:shadow-lg hover:scale-105 transition-transform duration-300 bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark rounded-lg shadow-md p-4 flex flex-col">
       {/* Header */}
       <div className="mb-4">
         <h3 className="text-lg font-semibold">
@@ -45,7 +49,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
           </ul>
         ) : (
           <p className="text-gray-500 dark:text-gray-400">
-            No menu items available for the selected allergens.
+            No menu items available based on your selections.
           </p>
         )}
       </div>

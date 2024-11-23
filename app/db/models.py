@@ -8,9 +8,13 @@ Base = declarative_base()
 
 class Allergen(Base):
     __tablename__ = "allergen"
+
     allergen_id = Column(Integer, primary_key=True)
     allergen_code = Column(String(5), nullable=False, unique=True)
     description = Column(String(50), nullable=False)
+
+    menu_items = relationship("MenuItemAllergen", back_populates="allergen")
+
 
 class Location(Base):
     __tablename__ = "location"
@@ -26,6 +30,16 @@ class MenuItem(Base):
     __tablename__ = "menu_item"
     item_id = Column(Integer, primary_key=True)
     item_name = Column(String(100), nullable=False, unique=True)
+    
+class MenuItemAllergen(Base):
+    __tablename__ = "menu_item_allergen"
+
+    availability_id = Column(Integer, ForeignKey("menu_availability.availability_id", ondelete="CASCADE"), primary_key=True)
+    allergen_id = Column(Integer, ForeignKey("allergen.allergen_id", ondelete="CASCADE"), primary_key=True)
+
+    # Relationships
+    availability = relationship("MenuAvailability", back_populates="allergens")
+    allergen = relationship("Allergen", back_populates="menu_items")
 
 class AlwaysAvailable(Base):
     __tablename__ = "always_available"
@@ -36,6 +50,7 @@ class AlwaysAvailable(Base):
 
 class MenuAvailability(Base):
     __tablename__ = "menu_availability"
+
     availability_id = Column(Integer, primary_key=True)
     day_id = Column(Integer, ForeignKey("day.day_id"))
     meal_type_id = Column(Integer, ForeignKey("meal_type.meal_type_id"))
@@ -48,6 +63,8 @@ class MenuAvailability(Base):
     menu_item = relationship("MenuItem")
     allergen = relationship("Allergen")
     day = relationship("Day", back_populates="menu_availabilities")
+    allergens = relationship("MenuItemAllergen", back_populates="availability")
+
 
 class Day(Base):
     __tablename__ = "day"

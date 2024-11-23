@@ -1,10 +1,9 @@
-// components/HeroSection/CardGrid.tsx
 import React from "react";
 import HoverCard from "./HoverCard";
 
 type MenuItem = {
   name: string;
-  hasAllergen: boolean;
+  allergens: number[];
 };
 
 type CardData = {
@@ -15,7 +14,7 @@ type CardData = {
 
 type CardGridProps = {
   cards: CardData[];
-  selectedAllergens: string[];
+  selectedAllergens: number[];
 };
 
 const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
@@ -33,6 +32,5 @@ const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
     </div>
   );
 };
-
 
 export default CardGrid;

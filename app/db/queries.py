@@ -14,9 +14,10 @@ from app.db.models import (
 )
 import datetime
 
-def get_cycle_number(date_obj, reference_date, cycle_length_days=28):
+def get_cycle_number(date_obj, reference_date, cycle_length_days=7):
     delta_days = (date_obj - reference_date).days
     cycle_number = ((delta_days // cycle_length_days) % 5) + 1  # Cycles 1-5
+    print("cycle number:", cycle_number)
     return cycle_number
 
 def get_menu_items(db: Session, date_str: str, location_id: int, meal_type_id: int):
@@ -24,7 +25,7 @@ def get_menu_items(db: Session, date_str: str, location_id: int, meal_type_id: i
     date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
 
     # Reference start date for Cycle 1
-    reference_date = datetime.date(2024, 10, 7)
+    reference_date = datetime.date(2024, 8, 26)
 
     # Calculate the cycle number
     cycle_number = str(get_cycle_number(date_obj, reference_date))

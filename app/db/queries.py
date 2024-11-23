@@ -7,6 +7,7 @@ from app.db.models import (
     MenuAvailability,
     Location,
     MealType,
+    Cycle,
     Day,
     Allergen,
     MenuItemAllergen,
@@ -15,21 +16,37 @@ import datetime
 
 def get_menu_items(db: Session, date_str: str, location_id: int, meal_type_id: int):
     # Convert date string to datetime object
-    date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d")
-    # Get day name (e.g., 'Monday')
-    day_name = date_obj.strftime('%A')
+    date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
 
-    # Get the day_id corresponding to the day_name
-    day = db.query(Day).filter(Day.day_name == day_name).first()
-    if not day:
+    # Step 1: Find the cycle that includes the date
+    cycle = db.query(Cycle).filter(
+        Cycle.start_date <= date_obj,
+        Cycle.end_date >= date_obj
+    ).first()
+
+    if not cycle:
+        print(f"No cycle found for date: {date_str}")
         return []
 
-    # Fetch menu availability records matching the criteria
+    # Step 2: Get day name (e.g., 'Monday')
+    day_name = date_obj.strftime('%A')
+
+    # Step 3: Get the day_id corresponding to the day_name and cycle_id
+    day = db.query(Day).filter(
+        Day.day_name == day_name,
+        Day.cycle_id == cycle.cycle_id
+    ).first()
+
+    if not day:
+        print(f"No day found for day_name: {day_name} and cycle_id: {cycle.cycle_id}")
+        return []
+
+    # Step 4: Fetch the menu items
     menu_availability_list = (
         db.query(MenuAvailability)
-        .join(MenuItem, MenuAvailability.item_id == MenuItem.item_id)
-        .join(Location, MenuAvailability.location_id == Location.location_id)
-        .join(MealType, MenuAvailability.meal_type_id == MealType.meal_type_id)
+        .join(MenuItem)
+        .join(Location)
+        .join(MealType)
         .filter(
             MenuAvailability.day_id == day.day_id,
             MenuAvailability.location_id == location_id,
@@ -38,6 +55,7 @@ def get_menu_items(db: Session, date_str: str, location_id: int, meal_type_id: i
         .all()
     )
 
+    # Process the results
     result = []
     for ma in menu_availability_list:
         # Fetch allergens for the menu item
@@ -57,6 +75,7 @@ def get_menu_items(db: Session, date_str: str, location_id: int, meal_type_id: i
         }
         result.append(item)
     return result
+
 
 def get_always_available_items(db: Session):
     items = db.query(AlwaysAvailable).all()

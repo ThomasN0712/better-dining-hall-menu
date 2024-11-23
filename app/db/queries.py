@@ -14,18 +14,25 @@ from app.db.models import (
 )
 import datetime
 
+def get_cycle_number(date_obj, reference_date, cycle_length_days=28):
+    delta_days = (date_obj - reference_date).days
+    cycle_number = ((delta_days // cycle_length_days) % 5) + 1  # Cycles 1-5
+    return cycle_number
+
 def get_menu_items(db: Session, date_str: str, location_id: int, meal_type_id: int):
-    # Convert date string to datetime object
+     # Convert date string to datetime object
     date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
 
-    # Step 1: Find the cycle that includes the date
-    cycle = db.query(Cycle).filter(
-        Cycle.start_date <= date_obj,
-        Cycle.end_date >= date_obj
-    ).first()
+    # Reference start date for Cycle 1
+    reference_date = datetime.date(2024, 10, 7)
 
+    # Calculate the cycle number
+    cycle_number = str(get_cycle_number(date_obj, reference_date))
+
+    # Get the cycle_id based on the cycle_number
+    cycle = db.query(Cycle).filter(Cycle.cycle_identifier == cycle_number).first()
     if not cycle:
-        print(f"No cycle found for date: {date_str}")
+        print(f"No cycle found for cycle_number: {cycle_number}")
         return []
 
     # Step 2: Get day name (e.g., 'Monday')

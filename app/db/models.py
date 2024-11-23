@@ -67,9 +67,9 @@ class MenuAvailability(Base):
 class Cycle(Base):
     __tablename__ = "cycle"
     cycle_id = Column(Integer, primary_key=True)
-    cycle_number = Column(Integer, nullable=False)
+    cycle_name = Column(String, nullable=False)
     start_date = Column(Date, nullable=False)
-    end_date = Column(Date, nullable=False)
+    cycle_identifier = Column(String, nullable=False)
 
     days = relationship("Day", back_populates="cycle")
 class Day(Base):

@@ -1,7 +1,7 @@
 # models.py
 
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, Date
 from sqlalchemy.orm import relationship
 
 Base = declarative_base()
@@ -14,7 +14,6 @@ class Allergen(Base):
     description = Column(String(50), nullable=False)
 
     menu_items = relationship("MenuItemAllergen", back_populates="allergen")
-
 
 class Location(Base):
     __tablename__ = "location"
@@ -65,12 +64,23 @@ class MenuAvailability(Base):
     day = relationship("Day", back_populates="menu_availabilities")
     allergens = relationship("MenuItemAllergen", back_populates="availability")
 
+class Cycle(Base):
+    __tablename__ = "cycle"
+    cycle_id = Column(Integer, primary_key=True)
+    cycle_number = Column(Integer, nullable=False)
+    start_date = Column(Date, nullable=False)
+    end_date = Column(Date, nullable=False)
 
+    days = relationship("Day", back_populates="cycle")
 class Day(Base):
     __tablename__ = "day"
     day_id = Column(Integer, primary_key=True)
     day_name = Column(String(10), nullable=False)
     cycle_id = Column(Integer, ForeignKey("cycle.cycle_id"))
 
+    cycle = relationship("Cycle", back_populates="days")
     menu_availabilities = relationship("MenuAvailability", back_populates="day")
+
+    
+
 

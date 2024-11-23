@@ -1,133 +1,60 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from typing import List
-from uuid import uuid4
+from fastapi import FastAPI, Depends
+from sqlalchemy.orm import Session
+from app.db.database import SessionLocal
+from app.db import queries
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-# Mock Database
-cycles = []
-days = []
-menu_items = []
-allergens = []
-locations = [{"id": 1, "name": "Parkside"}, {"id": 2, "name": "Hillside"}, {"id": 3, "name": "Beachside"}]
+# Configure CORS (Adjust allow_origins in production)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Change this to specific origins in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-# Models
-class Allergen(BaseModel):
-    id: str
-    name: str
+# Dependency to get DB session
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
 
-
-class MenuItem(BaseModel):
-    id: str
-    name: str
-    day_id: str
-    allergens: List[str]
-
-
-class Day(BaseModel):
-    id: str
-    name: str
-    cycle_id: str
-
-
-class Cycle(BaseModel):
-    id: str
-    name: str
-
-
-@app.get("/")
-def root():
-    return {"message": "Welcome to the Dining Hall API!"}
-
-
-# Allergen Endpoints
-@app.get("/allergens", response_model=List[Allergen])
-def get_all_allergens():
-    return allergens
-
-
-@app.post("/allergens", response_model=Allergen)
-def create_allergen(allergen: Allergen):
-    allergen.id = str(uuid4())
-    allergens.append(allergen)
-    return allergen
-
-
-@app.delete("/allergens/{allergen_id}")
-def delete_allergen(allergen_id: str):
-    global allergens
-    allergens = [a for a in allergens if a.id != allergen_id]
-    return {"message": f"Allergen with id {allergen_id} deleted."}
-
-
-# Menu Item Endpoints
-@app.get("/menu_items", response_model=List[MenuItem])
-def get_all_menu_items():
+# API endpoint to get menu items
+@app.get("/menu_items")
+def get_menu_items_api(date: str, location_id: int, meal_type_id: int, db: Session = Depends(get_db)):
+    menu_items = queries.get_menu_items(db, date, location_id, meal_type_id)
     return menu_items
 
+# API endpoint to get always available items
+@app.get("/always_available_items")
+def get_always_available_items_api(db: Session = Depends(get_db)):
+    items = queries.get_always_available_items(db)
+    return items
 
-@app.post("/menu_items", response_model=MenuItem)
-def create_menu_item(menu_item: MenuItem):
-    menu_item.id = str(uuid4())
-    menu_items.append(menu_item)
-    return menu_item
-
-
-@app.delete("/menu_items/{item_id}")
-def delete_menu_item(item_id: str):
-    global menu_items
-    menu_items = [item for item in menu_items if item.id != item_id]
-    return {"message": f"Menu item with id {item_id} deleted."}
-
-
-# Day Endpoints
-@app.get("/days", response_model=List[Day])
-def get_all_days():
-    return days
-
-
-@app.post("/days", response_model=Day)
-def create_day(day: Day):
-    day.id = str(uuid4())
-    days.append(day)
-    return day
-
-
-@app.delete("/days/{day_id}")
-def delete_day(day_id: str):
-    global days
-    days = [d for d in days if d.id != day_id]
-    return {"message": f"Day with id {day_id} deleted."}
-
-
-# Cycle Endpoints
-@app.get("/cycles", response_model=List[Cycle])
-def get_all_cycles():
-    return cycles
-
-
-@app.post("/cycles", response_model=Cycle)
-def create_cycle(cycle: Cycle):
-    cycle.id = str(uuid4())
-    cycles.append(cycle)
-    return cycle
-
-
-@app.delete("/cycles/{cycle_id}")
-def delete_cycle(cycle_id: str):
-    global cycles
-    cycles = [c for c in cycles if c.id != cycle_id]
-    return {"message": f"Cycle with id {cycle_id} deleted."}
-
-
-# Location Endpoints
+# API endpoint to get locations
 @app.get("/locations")
-def get_locations():
+def get_locations_api(db: Session = Depends(get_db)):
+    locations = queries.get_locations(db)
     return locations
 
+# API endpoint to get meal types
+@app.get("/meal_types")
+def get_meal_types_api(db: Session = Depends(get_db)):
+    meal_types = queries.get_meal_types(db)
+    return meal_types
 
-if __name__ == "__main__":
-    import uvicorn
+# API endpoint to get days
+@app.get("/days")
+def get_days_api(db: Session = Depends(get_db)):
+    days = queries.get_days(db)
+    return days
 
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+# API endpoint to get allergens
+@app.get("/allergens")
+def get_allergens_api(db: Session = Depends(get_db)):
+    allergens = queries.get_allergens(db)
+    return allergens

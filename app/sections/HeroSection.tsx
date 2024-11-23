@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import React, { useState, useEffect } from "react";
 import CardGrid from "@/components/HeroSection/CardGrid";
 import { DatePicker, LocationPicker, MealTypePicker, AllergenPicker } from "@/components/HeroSection/Pickers";
@@ -28,7 +29,6 @@ const HeroSection: React.FC = () => {
         setLoading(true);
         try {
           const dateStr = selectedDate.toISOString().split("T")[0];
-
           const fetchPromises = [];
 
           for (const locationId of selectedLocationIds) {
@@ -42,7 +42,6 @@ const HeroSection: React.FC = () => {
 
           // Flatten the results and group by location and meal type
           const newCardsData: CardData[] = [];
-
           results.forEach((data, index) => {
             if (data.length > 0) {
               const firstItem = data[0];
@@ -73,21 +72,35 @@ const HeroSection: React.FC = () => {
   }, [selectedDate, selectedLocationIds, selectedMealTypeIds]);
 
   return (
-    <div className="container mx-auto p-4">
-      {/* Pickers */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-        <DatePicker selectedDate={selectedDate} onDateChange={setSelectedDate} />
-        <LocationPicker selectedLocationIds={selectedLocationIds} onLocationsChange={setSelectedLocationIds} />
-        <MealTypePicker selectedMealTypeIds={selectedMealTypeIds} onMealTypesChange={setSelectedMealTypeIds} />
-        <AllergenPicker selectedAllergens={selectedAllergens} onAllergensChange={setSelectedAllergens} />
-      </div>
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center \">
 
-      {/* Card Grid */}
-      {loading ? (
-        <div>Loading menu items...</div>
-      ) : (
-        <CardGrid cards={cardsData} selectedAllergens={selectedAllergens} />
-      )}
+      {/* Content */}
+      <div className="relative z-10 container mx-auto p-4">
+        {/* Title */}
+        <div className="text-center mb-10">
+          <h1 className="text-4xl sm:text-6xl font-bold text-gray-800 dark:text-white tracking-wide mb-4">
+            Dining Hall Menu
+          </h1>
+          <p className="text-lg text-gray-600 dark:text-gray-300">
+            Explore your meal options by selecting date, location, and preferences.
+          </p>
+        </div>
+
+        {/* Pickers */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 bg-white/80 dark:bg-gray-800/80 p-6 rounded-lg shadow-lg">
+          <DatePicker selectedDate={selectedDate} onDateChange={setSelectedDate} />
+          <LocationPicker selectedLocationIds={selectedLocationIds} onLocationsChange={setSelectedLocationIds} />
+          <MealTypePicker selectedMealTypeIds={selectedMealTypeIds} onMealTypesChange={setSelectedMealTypeIds} />
+          <AllergenPicker selectedAllergens={selectedAllergens} onAllergensChange={setSelectedAllergens} />
+        </div>
+
+        {/* Card Grid */}
+        {loading ? (
+          <div className="text-center text-gray-600 dark:text-gray-400">Loading menu items...</div>
+        ) : (
+          <CardGrid cards={cardsData} selectedAllergens={selectedAllergens} />
+        )}
+      </div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const navItems = [
 
 export default function MenuPage() {
   return (
-    <main>
+    <main className="bg-transparent">
       <Navbar navItems={navItems} />
       <HeroSection/>
     </main>

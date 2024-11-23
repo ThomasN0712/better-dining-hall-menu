@@ -7,12 +7,14 @@ type MenuItem = {
   hasAllergen: boolean;
 };
 
+type CardData = {
+  location: string;
+  mealType: string;
+  menuItems: MenuItem[];
+};
+
 type CardGridProps = {
-  cards: {
-    location: string;
-    mealType: string;
-    menuItems: MenuItem[];
-  }[];
+  cards: CardData[];
   selectedAllergens: string[];
 };
 
@@ -31,5 +33,6 @@ const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
     </div>
   );
 };
+
 
 export default CardGrid;

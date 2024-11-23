@@ -1,40 +1,48 @@
-// components/HeroSection/Pickers/LocationPicker.tsx
-import React, { useState } from "react";
+// LocationPicker.tsx
+import React, { useEffect, useState } from "react";
 
-type LocationPickerProps = {
-  locations: string[]; // Array of available locations
-  selectedLocations: string[]; // Currently selected locations
-  onChange: (locations: string[]) => void; // Callback to update selected locations
+type Location = {
+  location_id: number;
+  location_name: string;
 };
 
-const LocationPicker: React.FC<LocationPickerProps> = ({
-  locations,
-  selectedLocations,
-  onChange,
-}) => {
-  // Handle toggle selection
-  const toggleLocation = (location: string) => {
-    const updatedLocations = selectedLocations.includes(location)
-      ? selectedLocations.filter((loc) => loc !== location) // Remove if already selected
-      : [...selectedLocations, location]; // Add if not selected
-    onChange(updatedLocations);
-  };
+type LocationPickerProps = {
+  selectedLocationId: number | null;
+  onLocationChange: (locationId: number) => void;
+};
+
+const LocationPicker: React.FC<LocationPickerProps> = ({ selectedLocationId, onLocationChange }) => {
+  const [locations, setLocations] = useState<Location[]>([]);
+
+  useEffect(() => {
+    const fetchLocations = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/locations");
+        const data = await response.json();
+        setLocations(data);
+      } catch (error) {
+        console.error("Error fetching locations:", error);
+      }
+    };
+
+    fetchLocations();
+  }, []);
 
   return (
-    <div className="flex flex-wrap gap-2">
-      {locations.map((location) => (
-        <button
-          key={location}
-          onClick={() => toggleLocation(location)}
-          className={`px-4 py-2 rounded border ${
-            selectedLocations.includes(location)
-              ? "bg-primary-light text-white border-primary-light dark:bg-primary-dark"
-              : "bg-gray-200 text-gray-700 border-gray-300 dark:bg-gray-800 dark:text-gray-400"
-          }`}
-        >
-          {location}
-        </button>
-      ))}
+    <div>
+      <label htmlFor="location">Select Location:</label>
+      <select
+        id="location"
+        value={selectedLocationId || ""}
+        onChange={(e) => onLocationChange(Number(e.target.value))}
+      >
+        <option value="">-- Select Location --</option>
+        {locations.map((location) => (
+          <option key={location.location_id} value={location.location_id}>
+            {location.location_name}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };

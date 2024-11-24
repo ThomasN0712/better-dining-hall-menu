@@ -2,7 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import CardGrid from "@/components/HeroSection/CardGrid";
-import { DatePicker, LocationPicker, MealTypePicker, AllergenPicker } from "@/components/HeroSection/Pickers";
+import {
+  DatePicker,
+  LocationPicker,
+  MealTypePicker,
+  AllergenPicker,
+} from "@/components/HeroSection/Pickers";
 
 type MenuItem = {
   name: string;
@@ -25,7 +30,11 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     const fetchMenuItems = async () => {
-      if (selectedDate && selectedLocationIds.length > 0 && selectedMealTypeIds.length > 0) {
+      if (
+        selectedDate &&
+        selectedLocationIds.length > 0 &&
+        selectedMealTypeIds.length > 0
+      ) {
         setLoading(true);
         try {
           const dateStr = selectedDate.toISOString().split("T")[0];
@@ -42,7 +51,7 @@ const HeroSection: React.FC = () => {
 
           // Flatten the results and group by location and meal type
           const newCardsData: CardData[] = [];
-          results.forEach((data, index) => {
+          results.forEach((data) => {
             if (data.length > 0) {
               const firstItem = data[0];
               const card: CardData = {
@@ -72,31 +81,45 @@ const HeroSection: React.FC = () => {
   }, [selectedDate, selectedLocationIds, selectedMealTypeIds]);
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center \">
-
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
       {/* Content */}
       <div className="relative z-10 container mx-auto p-4">
         {/* Title */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl sm:text-6xl font-bold text-gray-800 dark:text-white tracking-wide mb-4">
+          <h1 className="text-4xl sm:text-6xl font-bold text-headingLight dark:text-headingDark tracking-wide mb-4">
             Dining Hall Menu
           </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            Explore your meal options by selecting date, location, and preferences.
+          <p className="text-lg text-subtitleLight dark:text-subtitleDark">
+            Explore your meal options by selecting date, location, and
+            preferences.
           </p>
         </div>
 
         {/* Pickers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 bg-white/80 dark:bg-gray-800/80 p-6 rounded-lg shadow-lg">
-          <DatePicker selectedDate={selectedDate} onDateChange={setSelectedDate} />
-          <LocationPicker selectedLocationIds={selectedLocationIds} onLocationsChange={setSelectedLocationIds} />
-          <MealTypePicker selectedMealTypeIds={selectedMealTypeIds} onMealTypesChange={setSelectedMealTypeIds} />
-          <AllergenPicker selectedAllergens={selectedAllergens} onAllergensChange={setSelectedAllergens} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border p-6 rounded-lg shadow-lg">
+          <DatePicker
+            selectedDate={selectedDate}
+            onDateChange={setSelectedDate}
+          />
+          <LocationPicker
+            selectedLocationIds={selectedLocationIds}
+            onLocationsChange={setSelectedLocationIds}
+          />
+          <MealTypePicker
+            selectedMealTypeIds={selectedMealTypeIds}
+            onMealTypesChange={setSelectedMealTypeIds}
+          />
+          <AllergenPicker
+            selectedAllergens={selectedAllergens}
+            onAllergensChange={setSelectedAllergens}
+          />
         </div>
 
         {/* Card Grid */}
         {loading ? (
-          <div className="text-center text-gray-600 dark:text-gray-400">Loading menu items...</div>
+          <div className="text-center text-mutedLight dark:text-mutedDark">
+            Loading menu items...
+          </div>
         ) : (
           <CardGrid cards={cardsData} selectedAllergens={selectedAllergens} />
         )}

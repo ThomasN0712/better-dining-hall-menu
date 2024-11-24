@@ -16,11 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${raleway.className} antialiased bg-white dark:bg-dark-100 text-dark-200 dark:text-stone-200`}
+        className={`${raleway.className} antialiased bg-background-dark text-text-dark`}
       >
-        {children} {/* Render the children inside the layout */}
+        {children}
       </body>
     </html>
   );

@@ -6,7 +6,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}", // If components are outside app
     "./pages/**/*.{js,ts,jsx,tsx}", // If using Pages Router (optional)
   ],
-  darkMode: 'class', // Enables class-based dark mode
+  darkMode: 'class', 
   theme: {
     extend: {
       colors: {
@@ -14,7 +14,7 @@ module.exports = {
           light: '#4D96FF', // Cool blue for light mode
           dark: '#1E293B', // Deep slate for dark mode
         },
-        accent: '#EBA904', // Your school's accent color
+        accent: '#EBA904', // School's accent color
         background: {
           light: '#F8FAFC', // Light gray for light mode
           dark: '#0F172A', // Navy slate for dark mode

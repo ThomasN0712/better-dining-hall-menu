@@ -69,6 +69,9 @@ const MealTypePicker: React.FC<MealTypePickerProps> = ({
 
   return (
     <div className="relative">
+      <h3 className="text-md mb-2 font-medium text-text-light dark:text-text-dark">
+        Select Meal Types
+      </h3>
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}

@@ -22,13 +22,19 @@ const LocationPicker: React.FC<LocationPickerProps> = ({
         const response = await fetch("http://127.0.0.1:8000/locations");
         const data = await response.json();
         setLocations(data);
+
+        // Select all locations by default
+        const allLocationIds = data.map(
+          (location: Location) => location.location_id
+        );
+        onLocationsChange(allLocationIds);
       } catch (error) {
         console.error("Error fetching locations:", error);
       }
     };
 
     fetchLocations();
-  }, []);
+  }, [onLocationsChange]);
 
   const handleCheckboxChange = (locationId: number) => {
     if (selectedLocationIds.includes(locationId)) {
@@ -40,8 +46,10 @@ const LocationPicker: React.FC<LocationPickerProps> = ({
 
   return (
     <div>
-      <h3 className="text-sm font-medium text-gray-700">Select Locations</h3>
-      <div className="mt-2 space-y-1">
+      <h3 className="text-md font-medium text-text-light dark:text-text-dark">
+        Select Locations
+      </h3>
+      <div className="flex flex-row mt-2 gap-2 space-y-1">
         {locations.map((location) => (
           <label key={location.location_id} className="flex items-center">
             <input

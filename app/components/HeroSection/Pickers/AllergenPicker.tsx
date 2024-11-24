@@ -68,6 +68,9 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
 
   return (
     <div className="relative">
+      <h3 className="text-md mb-2 font-medium text-text-light dark:text-text-dark">
+        Got Allergen ❓
+      </h3>
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}
@@ -133,15 +136,19 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
                   key={allergen.allergen_id}
                   className="flex items-center hover:bg-background-boxLight dark:hover:bg-background-boxDark rounded cursor-pointer"
                 >
-                  <input
-                    type="checkbox"
-                    checked={selectedAllergens.includes(allergen.allergen_id)}
-                    onChange={() => handleCheckboxChange(allergen.allergen_id)}
-                    className="w-4 h-4 text-primary-light dark:text-primary-dark focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:outline-none rounded"
-                  />
-                  <span className="ml-3 text-text-light dark:text-text-dark">
-                    {emoji} {allergen.description}
-                  </span>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={selectedAllergens.includes(allergen.allergen_id)}
+                      onChange={() =>
+                        handleCheckboxChange(allergen.allergen_id)
+                      }
+                      className="w-4 h-4 text-primary-light dark:text-primary-dark focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:outline-none rounded"
+                    />
+                    <span className="ml-3 text-text-light dark:text-text-dark">
+                      {emoji} {allergen.description}
+                    </span>
+                  </label>
                 </li>
               );
             })}

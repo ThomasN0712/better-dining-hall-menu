@@ -10,7 +10,10 @@ type LocationPickerProps = {
   onLocationsChange: (locationIds: number[]) => void;
 };
 
-const LocationPicker: React.FC<LocationPickerProps> = ({ selectedLocationIds, onLocationsChange }) => {
+const LocationPicker: React.FC<LocationPickerProps> = ({
+  selectedLocationIds,
+  onLocationsChange,
+}) => {
   const [locations, setLocations] = useState<Location[]>([]);
 
   useEffect(() => {

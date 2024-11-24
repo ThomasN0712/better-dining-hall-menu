@@ -1,8 +1,4 @@
-import {
-  BriefcaseBusiness,
-  House,
-  UserRound,
-} from "lucide-react";
+import { BriefcaseBusiness, House, UserRound } from "lucide-react";
 
 import HeroSection from "./sections/HeroSection";
 import { Navbar } from "./components/NavBar";
@@ -17,7 +13,7 @@ export default function MenuPage() {
   return (
     <main className="">
       <Navbar navItems={navItems} />
-      <HeroSection/>
+      <HeroSection />
     </main>
   );
 }

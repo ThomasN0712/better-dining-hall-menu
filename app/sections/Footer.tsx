@@ -17,8 +17,8 @@ const Footer = () => {
 
         {/* Right Column */}
         <div className="flex justify-between gap-6 sm:gap-16">
-          <div className="font-bold space-y-2.5 text-sm sm:text-base flex flex-col items-start mt-0 pt-0">
-            <span className="block text-lg sm:text-lg font-semibold">
+          <div className="font-bold space-y-2 text-sm sm:text-base flex flex-col items-start mt-0 pt-0">
+            <span className="block text-lg font-semibold">
               Find the site useful?
             </span>
             <br />

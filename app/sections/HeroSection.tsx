@@ -92,7 +92,7 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 container mx-auto p-4">
         {/* Title */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl sm:text-6xl font-bold text-headingLight dark:text-headingDark tracking-wide mb-4">
+          <h1 className="text-4xl sm:text-6xl text-headingLight dark:text-headingDark tracking-wide mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-accent  text-center font-sans font-bold">
             CSULB Dining Hall Menu
           </h1>
         </div>

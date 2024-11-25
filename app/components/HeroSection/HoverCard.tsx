@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 import { CircleAlert } from "lucide-react";
 
 type MenuItem = {
@@ -133,7 +134,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
         if (refElement.current) {
           setTimeout(() => {
             if (isPointerInside.current) {
-              refElement.current.style.setProperty("--duration", "0s");
+              refElement.current?.style.setProperty("--duration", "0s");
             }
           }, 300);
         }
@@ -147,10 +148,13 @@ const HoverCard: React.FC<HoverCardProps> = ({
         }
       }}
     >
-      <div className="h-full grid will-change-transform origin-center transition-transform duration-[var(--duration)] ease-[var(--easing)] [transform:rotateY(var(--r-x))_rotateX(var(--r-y))] rounded-[var(--radius)] hover:[--opacity:0.3] hover:[--duration:200ms] hover:[--easing:linear] overflow-hidden">
+      <div
+        className="h-full grid will-change-transform origin-center transition-transform duration-[var(--duration)] ease-[var(--easing)] [transform:rotateY(var(--r-x))_rotateX(var(--r-y))] rounded-[var(--radius)] hover:[--opacity:0.3] hover:[--duration:200ms] hover:[--easing:linear] overflow-hidden"
+        style={{ zIndex: 0 }}
+      >
         {/* Main Content */}
         <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light [clip-path:inset(0_0_0_0_round_var(--radius))]">
-          <div className="h-full w-full bg-background-cardLight dark:bg-background-cardDark text-text-light dark:text-text-dark p-4 flex flex-col">
+          <div className="h-full w-full bg-background-cardLight dark:bg-background-cardDark text-text-light dark:text-text-dark p-4 flex flex-col relative">
             {/* Header */}
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-text-headingLight dark:text-text-headingDark">
@@ -170,30 +174,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
                       <span>{item.name}</span>
                       {/* Information Icon with Tooltip */}
                       {item.allergens.length > 0 && (
-                        <div className="ml-2 text-gray-500 dark:text-gray-400 cursor-pointer relative group">
-                          <CircleAlert
-                            size={16}
-                            className="text-text-light dark:text-text-dark"
-                          />
-                          <div className="absolute hidden group-hover:block z-10 bg-white text-gray-800 rounded-md p-2 shadow-lg dark:bg-gray-800 dark:text-gray-200 text-sm max-w-xs">
-                            <div>
-                              <p className="font-medium">Allergens:</p>
-                              <ul className="mt-1 space-y-1">
-                                {item.allergens.map((allergen) => (
-                                  <li
-                                    key={allergen.id}
-                                    className="flex items-center"
-                                  >
-                                    <span className="mr-2">
-                                      {allergenEmojiMap[allergen.name] || "❓"}
-                                    </span>
-                                    <span>{allergen.name}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
+                        <TooltipAllergens item={item} />
                       )}
                     </li>
                   ))}
@@ -216,6 +197,71 @@ const HoverCard: React.FC<HoverCardProps> = ({
         />
       </div>
     </div>
+  );
+};
+
+// Separate component for the allergen tooltip
+const TooltipAllergens: React.FC<{ item: MenuItem }> = ({ item }) => {
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
+  const iconRef = useRef<HTMLDivElement>(null);
+
+  const handleMouseEnter = () => {
+    if (iconRef.current) {
+      const rect = iconRef.current.getBoundingClientRect();
+      setTooltipPosition({
+        top: rect.bottom + window.scrollY + 8, // 8px offset
+        left: rect.left + window.scrollX,
+      });
+      setTooltipVisible(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setTooltipVisible(false);
+  };
+
+  return (
+    <>
+      <div
+        className="ml-2 text-gray-500 dark:text-gray-400 cursor-pointer relative"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        ref={iconRef}
+        style={{ zIndex: 1 }}
+      >
+        <CircleAlert
+          size={16}
+          className="text-text-light dark:text-text-dark"
+        />
+      </div>
+      {tooltipVisible &&
+        ReactDOM.createPortal(
+          <div
+            className="absolute z-50 bg-white text-gray-800 rounded-md p-2 shadow-lg dark:bg-gray-800 dark:text-gray-200 text-sm max-w-xs"
+            style={{
+              top: tooltipPosition.top,
+              left: tooltipPosition.left,
+              position: "absolute",
+            }}
+          >
+            <div>
+              <p className="font-medium">Allergens:</p>
+              <ul className="mt-1 space-y-1">
+                {item.allergens.map((allergen) => (
+                  <li key={allergen.id} className="flex items-center">
+                    <span className="mr-2">
+                      {allergenEmojiMap[allergen.name] || "❓"}
+                    </span>
+                    <span>{allergen.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>,
+          document.body
+        )}
+    </>
   );
 };
 

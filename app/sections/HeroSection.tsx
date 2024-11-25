@@ -86,7 +86,7 @@ const HeroSection: React.FC = () => {
   }, [selectedDate, selectedLocationIds, selectedMealTypeIds]);
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-64">
       <BackgroundBeams />
       {/* Content */}
       <div className="relative z-10 container mx-auto p-4">
@@ -97,37 +97,41 @@ const HeroSection: React.FC = () => {
           </h1>
         </div>
 
-        {/* Timer */}
-        <Timer />
+        <div className="flex flex-col md:flex-row gap-6 justify-between">
+          {/* Timer */}
+          <Timer />
 
-        {/* Pickers */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border p-6 rounded-lg shadow-lg">
-          <DatePicker
-            selectedDate={selectedDate}
-            onDateChange={setSelectedDate}
-          />
-          <LocationPicker
-            selectedLocationIds={selectedLocationIds}
-            onLocationsChange={setSelectedLocationIds}
-          />
-          <MealTypePicker
-            selectedMealTypeIds={selectedMealTypeIds}
-            onMealTypesChange={setSelectedMealTypeIds}
-          />
-          <AllergenPicker
-            selectedAllergens={selectedAllergens}
-            onAllergensChange={setSelectedAllergens}
-          />
+          {/* Pickers */}
+          <div className="flex flex-col md:flex-row gap-6 bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border p-6 rounded-lg shadow-lg">
+            <DatePicker
+              selectedDate={selectedDate}
+              onDateChange={setSelectedDate}
+            />
+            <LocationPicker
+              selectedLocationIds={selectedLocationIds}
+              onLocationsChange={setSelectedLocationIds}
+            />
+            <MealTypePicker
+              selectedMealTypeIds={selectedMealTypeIds}
+              onMealTypesChange={setSelectedMealTypeIds}
+            />
+            <AllergenPicker
+              selectedAllergens={selectedAllergens}
+              onAllergensChange={setSelectedAllergens}
+            />
+          </div>
         </div>
 
         {/* Card Grid */}
-        {loading ? (
-          <div className="text-center text-mutedLight dark:text-mutedDark">
-            Loading menu items...
-          </div>
-        ) : (
-          <CardGrid cards={cardsData} selectedAllergens={selectedAllergens} />
-        )}
+        <div className="relative pt-10">
+          {loading ? (
+            <div className="text-center text-mutedLight dark:text-mutedDark">
+              Loading menu items...
+            </div>
+          ) : (
+            <CardGrid cards={cardsData} selectedAllergens={selectedAllergens} />
+          )}
+        </div>
       </div>
     </div>
   );

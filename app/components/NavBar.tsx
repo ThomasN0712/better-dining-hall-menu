@@ -9,7 +9,7 @@ import {
 } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { DarkModeToggle } from "./DarkModeToggle"; 
+import { DarkModeToggle } from "./DarkModeToggle";
 
 export const Navbar = ({
   navItems,
@@ -109,8 +109,8 @@ export const Navbar = ({
             </Link>
           ))}
 
-         {/* Dark Mode Toggle Button */}
-         <DarkModeToggle />
+          {/* Dark Mode Toggle Button */}
+          <DarkModeToggle />
         </motion.div>
       )}
     </AnimatePresence>

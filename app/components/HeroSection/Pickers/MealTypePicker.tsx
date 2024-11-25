@@ -75,7 +75,7 @@ const MealTypePicker: React.FC<MealTypePickerProps> = ({
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}
-        className="w-full bg-background-cardLight dark:bg-background-cardDark text-text-light dark:text-text-dark border border-background-borderLight dark:border-background-borderDark rounded-md px-4 py-2 text-left shadow-sm flex flex-wrap gap-2 items-center"
+        className="w-full pr-6 bg-background-cardLight dark:bg-background-cardDark text-text-light dark:text-text-dark border border-background-borderLight dark:border-background-borderDark rounded-md px-4 py-2 text-left shadow-sm flex flex-wrap gap-2 items-center"
       >
         {selectedMealTypeIds.length > 0 ? (
           selectedMealTypeIds.map((mealTypeId) => {

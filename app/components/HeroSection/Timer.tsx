@@ -100,11 +100,11 @@ const Timer: React.FC = () => {
     <div className="flex flex-col md:flex-row items-center items-stretch justify-between gap-16 mb-12">
       {/* Left Section: Date & Time */}
       <div
-        className={`bg-background-highlightLight dark:bg-background-highlightDark rounded-lg shadow-md p-6 flex items-center justify-center space-x-4 w-full md:w-2/5 ${montserrat.className}`}
+        className={`bg-background-highlightLight dark:bg-background-highlightDark rounded-lg shadow-md p-6 flex items-center justify-center space-x-0 lg:space-x-4 w-full md:w-2/5 ${montserrat.className}`}
       >
         {/* Day */}
         <div className="flex flex-col items-center mx-4">
-          <span className="text-2xl md:text-3xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
+          <span className="text-1xl md:text-2xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
             {day}
           </span>
           <span className="text-xs md:text-sm text-text-mutedLight dark:text-text-mutedDark mt-2 uppercase">
@@ -113,13 +113,13 @@ const Timer: React.FC = () => {
         </div>
 
         {/* Separator */}
-        <span className="text-2xl md:text-3xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
+        <span className="text-1xl md:text-2xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
           :
         </span>
 
         {/* Hours */}
         <div className="flex flex-col items-center mx-4">
-          <span className="text-2xl md:text-3xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
+          <span className="text-1xl md:text-2xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
             {hours}
           </span>
           <span className="text-xs md:text-sm text-text-mutedLight dark:text-text-mutedDark mt-2 uppercase">
@@ -128,13 +128,13 @@ const Timer: React.FC = () => {
         </div>
 
         {/* Separator */}
-        <span className="text-2xl md:text-3xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
+        <span className="text-1xl md:text-2xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
           :
         </span>
 
         {/* Minutes */}
         <div className="flex flex-col items-center mx-4">
-          <span className="text-2xl md:text-3xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
+          <span className="text-1xl md:text-2xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
             {minutes}
           </span>
           <span className="text-xs md:text-sm text-text-mutedLight dark:text-text-mutedDark mt-2 uppercase">
@@ -143,13 +143,13 @@ const Timer: React.FC = () => {
         </div>
 
         {/* Separator */}
-        <span className="text-2xl md:text-3xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
+        <span className="text-1xl md:text-2xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
           :
         </span>
 
         {/* Seconds */}
         <div className="flex flex-col items-center mx-4">
-          <span className="text-2xl md:text-3xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
+          <span className="text-1xl md:text-2xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
             {seconds}
           </span>
           <span className="text-xs md:text-sm text-text-mutedLight dark:text-text-mutedDark mt-2 uppercase">
@@ -163,7 +163,7 @@ const Timer: React.FC = () => {
         {/* Active Meals */}
         {activeMeals.length > 0 ? (
           <div>
-            <p className="text-green-500 font-medium">Active Meals:</p>
+            <p className="text-accent font-bold">Active Meals:</p>
             <ul className="space-y-1">
               {activeMeals.map((meal, index) => (
                 <li key={index} className="text-sm">
@@ -180,7 +180,7 @@ const Timer: React.FC = () => {
         {/* Upcoming Meals */}
         {upcomingMeals.length > 0 && (
           <div>
-            <p className="text-blue-500 font-medium">Upcoming Meal:</p>
+            <p className="text-blue-500 font-bold">Upcoming Meal:</p>
             <ul className="space-y-1">
               {upcomingMeals.map((meal, index) => (
                 <li key={index} className="text-sm">

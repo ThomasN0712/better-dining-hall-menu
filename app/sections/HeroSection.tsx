@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import CardGrid from "@/components/HeroSection/CardGrid";
 import Timer from "@/components/HeroSection/Timer";
+import { BackgroundBeams } from "@/components/background-beams";
+
 import {
   DatePicker,
   LocationPicker,
@@ -85,17 +87,14 @@ const HeroSection: React.FC = () => {
 
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+      <BackgroundBeams />
       {/* Content */}
       <div className="relative z-10 container mx-auto p-4">
         {/* Title */}
         <div className="text-center mb-10">
           <h1 className="text-4xl sm:text-6xl font-bold text-headingLight dark:text-headingDark tracking-wide mb-4">
-            Dining Hall Menu
+            CSULB Dining Hall Menu
           </h1>
-          <p className="text-lg text-subtitleLight dark:text-subtitleDark">
-            Explore your meal options by selecting date, location, and
-            preferences.
-          </p>
         </div>
 
         {/* Timer */}

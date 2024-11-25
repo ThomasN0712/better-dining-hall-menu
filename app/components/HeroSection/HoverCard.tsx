@@ -154,7 +154,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
       >
         {/* Main Content */}
         <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light [clip-path:inset(0_0_0_0_round_var(--radius))]">
-          <div className="h-full w-full bg-background-cardLight dark:bg-background-cardDark text-text-light dark:text-text-dark p-4 flex flex-col relative bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border shadow-lg">
+          <div className="h-full w-full text-text-light dark:text-text-dark p-4 flex flex-col relative bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border shadow-lg">
             {/* Header */}
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-text-headingLight dark:text-text-headingDark">

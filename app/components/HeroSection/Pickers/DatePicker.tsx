@@ -15,7 +15,7 @@ const DatePicker: React.FC<DatePickerProps> = ({
     <div className="relative">
       <label
         htmlFor="date-picker"
-        className="block text-sm font-medium text-headingLight dark:text-headingDark"
+        className="block text-md font-medium text-text-light dark:text-text-dark"
       >
         Select Date
       </label>

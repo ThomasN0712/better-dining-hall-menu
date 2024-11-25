@@ -6,12 +6,15 @@ import ShinyButton from "@/components/ShinyButton";
 const Footer = () => {
   return (
     <div>
-      <div className="mt-16 p-10 border-t bg-background-light dark:bg-background-dark flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
+      <div className="p-10 border-t bg-background-light dark:bg-background-dark flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
         {/* Left Column */}
-        <div className="space-y-2.5">
+        <div className="space-y-1.5">
           <h3 className="text-xl font-bold text-text-headingLight dark:text-text-headingDark relative z-10">
-            Thomas Nguyen
+            Made with 💖
           </h3>
+          <p className="text-text-mutedLight dark:text-text-mutedDark relative z-10">
+            by Thomas Nguyen
+          </p>
           <p className="text-text-mutedLight dark:text-text-mutedDark relative z-10">
             &copy; 2024 | All rights reserved.
           </p>

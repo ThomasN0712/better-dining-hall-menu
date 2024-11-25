@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import CardGrid from "@/components/HeroSection/CardGrid";
-import Timer from "@/components/HeroSection/Timer";
-import { BackgroundBeams } from "@/components/background-beams";
+import MealTimer from "@/components/HeroSection/MealTimer";
 
 import {
   DatePicker,
@@ -97,14 +96,14 @@ const HeroSection: React.FC = () => {
       <div className="relative z-10 container mx-auto p-4">
         {/* Title */}
         <div className="text-center mb-20">
-          <h1 className="text-4xl sm:text-6xl font-bold text-center mb-8 bg-gradient-to-r from-[#eba904] to-[#96938d] bg-clip-text text-transparent">
+          <h1 className="text-4xl sm:text-6xl font-bold text-center mb-8 bg-gradient-to-r from-[#eba904] to-[#96938d] bg-clip-text text-transparent animate-bounce">
             CSULB DINING HALL MENU
           </h1>
         </div>
 
         <div className="flex flex-col md:flex-row gap-6 justify-between">
           {/* Timer */}
-          <Timer />
+          <MealTimer />
 
           {/* Pickers */}
           <div className="flex flex-col md:flex-row gap-6 bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border p-6 rounded-lg shadow-lg">
@@ -128,7 +127,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Card Grid */}
-        <div className="relative pt-10">
+        <div className="relative pt-10 mb-16">
           {loading ? (
             <div className="text-center text-mutedLight dark:text-mutedDark">
               Loading menu items...

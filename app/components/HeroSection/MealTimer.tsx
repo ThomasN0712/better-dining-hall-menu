@@ -37,7 +37,7 @@ const weekendSchedules: LocationSchedule[] = [
   { location: "Beachside", mealType: "Dinner", start: "17:00", end: "19:30" },
 ];
 
-const Timer: React.FC = () => {
+const MealTimer: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [activeMeals, setActiveMeals] = useState<LocationSchedule[]>([]);
@@ -117,7 +117,7 @@ const Timer: React.FC = () => {
       {/* Upcoming Meals */}
       {upcomingMeals.length > 0 && (
         <div>
-          <p className="text-[#fbce85] font-bold">Upcoming Meal:</p>
+          <p className="text-[#f0b236] font-bold">Upcoming Meal:</p>
           <ul className="space-y-1">
             {upcomingMeals.map((meal, index) => (
               <li key={index} className="text-sm">
@@ -132,4 +132,4 @@ const Timer: React.FC = () => {
   );
 };
 
-export default Timer;
+export default MealTimer;

@@ -1,14 +1,13 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Montserrat } from "next/font/google";
+import { Inter, Montserrat } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "700"], // Specify weights to reduce payload
-  display: "swap", // Ensures fallback font is swapped smoothly
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,6 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={`${montserrat.className} antialiased bg-background-dark text-text-dark`}
       >

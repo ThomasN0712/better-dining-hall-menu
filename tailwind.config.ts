@@ -44,6 +44,22 @@ module.exports = {
           linkDark: "#93C5FD", // Light blue for links in dark mode
         },
       },
+      fontFamily: {
+        edu: ['"Edu AU VIC WA NT Hand"', "cursive"],
+      },
+      animation: {
+        shimmer: "shimmer 2s linear infinite",
+      },
+      keyframes: {
+        shimmer: {
+          from: {
+            backgroundPosition: "0 0",
+          },
+          to: {
+            backgroundPosition: "-200% 0",
+          },
+        },
+      },
     },
   },
   plugins: ["prettier-plugin-tailwindcss"],

@@ -1,7 +1,8 @@
 import { BriefcaseBusiness, House, UserRound } from "lucide-react";
 
-import HeroSection from "./sections/HeroSection";
 import { Navbar } from "./components/NavBar";
+import HeroSection from "./sections/HeroSection";
+import Footer from "./sections/Footer";
 
 const navItems = [
   { name: "Home", link: "#home", icon: <House /> },
@@ -14,6 +15,7 @@ export default function MenuPage() {
     <main className="">
       <Navbar navItems={navItems} />
       <HeroSection />
+      <Footer />
     </main>
   );
 }

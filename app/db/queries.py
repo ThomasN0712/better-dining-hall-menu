@@ -68,18 +68,18 @@ def get_menu_items(db: Session, date_str: str, location_id: int, meal_type_id: i
     for ma in menu_availability_list:
         # Fetch allergens for the menu item
         allergens = (
-            db.query(Allergen.allergen_id)
+            db.query(Allergen.allergen_id, Allergen.description)
             .join(MenuItemAllergen, Allergen.allergen_id == MenuItemAllergen.allergen_id)
             .filter(MenuItemAllergen.availability_id == ma.availability_id)
             .all()
         )
-        allergen_ids = [a[0] for a in allergens]
+        allergens_list = [{"id": a[0], "name": a[1]} for a in allergens]
 
         item = {
             "item_name": ma.menu_item.item_name,
             "location": ma.location.location_name,
             "meal_type": ma.meal_type.meal_type_name,
-            "allergens": allergen_ids,
+            "allergens": allergens_list,
         }
         result.append(item)
     return result

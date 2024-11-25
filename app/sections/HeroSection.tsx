@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
                 mealType: firstItem.meal_type,
                 menuItems: data.map((item: any) => ({
                   name: item.item_name,
-                  allergens: item.allergens, // Ensure this is an array of { id, name }
+                  allergens: item.allergens,
                 })),
               };
               newCardsData.push(card);

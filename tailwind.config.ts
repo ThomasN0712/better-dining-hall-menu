@@ -59,6 +59,7 @@ module.exports = {
       },
       animation: {
         shimmer: "shimmer 2s linear infinite",
+        blink: "blink 1s steps(2, start) infinite",
       },
       keyframes: {
         shimmer: {
@@ -68,6 +69,10 @@ module.exports = {
           to: {
             backgroundPosition: "-200% 0",
           },
+        },
+        blink: {
+          "0%, 50%": { opacity: "1" },
+          "50%, 100%": { opacity: "0" },
         },
       },
     },

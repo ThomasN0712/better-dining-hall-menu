@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CardGrid from "@/components/HeroSection/CardGrid";
 import MealTimer from "@/components/HeroSection/MealTimer";
+import { TypewriterEffect } from "@/components/TypeWriterEffect";
 
 import {
   DatePicker,
@@ -11,6 +12,7 @@ import {
   MealTypePicker,
   AllergenPicker,
 } from "@/components/HeroSection/Pickers";
+import { wrap } from "module";
 
 type MenuItem = {
   name: string;
@@ -39,6 +41,24 @@ const HeroSection: React.FC = () => {
       transition: { duration: 0.8, ease: "easeOut" },
     },
   };
+
+  const words = [
+    {
+      text: "A",
+    },
+    {
+      text: "Slightly",
+    },
+    {
+      text: "Menu",
+    },
+    {
+      text: "Better",
+    },
+    {
+      text: "Design",
+    },
+  ];
 
   useEffect(() => {
     const fetchMenuItems = async () => {
@@ -124,12 +144,12 @@ const HeroSection: React.FC = () => {
 
         {/* Subtitle */}
         <motion.p
-          className="text-lg text-center italic sm:text-xl text-gray-700 dark:text-gray-400 mt-4 mb-20"
+          className="text-md italic text-center sm:text-xl text-gray-700 dark:text-gray-400 mt-4 mb-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1 }}
         >
-          Your Ultimate Guide to CSULB Dining.
+          <TypewriterEffect words={words} />
         </motion.p>
 
         <div className="flex flex-col md:flex-row gap-6 justify-between">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail, CircleUser } from "lucide-react";
 import Image from "next/image";
 import ShinyButton from "@/components/ShinyButton";
 
@@ -44,26 +44,14 @@ const Footer = () => {
           </div>
 
           <ul className="space-y-2.5 relative z-10 text-sm sm:text-base">
-            <li className="text-lg sm:text-lg font-semibold text-text-headingLight dark:text-text-headingDark">
-              Navigate
-            </li>
-            <li className="text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
-              <Link href="/">Home</Link>
-            </li>
-            <li className="text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
-              <Link href="#work">Work</Link>
-            </li>
-            <li className="text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
-              <Link href="#about">About</Link>
-            </li>
-            <li className="text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
-              <Link href="#contact">Contact</Link>
-            </li>
-          </ul>
-
-          <ul className="space-y-2.5 relative z-10 text-sm sm:text-base">
             <li className="text-lg font-semibold text-text-headingLight dark:text-text-headingDark">
               Socials
+            </li>
+            <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
+              <CircleUser className="mr-2 w-5 h-5 text-text-headingLight dark:text-text-headingDark" />
+              <Link href="https://www.thomasnguyen.tech/" target="_blank">
+                About Me
+              </Link>
             </li>
             <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
               <Linkedin className="mr-2 w-5 h-5 text-text-headingLight dark:text-text-headingDark" />

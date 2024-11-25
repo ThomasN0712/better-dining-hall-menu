@@ -36,8 +36,8 @@ const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
         ([location, locationCards], locationIndex) => (
           <div key={locationIndex} className="space-y-4">
             {/* Location Header */}
-            <h2 className="text-xl font-bold text-text-headingLight dark:text-text-headingDark">
-              {location}
+            <h2 className="text-xl font-bold">
+              <span className="text-accent">{location}</span>
             </h2>
             {/* Cards for this location */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

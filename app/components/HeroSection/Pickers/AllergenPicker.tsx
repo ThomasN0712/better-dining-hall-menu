@@ -143,7 +143,7 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
                       onChange={() =>
                         handleCheckboxChange(allergen.allergen_id)
                       }
-                      className="w-4 h-4 text-primary-light dark:text-primary-dark focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:outline-none rounded"
+                      className="w-4 h-4 accent-accent focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:outline-none rounded"
                     />
                     <span className="ml-3 text-text-light dark:text-text-dark">
                       {emoji} {allergen.description}

@@ -56,7 +56,7 @@ const LocationPicker: React.FC<LocationPickerProps> = ({
               type="checkbox"
               checked={selectedLocationIds.includes(location.location_id)}
               onChange={() => handleCheckboxChange(location.location_id)}
-              className="mr-2"
+              className="mr-2 accent-accent"
             />
             {location.location_name}
           </label>

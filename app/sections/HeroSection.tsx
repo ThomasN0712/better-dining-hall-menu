@@ -86,14 +86,14 @@ const HeroSection: React.FC = () => {
   }, [selectedDate, selectedLocationIds, selectedMealTypeIds]);
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-64">
-      <BackgroundBeams />
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-48">
+      <BackgroundBeams className="" />
       {/* Content */}
       <div className="relative z-10 container mx-auto p-4">
         {/* Title */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl sm:text-6xl text-headingLight dark:text-headingDark tracking-wide mb-4 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-accent  text-center font-sans font-bold">
-            CSULB Dining Hall Menu
+        <div className="text-center mb-20">
+          <h1 className="text-4xl sm:text-6xl font-bold text-center mb-8 bg-gradient-to-r from-[#eba904] to-[#96938d] bg-clip-text text-transparent">
+            CSULB DINING HALL MENU
           </h1>
         </div>
 

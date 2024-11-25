@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 type DatePickerProps = {
   selectedDate: Date | null; // Allow null as ReactDatePicker can pass null
-  onDateChange: (date: Date | null) => void; // Update type to handle null
+  onDateChange: (date: Date | null) => void;
 };
 
 const DatePicker: React.FC<DatePickerProps> = ({

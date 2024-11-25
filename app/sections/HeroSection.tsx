@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import CardGrid from "@/components/HeroSection/CardGrid";
+import Timer from "@/components/HeroSection/Timer";
 import {
   DatePicker,
   LocationPicker,
@@ -21,7 +22,7 @@ type CardData = {
 };
 
 const HeroSection: React.FC = () => {
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
   const [selectedLocationIds, setSelectedLocationIds] = useState<number[]>([]);
   const [selectedMealTypeIds, setSelectedMealTypeIds] = useState<number[]>([]);
   const [selectedAllergens, setSelectedAllergens] = useState<number[]>([]);
@@ -43,7 +44,9 @@ const HeroSection: React.FC = () => {
           for (const locationId of selectedLocationIds) {
             for (const mealTypeId of selectedMealTypeIds) {
               const url = `http://127.0.0.1:8000/menu_items?date=${dateStr}&location_id=${locationId}&meal_type_id=${mealTypeId}`;
-              fetchPromises.push(fetch(url).then((response) => response.json()));
+              fetchPromises.push(
+                fetch(url).then((response) => response.json())
+              );
             }
           }
 
@@ -94,6 +97,9 @@ const HeroSection: React.FC = () => {
             preferences.
           </p>
         </div>
+
+        {/* Timer */}
+        <Timer />
 
         {/* Pickers */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border p-6 rounded-lg shadow-lg">

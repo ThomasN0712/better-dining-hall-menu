@@ -1,75 +1,197 @@
-// components/HeroSection/Timer.tsx
 import React, { useState, useEffect } from "react";
+import { Montserrat } from "next/font/google";
 
-type TimerProps = {
-  mealSchedule: { mealType: string; start: string; end: string }[]; // Array of meal types with start/end times
+const montserrat = Montserrat({ subsets: ["latin"], weight: ["200"] });
+
+type LocationSchedule = {
+  location: string;
+  mealType: string;
+  start: string;
+  end: string;
 };
 
-const Timer: React.FC<TimerProps> = ({ mealSchedule }) => {
+// Separate weekday and weekend schedules
+const weekdaySchedules: LocationSchedule[] = [
+  { location: "Parkside", mealType: "Breakfast", start: "07:00", end: "10:00" },
+  { location: "Parkside", mealType: "Lunch", start: "11:00", end: "14:30" },
+  { location: "Parkside", mealType: "Dinner", start: "16:00", end: "20:30" },
+  { location: "Hillside", mealType: "Breakfast", start: "07:00", end: "10:00" },
+  { location: "Hillside", mealType: "Lunch", start: "11:00", end: "14:30" },
+  { location: "Hillside", mealType: "Dinner", start: "16:00", end: "20:30" },
+  {
+    location: "Beachside",
+    mealType: "Breakfast",
+    start: "06:30",
+    end: "09:00",
+  },
+  { location: "Beachside", mealType: "Lunch", start: "11:00", end: "13:30" },
+  { location: "Beachside", mealType: "Dinner", start: "17:00", end: "20:30" },
+];
+
+const weekendSchedules: LocationSchedule[] = [
+  { location: "Parkside", mealType: "Brunch", start: "09:30", end: "13:30" },
+  { location: "Parkside", mealType: "Dinner", start: "16:00", end: "19:30" },
+  { location: "Hillside", mealType: "Brunch", start: "09:30", end: "13:30" },
+  { location: "Hillside", mealType: "Dinner", start: "16:00", end: "19:30" },
+  { location: "Beachside", mealType: "Brunch", start: "11:00", end: "13:30" },
+  { location: "Beachside", mealType: "Dinner", start: "17:00", end: "19:30" },
+];
+
+const Timer: React.FC = () => {
+  const [isClient, setIsClient] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
-  const [currentMeal, setCurrentMeal] = useState<string | null>(null);
-  const [timeUntilNextMeal, setTimeUntilNextMeal] = useState<string | null>(null);
+  const [activeMeals, setActiveMeals] = useState<LocationSchedule[]>([]);
+  const [upcomingMeals, setUpcomingMeals] = useState<LocationSchedule[]>([]);
 
   useEffect(() => {
+    setIsClient(true);
     const interval = setInterval(() => {
       const now = new Date();
       setCurrentTime(now);
       updateMealStatus(now);
-    }, 1000); // Update every second
+    }, 1000);
 
     return () => clearInterval(interval);
-  }, [mealSchedule]);
+  }, []);
+
+  const formatTimeUnit = (unit: number) => (unit < 10 ? `0${unit}` : unit);
+
+  const days = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
+  const day = days[currentTime.getDay()];
+  const hours = formatTimeUnit(currentTime.getHours());
+  const minutes = formatTimeUnit(currentTime.getMinutes());
+  const seconds = formatTimeUnit(currentTime.getSeconds());
 
   const updateMealStatus = (now: Date) => {
-    let activeMeal = null;
-    let nextMealStart: Date | null = null;
+    const isWeekend = now.getDay() === 0 || now.getDay() === 6; // Sunday or Saturday
+    const applicableSchedules = isWeekend ? weekendSchedules : weekdaySchedules;
 
-    for (let i = 0; i < mealSchedule.length; i++) {
-      const { mealType, start, end } = mealSchedule[i];
-      const startTime = new Date(`${now.toDateString()} ${start}`);
-      const endTime = new Date(`${now.toDateString()} ${end}`);
+    const active: LocationSchedule[] = [];
+    const upcoming: LocationSchedule[] = [];
+
+    applicableSchedules.forEach((schedule) => {
+      const startTime = new Date(`${now.toDateString()} ${schedule.start}`);
+      const endTime = new Date(`${now.toDateString()} ${schedule.end}`);
 
       if (now >= startTime && now < endTime) {
-        activeMeal = mealType;
-      } else if (now < startTime && !nextMealStart) {
-        nextMealStart = startTime;
+        active.push(schedule);
+      } else if (now < startTime) {
+        upcoming.push(schedule);
       }
-    }
+    });
 
-    setCurrentMeal(activeMeal);
-    if (nextMealStart) {
-      const timeDiff = nextMealStart.getTime() - now.getTime();
-      setTimeUntilNextMeal(formatTimeDiff(timeDiff));
-    } else {
-      setTimeUntilNextMeal(null); // No next meal today
-    }
+    upcoming.sort((a, b) => {
+      const aStart = new Date(`${now.toDateString()} ${a.start}`).getTime();
+      const bStart = new Date(`${now.toDateString()} ${b.start}`).getTime();
+      return aStart - bStart;
+    });
+
+    setActiveMeals(active);
+    setUpcomingMeals(upcoming.slice(0, 1)); // Show only the next meal
   };
 
-  const formatTimeDiff = (diff: number) => {
-    const hours = Math.floor(diff / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    return `${hours}h ${minutes}m`;
-  };
+  const formatTime = (time: string) =>
+    new Date(`${currentTime.toDateString()} ${time}`).toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg shadow-md text-center">
-      <h2 className="text-lg font-semibold text-gray-700 dark:text-gray-300">
-        Current Time: {currentTime.toLocaleTimeString()}
-      </h2>
-      {currentMeal ? (
-        <p className="text-green-600 dark:text-green-400 mt-2">
-          Active Meal: {currentMeal}
-        </p>
-      ) : (
-        <p className="text-yellow-600 dark:text-yellow-400 mt-2">
-          No meal currently active.
-        </p>
-      )}
-      {timeUntilNextMeal && (
-        <p className="text-blue-600 dark:text-blue-400 mt-2">
-          Time until next meal: {timeUntilNextMeal}
-        </p>
-      )}
+    <div className="flex flex-col md:flex-row items-center items-stretch justify-between gap-16 mb-12">
+      {/* Left Section: Date & Time */}
+      <div
+        className={`bg-background-highlightLight dark:bg-background-highlightDark rounded-lg shadow-md p-6 flex items-center justify-center space-x-4 w-full md:w-2/5 ${montserrat.className}`}
+      >
+        {/* Day */}
+        <div className="flex flex-col items-center mx-4">
+          <span className="text-2xl md:text-3xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
+            {day}
+          </span>
+          <span className="text-xs md:text-sm text-text-mutedLight dark:text-text-mutedDark mt-2 uppercase">
+            Day
+          </span>
+        </div>
+
+        {/* Separator */}
+        <span className="text-2xl md:text-3xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
+          :
+        </span>
+
+        {/* Hours */}
+        <div className="flex flex-col items-center mx-4">
+          <span className="text-2xl md:text-3xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
+            {hours}
+          </span>
+          <span className="text-xs md:text-sm text-text-mutedLight dark:text-text-mutedDark mt-2 uppercase">
+            Hours
+          </span>
+        </div>
+
+        {/* Separator */}
+        <span className="text-2xl md:text-3xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
+          :
+        </span>
+
+        {/* Minutes */}
+        <div className="flex flex-col items-center mx-4">
+          <span className="text-2xl md:text-3xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
+            {minutes}
+          </span>
+          <span className="text-xs md:text-sm text-text-mutedLight dark:text-text-mutedDark mt-2 uppercase">
+            Minutes
+          </span>
+        </div>
+
+        {/* Separator */}
+        <span className="text-2xl md:text-3xl pb-8 font-bold text-text-mutedLight dark:text-text-mutedDark">
+          :
+        </span>
+
+        {/* Seconds */}
+        <div className="flex flex-col items-center mx-4">
+          <span className="text-2xl md:text-3xl xl:text-4xl font-bold text-text-headingLight dark:text-text-headingDark">
+            {seconds}
+          </span>
+          <span className="text-xs md:text-sm text-text-mutedLight dark:text-text-mutedDark mt-2 uppercase">
+            Seconds
+          </span>
+        </div>
+      </div>
+
+      {/* Right Section: Meals */}
+      <div className="bg-background-highlightLight dark:bg-background-highlightDark rounded-lg shadow-md p-6 flex flex-col space-y-2 w-full md:w-3/5 mt-4 md:mt-0">
+        {/* Active Meals */}
+        {activeMeals.length > 0 ? (
+          <div>
+            <p className="text-green-500 font-medium">Active Meals:</p>
+            <ul className="space-y-1">
+              {activeMeals.map((meal, index) => (
+                <li key={index} className="text-sm">
+                  {meal.location} - {meal.mealType} ({formatTime(meal.start)} -{" "}
+                  {formatTime(meal.end)})
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p className="text-yellow-500 text-sm">No active meals.</p>
+        )}
+
+        {/* Upcoming Meals */}
+        {upcomingMeals.length > 0 && (
+          <div>
+            <p className="text-blue-500 font-medium">Upcoming Meal:</p>
+            <ul className="space-y-1">
+              {upcomingMeals.map((meal, index) => (
+                <li key={index} className="text-sm">
+                  {meal.location} - {meal.mealType} ({formatTime(meal.start)} -{" "}
+                  {formatTime(meal.end)})
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

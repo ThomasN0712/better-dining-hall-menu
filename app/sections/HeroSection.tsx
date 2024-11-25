@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import CardGrid from "@/components/HeroSection/CardGrid";
 import MealTimer from "@/components/HeroSection/MealTimer";
 
@@ -29,6 +30,15 @@ const HeroSection: React.FC = () => {
   const [selectedAllergens, setSelectedAllergens] = useState<number[]>([]);
   const [cardsData, setCardsData] = useState<CardData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
 
   useEffect(() => {
     const fetchMenuItems = async () => {
@@ -93,13 +103,34 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto p-4">
+      <div className="relative z-10 container">
         {/* Title */}
-        <div className="text-center mb-20">
-          <h1 className="text-4xl sm:text-6xl font-bold text-center mb-8 bg-gradient-to-r from-[#eba904] to-[#96938d] bg-clip-text text-transparent animate-bounce">
-            CSULB DINING HALL MENU
-          </h1>
+        <div className="text-center">
+          <motion.h1
+            className="text-4xl sm:text-6xl font-bold text-center"
+            initial="hidden"
+            animate="visible"
+            variants={titleVariants}
+          >
+            <span className="bg-accent bg-clip-text text-transparent">
+              CSULB
+            </span>{" "}
+            <span className="text-black dark:text-white">
+              DINING HALL MENU{" "}
+            </span>
+            <span className="text-5xl">🍽️</span>
+          </motion.h1>
         </div>
+
+        {/* Subtitle */}
+        <motion.p
+          className="text-lg text-center italic sm:text-xl text-gray-700 dark:text-gray-400 mt-4 mb-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          Your Ultimate Guide to CSULB Dining.
+        </motion.p>
 
         <div className="flex flex-col md:flex-row gap-6 justify-between">
           {/* Timer */}

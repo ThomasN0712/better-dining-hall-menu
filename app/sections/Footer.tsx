@@ -6,11 +6,13 @@ import ShinyButton from "@/components/ShinyButton";
 const Footer = () => {
   return (
     <div>
-      <div className="mt-16 p-10 border-t border-dark-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
+      <div className="mt-16 p-10 border-t bg-background-light dark:bg-background-dark flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
         {/* Left Column */}
         <div className="space-y-2.5">
-          <h3 className="text-xl font-bold relative z-10">Thomas Nguyen</h3>
-          <p className="text-dark-200/70 dark:text-stone-200/70 relative z-10">
+          <h3 className="text-xl font-bold text-text-headingLight dark:text-text-headingDark relative z-10">
+            Thomas Nguyen
+          </h3>
+          <p className="text-text-mutedLight dark:text-text-mutedDark relative z-10">
             &copy; 2024 | All rights reserved.
           </p>
         </div>
@@ -18,13 +20,13 @@ const Footer = () => {
         {/* Right Column */}
         <div className="flex justify-between gap-6 sm:gap-16">
           <div className="font-bold space-y-2 text-sm sm:text-base flex flex-col items-start mt-0 pt-0">
-            <span className="block text-lg font-semibold">
+            <span className="block text-lg font-semibold text-text-headingLight dark:text-text-headingDark">
               Find the site useful?
             </span>
             <br />
             <ShinyButton>
               <Link href="#work" className="whitespace-nowrap">
-                <span className="flex font-edu font-bold items-center whitespace-nowrap">
+                <span className="flex font-bold items-center whitespace-nowrap">
                   Buy me a Celsius
                   <Image
                     src="/celsius.png"
@@ -39,25 +41,29 @@ const Footer = () => {
           </div>
 
           <ul className="space-y-2.5 relative z-10 text-sm sm:text-base">
-            <li className="text-lg sm:text-lg font-semibold">Navigate</li>
-            <li className="text-dark-200/60 hover:text-dark-200 dark:text-white/50 dark:hover:text-white">
+            <li className="text-lg sm:text-lg font-semibold text-text-headingLight dark:text-text-headingDark">
+              Navigate
+            </li>
+            <li className="text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
               <Link href="/">Home</Link>
             </li>
-            <li className="text-dark-200/60 hover:text-dark-200 dark:text-white/50 dark:hover:text-white">
+            <li className="text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
               <Link href="#work">Work</Link>
             </li>
-            <li className="text-dark-200/60 hover:text-dark-200 dark:text-white/50 dark:hover:text-white">
+            <li className="text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
               <Link href="#about">About</Link>
             </li>
-            <li className="text-dark-200/60 hover:text-dark-200 dark:text-white/50 dark:hover:text-white">
+            <li className="text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
               <Link href="#contact">Contact</Link>
             </li>
           </ul>
 
           <ul className="space-y-2.5 relative z-10 text-sm sm:text-base">
-            <li className="text-lg font-semibold">Socials</li>
-            <li className="flex items-center text-dark-200/60 hover:text-dark-200 dark:text-white/50 dark:hover:text-white">
-              <Linkedin className="mr-2 w-5 h-5" />
+            <li className="text-lg font-semibold text-text-headingLight dark:text-text-headingDark">
+              Socials
+            </li>
+            <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
+              <Linkedin className="mr-2 w-5 h-5 text-text-headingLight dark:text-text-linkDark" />
               <Link
                 href="https://www.linkedin.com/in/thomasnguyen0712/"
                 target="_blank"
@@ -65,7 +71,7 @@ const Footer = () => {
                 LinkedIn
               </Link>
             </li>
-            <li className="flex items-center text-dark-200/60 hover:text-dark-200 dark:text-white/50 dark:hover:text-white">
+            <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
               <Image
                 src="/github-dark-logo.svg"
                 alt="GitHub"
@@ -84,8 +90,8 @@ const Footer = () => {
                 Github
               </Link>
             </li>
-            <li className="flex items-center text-dark-200/60 hover:text-dark-200 dark:text-white/50 dark:hover:text-white">
-              <Mail className="mr-2 w-5 h-5" />
+            <li className="flex items-center text-mutedLight hover:text-headingLight dark:text-mutedDark dark:hover:text-headingDark">
+              <Mail className="mr-2 w-5 h-5 text-linkLight dark:text-linkDark" />
               <Link href="mailto:thomasnguyen0712@gmail.com" target="_blank">
                 Mail
               </Link>

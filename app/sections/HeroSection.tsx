@@ -87,7 +87,12 @@ const HeroSection: React.FC = () => {
 
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-48">
-      <BackgroundBeams className="" />
+      {/* Grid Background */}
+      <div className="absolute inset-0 h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] pointer-events-none z-0">
+        {/* Radial Gradient */}
+        <div className="absolute inset-0 h-full w-full dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none"></div>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 container mx-auto p-4">
         {/* Title */}

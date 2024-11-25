@@ -12,7 +12,7 @@ const navItems = [
 
 export default function MenuPage() {
   return (
-    <main className="">
+    <main className="bg-background-light dark:bg-background-dark">
       <Navbar navItems={navItems} />
       <HeroSection />
       <Footer />

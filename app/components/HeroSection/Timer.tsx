@@ -112,12 +112,12 @@ const Timer: React.FC = () => {
           </ul>
         </div>
       ) : (
-        <p className="text-yellow-500 text-sm">No active meals.</p>
+        <p className="text-accent font-bold">No active meals.</p>
       )}
       {/* Upcoming Meals */}
       {upcomingMeals.length > 0 && (
         <div>
-          <p className="text-blue-500 font-bold">Upcoming Meal:</p>
+          <p className="text-[#fbce85] font-bold">Upcoming Meal:</p>
           <ul className="space-y-1">
             {upcomingMeals.map((meal, index) => (
               <li key={index} className="text-sm">

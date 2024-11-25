@@ -12,7 +12,7 @@ import {
 
 type MenuItem = {
   name: string;
-  allergens: number[];
+  allergens: { id: number; name: string }[];
 };
 
 type CardData = {
@@ -62,7 +62,7 @@ const HeroSection: React.FC = () => {
                 mealType: firstItem.meal_type,
                 menuItems: data.map((item: any) => ({
                   name: item.item_name,
-                  allergens: item.allergens,
+                  allergens: item.allergens, // Ensure this is an array of { id, name }
                 })),
               };
               newCardsData.push(card);

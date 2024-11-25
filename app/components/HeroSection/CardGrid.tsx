@@ -3,7 +3,7 @@ import HoverCard from "./HoverCard";
 
 type MenuItem = {
   name: string;
-  allergens: number[];
+  allergens: { id: number; name: string }[]; // Updated type
 };
 
 type CardData = {
@@ -44,7 +44,6 @@ const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
               {locationCards.map((card, cardIndex) => (
                 <HoverCard
                   key={cardIndex}
-                  location={card.location}
                   mealType={card.mealType}
                   menuItems={card.menuItems}
                   selectedAllergens={selectedAllergens}

@@ -66,7 +66,7 @@ const Footer = () => {
               Socials
             </li>
             <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
-              <Linkedin className="mr-2 w-5 h-5 text-text-headingLight dark:text-text-linkDark" />
+              <Linkedin className="mr-2 w-5 h-5 text-text-headingLight dark:text-text-headingDark" />
               <Link
                 href="https://www.linkedin.com/in/thomasnguyen0712/"
                 target="_blank"
@@ -93,8 +93,8 @@ const Footer = () => {
                 Github
               </Link>
             </li>
-            <li className="flex items-center text-mutedLight hover:text-headingLight dark:text-mutedDark dark:hover:text-headingDark">
-              <Mail className="mr-2 w-5 h-5 text-linkLight dark:text-linkDark" />
+            <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
+              <Mail className="mr-2 w-5 h-5 text-text-headingLight dark:text-text-headingDark" />
               <Link href="mailto:thomasnguyen0712@gmail.com" target="_blank">
                 Mail
               </Link>

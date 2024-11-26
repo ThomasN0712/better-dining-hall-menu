@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-const API_URL =
-  process.env.REACT_APP_API_URL ||
-  "https://better-dining-hall-menu.onrender.com";
+import React, { useEffect } from "react";
 
 type Location = {
   location_id: number;
@@ -14,31 +10,23 @@ type LocationPickerProps = {
   onLocationsChange: (locationIds: number[]) => void;
 };
 
+// Static locations data
+const staticLocations: Location[] = [
+  { location_id: 85, location_name: "Beachside" },
+  { location_id: 86, location_name: "Hillside" },
+  { location_id: 87, location_name: "Parkside" },
+];
+
 const LocationPicker: React.FC<LocationPickerProps> = ({
   selectedLocationIds,
   onLocationsChange,
 }) => {
-  const [locations, setLocations] = useState<Location[]>([]);
-
+  // Ensure all locations are selected by default
   useEffect(() => {
-    const fetchLocations = async () => {
-      try {
-        const response = await fetch(`${API_URL}/locations`); // Use the serverless function
-        if (!response.ok) throw new Error("Failed to fetch locations");
-        const data = await response.json();
-        setLocations(data);
-
-        // Select all locations by default
-        const allLocationIds = data.map(
-          (location: Location) => location.location_id
-        );
-        onLocationsChange(allLocationIds);
-      } catch (error) {
-        console.error("Error fetching locations:", error);
-      }
-    };
-
-    fetchLocations();
+    const allLocationIds = staticLocations.map(
+      (location) => location.location_id
+    );
+    onLocationsChange(allLocationIds);
   }, [onLocationsChange]);
 
   const handleCheckboxChange = (locationId: number) => {
@@ -55,7 +43,7 @@ const LocationPicker: React.FC<LocationPickerProps> = ({
         Select Locations
       </h3>
       <div className="flex flex-col mt-2 gap-2 space-y-1">
-        {locations.map((location) => (
+        {staticLocations.map((location) => (
           <label key={location.location_id} className="flex items-center">
             <input
               type="checkbox"

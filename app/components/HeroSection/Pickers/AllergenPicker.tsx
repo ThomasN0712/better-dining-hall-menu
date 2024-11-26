@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-console.log("REACT_APP_API_URL:", process.env.REACT_APP_API_URL);
-
-const API_URL =
-  process.env.REACT_APP_API_URL ||
-  "https://better-dining-hall-menu.onrender.com";
-
 type Allergen = {
   allergen_id: number;
   description: string;
@@ -15,6 +9,19 @@ type AllergenPickerProps = {
   selectedAllergens: number[];
   onAllergensChange: (allergens: number[]) => void;
 };
+
+// Static allergens data
+const staticAllergens: Allergen[] = [
+  { allergen_id: 226, description: "Eggs" },
+  { allergen_id: 227, description: "Milk" },
+  { allergen_id: 228, description: "Wheat" },
+  { allergen_id: 229, description: "Soy" },
+  { allergen_id: 230, description: "Peanuts" },
+  { allergen_id: 231, description: "Tree Nuts" },
+  { allergen_id: 232, description: "Fish" },
+  { allergen_id: 233, description: "Crustacean" },
+  { allergen_id: 234, description: "Sesame Seeds" },
+];
 
 // Emoji and tag colors for allergens
 const allergenStyles: Record<string, { emoji: string; color: string }> = {
@@ -33,23 +40,7 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
   selectedAllergens,
   onAllergensChange,
 }) => {
-  const [allergens, setAllergens] = useState<Allergen[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    const fetchAllergens = async () => {
-      try {
-        const response = await fetch(`${API_URL}/allergens`);
-        if (!response.ok) throw new Error("Failed to fetch allergens");
-        const data = await response.json();
-        setAllergens(data);
-      } catch (error) {
-        console.error("Error fetching allergens:", error);
-      }
-    };
-
-    fetchAllergens();
-  }, []);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -85,7 +76,7 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
       >
         {selectedAllergens.length > 0 ? (
           selectedAllergens.map((allergenId) => {
-            const allergen = allergens.find(
+            const allergen = staticAllergens.find(
               (a) => a.allergen_id === allergenId
             );
             if (!allergen) return null;
@@ -136,7 +127,7 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
       {isOpen && (
         <div className="absolute z-10 mt-2 w-full bg-background-light dark:bg-background-dark border border-background-borderLight dark:border-background-borderDark rounded-md shadow-lg">
           <ul className="max-h-full overflow-auto p-2 space-y-2">
-            {allergens.map((allergen) => {
+            {staticAllergens.map((allergen) => {
               const { emoji } = getAllergenStyle(allergen.description);
               return (
                 <li

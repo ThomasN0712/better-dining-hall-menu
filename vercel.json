@@ -2,22 +2,22 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/main.py",
+      "src": "app/backend/main.py",
       "use": "@vercel/python"
     },
     {
-      "src": "frontend/next.config.js",
+      "src": "app/layout.tsx",
       "use": "@vercel/next"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/main.py"
+      "dest": "app/backend/main.py"
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/next.config.js"
+      "dest": "app/layout.tsx"
     }
   ]
 }

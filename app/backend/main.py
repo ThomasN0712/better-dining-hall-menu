@@ -9,11 +9,12 @@ app = FastAPI()
 # Configure CORS (Adjust allow_origins in production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://yourfrontend.vercel.app"],
+    allow_origins=["http://localhost:3000", "https://better-dining-hall-menu-dp2p47yrh.vercel.app/"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # Dependency to get DB session
 def get_db():

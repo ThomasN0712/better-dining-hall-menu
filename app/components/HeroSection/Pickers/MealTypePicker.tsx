@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 type MealType = {
   meal_type_id: number;
@@ -30,7 +30,7 @@ const MealTypePicker: React.FC<MealTypePickerProps> = ({
   useEffect(() => {
     const fetchMealTypes = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/allergens`);
+        const response = await fetch(`${API_URL}/meal_types`);
         if (!response.ok) throw new Error("Failed to fetch meal types");
         const data = await response.json();
         setMealTypes(data);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 type Allergen = {
   allergen_id: number;
@@ -35,7 +35,7 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
   useEffect(() => {
     const fetchAllergens = async () => {
       try {
-        const response = await fetch(`${API_URL}/api/allergens`);
+        const response = await fetch(`${API_URL}/allergens`);
         if (!response.ok) throw new Error("Failed to fetch allergens");
         const data = await response.json();
         setAllergens(data);

@@ -14,7 +14,7 @@ import {
 } from "@/components/HeroSection/Pickers";
 import { wrap } from "module";
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+const API_BASE_URL = process.env.REACT_APP_API_URL;
 
 type MenuItem = {
   name: string;

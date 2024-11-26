@@ -143,14 +143,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Subtitle */}
-        <motion.p
-          className="text-md italic text-center sm:text-xl text-gray-700 dark:text-gray-400 mt-4 mb-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
-          <TypewriterEffect words={words} />
-        </motion.p>
+        <TypewriterEffect words={words} className="mt-4 mb-16" />
 
         <div className="flex flex-col md:flex-row gap-6 justify-center">
           {/* Timer */}

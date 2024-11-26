@@ -4,29 +4,3 @@
 /* Predefined components */
 @tailwind utilities;
 /* Utility classes */
-
-.card-enter {
-  opacity: 0;
-  transform: scale(0.95);
-}
-
-.card-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition:
-    opacity 300ms ease-in,
-    transform 300ms ease-in;
-}
-
-.card-exit {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.card-exit-active {
-  opacity: 0;
-  transform: scale(0.95);
-  transition:
-    opacity 300ms ease-in,
-    transform 300ms ease-in;
-}

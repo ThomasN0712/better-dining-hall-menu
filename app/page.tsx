@@ -4,11 +4,7 @@ import { Navbar } from "./components/NavBar";
 import HeroSection from "./sections/HeroSection";
 import Footer from "./sections/Footer";
 
-const navItems = [
-  { name: "Home", link: "#home", icon: <House /> },
-  { name: "About", link: "#about", icon: <UserRound /> },
-  { name: "Work", link: "#work", icon: <BriefcaseBusiness /> },
-];
+const navItems = [{ name: "Home", link: "#home", icon: <House /> }];
 
 export default function MenuPage() {
   return (

@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-from app.db.database import SessionLocal
-from app.db import queries
+from .db.database import SessionLocal
+from .db import queries
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -9,7 +9,7 @@ app = FastAPI()
 # Configure CORS (Adjust allow_origins in production)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Change this to specific origins in production
+    allow_origins=["https://yourfrontend.vercel.app"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

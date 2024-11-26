@@ -1,7 +1,7 @@
 # app/db/queries.py
 
 from sqlalchemy.orm import Session
-from app.db.models import (
+from .models import (
     MenuItem,
     AlwaysAvailable,
     MenuAvailability,

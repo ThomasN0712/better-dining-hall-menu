@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+console.log("REACT_APP_API_URL:", process.env.REACT_APP_API_URL);
+
 const API_URL =
   process.env.REACT_APP_API_URL ||
   "https://better-dining-hall-menu.onrender.com";

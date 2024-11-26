@@ -6,8 +6,11 @@
       "use": "@vercel/python"
     },
     {
-      "src": "app/package.json",
-      "use": "@vercel/next"
+      "src": "package.json",
+      "use": "@vercel/next",
+      "config": {
+        "rootDirectory": "app"
+      }
     }
   ],
   "routes": [

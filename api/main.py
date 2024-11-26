@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from .db.database import SessionLocal
 from .db import queries
 from fastapi.middleware.cors import CORSMiddleware
-from mangum import Mangum
 
 # Initialize FastAPI application
 app = FastAPI()
@@ -14,7 +13,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",  # Local development
         "http://localhost:3001",  # Local development
-        "https://better-dining-hall-menu-dp2p47yrh.vercel.app"  # Production
+        "https://better-dining-hall-menu.onrender.com"  # Production
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -78,5 +77,9 @@ def get_allergens_api(db: Session = Depends(get_db)):
     """
     return queries.get_allergens(db)
 
-# Create the Mangum handler
-handler = Mangum(app)
+if __name__ == "__main__":
+    import uvicorn
+
+    # Retrieve the port dynamically from the environment or default to 8000 for local testing
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

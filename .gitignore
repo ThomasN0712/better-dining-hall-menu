@@ -13,11 +13,12 @@
 /yarn-error.log*
 
 # Local ENV files
+.env
 /.env*.local
 .env.local
 
+# Vercel and Next.js
 .vercel
-
 .next
 
 # Ignore Python cache files
@@ -25,3 +26,4 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.pyc
+.env

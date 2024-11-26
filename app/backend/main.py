@@ -23,6 +23,10 @@ def get_db():
         yield db
     finally:
         db.close()
+        
+@app.get("/")
+def root():
+    return {"message": "Welcome to the backend!"}
 
 # API endpoint to get menu items
 @app.get("/menu_items")

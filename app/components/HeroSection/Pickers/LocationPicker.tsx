@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 type Location = {
   location_id: number;
   location_name: string;
@@ -19,7 +21,7 @@ const LocationPicker: React.FC<LocationPickerProps> = ({
   useEffect(() => {
     const fetchLocations = async () => {
       try {
-        const response = await fetch("/api/locations"); // Use the serverless function
+        const response = await fetch(`${API_URL}/api/location`); // Use the serverless function
         if (!response.ok) throw new Error("Failed to fetch locations");
         const data = await response.json();
         setLocations(data);

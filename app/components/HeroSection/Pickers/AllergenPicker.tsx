@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 type Allergen = {
   allergen_id: number;
   description: string;
@@ -33,7 +35,7 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
   useEffect(() => {
     const fetchAllergens = async () => {
       try {
-        const response = await fetch("/api/allergens"); // Updated to use the serverless function
+        const response = await fetch(`${API_URL}/api/allergens`);
         if (!response.ok) throw new Error("Failed to fetch allergens");
         const data = await response.json();
         setAllergens(data);

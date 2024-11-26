@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 type MealType = {
   meal_type_id: number;
   meal_type_name: string;
@@ -28,7 +30,7 @@ const MealTypePicker: React.FC<MealTypePickerProps> = ({
   useEffect(() => {
     const fetchMealTypes = async () => {
       try {
-        const response = await fetch("/api/meal_types"); // Use the serverless function
+        const response = await fetch(`${API_URL}/api/allergens`);
         if (!response.ok) throw new Error("Failed to fetch meal types");
         const data = await response.json();
         setMealTypes(data);

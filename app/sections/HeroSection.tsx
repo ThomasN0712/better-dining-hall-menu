@@ -14,6 +14,8 @@ import {
 } from "@/components/HeroSection/Pickers";
 import { wrap } from "module";
 
+const API_BASE_URL = "https://better-dining-hall-menu.onrender.com";
+
 type MenuItem = {
   name: string;
   allergens: { id: number; name: string }[];
@@ -74,7 +76,7 @@ const HeroSection: React.FC = () => {
 
           for (const locationId of selectedLocationIds) {
             for (const mealTypeId of selectedMealTypeIds) {
-              const url = `/api/menu_items?date=${dateStr}&location_id=${locationId}&meal_type_id=${mealTypeId}`;
+              const url = `${API_BASE_URL}/api/menu_items?date=${dateStr}&location_id=${locationId}&meal_type_id=${mealTypeId}`;
               fetchPromises.push(
                 fetch(url).then((response) => response.json())
               );

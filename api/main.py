@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from .db.database import SessionLocal
 from .db import queries
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 # Initialize FastAPI application
 app = FastAPI()
@@ -70,7 +71,7 @@ def get_days_api(db: Session = Depends(get_db)):
     """
     return queries.get_days(db)
 
-@app.get("api/allergens")
+@app.get("/allergens")
 def get_allergens_api(db: Session = Depends(get_db)):
     """
     Fetch all available allergens.

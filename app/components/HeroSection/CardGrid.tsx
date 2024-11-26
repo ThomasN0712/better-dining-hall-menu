@@ -1,5 +1,7 @@
 import React from "react";
 import HoverCard from "./HoverCard";
+import "@/styles/globals.css";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 type MenuItem = {
   name: string;
@@ -40,16 +42,20 @@ const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
               <span className="text-accent">{location}</span>
             </h2>
             {/* Cards for this location */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {locationCards.map((card, cardIndex) => (
-                <HoverCard
-                  key={cardIndex}
-                  mealType={card.mealType}
-                  menuItems={card.menuItems}
-                  selectedAllergens={selectedAllergens}
-                />
-              ))}
-            </div>
+            <TransitionGroup className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {locationCards.map((card) => {
+                const cardKey = `${location}_${card.mealType}`; // Unique key
+                return (
+                  <CSSTransition key={cardKey} timeout={300} classNames="card">
+                    <HoverCard
+                      mealType={card.mealType}
+                      menuItems={card.menuItems}
+                      selectedAllergens={selectedAllergens}
+                    />
+                  </CSSTransition>
+                );
+              })}
+            </TransitionGroup>
           </div>
         )
       )}

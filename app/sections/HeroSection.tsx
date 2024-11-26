@@ -152,7 +152,7 @@ const HeroSection: React.FC = () => {
           <TypewriterEffect words={words} />
         </motion.p>
 
-        <div className="flex flex-col md:flex-row gap-6 justify-between">
+        <div className="flex flex-col md:flex-row gap-6 justify-center">
           {/* Timer */}
           <MealTimer />
 

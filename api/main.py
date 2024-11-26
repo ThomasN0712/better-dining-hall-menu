@@ -3,18 +3,23 @@ from sqlalchemy.orm import Session
 from .db.database import SessionLocal
 from .db import queries
 from fastapi.middleware.cors import CORSMiddleware
+from mangum import Mangum
 
+# Initialize FastAPI application
 app = FastAPI()
 
-# Configure CORS (Adjust allow_origins in production)
+# Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://better-dining-hall-menu-dp2p47yrh.vercel.app/"],
+    allow_origins=[
+        "http://localhost:3000",  # Local development
+        "http://localhost:3001",  # Local development
+        "https://better-dining-hall-menu-dp2p47yrh.vercel.app"  # Production
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # Dependency to get DB session
 def get_db():
@@ -23,43 +28,55 @@ def get_db():
         yield db
     finally:
         db.close()
-        
+
+# Root endpoint
 @app.get("/")
 def root():
     return {"message": "Welcome to the backend!"}
 
-# API endpoint to get menu items
+# Menu endpoints
 @app.get("/menu_items")
 def get_menu_items_api(date: str, location_id: int, meal_type_id: int, db: Session = Depends(get_db)):
-    menu_items = queries.get_menu_items(db, date, location_id, meal_type_id)
-    return menu_items
+    """
+    Fetch menu items based on date, location, and meal type.
+    """
+    return queries.get_menu_items(db, date, location_id, meal_type_id)
 
-# API endpoint to get always available items
 @app.get("/always_available_items")
 def get_always_available_items_api(db: Session = Depends(get_db)):
-    items = queries.get_always_available_items(db)
-    return items
+    """
+    Fetch items that are always available.
+    """
+    return queries.get_always_available_items(db)
 
-# API endpoint to get locations
+# Metadata endpoints
 @app.get("/locations")
 def get_locations_api(db: Session = Depends(get_db)):
-    locations = queries.get_locations(db)
-    return locations
+    """
+    Fetch all available locations.
+    """
+    return queries.get_locations(db)
 
-# API endpoint to get meal types
 @app.get("/meal_types")
 def get_meal_types_api(db: Session = Depends(get_db)):
-    meal_types = queries.get_meal_types(db)
-    return meal_types
+    """
+    Fetch all available meal types.
+    """
+    return queries.get_meal_types(db)
 
-# API endpoint to get days
 @app.get("/days")
 def get_days_api(db: Session = Depends(get_db)):
-    days = queries.get_days(db)
-    return days
+    """
+    Fetch all available days.
+    """
+    return queries.get_days(db)
 
-# API endpoint to get allergens
-@app.get("/allergens")
+@app.get("api/allergens")
 def get_allergens_api(db: Session = Depends(get_db)):
-    allergens = queries.get_allergens(db)
-    return allergens
+    """
+    Fetch all available allergens.
+    """
+    return queries.get_allergens(db)
+
+# Create the Mangum handler
+handler = Mangum(app)

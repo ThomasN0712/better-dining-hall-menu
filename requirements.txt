@@ -1,5 +1,6 @@
 fastapi
+mangum
 uvicorn
-sqlalchemy
 python-dotenv
-psycopg2
+sqlalchemy
+psycopg2-binary

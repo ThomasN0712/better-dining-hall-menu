@@ -33,7 +33,8 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
   useEffect(() => {
     const fetchAllergens = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/allergens");
+        const response = await fetch("/api/allergens"); // Updated to use the serverless function
+        if (!response.ok) throw new Error("Failed to fetch allergens");
         const data = await response.json();
         setAllergens(data);
       } catch (error) {

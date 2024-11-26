@@ -74,7 +74,7 @@ const HeroSection: React.FC = () => {
 
           for (const locationId of selectedLocationIds) {
             for (const mealTypeId of selectedMealTypeIds) {
-              const url = `http://127.0.0.1:8000/menu_items?date=${dateStr}&location_id=${locationId}&meal_type_id=${mealTypeId}`;
+              const url = `/api/menu_items?date=${dateStr}&location_id=${locationId}&meal_type_id=${mealTypeId}`;
               fetchPromises.push(
                 fetch(url).then((response) => response.json())
               );

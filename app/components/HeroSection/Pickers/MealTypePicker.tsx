@@ -28,7 +28,8 @@ const MealTypePicker: React.FC<MealTypePickerProps> = ({
   useEffect(() => {
     const fetchMealTypes = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/meal_types");
+        const response = await fetch("/api/meal_types"); // Use the serverless function
+        if (!response.ok) throw new Error("Failed to fetch meal types");
         const data = await response.json();
         setMealTypes(data);
 

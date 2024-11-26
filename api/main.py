@@ -14,7 +14,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000",  # Local development
         "http://localhost:3001",  # Local development
-        "https://better-dining-hall-menu.onrender.com"  # Production
+        "https://better-dining-hall-menu.onrender.com", # Production
+        "https://better-dining-hall-menu.vercel.app/" # Production
     ],
     allow_credentials=True,
     allow_methods=["*"],

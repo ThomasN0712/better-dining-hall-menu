@@ -27,3 +27,4 @@ __pycache__/
 *$py.class
 *.pyc
 .env
+.env

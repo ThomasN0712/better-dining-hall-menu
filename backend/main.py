@@ -15,8 +15,8 @@ app.add_middleware(
         "http://localhost:3000",  # Local development
         "https://better-dining-hall-menu.vercel.app/", 
         "https://better-dining-hall-menu.vercel.app", # Production
-        "https://better-dining-hall-git-52e054-thomas-nguyens-projects-bf2800ef.vercel.app",
-        "https://better-dining-hall-menu-j3b159v6g.vercel.app",
+        "https://better-dining-hall-git-52e054-thomas-nguyens-projects-bf2800ef.vercel.app", # just putting it here because why not
+        "https://better-dining-hall-menu-j3b159v6g.vercel.app", # just putting it here because why not
     ],
     allow_credentials=True,
     allow_methods=["*"],

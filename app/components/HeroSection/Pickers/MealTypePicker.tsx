@@ -1,8 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-const API_URL =
-  process.env.REACT_APP_API_URL ||
-  "https://better-dining-hall-menu.onrender.com";
+import React, { useState } from "react";
 
 type MealType = {
   meal_type_id: number;
@@ -22,33 +18,27 @@ const mealTypeStyles: Record<string, { emoji: string; color: string }> = {
   Dinner: { emoji: "🍝", color: "bg-blue-200 text-blue-800" },
 };
 
+// Static meal types data
+const staticMealTypes: MealType[] = [
+  { meal_type_id: 113, meal_type_name: "Breakfast" },
+  { meal_type_id: 114, meal_type_name: "Brunch" },
+  { meal_type_id: 115, meal_type_name: "Lunch" },
+  { meal_type_id: 116, meal_type_name: "Dinner" },
+];
+
 const MealTypePicker: React.FC<MealTypePickerProps> = ({
   selectedMealTypeIds,
   onMealTypesChange,
 }) => {
-  const [mealTypes, setMealTypes] = useState<MealType[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchMealTypes = async () => {
-      try {
-        const response = await fetch(`${API_URL}/meal_types`);
-        if (!response.ok) throw new Error("Failed to fetch meal types");
-        const data = await response.json();
-        setMealTypes(data);
-
-        // Set all meal types as selected by default
-        const allMealTypeIds = data.map(
-          (mealType: MealType) => mealType.meal_type_id
-        );
-        onMealTypesChange(allMealTypeIds);
-      } catch (error) {
-        console.error("Error fetching meal types:", error);
-      }
-    };
-
-    fetchMealTypes();
-  }, []);
+  // Ensure all meal types are selected by default
+  React.useEffect(() => {
+    const allMealTypeIds = staticMealTypes.map(
+      (mealType) => mealType.meal_type_id
+    );
+    onMealTypesChange(allMealTypeIds);
+  }, [onMealTypesChange]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -84,7 +74,7 @@ const MealTypePicker: React.FC<MealTypePickerProps> = ({
       >
         {selectedMealTypeIds.length > 0 ? (
           selectedMealTypeIds.map((mealTypeId) => {
-            const mealType = mealTypes.find(
+            const mealType = staticMealTypes.find(
               (m) => m.meal_type_id === mealTypeId
             );
             if (!mealType) return null;
@@ -135,7 +125,7 @@ const MealTypePicker: React.FC<MealTypePickerProps> = ({
       {isOpen && (
         <div className="absolute z-10 mt-2 w-full bg-background-light dark:bg-background-dark border border-background-borderLight dark:border-background-borderDark rounded-md shadow-lg">
           <ul className="max-h-full overflow-auto p-2 space-y-2">
-            {mealTypes.map((mealType) => {
+            {staticMealTypes.map((mealType) => {
               const { emoji } = getMealTypeStyle(mealType.meal_type_name);
               return (
                 <li

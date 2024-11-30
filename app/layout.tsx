@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "Better Dining Hall",
-  description: "A modern interface for checking dining hall menus.",
+  description: "A modern interface for checking CSULB dining hall menus.",
 };
 
 export default function RootLayout({

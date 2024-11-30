@@ -19,6 +19,14 @@ const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
   "https://better-dining-hall-menu.onrender.com";
 
+// Utility function to format date explicitly as YYYY-MM-DD
+const formatDate = (date: Date): string => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
+
 type MenuItem = {
   name: string;
   allergens: { id: number; name: string }[];
@@ -73,7 +81,7 @@ const HeroSection: React.FC = () => {
       if (selectedDate) {
         setLoading(true);
         try {
-          const dateStr = selectedDate.toLocaleDateString("en-CA");
+          const dateStr = formatDate(selectedDate);
           const url = `${API_BASE_URL}/menu_items?date=${dateStr}`;
           const response = await fetch(url);
           const data = await response.json();

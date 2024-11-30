@@ -11,6 +11,8 @@ type HoverCardProps = {
   mealType: string;
   menuItems: MenuItem[];
   selectedAllergens: number[];
+  startTime: string;
+  endTime: string;
 };
 
 // Allergen-to-Emoji Mapping
@@ -30,6 +32,8 @@ const HoverCard: React.FC<HoverCardProps> = ({
   mealType,
   menuItems,
   selectedAllergens,
+  startTime,
+  endTime,
 }) => {
   const isPointerInside = useRef(false);
   const refElement = useRef<HTMLDivElement>(null);
@@ -156,11 +160,18 @@ const HoverCard: React.FC<HoverCardProps> = ({
         <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light [clip-path:inset(0_0_0_0_round_var(--radius))]">
           <div className="h-full w-full text-text-light dark:text-text-dark p-4 flex flex-col relative bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border shadow-lg">
             {/* Header */}
-            <div className="mb-4">
+            <div className="mb-1">
               <h3 className="text-lg font-semibold text-text-headingLight dark:text-text-headingDark">
                 {mealType}
               </h3>
             </div>
+
+            {/* Display start and end times */}
+            {startTime && endTime && (
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                {startTime} - {endTime}
+              </p>
+            )}
 
             {/* Menu Items */}
             <div className="flex-1">

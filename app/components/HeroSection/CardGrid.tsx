@@ -2,6 +2,109 @@ import React from "react";
 import HoverCard from "./HoverCard";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 
+type LocationSchedule = {
+  location: string;
+  mealType: string;
+  start: string;
+  end: string;
+};
+
+const weekdaySchedules: LocationSchedule[] = [
+  {
+    location: "Parkside",
+    mealType: "Breakfast",
+    start: "7:00 AM",
+    end: "10:00 AM",
+  },
+  {
+    location: "Parkside",
+    mealType: "Lunch",
+    start: "11:00 AM",
+    end: "2:30 PM",
+  },
+  {
+    location: "Parkside",
+    mealType: "Dinner",
+    start: "4:00 PM",
+    end: "8:30 PM",
+  },
+  {
+    location: "Hillside",
+    mealType: "Breakfast",
+    start: "7:00 AM",
+    end: "10:00 AM",
+  },
+  {
+    location: "Hillside",
+    mealType: "Lunch",
+    start: "11:00 AM",
+    end: "2:30 PM",
+  },
+  {
+    location: "Hillside",
+    mealType: "Dinner",
+    start: "4:00 PM",
+    end: "8:30 PM",
+  },
+  {
+    location: "Beachside",
+    mealType: "Breakfast",
+    start: "6:30 AM",
+    end: "9:00 AM",
+  },
+  {
+    location: "Beachside",
+    mealType: "Lunch",
+    start: "11:00 AM",
+    end: "1:30 PM",
+  },
+  {
+    location: "Beachside",
+    mealType: "Dinner",
+    start: "5:00 PM",
+    end: "8:30 PM",
+  },
+];
+
+const weekendSchedules: LocationSchedule[] = [
+  {
+    location: "Parkside",
+    mealType: "Brunch",
+    start: "9:30 AM",
+    end: "1:30 PM",
+  },
+  {
+    location: "Parkside",
+    mealType: "Dinner",
+    start: "4:00 PM",
+    end: "7:30 PM",
+  },
+  {
+    location: "Hillside",
+    mealType: "Brunch",
+    start: "9:30 AM",
+    end: "1:30 PM",
+  },
+  {
+    location: "Hillside",
+    mealType: "Dinner",
+    start: "4:00 PM",
+    end: "7:30 PM",
+  },
+  {
+    location: "Beachside",
+    mealType: "Brunch",
+    start: "11:00 AM",
+    end: "1:30 PM",
+  },
+  {
+    location: "Beachside",
+    mealType: "Dinner",
+    start: "5:00 PM",
+    end: "7:30 PM",
+  },
+];
+
 type MenuItem = {
   name: string;
   allergens: { id: number; name: string }[];
@@ -16,9 +119,17 @@ type CardData = {
 type CardGridProps = {
   cards: CardData[];
   selectedAllergens: number[];
+  isWeekendSelected: boolean;
 };
 
-const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
+const CardGrid: React.FC<CardGridProps> = ({
+  cards,
+  selectedAllergens,
+  isWeekendSelected,
+}) => {
+  // Determine the current schedule
+  const schedules = isWeekendSelected ? weekendSchedules : weekdaySchedules;
+
   // Group cards by location
   const groupedCards = cards.reduce(
     (acc: { [key: string]: CardData[] }, card) => {
@@ -45,6 +156,17 @@ const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
               <AnimatePresence>
                 {locationCards.map((card) => {
                   const cardKey = `${location}_${card.mealType}`;
+
+                  // Find the schedule for this location and meal type
+                  const schedule = schedules.find(
+                    (s) =>
+                      s.location === location && s.mealType === card.mealType
+                  );
+
+                  // If schedule is found, extract start and end times
+                  const startTime = schedule?.start || "";
+                  const endTime = schedule?.end || "";
+
                   return (
                     <motion.div
                       key={cardKey}
@@ -58,6 +180,8 @@ const CardGrid: React.FC<CardGridProps> = ({ cards, selectedAllergens }) => {
                         mealType={card.mealType}
                         menuItems={card.menuItems}
                         selectedAllergens={selectedAllergens}
+                        startTime={startTime}
+                        endTime={endTime}
                       />
                     </motion.div>
                   );

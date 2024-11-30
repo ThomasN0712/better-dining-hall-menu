@@ -6,6 +6,7 @@ import CardGrid from "@/components/HeroSection/CardGrid";
 import MealTimer from "@/components/HeroSection/MealTimer";
 import AlwaysAvailableCard from "@/components/HeroSection/AlwaysAvailableCard";
 import { TypewriterEffect } from "@/components/TypeWriterEffect";
+import { isWeekend } from "date-fns";
 
 import {
   DatePicker,
@@ -37,6 +38,7 @@ const HeroSection: React.FC = () => {
   const [menuItemsData, setMenuItemsData] = useState<any[]>([]);
   const [cardsData, setCardsData] = useState<CardData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
+  const [isWeekendSelected, setIsWeekendSelected] = useState<boolean>(false);
 
   const titleVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -71,7 +73,7 @@ const HeroSection: React.FC = () => {
       if (selectedDate) {
         setLoading(true);
         try {
-          const dateStr = selectedDate.toISOString().split("T")[0];
+          const dateStr = selectedDate.toLocaleDateString("en-CA");
           const url = `${API_BASE_URL}/menu_items?date=${dateStr}`;
           const response = await fetch(url);
           const data = await response.json();
@@ -134,6 +136,13 @@ const HeroSection: React.FC = () => {
 
     filterMenuItems();
   }, [menuItemsData, selectedLocationIds, selectedMealTypeIds]);
+
+  // Check if the selected date is a weekend
+  useEffect(() => {
+    if (selectedDate) {
+      setIsWeekendSelected(isWeekend(selectedDate));
+    }
+  }, [selectedDate]);
 
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-48">
@@ -198,7 +207,11 @@ const HeroSection: React.FC = () => {
               Loading menu items...
             </div>
           ) : (
-            <CardGrid cards={cardsData} selectedAllergens={selectedAllergens} />
+            <CardGrid
+              cards={cardsData}
+              selectedAllergens={selectedAllergens}
+              isWeekendSelected={isWeekendSelected}
+            />
           )}
         </div>
 

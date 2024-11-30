@@ -1,4 +1,5 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Query, Depends
+from typing import List, Optional
 from sqlalchemy.orm import Session
 from .db.database import SessionLocal
 from .db import queries
@@ -40,11 +41,18 @@ def root():
 
 # Menu endpoints
 @app.get("/menu_items")
-def get_menu_items_api(date: str, location_id: int, meal_type_id: int, db: Session = Depends(get_db)):
+def get_menu_items_api(
+    date: str,
+    location_id: Optional[List[int]] = Query(None),
+    meal_type_id: Optional[List[int]] = Query(None),
+    db: Session = Depends(get_db)
+):
     """
-    Fetch menu items based on date, location, and meal type.
+    Fetch menu items based on date, and optional multiple location_ids and meal_type_ids.
     """
     return queries.get_menu_items(db, date, location_id, meal_type_id)
+
+
 
 @app.get("/always_available_items")
 def get_always_available_items_api(db: Session = Depends(get_db)):
@@ -53,7 +61,6 @@ def get_always_available_items_api(db: Session = Depends(get_db)):
     """
     return queries.get_always_available_items(db)
 
-# Metadata endpoints
 @app.get("/locations")
 def get_locations_api(db: Session = Depends(get_db)):
     """

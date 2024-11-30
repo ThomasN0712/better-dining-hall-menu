@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
 import CardGrid from "@/components/HeroSection/CardGrid";
 import MealTimer from "@/components/HeroSection/MealTimer";
@@ -13,7 +13,6 @@ import {
   MealTypePicker,
   AllergenPicker,
 } from "@/components/HeroSection/Pickers";
-import { wrap } from "module";
 
 const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
@@ -35,6 +34,7 @@ const HeroSection: React.FC = () => {
   const [selectedLocationIds, setSelectedLocationIds] = useState<number[]>([]);
   const [selectedMealTypeIds, setSelectedMealTypeIds] = useState<number[]>([]);
   const [selectedAllergens, setSelectedAllergens] = useState<number[]>([]);
+  const [menuItemsData, setMenuItemsData] = useState<any[]>([]);
   const [cardsData, setCardsData] = useState<CardData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -65,59 +65,75 @@ const HeroSection: React.FC = () => {
     },
   ];
 
+  // Fetch all menu items for the selected date and cache them
   useEffect(() => {
     const fetchMenuItems = async () => {
-      if (
-        selectedDate &&
-        selectedLocationIds.length > 0 &&
-        selectedMealTypeIds.length > 0
-      ) {
+      if (selectedDate) {
         setLoading(true);
         try {
           const dateStr = selectedDate.toISOString().split("T")[0];
-          const fetchPromises = [];
+          const url = `${API_BASE_URL}/menu_items?date=${dateStr}`;
+          const response = await fetch(url);
+          const data = await response.json();
 
-          for (const locationId of selectedLocationIds) {
-            for (const mealTypeId of selectedMealTypeIds) {
-              const url = `${API_BASE_URL}/menu_items?date=${dateStr}&location_id=${locationId}&meal_type_id=${mealTypeId}`;
-              fetchPromises.push(
-                fetch(url).then((response) => response.json())
-              );
-            }
-          }
-
-          const results = await Promise.all(fetchPromises);
-
-          // Flatten the results and group by location and meal type
-          const newCardsData: CardData[] = [];
-          results.forEach((data) => {
-            if (data.length > 0) {
-              const firstItem = data[0];
-              const card: CardData = {
-                location: firstItem.location,
-                mealType: firstItem.meal_type,
-                menuItems: data.map((item: any) => ({
-                  name: item.item_name,
-                  allergens: item.allergens,
-                })),
-              };
-              newCardsData.push(card);
-            }
-          });
-
-          setCardsData(newCardsData);
+          // Cache the data
+          setMenuItemsData(data);
         } catch (error) {
           console.error("Error fetching menu items:", error);
         } finally {
           setLoading(false);
         }
       } else {
-        setCardsData([]);
+        setMenuItemsData([]);
       }
     };
 
     fetchMenuItems();
-  }, [selectedDate, selectedLocationIds, selectedMealTypeIds]);
+  }, [selectedDate]);
+
+  // Filter menu items based on selected locations and meal types
+  useEffect(() => {
+    const filterMenuItems = () => {
+      if (menuItemsData.length > 0) {
+        let filteredData = menuItemsData;
+
+        if (selectedLocationIds.length > 0) {
+          filteredData = filteredData.filter((item) =>
+            selectedLocationIds.includes(item.location_id)
+          );
+        }
+
+        if (selectedMealTypeIds.length > 0) {
+          filteredData = filteredData.filter((item) =>
+            selectedMealTypeIds.includes(item.meal_type_id)
+          );
+        }
+
+        // Group the filtered data by location and meal type
+        const groupedData = filteredData.reduce((acc: any, item: any) => {
+          const key = `${item.location}-${item.meal_type}`;
+          if (!acc[key]) {
+            acc[key] = {
+              location: item.location,
+              mealType: item.meal_type,
+              menuItems: [],
+            };
+          }
+          acc[key].menuItems.push({
+            name: item.item_name,
+            allergens: item.allergens,
+          });
+          return acc;
+        }, {});
+
+        setCardsData(Object.values(groupedData));
+      } else {
+        setCardsData([]);
+      }
+    };
+
+    filterMenuItems();
+  }, [menuItemsData, selectedLocationIds, selectedMealTypeIds]);
 
   return (
     <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-48">
@@ -188,7 +204,7 @@ const HeroSection: React.FC = () => {
 
         {/* Always Available Cards */}
         <h2 className="text-xl font-bold">
-          <span className="text-accent">Always Availble:</span>
+          <span className="text-accent">Always Available:</span>
         </h2>
         <h2 className="text-lg font-medium mb-4">
           <span className="text-text-subtitleLight dark:text-text-subtitleDark">

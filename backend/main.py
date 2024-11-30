@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Query, Depends
+from fastapi import FastAPI, Query, Depends, Response
 from typing import List, Optional
 from sqlalchemy.orm import Session
 from .db.database import SessionLocal
@@ -52,8 +52,6 @@ def get_menu_items_api(
     """
     return queries.get_menu_items(db, date, location_id, meal_type_id)
 
-
-
 @app.get("/always_available_items")
 def get_always_available_items_api(db: Session = Depends(get_db)):
     """
@@ -88,6 +86,13 @@ def get_allergens_api(db: Session = Depends(get_db)):
     Fetch all available allergens.
     """
     return queries.get_allergens(db)
+
+# Root HEAD endpoint for health checks
+@app.head("/")
+def root_head(response: Response):
+    # Optionally, set headers or metadata
+    response.headers["X-Service-Health"] = "Healthy"
+    return response
 
 if __name__ == "__main__":
     import uvicorn

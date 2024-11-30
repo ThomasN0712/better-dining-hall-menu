@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Montserrat } from "next/font/google";
-
-const montserrat = Montserrat({ subsets: ["latin"], weight: ["200"] });
 
 type LocationSchedule = {
   location: string;
@@ -28,11 +25,20 @@ const weekdaySchedules: LocationSchedule[] = [
   { location: "Beachside", mealType: "Dinner", start: "17:00", end: "20:30" },
 ];
 
-const weekendSchedules: LocationSchedule[] = [
-  { location: "Parkside", mealType: "Brunch", start: "09:30", end: "13:30" },
-  { location: "Parkside", mealType: "Dinner", start: "16:00", end: "19:30" },
+const saturdaySchedules: LocationSchedule[] = [
+  { location: "Parkside", mealType: "Brunch", start: "Closed", end: "Closed" },
+  { location: "Parkside", mealType: "Dinner", start: "Closed", end: "Closed" },
   { location: "Hillside", mealType: "Brunch", start: "09:30", end: "13:30" },
   { location: "Hillside", mealType: "Dinner", start: "16:00", end: "19:30" },
+  { location: "Beachside", mealType: "Brunch", start: "11:00", end: "13:30" },
+  { location: "Beachside", mealType: "Dinner", start: "17:00", end: "19:30" },
+];
+
+const sundaySchedules: LocationSchedule[] = [
+  { location: "Parkside", mealType: "Brunch", start: "09:30", end: "13:30" },
+  { location: "Parkside", mealType: "Dinner", start: "16:00", end: "19:30" },
+  { location: "Hillside", mealType: "Brunch", start: "Closed", end: "Closed" },
+  { location: "Hillside", mealType: "Dinner", start: "Closed", end: "Closed" },
   { location: "Beachside", mealType: "Brunch", start: "11:00", end: "13:30" },
   { location: "Beachside", mealType: "Dinner", start: "17:00", end: "19:30" },
 ];
@@ -42,6 +48,9 @@ const MealTimer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [activeMeals, setActiveMeals] = useState<LocationSchedule[]>([]);
   const [upcomingMeals, setUpcomingMeals] = useState<LocationSchedule[]>([]);
+  const [closedLocations, setClosedLocations] = useState<LocationSchedule[]>(
+    []
+  );
 
   useEffect(() => {
     setIsClient(true);
@@ -54,75 +63,112 @@ const MealTimer: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const formatTimeUnit = (unit: number) => (unit < 10 ? `0${unit}` : unit);
-
-  const days = ["SU", "MO", "TU", "WE", "TH", "FR", "SA"];
-  const day = days[currentTime.getDay()];
-  const hours = formatTimeUnit(currentTime.getHours());
-  const minutes = formatTimeUnit(currentTime.getMinutes());
-  const seconds = formatTimeUnit(currentTime.getSeconds());
-
   const updateMealStatus = (now: Date) => {
-    const isWeekend = now.getDay() === 0 || now.getDay() === 6; // Sunday or Saturday
-    const applicableSchedules = isWeekend ? weekendSchedules : weekdaySchedules;
+    let applicableSchedules: LocationSchedule[] = [];
+    const dayOfWeek = now.getDay();
+
+    if (dayOfWeek === 0) {
+      // Sunday
+      applicableSchedules = sundaySchedules;
+    } else if (dayOfWeek === 6) {
+      // Saturday
+      applicableSchedules = saturdaySchedules;
+    } else {
+      // Weekdays
+      applicableSchedules = weekdaySchedules;
+    }
 
     const active: LocationSchedule[] = [];
     const upcoming: LocationSchedule[] = [];
+    const closed: LocationSchedule[] = [];
 
     applicableSchedules.forEach((schedule) => {
-      const startTime = new Date(`${now.toDateString()} ${schedule.start}`);
-      const endTime = new Date(`${now.toDateString()} ${schedule.end}`);
+      if (schedule.start === "Closed" && schedule.end === "Closed") {
+        closed.push(schedule);
+      } else {
+        const startTime = new Date(`${now.toDateString()} ${schedule.start}`);
+        const endTime = new Date(`${now.toDateString()} ${schedule.end}`);
 
-      if (now >= startTime && now < endTime) {
-        active.push(schedule);
-      } else if (now < startTime) {
-        upcoming.push(schedule);
+        if (now >= startTime && now < endTime) {
+          active.push(schedule);
+        } else if (now < startTime) {
+          upcoming.push(schedule);
+        }
       }
     });
 
     upcoming.sort((a, b) => {
-      const aStart = new Date(`${now.toDateString()} ${a.start}`).getTime();
-      const bStart = new Date(`${now.toDateString()} ${b.start}`).getTime();
+      const aStart =
+        a.start === "Closed"
+          ? Infinity
+          : new Date(`${now.toDateString()} ${a.start}`).getTime();
+      const bStart =
+        b.start === "Closed"
+          ? Infinity
+          : new Date(`${now.toDateString()} ${b.start}`).getTime();
       return aStart - bStart;
     });
 
     setActiveMeals(active);
-    setUpcomingMeals(upcoming.slice(0, 1)); // Show only the next meal
+    setUpcomingMeals(upcoming);
+    setClosedLocations(closed);
   };
 
   const formatTime = (time: string) =>
-    new Date(`${currentTime.toDateString()} ${time}`).toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
+    time === "Closed"
+      ? "Closed"
+      : new Date(`${currentTime.toDateString()} ${time}`).toLocaleTimeString(
+          [],
+          {
+            hour: "2-digit",
+            minute: "2-digit",
+          }
+        );
 
   return (
     <div className="bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border rounded-lg shadow-lg p-4 flex flex-col space-y-2">
       {/* Active Meals */}
-      {activeMeals.length > 0 ? (
-        <div>
-          <p className="text-accent font-bold">Active Meals:</p>
-          <ul className="space-y-1">
-            {activeMeals.map((meal, index) => (
+      <div>
+        <p className="text-accent font-bold">Active Meals:</p>
+        <ul className="space-y-1">
+          {activeMeals.length > 0 ? (
+            activeMeals.map((meal, index) => (
               <li key={index} className="text-sm">
                 {meal.location} - {meal.mealType} ({formatTime(meal.start)} -{" "}
                 {formatTime(meal.end)})
               </li>
-            ))}
-          </ul>
-        </div>
-      ) : (
-        <p className="text-accent font-bold">No active meals.</p>
-      )}
+            ))
+          ) : (
+            <li className="text-sm">No active meals right now.</li>
+          )}
+        </ul>
+      </div>
+
       {/* Upcoming Meals */}
-      {upcomingMeals.length > 0 && (
-        <div>
-          <p className="text-[#f0b236] font-bold">Upcoming Meal:</p>
-          <ul className="space-y-1">
-            {upcomingMeals.map((meal, index) => (
+      <div>
+        <p className="text-[#f0b236] font-bold">Upcoming Meals:</p>
+        <ul className="space-y-1">
+          {upcomingMeals.length > 0 ? (
+            upcomingMeals.map((meal, index) => (
               <li key={index} className="text-sm">
                 {meal.location} - {meal.mealType} ({formatTime(meal.start)} -{" "}
                 {formatTime(meal.end)})
+              </li>
+            ))
+          ) : (
+            <li className="text-sm">No upcoming meals.</li>
+          )}
+        </ul>
+      </div>
+
+      {/* Closed Locations */}
+      {closedLocations.length > 0 && (
+        <div>
+          <p className="text-red-500 font-bold">Closed Locations:</p>
+          <ul className="space-y-1">
+            {closedLocations.map((location, index) => (
+              <li key={index} className="text-sm">
+                {location.location} - {location.mealType} (Closed today)
               </li>
             ))}
           </ul>

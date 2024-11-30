@@ -188,7 +188,7 @@ const HeroSection: React.FC = () => {
 
         {/* Always Available Cards */}
         <h2 className="text-xl font-bold">
-          <span className="text-accent">Always Avaiable:</span>
+          <span className="text-accent">Always Availble:</span>
         </h2>
         <h2 className="text-lg font-medium mb-4">
           <span className="text-text-subtitleLight dark:text-text-subtitleDark">

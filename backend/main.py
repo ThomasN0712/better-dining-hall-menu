@@ -89,10 +89,8 @@ def get_allergens_api(db: Session = Depends(get_db)):
 
 # Root HEAD endpoint for health checks
 @app.head("/")
-def root_head(response: Response):
-    # Optionally, set headers or metadata
-    response.headers["X-Service-Health"] = "Healthy"
-    return response
+def head_root():
+    return None
 
 if __name__ == "__main__":
     import uvicorn

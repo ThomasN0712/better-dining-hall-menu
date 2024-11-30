@@ -99,7 +99,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
   return (
     <div
       style={containerStyle}
-      className="relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] will-change-transform"
+      className="h-full relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] will-change-transform"
       ref={refElement}
       onPointerMove={(event) => {
         const rotateFactor = 0.2; // Adjust as needed

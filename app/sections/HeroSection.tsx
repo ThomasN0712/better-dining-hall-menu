@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import CardGrid from "@/components/HeroSection/CardGrid";
 import MealTimer from "@/components/HeroSection/MealTimer";
+import AlwaysAvailableCard from "@/components/HeroSection/AlwaysAvailableCard";
 import { TypewriterEffect } from "@/components/TypeWriterEffect";
 
 import {
@@ -54,10 +55,10 @@ const HeroSection: React.FC = () => {
       text: "Slightly",
     },
     {
-      text: "Menu",
+      text: "Better",
     },
     {
-      text: "Better",
+      text: "Menu",
     },
     {
       text: "Design",
@@ -175,7 +176,7 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Card Grid */}
-        <div className="relative pt-10 mb-16">
+        <div className="relative pt-10 mb-10">
           {loading ? (
             <div className="text-center text-mutedLight dark:text-mutedDark">
               Loading menu items...
@@ -183,6 +184,21 @@ const HeroSection: React.FC = () => {
           ) : (
             <CardGrid cards={cardsData} selectedAllergens={selectedAllergens} />
           )}
+        </div>
+
+        {/* Always Available Cards */}
+        <h2 className="text-xl font-bold">
+          <span className="text-accent">Always Avaiable:</span>
+        </h2>
+        <h2 className="text-lg font-medium mb-4">
+          <span className="text-text-subtitleLight dark:text-text-subtitleDark">
+            These items are always available at all dining hall locations.
+          </span>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {selectedMealTypeIds.map((mealTypeId) => (
+            <AlwaysAvailableCard key={mealTypeId} mealTypeId={mealTypeId} />
+          ))}
         </div>
       </div>
     </div>

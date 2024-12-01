@@ -25,7 +25,8 @@ export const AnimatedSentButton: React.FC<AnimatedSentButtonProps> = ({
   const [isSubscribed, setIsSubscribed] = useState<boolean>(sentStatus);
 
   const handleClick = () => {
-    if (onClick) onClick(); // Trigger the parent-provided function
+    if (!onClick) return; // Prevent animation if onClick is not provided
+    onClick(); // Trigger parent-provided logic
     setIsSubscribed(true); // Update local state
   };
 
@@ -39,7 +40,7 @@ export const AnimatedSentButton: React.FC<AnimatedSentButtonProps> = ({
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.05 }}
         >
           <motion.span
             key="sent-text"
@@ -57,11 +58,11 @@ export const AnimatedSentButton: React.FC<AnimatedSentButtonProps> = ({
           key="initial"
           className={`relative flex w-[200px] cursor-pointer items-center justify-center rounded-md border-none p-[10px] ${className}`}
           style={{ backgroundColor: buttonColor, color: buttonTextColor }}
-          onClick={handleClick}
+          onClick={handleClick} // Only triggers if onClick is passed
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.1 }}
+          transition={{ duration: 0.05 }}
         >
           <motion.span
             key="initial-text"

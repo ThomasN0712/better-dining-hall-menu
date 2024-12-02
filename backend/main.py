@@ -18,8 +18,8 @@ app.add_middleware(
         "https://better-dining-hall-menu.vercel.app", # Production
         "https://better-dining-hall-git-52e054-thomas-nguyens-projects-bf2800ef.vercel.app", # just putting it here because why not
         "https://better-dining-hall-menu-j3b159v6g.vercel.app",
-        "https://csulbdining.com",
-        "https://www.csulbdining.com"
+        "https://www.longbeachmenu.com/",
+        "https://www.longbeachmenu.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],

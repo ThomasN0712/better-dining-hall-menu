@@ -57,7 +57,7 @@ const Footer = () => {
   return (
     <div
       className="rounded-7xl relative mx-auto max-w-[96vw] rounded-xl border bg-[#0A0A0A] antialiased dark:border-white/25 md:max-w-[80vw]"
-      id="contact"
+      id="report"
     >
       {/* Background Beams */}
       <div className="-z-1 absolute inset-0">
@@ -171,7 +171,12 @@ const Footer = () => {
               </span>
               <br />
               <ShinyButton>
-                <Link href="#work" className="whitespace-nowrap">
+                <Link
+                  href="https://www.paypal.com/donate/?business=P2X7QT54YNJHY&no_recurring=0&item_name=I%27m+a+CS+student+sharing+my+projects.+Hosting+costs+add+up%E2%80%94your+donation+helps+cover+them+and+fuels+my+addiction+for+Celsius%21&currency_code=USD"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="whitespace-nowrap"
+                >
                   <span className="flex items-center whitespace-nowrap font-bold">
                     Buy me a Celsius
                     <Image

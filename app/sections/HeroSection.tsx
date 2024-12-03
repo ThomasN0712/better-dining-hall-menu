@@ -153,7 +153,7 @@ const HeroSection: React.FC = () => {
   }, [selectedDate]);
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-48">
+    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-48" id="menu">
       {/* Grid Background */}
       <div className="absolute inset-0 h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] pointer-events-none z-0">
         {/* Radial Gradient */}

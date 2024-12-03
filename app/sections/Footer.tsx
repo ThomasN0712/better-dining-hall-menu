@@ -64,7 +64,7 @@ const Footer = () => {
 
   return (
     <div
-      className="rounded-7xl relative mx-auto max-w-[96vw] rounded-xl border bg-[#0A0A0A] antialiased dark:border-white/25 md:max-w-[80vw]"
+      className="rounded-7xl relative mx-auto max-w-[96vw] rounded-xl border bg-[#f5f3f3] antialiased dark:border-white/25 dark:bg-[#0A0A0A] md:max-w-[80vw]"
       id="report"
     >
       {/* Background Beams */}
@@ -72,18 +72,17 @@ const Footer = () => {
         <BackgroundBeams />
       </div>
       <div>
-        <div className="item ce flex flex-col justify-start gap-8 p-10 lg:flex-row lg:pl-24 lg:pt-10 xl:gap-32">
+        <div className="item ce flex flex-col justify-start gap-8 p-10 text-text-light dark:text-text-dark lg:flex-row lg:pl-24 lg:pt-10 xl:gap-32">
           <h1 className="relative z-10 max-w-96 text-4xl font-bold leading-[110%] xl:text-5xl">
             Have menu issues or suggestions? Let me know here!
           </h1>
 
           {/* Report Issue Form */}
           <div className="item z-10 flex">
-            <div className="min-w-96 rounded-xl shadow-md">
+            <div className="min-w-96 rounded-xl">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  handleSubmit();
                 }}
                 className="space-y-4"
               >
@@ -92,7 +91,7 @@ const Footer = () => {
                   <select
                     value={errorType}
                     onChange={(e) => setErrorType(e.target.value)}
-                    className="block w-full rounded-md border-b bg-transparent pb-2 shadow-sm focus:border-primary-light focus:ring-primary-light"
+                    className="block w-full rounded-md border-b bg-transparent pb-2 text-text-light shadow-sm focus:border-primary-light focus:ring-primary-light dark:text-text-dark"
                     required
                   >
                     <option value="" disabled>

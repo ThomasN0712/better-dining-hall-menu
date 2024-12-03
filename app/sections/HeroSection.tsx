@@ -156,15 +156,9 @@ const HeroSection: React.FC = () => {
 
   return (
     <div
-      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-light pt-48 text-text-light dark:bg-background-dark dark:text-text-dark"
+      className="relative flex min-h-screen w-full flex-col items-center justify-center pt-48 text-text-light dark:text-text-dark"
       id="menu"
     >
-      {/* Grid Background */}
-      <div className="pointer-events-none absolute inset-0 z-0 h-full w-full bg-white bg-grid-black/[0.2] dark:bg-black dark:bg-grid-white/[0.2]">
-        {/* Radial Gradient */}
-        <div className="pointer-events-none absolute inset-0 h-full w-full bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
-      </div>
-
       {/* Content */}
       <div className="container relative z-10">
         {/* Title */}

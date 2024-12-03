@@ -22,21 +22,13 @@ export const AnimatedSentButton: React.FC<AnimatedSentButtonProps> = ({
   className = "",
   onClick,
 }) => {
-  const [isSubscribed, setIsSubscribed] = useState<boolean>(sentStatus);
-
-  const handleClick = () => {
-    if (!onClick) return; // Prevent animation if onClick is not provided
-    onClick(); // Trigger parent-provided logic
-    setIsSubscribed(true); // Update local state
-  };
-
   return (
     <AnimatePresence mode="wait">
-      {isSubscribed ? (
+      {sentStatus ? (
         <motion.button
           key="sent"
           className={`relative flex w-[200px] items-center justify-center overflow-hidden rounded-md bg-white p-[10px] outline outline-1 outline-black ${className}`}
-          onClick={handleClick}
+          onClick={onClick}
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
@@ -44,7 +36,7 @@ export const AnimatedSentButton: React.FC<AnimatedSentButtonProps> = ({
         >
           <motion.span
             key="sent-text"
-            className="relative block h-full w-full font-semibold"
+            className="relative block h-full w-full pr-2 font-semibold"
             initial={{ y: -20 }}
             animate={{ y: 0 }}
             exit={{ y: 20 }}
@@ -58,7 +50,7 @@ export const AnimatedSentButton: React.FC<AnimatedSentButtonProps> = ({
           key="initial"
           className={`relative flex w-[200px] cursor-pointer items-center justify-center rounded-md border-none p-[10px] ${className}`}
           style={{ backgroundColor: buttonColor, color: buttonTextColor }}
-          onClick={handleClick} // Only triggers if onClick is passed
+          onClick={onClick}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}

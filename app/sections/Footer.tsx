@@ -24,6 +24,7 @@ const Footer = () => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const isFormValid = errorType && message;
 
   const handleSubmit = async () => {
@@ -45,6 +46,9 @@ const Footer = () => {
 
       if (response.ok) {
         setSuccess(true);
+        setSuccessMessage(
+          "Thank you for your message! I'll review it shortly. 🎉",
+        );
         setErrorType("");
         setMessage("");
         setEmail("");
@@ -68,9 +72,9 @@ const Footer = () => {
         <BackgroundBeams />
       </div>
       <div>
-        <div className="item ce flex flex-col justify-start gap-16 p-10 lg:flex-row lg:gap-32 lg:pl-24 lg:pt-10">
-          <h1 className="relative z-10 max-w-96 text-5xl font-bold leading-[110%]">
-            Have problems with the menu? Report the issue
+        <div className="item ce flex flex-col justify-start gap-8 p-10 lg:flex-row lg:pl-24 lg:pt-10 xl:gap-32">
+          <h1 className="relative z-10 max-w-96 text-4xl font-bold leading-[110%] xl:text-5xl">
+            Have menu issues or suggestions? Let me know here!
           </h1>
 
           {/* Report Issue Form */}
@@ -128,7 +132,9 @@ const Footer = () => {
                 </div>
                 <div className="flex justify-end">
                   <AnimatedSentButton
-                    buttonColor={isFormValid ? "#000000" : "#cccccc"}
+                    buttonColor={
+                      isFormValid && !isSubmitting ? "#000000" : "#cccccc"
+                    }
                     buttonTextColor="#ffffff"
                     sentStatus={success}
                     initialText={
@@ -143,9 +149,17 @@ const Footer = () => {
                         Sent
                       </span>
                     }
-                    onClick={isFormValid ? handleSubmit : undefined}
+                    onClick={() => {
+                      if (isFormValid) {
+                        handleSubmit();
+                        setTimeout(() => setSuccess(false), 3000);
+                      }
+                    }}
                   />
                 </div>
+                {successMessage && (
+                  <p className="font-bold text-[#3dc93d]">{successMessage}</p>
+                )}
               </form>
             </div>
           </div>

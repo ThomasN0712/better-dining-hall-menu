@@ -116,11 +116,20 @@ async def report_issue(data: EmailRequest):
             from_email="noreply@longbeachmenu.com", 
             to_emails=RECIPIENT_EMAIL,
             subject=f"Issue Reported: {data.errorType}",
-            plain_text_content=f"""
-            Problem: {data.errorType}
-            Message: {data.message}
-            Reported by: {data.email or 'Anonymous'}
-            """
+             html_content=f"""
+        <html>
+            <body>
+                <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+                    <h2 style="color: #4CAF50;">New Issue Reported</h2>
+                    <p><strong>Problem:</strong> {data.errorType}</p>
+                    <p><strong>Message:</strong> {data.message}</p>
+                    <p><strong>Reported by:</strong> {data.email or 'Anonymous'}</p>
+                    <hr>
+                    <p style="font-size: 0.9em; color: #555;">This email was sent from the Better Dining Hall Menu system.</p>
+                </div>
+            </body>
+        </html>
+        """
         )
 
         # Send the email

@@ -1,10 +1,19 @@
-from fastapi import FastAPI, Query, Depends, Response
+from fastapi import FastAPI, Query, Depends, HTTPException
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from .db.database import SessionLocal
-from .db import queries
+from db.database import SessionLocal
+from db import queries
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from pydantic import BaseModel
+from dotenv import load_dotenv
+
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
+
+# Load environment variables
+load_dotenv()
 
 # Initialize FastAPI application
 app = FastAPI()
@@ -33,6 +42,11 @@ def get_db():
         yield db
     finally:
         db.close()
+
+# SendGrid API Key from environment
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL") 
+
 
 # Root endpoint
 @app.get("/")
@@ -86,6 +100,43 @@ def get_allergens_api(db: Session = Depends(get_db)):
     Fetch all available allergens.
     """
     return queries.get_allergens(db)
+
+class EmailRequest(BaseModel):
+    errorType: str
+    message: str
+    email: Optional[str] = None  
+    
+@app.post("/report-issue")
+async def report_issue(data: EmailRequest):
+    """
+    Sends an email containing the issue reported by the user.
+    """
+    try:
+        message = Mail(
+            from_email="noreply@longbeachmenu.com", 
+            to_emails=RECIPIENT_EMAIL,
+            subject=f"Issue Reported: {data.errorType}",
+            plain_text_content=f"""
+            Problem: {data.errorType}
+            Message: {data.message}
+            Reported by: {data.email or 'Anonymous'}
+            """
+        )
+
+        # Send the email
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        response = sg.send(message)
+
+        if response.status_code == 202:
+            return {"success": True, "message": "Email sent successfully!"}
+        else:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Failed to send email. Status code: {response.status_code}",
+            )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
+
 
 # Root HEAD endpoint for health checks
 @app.head("/")

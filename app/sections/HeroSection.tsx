@@ -19,6 +19,8 @@ const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
   "https://better-dining-hall-menu.onrender.com";
 
+// const API_BASE_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
+
 // Utility function to format date explicitly as YYYY-MM-DD
 const formatDate = (date: Date): string => {
   const year = date.getFullYear();
@@ -109,13 +111,13 @@ const HeroSection: React.FC = () => {
 
         if (selectedLocationIds.length > 0) {
           filteredData = filteredData.filter((item) =>
-            selectedLocationIds.includes(item.location_id)
+            selectedLocationIds.includes(item.location_id),
           );
         }
 
         if (selectedMealTypeIds.length > 0) {
           filteredData = filteredData.filter((item) =>
-            selectedMealTypeIds.includes(item.meal_type_id)
+            selectedMealTypeIds.includes(item.meal_type_id),
           );
         }
 
@@ -153,19 +155,22 @@ const HeroSection: React.FC = () => {
   }, [selectedDate]);
 
   return (
-    <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark pt-48" id="menu">
+    <div
+      className="relative flex min-h-screen w-full flex-col items-center justify-center bg-background-light pt-48 text-text-light dark:bg-background-dark dark:text-text-dark"
+      id="menu"
+    >
       {/* Grid Background */}
-      <div className="absolute inset-0 h-full w-full dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] pointer-events-none z-0">
+      <div className="pointer-events-none absolute inset-0 z-0 h-full w-full bg-white bg-grid-black/[0.2] dark:bg-black dark:bg-grid-white/[0.2]">
         {/* Radial Gradient */}
-        <div className="absolute inset-0 h-full w-full dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none"></div>
+        <div className="pointer-events-none absolute inset-0 h-full w-full bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container">
+      <div className="container relative z-10">
         {/* Title */}
         <div className="text-center">
           <motion.h1
-            className="text-4xl sm:text-6xl font-bold text-center"
+            className="text-center text-4xl font-bold sm:text-6xl"
             initial="hidden"
             animate="visible"
             variants={titleVariants}
@@ -181,14 +186,14 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Subtitle */}
-        <TypewriterEffect words={words} className="mt-4 mb-16" />
+        <TypewriterEffect words={words} className="mb-16 mt-4" />
 
-        <div className="flex flex-col md:flex-row gap-6 justify-center">
+        <div className="flex flex-col justify-center gap-6 md:flex-row">
           {/* Timer */}
           <MealTimer />
 
           {/* Pickers */}
-          <div className="flex flex-col md:flex-row gap-6 bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border p-6 rounded-lg shadow-lg">
+          <div className="flex flex-col gap-6 rounded-lg border border-background-borderLight bg-background-cardLight p-6 shadow-lg dark:border-background-borderDark dark:bg-background-cardDark md:flex-row">
             <DatePicker
               selectedDate={selectedDate}
               onDateChange={setSelectedDate}
@@ -209,9 +214,9 @@ const HeroSection: React.FC = () => {
         </div>
 
         {/* Card Grid */}
-        <div className="relative pt-10 mb-10">
+        <div className="relative mb-10 pt-10">
           {loading ? (
-            <div className="text-center text-mutedLight dark:text-mutedDark">
+            <div className="text-mutedLight dark:text-mutedDark text-center">
               Loading menu items...
             </div>
           ) : (
@@ -227,12 +232,12 @@ const HeroSection: React.FC = () => {
         <h2 className="text-xl font-bold">
           <span className="text-accent">Always Available:</span>
         </h2>
-        <h2 className="text-lg font-medium mb-4">
+        <h2 className="mb-4 text-lg font-medium">
           <span className="text-text-subtitleLight dark:text-text-subtitleDark">
             These items are always available at all dining hall locations.
           </span>
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {selectedMealTypeIds.map((mealTypeId) => (
             <AlwaysAvailableCard key={mealTypeId} mealTypeId={mealTypeId} />
           ))}

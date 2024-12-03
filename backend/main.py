@@ -1,10 +1,20 @@
-from fastapi import FastAPI, Query, Depends, Response
+from fastapi import FastAPI, Query, Depends, Response, HTTPException, Form
 from typing import List, Optional
 from sqlalchemy.orm import Session
 from .db.database import SessionLocal
 from .db import queries
 from fastapi.middleware.cors import CORSMiddleware
 import os
+from pydantic import BaseModel
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from smtplib import SMTP
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# 4231JH3CBZ4ZF24KSWYN73C7
 
 # Initialize FastAPI application
 app = FastAPI()
@@ -33,6 +43,12 @@ def get_db():
         yield db
     finally:
         db.close()
+
+# Email configuration
+EMAIL_USER = os.getenv("EMAIL_USER")
+EMAIL_PASS = os.getenv("EMAIL_PASS")
+SMTP_HOST = os.getenv("SMTP_HOST")
+SMTP_PORT = int(os.getenv("SMTP_PORT"))
 
 # Root endpoint
 @app.get("/")
@@ -86,6 +102,42 @@ def get_allergens_api(db: Session = Depends(get_db)):
     Fetch all available allergens.
     """
     return queries.get_allergens(db)
+
+# New endpoint: Send Email
+class EmailRequest(BaseModel):
+    errorType: str
+    message: str
+    email: Optional[str] = None  # Optional field
+
+@app.post("/send-email/")
+async def send_email(data: EmailRequest):
+    """
+    Sends an email containing the issue reported by the user.
+    """
+    try:
+        # Create the email
+        msg = MIMEMultipart()
+        msg["From"] = EMAIL_USER
+        msg["To"] = EMAIL_USER  # Your email to receive the report
+        msg["Subject"] = f"Issue Reported: {data.errorType}"
+
+        # Email body
+        body = f"""
+        Problem: {data.errorType}
+        Message: {data.message}
+        Reported by: {data.email or 'Anonymous'}
+        """
+        msg.attach(MIMEText(body, "plain"))
+
+        # Send the email
+        with SMTP(SMTP_HOST, SMTP_PORT) as server:
+            server.starttls()  # Secure the connection
+            server.login(EMAIL_USER, EMAIL_PASS)
+            server.send_message(msg)
+
+        return {"success": True, "message": "Email sent successfully!"}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
 
 # Root HEAD endpoint for health checks
 @app.head("/")

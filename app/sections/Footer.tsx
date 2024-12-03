@@ -203,15 +203,6 @@ const Footer = () => {
                 </Link>
               </li>
               <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
-                <Linkedin className="mr-2 h-5 w-5 text-text-headingLight dark:text-text-headingDark" />
-                <Link
-                  href="https://www.linkedin.com/in/thomasnguyen0712/"
-                  target="_blank"
-                >
-                  LinkedIn
-                </Link>
-              </li>
-              <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
                 <Image
                   src="/github-dark-logo.svg"
                   alt="GitHub"
@@ -228,12 +219,6 @@ const Footer = () => {
                 />
                 <Link href="https://github.com/ThomasN0712" target="_blank">
                   Github
-                </Link>
-              </li>
-              <li className="flex items-center text-text-mutedLight hover:text-text-headingLight dark:text-text-mutedDark dark:hover:text-text-headingDark">
-                <Mail className="mr-2 h-5 w-5 text-text-headingLight dark:text-text-headingDark" />
-                <Link href="mailto:thomasnguyen0712@gmail.com" target="_blank">
-                  Mail
                 </Link>
               </li>
             </ul>

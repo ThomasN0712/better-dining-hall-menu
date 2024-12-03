@@ -13,6 +13,10 @@ import { BackgroundBeams } from "@/components/BackgroundBeams";
 import ShinyButton from "@/components/ShinyButton";
 import { AnimatedSentButton } from "@/components/AnimatedSentButton";
 
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  "https://better-dining-hall-menu.onrender.com";
+
 const Footer = () => {
   // State and handler for the report issue form
   const [errorType, setErrorType] = useState("");
@@ -31,7 +35,7 @@ const Footer = () => {
     const reportData = { errorType, message, email };
 
     try {
-      const response = await fetch("/api/report-issue", {
+      const response = await fetch("http://127.0.0.1:8000/report-issue", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

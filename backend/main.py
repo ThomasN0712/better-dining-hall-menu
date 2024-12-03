@@ -1,20 +1,19 @@
-from fastapi import FastAPI, Query, Depends, Response, HTTPException, Form
+from fastapi import FastAPI, Query, Depends, HTTPException
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from .db.database import SessionLocal
-from .db import queries
+from db.database import SessionLocal
+from db import queries
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from pydantic import BaseModel
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from smtplib import SMTP
 from dotenv import load_dotenv
+
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
 
 # Load environment variables
 load_dotenv()
-
-# 4231JH3CBZ4ZF24KSWYN73C7
 
 # Initialize FastAPI application
 app = FastAPI()
@@ -44,11 +43,10 @@ def get_db():
     finally:
         db.close()
 
-# Email configuration
-EMAIL_USER = os.getenv("EMAIL_USER")
-EMAIL_PASS = os.getenv("EMAIL_PASS")
-SMTP_HOST = os.getenv("SMTP_HOST")
-SMTP_PORT = int(os.getenv("SMTP_PORT"))
+# SendGrid API Key from environment
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL") 
+
 
 # Root endpoint
 @app.get("/")
@@ -103,41 +101,42 @@ def get_allergens_api(db: Session = Depends(get_db)):
     """
     return queries.get_allergens(db)
 
-# New endpoint: Send Email
 class EmailRequest(BaseModel):
     errorType: str
     message: str
-    email: Optional[str] = None  # Optional field
-
-@app.post("/send-email/")
-async def send_email(data: EmailRequest):
+    email: Optional[str] = None  
+    
+@app.post("/report-issue")
+async def report_issue(data: EmailRequest):
     """
     Sends an email containing the issue reported by the user.
     """
     try:
-        # Create the email
-        msg = MIMEMultipart()
-        msg["From"] = EMAIL_USER
-        msg["To"] = EMAIL_USER  # Your email to receive the report
-        msg["Subject"] = f"Issue Reported: {data.errorType}"
-
-        # Email body
-        body = f"""
-        Problem: {data.errorType}
-        Message: {data.message}
-        Reported by: {data.email or 'Anonymous'}
-        """
-        msg.attach(MIMEText(body, "plain"))
+        message = Mail(
+            from_email="noreply@longbeachmenu.com", 
+            to_emails=RECIPIENT_EMAIL,
+            subject=f"Issue Reported: {data.errorType}",
+            plain_text_content=f"""
+            Problem: {data.errorType}
+            Message: {data.message}
+            Reported by: {data.email or 'Anonymous'}
+            """
+        )
 
         # Send the email
-        with SMTP(SMTP_HOST, SMTP_PORT) as server:
-            server.starttls()  # Secure the connection
-            server.login(EMAIL_USER, EMAIL_PASS)
-            server.send_message(msg)
+        sg = SendGridAPIClient(SENDGRID_API_KEY)
+        response = sg.send(message)
 
-        return {"success": True, "message": "Email sent successfully!"}
+        if response.status_code == 202:
+            return {"success": True, "message": "Email sent successfully!"}
+        else:
+            raise HTTPException(
+                status_code=500,
+                detail=f"Failed to send email. Status code: {response.status_code}",
+            )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
+
 
 # Root HEAD endpoint for health checks
 @app.head("/")

@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Query, Depends, HTTPException
 from typing import List, Optional
 from sqlalchemy.orm import Session
-from db.database import SessionLocal
-from db import queries
+from .db.database import SessionLocal
+from .db import queries
 from fastapi.middleware.cors import CORSMiddleware
 import os
 from pydantic import BaseModel

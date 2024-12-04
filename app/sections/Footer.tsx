@@ -79,7 +79,7 @@ const Footer = () => {
 
           {/* Report Issue Form */}
           <div className="item z-10 flex">
-            <div className="min-w-96 rounded-xl shadow-md">
+            <div className="min-w-48 rounded-xl shadow-md sm:min-w-96">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();

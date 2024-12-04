@@ -96,14 +96,14 @@ const HoverCard: React.FC<HoverCardProps> = ({
   const filteredMenuItems = menuItems.filter((item) => {
     const itemAllergenIds = item.allergens.map((allergen) => allergen.id);
     return !itemAllergenIds.some((allergenId) =>
-      selectedAllergens.includes(allergenId)
+      selectedAllergens.includes(allergenId),
     );
   });
 
   return (
     <div
       style={containerStyle}
-      className="h-full relative isolate [contain:layout_style] [perspective:600px] transition-transform duration-[var(--duration)] ease-[var(--easing)] will-change-transform"
+      className="relative isolate h-full transition-transform duration-[var(--duration)] ease-[var(--easing)] will-change-transform [contain:layout_style] [perspective:600px]"
       ref={refElement}
       onPointerMove={(event) => {
         const rotateFactor = 0.2; // Adjust as needed
@@ -153,12 +153,12 @@ const HoverCard: React.FC<HoverCardProps> = ({
       }}
     >
       <div
-        className="h-full grid will-change-transform origin-center transition-transform duration-[var(--duration)] ease-[var(--easing)] [transform:rotateY(var(--r-x))_rotateX(var(--r-y))] rounded-[var(--radius)] hover:[--opacity:0.3] hover:[--duration:200ms] hover:[--easing:linear] overflow-hidden"
+        className="grid h-full origin-center overflow-hidden rounded-[var(--radius)] transition-transform duration-[var(--duration)] ease-[var(--easing)] will-change-transform [transform:rotateY(var(--r-x))_rotateX(var(--r-y))] hover:[--duration:200ms] hover:[--easing:linear] hover:[--opacity:0.3]"
         style={{ zIndex: 0 }}
       >
         {/* Main Content */}
-        <div className="w-full h-full grid [grid-area:1/1] mix-blend-soft-light [clip-path:inset(0_0_0_0_round_var(--radius))]">
-          <div className="h-full w-full text-text-light dark:text-text-dark p-4 flex flex-col relative bg-background-cardLight dark:bg-background-cardDark border-background-borderLight dark:border-background-borderDark border shadow-lg">
+        <div className="grid h-full w-full mix-blend-soft-light [clip-path:inset(0_0_0_0_round_var(--radius))] [grid-area:1/1]">
+          <div className="relative flex h-full w-full flex-col border border-background-borderLight bg-background-cardLight p-4 text-text-light shadow-lg dark:border-background-borderDark dark:bg-background-cardDark dark:text-text-dark">
             {/* Header */}
             <div className="mb-1">
               <h3 className="text-lg font-semibold text-text-headingLight dark:text-text-headingDark">
@@ -168,7 +168,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
 
             {/* Display start and end times */}
             {startTime && endTime && (
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+              <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
                 {startTime} - {endTime}
               </p>
             )}
@@ -180,7 +180,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
                   {filteredMenuItems.map((item, index) => (
                     <li
                       key={index}
-                      className="py-2 flex items-center justify-between"
+                      className="flex items-center justify-between py-2"
                     >
                       <span>{item.name}</span>
                       {/* Information Icon with Tooltip */}
@@ -200,10 +200,10 @@ const HoverCard: React.FC<HoverCardProps> = ({
         </div>
 
         {/* Glare Effect Layers with pointer-events:none */}
-        <div className="pointer-events-none w-full h-full grid [grid-area:1/1] mix-blend-soft-light opacity-[var(--opacity)] transition-opacity duration-[var(--duration)] ease-[var(--easing)] will-change-background [clip-path:inset(0_0_1px_0_round_var(--radius))] [background:radial-gradient(farthest-corner_circle_at_var(--m-x)_var(--m-y),rgba(255,255,255,0.5)_15%,rgba(255,255,255,0.3)_30%,rgba(255,255,255,0)_100%)]" />
+        <div className="will-change-background pointer-events-none grid h-full w-full opacity-[var(--opacity)] mix-blend-soft-light transition-opacity duration-[var(--duration)] ease-[var(--easing)] [background:radial-gradient(farthest-corner_circle_at_var(--m-x)_var(--m-y),rgba(255,255,255,0.5)_15%,rgba(255,255,255,0.3)_30%,rgba(255,255,255,0)_100%)] [clip-path:inset(0_0_1px_0_round_var(--radius))] [grid-area:1/1]" />
 
         <div
-          className="pointer-events-none w-full h-full grid [grid-area:1/1] mix-blend-color-dodge opacity-[var(--opacity)] will-change-background transition-opacity [clip-path:inset(0_0_1px_0_round_var(--radius))] [background-blend-mode:hue_hue_hue_overlay] [background:var(--pattern),var(--rainbow),var(--diagonal),var(--shade)] relative after:content-[''] after:grid-area-inherit after:bg-repeat-inherit after:bg-attachment-inherit after:bg-origin-inherit after:bg-clip-inherit after:bg-inherit after:mix-blend-exclusion after:[background-size:var(--foil-size),200%_400%,800%,200%] after:[background-position:center,0%_var(--bg-y),calc(var(--bg-x)*_-1)_calc(var(--bg-y)*_-1),var(--bg-x)_var(--bg-y)] after:[background-blend-mode:soft-light,hue,hard-light]"
+          className="will-change-background after:grid-area-inherit after:bg-repeat-inherit after:bg-attachment-inherit after:bg-origin-inherit after:bg-clip-inherit pointer-events-none relative grid h-full w-full opacity-[var(--opacity)] mix-blend-color-dodge transition-opacity [background-blend-mode:hue_hue_hue_overlay] [background:var(--pattern),var(--rainbow),var(--diagonal),var(--shade)] [clip-path:inset(0_0_1px_0_round_var(--radius))] [grid-area:1/1] after:bg-inherit after:mix-blend-exclusion after:content-[''] after:[background-blend-mode:soft-light,hue,hard-light] after:[background-position:center,0%_var(--bg-y),calc(var(--bg-x)*_-1)_calc(var(--bg-y)*_-1),var(--bg-x)_var(--bg-y)] after:[background-size:var(--foil-size),200%_400%,800%,200%]"
           style={backgroundStyle}
         />
       </div>
@@ -211,7 +211,6 @@ const HoverCard: React.FC<HoverCardProps> = ({
   );
 };
 
-// Separate component for the allergen tooltip
 const TooltipAllergens: React.FC<{ item: MenuItem }> = ({ item }) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
@@ -220,10 +219,19 @@ const TooltipAllergens: React.FC<{ item: MenuItem }> = ({ item }) => {
   const handleMouseEnter = () => {
     if (iconRef.current) {
       const rect = iconRef.current.getBoundingClientRect();
-      setTooltipPosition({
-        top: rect.bottom + window.scrollY + 8, // 8px offset
-        left: rect.left + window.scrollX,
-      });
+      const viewportWidth = window.innerWidth;
+
+      // Default tooltip position
+      let tooltipLeft = rect.left + window.scrollX;
+      let tooltipTop = rect.bottom + window.scrollY;
+
+      // Adjust tooltip position to stay within the viewport
+      const tooltipWidth = 100;
+      if (tooltipLeft + tooltipWidth > viewportWidth) {
+        tooltipLeft = viewportWidth - tooltipWidth;
+      }
+
+      setTooltipPosition({ top: tooltipTop, left: tooltipLeft });
       setTooltipVisible(true);
     }
   };
@@ -235,7 +243,7 @@ const TooltipAllergens: React.FC<{ item: MenuItem }> = ({ item }) => {
   return (
     <>
       <div
-        className="ml-2 text-gray-500 dark:text-gray-400 cursor-pointer relative"
+        className="relative ml-2 cursor-pointer text-gray-500 dark:text-gray-400"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         ref={iconRef}
@@ -249,7 +257,7 @@ const TooltipAllergens: React.FC<{ item: MenuItem }> = ({ item }) => {
       {tooltipVisible &&
         ReactDOM.createPortal(
           <div
-            className="absolute z-50 bg-white text-gray-800 rounded-md p-2 shadow-lg dark:bg-gray-800 dark:text-gray-200 text-sm max-w-xs"
+            className="absolute z-50 max-w-xs rounded-md bg-white p-2 text-sm text-gray-800 shadow-lg dark:bg-gray-800 dark:text-gray-200"
             style={{
               top: tooltipPosition.top,
               left: tooltipPosition.left,
@@ -270,7 +278,7 @@ const TooltipAllergens: React.FC<{ item: MenuItem }> = ({ item }) => {
               </ul>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );

@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,8 +30,9 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${montserrat.className} antialiased bg-background-dark text-text-dark`}
+        className={`${montserrat.className} bg-background-dark text-text-dark antialiased`}
       >
+        <SpeedInsights />
         {children}
       </body>
     </html>

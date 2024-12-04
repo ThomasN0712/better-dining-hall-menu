@@ -4,13 +4,20 @@ import { Navbar } from "./components/NavBar";
 import HeroSection from "./sections/HeroSection";
 import Footer from "./sections/Footer";
 
-const navItems = [{ name: "Menu", link: "#menu", icon: <BookOpenText/> },
-  { name: "Report Problem", link: "#report", icon: <Flag/> },
+const navItems = [
+  { name: "Menu", link: "#menu", icon: <BookOpenText /> },
+  { name: "Report Problem", link: "#report", icon: <Flag /> },
 ];
 
 export default function MenuPage() {
   return (
-    <main className="bg-background-light dark:bg-background-dark">
+    <main className="relative min-h-screen">
+      {/* Grid Background */}
+      <div className="pointer-events-none absolute inset-0 z-0 h-full w-full bg-white bg-grid-black/[0.2] dark:bg-black dark:bg-grid-white/[0.2]">
+        {/* Radial Gradient */}
+        <div className="pointer-events-none absolute inset-0 h-full w-full bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] dark:bg-black"></div>
+      </div>
+
       <Navbar navItems={navItems} />
       <HeroSection />
       <Footer />

@@ -189,7 +189,7 @@ const Footer = () => {
               <br />
               <ShinyButton>
                 <Link
-                  href="https://www.paypal.com/donate/?business=P2X7QT54YNJHY&no_recurring=0&item_name=I%27m+a+CS+student+sharing+my+projects.+Hosting+costs+add+up%E2%80%94your+donation+helps+cover+them+and+fuels+my+addiction+for+Celsius%21&currency_code=USD"
+                  href="https://gofund.me/a976d198"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="whitespace-nowrap"

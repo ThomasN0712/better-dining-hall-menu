@@ -165,6 +165,13 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom Section */}
+        {/* Additional Info */}
+        <div className="mt-auto p-3 text-sm italic text-text-light dark:text-text-dark">
+          <p>
+            *This site is a personal project and is not affiliated with or
+            endorsed by California State University, Long Beach (CSULB).
+          </p>
+        </div>
         <div className="border-dark-200 flex flex-col justify-between gap-10 border-t p-10 dark:border-white/25 md:flex-row md:gap-0">
           {/* Left Column */}
           <div className="space-y-1.5">

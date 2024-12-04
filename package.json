@@ -17,6 +17,7 @@
     "@mui/material": "^6.1.8",
     "@mui/x-date-pickers": "^7.22.3",
     "@mui/x-date-pickers-pro": "^7.22.3",
+    "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "clsx": "^2.1.1",
     "date-fns": "^2.29.3",

@@ -251,7 +251,7 @@ const Menu: React.FC = () => {
 
         {/* Display Message for Dates Exceeding Cut-Off */}
         {isCutOffExceeded ? (
-          <div className="text-mutedLight dark:text-mutedDark flex flex-col items-center gap-6 pt-10 text-center text-3xl font-bold">
+          <div className="text-mutedLight dark:text-muted Dark flex flex-col items-center gap-6 pb-6 pt-10 text-center text-3xl font-bold">
             No information is available yet. The menu will be updated as soon as
             the school releases it.
             <Image

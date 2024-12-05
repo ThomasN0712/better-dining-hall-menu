@@ -31,7 +31,7 @@ export const temporaryMenus: {
   [date: string]: { menuName: string; menuItems: any[] };
 } = {
   "2024-12-09": {
-    menuName: "Finals Week Menu: December 9",
+    menuName: "Finals Week Menu: 12/9",
     menuItems: [
       {
         item_name: "Chocolate Pancakes",
@@ -212,7 +212,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-10": {
-    menuName: "Finals Week Menu: December 10",
+    menuName: "Finals Week Menu: 12/10",
     menuItems: [
       {
         item_name: "Biscuit and Country Gravy",
@@ -393,7 +393,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-11": {
-    menuName: "Finals Week Menu: December 11",
+    menuName: "Finals Week Menu: 12/11",
     menuItems: [
       {
         item_name: "Soyrizo, Egg, Potato and Cheese Burrito",
@@ -575,7 +575,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-12": {
-    menuName: "Finals Week Menu: December 12",
+    menuName: "Finals Week Menu: 12/12",
     menuItems: [
       {
         item_name: "Pancakes",
@@ -756,7 +756,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-13": {
-    menuName: "Finals Week Menu: December 13",
+    menuName: "Finals Week Menu: 12/13",
     menuItems: [
       {
         item_name: "French Toast",
@@ -937,7 +937,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-14": {
-    menuName: "Finals Week Menu: December 14",
+    menuName: "Finals Week Menu: 12/14",
     menuItems: [
       // Brunch
       {
@@ -992,7 +992,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-15": {
-    menuName: "Finals Week Menu: December 15",
+    menuName: "Finals Week Menu: 12/15",
     menuItems: [
       {
         item_name: "Waffle Sticks",
@@ -1125,7 +1125,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-16": {
-    menuName: "Finals Week Menu: December 16",
+    menuName: "Finals Week Menu: 12/16",
     menuItems: [
       {
         item_name: "French Toast",
@@ -1306,7 +1306,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-17": {
-    menuName: "Finals Week Menu: December 17",
+    menuName: "Finals Week Menu: 12/17",
     menuItems: [
       {
         item_name: "Pancakes",
@@ -1463,7 +1463,7 @@ export const temporaryMenus: {
     ],
   },
   "2024-12-18": {
-    menuName: "Finals Week Menu: December 18",
+    menuName: "Finals Week Menu: 12/18",
     menuItems: [
       {
         item_name: "Waffle Sticks",

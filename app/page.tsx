@@ -1,7 +1,7 @@
 import { Book, BookOpenText, Flag } from "lucide-react";
 
 import { Navbar } from "./components/NavBar";
-import HeroSection from "./sections/HeroSection";
+import Menu from "./sections/Menu";
 import Footer from "./sections/Footer";
 
 const navItems = [
@@ -19,7 +19,7 @@ export default function MenuPage() {
       </div>
 
       <Navbar navItems={navItems} />
-      <HeroSection />
+      <Menu />
       <Footer />
     </main>
   );

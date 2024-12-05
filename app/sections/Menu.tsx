@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, useMemo } from "react";
 import { motion } from "framer-motion";
-import CardGrid from "@/components/HeroSection/CardGrid";
-import MealTimer from "@/components/HeroSection/MealTimer";
-import AlwaysAvailableCard from "@/components/HeroSection/AlwaysAvailableCard";
+import CardGrid from "@/components/Menu/CardGrid";
+import MealTimer from "@/components/Menu/MealTimer";
+import AlwaysAvailableCard from "@/components/Menu/AlwaysAvailableCard";
 import { TypewriterEffect } from "@/components/TypeWriterEffect";
 import { isWeekend } from "date-fns";
 
@@ -13,7 +13,7 @@ import {
   LocationPicker,
   MealTypePicker,
   AllergenPicker,
-} from "@/components/HeroSection/Pickers";
+} from "@/components/Menu/Pickers";
 
 const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
@@ -40,7 +40,7 @@ type CardData = {
   menuItems: MenuItem[];
 };
 
-const HeroSection: React.FC = () => {
+const Menu: React.FC = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
   const [selectedLocationIds, setSelectedLocationIds] = useState<number[]>([]);
   const [selectedMealTypeIds, setSelectedMealTypeIds] = useState<number[]>([]);
@@ -241,4 +241,4 @@ const HeroSection: React.FC = () => {
   );
 };
 
-export default HeroSection;
+export default Menu;

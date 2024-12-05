@@ -15,7 +15,6 @@ type HoverCardProps = {
   endTime: string;
 };
 
-// Allergen-to-Emoji Mapping
 const allergenEmojiMap: Record<string, string> = {
   Eggs: "🥚",
   Milk: "🥛",
@@ -61,7 +60,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
     "--bg-y": "50%",
     "--duration": "300ms",
     "--foil-size": "100%",
-    "--opacity": "0", // Initial opacity
+    "--opacity": "0",
     "--radius": "16px",
     "--easing": "ease",
     "--transition": "var(--duration) var(--easing)",

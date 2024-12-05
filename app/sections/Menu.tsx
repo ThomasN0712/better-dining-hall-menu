@@ -1,12 +1,14 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import CardGrid from "@/components/Menu/CardGrid";
 import MealTimer from "@/components/Menu/MealTimer";
 import AlwaysAvailableCard from "@/components/Menu/AlwaysAvailableCard";
 import { TypewriterEffect } from "@/components/TypeWriterEffect";
 import { isWeekend } from "date-fns";
+import { temporaryMenus, CUT_OFF_DATE } from "@/utils/constants";
+import Image from "next/image";
 
 import {
   DatePicker,
@@ -49,6 +51,11 @@ const Menu: React.FC = () => {
   const [cardsData, setCardsData] = useState<CardData[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
   const [isWeekendSelected, setIsWeekendSelected] = useState<boolean>(false);
+  const [temporaryMenuName, setTemporaryMenuName] = useState<string | null>(
+    null,
+  );
+  const [isCutOffExceeded, setIsCutOffExceeded] = useState<boolean>(false);
+  const fetchIdRef = useRef<number>(0);
 
   const titleVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -81,19 +88,49 @@ const Menu: React.FC = () => {
   useEffect(() => {
     const fetchMenuItems = async () => {
       if (selectedDate) {
+        const currentFetchId = ++fetchIdRef.current;
         setLoading(true);
         try {
           const dateStr = formatDate(selectedDate);
+
+          // Check if the selected date exceeds the cut-off date
+          if (new Date(dateStr) > new Date(CUT_OFF_DATE)) {
+            setIsCutOffExceeded(true);
+            setTemporaryMenuName(null);
+            setMenuItemsData([]);
+            return;
+          }
+
+          setIsCutOffExceeded(false);
+
+          // Check if the date is in temporaryMenus
+          if (temporaryMenus[dateStr]) {
+            const { menuName, menuItems } = temporaryMenus[dateStr];
+            if (currentFetchId === fetchIdRef.current) {
+              setTemporaryMenuName(menuName);
+              setMenuItemsData(menuItems);
+            }
+            return;
+          }
+
+          // Reset temporary menu name
+          setTemporaryMenuName(null);
+
           const url = `${API_BASE_URL}/menu_items?date=${dateStr}`;
           const response = await fetch(url);
           const data = await response.json();
 
-          // Cache the data
-          setMenuItemsData(data);
+          // Only update if fetchId matches the latest request
+          if (currentFetchId === fetchIdRef.current) {
+            // Cache the data
+            setMenuItemsData(data);
+          }
         } catch (error) {
           console.error("Error fetching menu items:", error);
         } finally {
-          setLoading(false);
+          if (currentFetchId === fetchIdRef.current) {
+            setLoading(false);
+          }
         }
       } else {
         setMenuItemsData([]);
@@ -180,7 +217,12 @@ const Menu: React.FC = () => {
         </div>
 
         {/* Subtitle */}
-        <TypewriterEffect words={words} className="mb-16 mt-4" />
+        <TypewriterEffect words={words} className="mt-4" />
+
+        {/* Subtitle */}
+        <div className="mb-16 text-center text-blue-500">
+          Good Luck with Final Everyone!! ᕙ(⇀‸↼‶)ᕗ
+        </div>
 
         <div className="flex flex-col justify-center gap-6 md:flex-row">
           {/* Timer */}
@@ -207,35 +249,58 @@ const Menu: React.FC = () => {
           </div>
         </div>
 
-        {/* Card Grid */}
-        <div className="relative mb-10 pt-10">
-          {loading ? (
-            <div className="text-mutedLight dark:text-mutedDark text-center">
-              Loading menu items...
-            </div>
-          ) : (
-            <CardGrid
-              cards={cardsData}
-              selectedAllergens={selectedAllergens}
-              isWeekendSelected={isWeekendSelected}
+        {/* Display Message for Dates Exceeding Cut-Off */}
+        {isCutOffExceeded ? (
+          <div className="text-mutedLight dark:text-mutedDark flex flex-col items-center gap-6 pt-10 text-center text-3xl font-bold">
+            No information is available yet. The menu will be updated as soon as
+            the school releases it.
+            <Image
+              src="/sad-racc.jpg"
+              alt="Sad Raccoon"
+              width={600}
+              height={600}
             />
-          )}
-        </div>
+          </div>
+        ) : (
+          <>
+            {/* Card Grid */}
+            <div className="relative mb-10 pt-10">
+              {/* Temporary Menu Name */}
+              {temporaryMenuName && (
+                <div className="pb-2">
+                  <h2 className="text-2xl font-bold">{temporaryMenuName}</h2>
+                </div>
+              )}
 
-        {/* Always Available Cards */}
-        <h2 className="text-xl font-bold">
-          <span className="text-accent">Always Available:</span>
-        </h2>
-        <h2 className="mb-4 text-lg font-medium">
-          <span className="text-text-subtitleLight dark:text-text-subtitleDark">
-            These items are always available at all dining hall locations.
-          </span>
-        </h2>
-        <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {selectedMealTypeIds.map((mealTypeId) => (
-            <AlwaysAvailableCard key={mealTypeId} mealTypeId={mealTypeId} />
-          ))}
-        </div>
+              {loading ? (
+                <div className="text-mutedLight dark:text-mutedDark text-center">
+                  Loading menu items...
+                </div>
+              ) : (
+                <CardGrid
+                  cards={cardsData}
+                  selectedAllergens={selectedAllergens}
+                  isWeekendSelected={isWeekendSelected}
+                />
+              )}
+            </div>
+
+            {/* Always Available Cards */}
+            <h2 className="text-xl font-bold">
+              <span className="text-accent">Always Available:</span>
+            </h2>
+            <h2 className="mb-4 text-lg font-medium">
+              <span className="text-text-subtitleLight dark:text-text-subtitleDark">
+                These items are always available at all dining hall locations.
+              </span>
+            </h2>
+            <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {selectedMealTypeIds.map((mealTypeId) => (
+                <AlwaysAvailableCard key={mealTypeId} mealTypeId={mealTypeId} />
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

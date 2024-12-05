@@ -1,13 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import {
-  Linkedin,
-  Mail,
-  CircleUser,
-  CheckIcon,
-  ChevronRightIcon,
-} from "lucide-react";
+import { CircleUser, CheckIcon, ChevronRightIcon } from "lucide-react";
 import Image from "next/image";
 import { BackgroundBeams } from "@/components/BackgroundBeams";
 import ShinyButton from "@/components/ShinyButton";

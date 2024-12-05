@@ -1,0 +1,1295 @@
+{
+  "2024-12-09": {
+    "menuName": "Emergency Menu: December 9",
+    "menuItems": [
+      {
+        "item_name": "Chocolate Pancakes",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Bacon",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Cajun Potatoes",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Kale and Sweet Potato Soup",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Chicken Noodle Soup",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Greek Salad",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Shrimp Tempura Udon",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Harissa Chicken",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Cauliflower and Quinoa Bowl",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Chicken Tenders",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Texas Style Pork Ribs",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Spicy Gardein Chicken Stir-Fry",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      }
+    ]
+  },
+  "2024-12-10": {
+    "menuName": "Emergency Menu: December 10",
+    "menuItems": [
+      {
+        "item_name": "Biscuit and Country Gravy",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Kielbasa",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Hashbrown",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Minestrone Soup",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Corn Chowder",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Turkey Club Sandwich",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Filipino Pork",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Steak Quesadilla",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Pasta w/ Gardein Meat Sauce",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Meat Lasagna",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Barbacoa Chicken Mulita",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Korean Gardein Beef Bowl",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      }
+    ]
+  },
+  "2024-12-11": {
+    "menuName": "Emergency Menu: December 11",
+    "menuItems": [
+      {
+        "item_name": "Soyrizo, Egg, Potato and Cheese Burrito",
+        "location_id": 87,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 87,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Turkey Sausage Links",
+        "location_id": 87,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Tater Tots",
+        "location_id": 87,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Miso Soup",
+        "location_id": 87,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Pork Posole",
+        "location_id": 87,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Caesar Salad",
+        "location_id": 87,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Shrimp Tacos",
+        "location_id": 87,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "BBQ Chicken Sandwich",
+        "location_id": 87,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Gardein Chicken Alfredo Pasta w/ Broccoli",
+        "location_id": 87,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Grilled Beef Flank Steak w/ Chimichurri Sauce",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Loaded Mashed Potato Bar",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Plant-Based Chicken Tenders",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      }
+    ]
+  },
+  "2024-12-12": {
+    "menuName": "Emergency Menu: December 12",
+    "menuItems": [
+      {
+        "item_name": "Pancakes",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Sausage Links",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Hash Brown Patties",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Tomato Basil Soup",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Chicken Rice Soup",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Caprese Salad",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Orange Chicken Bowl",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Pasta Marinara",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Hamburger Bar",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Mac and Cheese",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Stuffed Zucchini Boat",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      }
+    ]
+  },
+  "2024-12-13": {
+    "menuName": "Emergency Menu: December 13",
+    "menuItems": [
+      {
+        "item_name": "French Toast",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Bacon",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Potatoes O’Brien",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Clam Chowder",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Chef’s Choice Soup",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Apple Walnut Salad",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Lemon Pepper Salmon",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Plum Sauce Meatballs",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Edamame Fried Rice w/ Tofu",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Beef Red Chile Colorado",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Fish Tacos",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Gardein Chicken and Broccoli Stir-Fry",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      }
+    ]
+  },
+  "2024-12-15": {
+    "menuName": "Emergency Menu: December 15",
+    "menuItems": [
+      {
+        "item_name": "Waffle Sticks",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Sausage Links",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Hash Brown Patties",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Chef’s Choice",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Smoothie of the Day",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Chef’s Choice Soup",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Chicken Parmesan",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Baked Tortellini w/ Spinach",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Spicy Tofu and Eggplant",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      }
+    ]
+  },
+  "2024-12-16": {
+    "menuName": "Emergency Menu: December 16",
+    "menuItems": [
+      {
+        "item_name": "French Toast",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Bacon",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Tator Tots",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Chicken Gumbo Soup",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Miso Soup",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Tuna Rotini Salad",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Hot Chicken Sandwich",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Beef Tri-Tip with Mustard Sauce",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Buddha Bowl",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Chicken Teriyaki Bowl",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Beef Taquitos",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Vegan Creamy Mac and Cheese",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      }
+    ]
+  },
+  "2024-12-17": {
+    "menuName": "Emergency Menu: December 17",
+    "menuItems": [
+      {
+        "item_name": "Pancakes",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Sausage Links",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Hash Brown",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Tomato Basil Soup",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Nacho Salsa Bar",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Taco Bar",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Tofu Fajitas",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Italian Herb Pasta Salad",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Chicken Curry Bowl",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Loaded Grilled Cheese Sandwich",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Gardein Beef Teriyaki Bowl",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      }
+    ]
+  },
+  "2024-12-18": {
+    "menuName": "Emergency Menu: December 18",
+    "menuItems": [
+      {
+        "item_name": "Waffle Sticks",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Scrambled Eggs",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Breakfast Sausage",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Hash Brown Patties",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Chef’s Choice",
+        "location_id": 87,
+        "meal_type_id": 114,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Unknown"
+      },
+      {
+        "item_name": "Chef’s Choice Soup",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Chicken Quesadilla",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Sweet and Sour Pork",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Kung Pao Gardein Chicken",
+        "location_id": 87,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Parkside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 113,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Breakfast"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 115,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Lunch"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 85,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Beachside",
+        "meal_type": "Dinner"
+      },
+      {
+        "item_name": "Coming Soon!",
+        "location_id": 86,
+        "meal_type_id": 116,
+        "allergens": [],
+        "location": "Hillside",
+        "meal_type": "Dinner"
+      }
+    ]
+  }
+}

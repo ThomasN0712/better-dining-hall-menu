@@ -116,5 +116,4 @@ For full API documentation, visit `/docs`.
 Contributions are welcome! Please follow the standard [fork and pull request workflow](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
 
 ## License
-
-This project is licensed under the MIT License. See `LICENSE` for details.
+This project is licensed under a custom license. See the [LICENSE](LICENSE) file for details.

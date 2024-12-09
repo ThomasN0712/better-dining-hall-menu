@@ -269,6 +269,14 @@ const Menu: React.FC = () => {
               {temporaryMenuName && (
                 <div className="pb-2">
                   <h2 className="text-2xl font-bold">{temporaryMenuName}</h2>
+                  <div className="flex items-center space-x-2">
+                    <h1 className="font-bold text-red-600">Note:</h1>
+                    <p>
+                      The finals week menu provided by the school does not
+                      include allergen information. Please confirm with dining
+                      hall staff if you have allergies.
+                    </p>
+                  </div>
                 </div>
               )}
 

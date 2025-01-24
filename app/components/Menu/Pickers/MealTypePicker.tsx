@@ -20,10 +20,10 @@ const mealTypeStyles: Record<string, { emoji: string; color: string }> = {
 
 // Static meal types data
 const staticMealTypes: MealType[] = [
-  { meal_type_id: 113, meal_type_name: "Breakfast" },
-  { meal_type_id: 114, meal_type_name: "Brunch" },
-  { meal_type_id: 115, meal_type_name: "Lunch" },
-  { meal_type_id: 116, meal_type_name: "Dinner" },
+  { meal_type_id: 1, meal_type_name: "Breakfast" },
+  { meal_type_id: 2, meal_type_name: "Brunch" },
+  { meal_type_id: 3, meal_type_name: "Lunch" },
+  { meal_type_id: 4, meal_type_name: "Dinner" },
 ];
 
 const MealTypePicker: React.FC<MealTypePickerProps> = ({

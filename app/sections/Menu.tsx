@@ -9,7 +9,6 @@ import { TypewriterEffect } from "@/components/TypeWriterEffect";
 import { isWeekend } from "date-fns";
 import { CUT_OFF_DATE } from "@/utils/constants";
 import Image from "next/image";
-
 import {
   DatePicker,
   LocationPicker,
@@ -21,14 +20,9 @@ const API_BASE_URL =
   process.env.REACT_APP_API_URL ||
   "https://better-dining-hall-menu.onrender.com";
 
-// const API_BASE_URL = process.env.REACT_APP_API_URL || "http://127.0.0.1:8000";
-
-// Utility function to format date explicitly as YYYY-MM-DD
+// Utility to format dates as YYYY-MM-DD
 const formatDate = (date: Date): string => {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
+  return date.toISOString().split("T")[0];
 };
 
 type MenuItem = {
@@ -57,15 +51,6 @@ const Menu: React.FC = () => {
   const [isCutOffExceeded, setIsCutOffExceeded] = useState<boolean>(false);
   const fetchIdRef = useRef<number>(0);
 
-  const titleVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
-  };
-
   const words = [
     {
       text: "A",
@@ -84,79 +69,78 @@ const Menu: React.FC = () => {
     },
   ];
 
-  // Fetch all menu items for the selected date and cache them
+  // Fetch menu items from the API
   useEffect(() => {
     const fetchMenuItems = async () => {
-      if (selectedDate) {
-        const currentFetchId = ++fetchIdRef.current;
-        setLoading(true);
-        try {
-          const dateStr = formatDate(selectedDate);
-
-          // // Check if the selected date exceeds the cut-off date
-          // if (new Date(dateStr) > new Date(CUT_OFF_DATE)) {
-          //   setIsCutOffExceeded(true);
-          //   setTemporaryMenuName(null);
-          //   setMenuItemsData([]);
-          //   return;
-          // }
-
-          // setIsCutOffExceeded(false);
-
-          // // Check if the date is in temporaryMenus
-          // // if (temporaryMenus[dateStr]) {
-          // //   const { menuName, menuItems } = temporaryMenus[dateStr];
-          // //   if (currentFetchId === fetchIdRef.current) {
-          // //     setTemporaryMenuName(menuName);
-          // //     setMenuItemsData(menuItems);
-          // //   }
-          // //   return;
-          // // }
-
-          // // Reset temporary menu name
-          // setTemporaryMenuName(null);
-
-          const url = `${API_BASE_URL}/menu_items?date=${dateStr}`;
-          const response = await fetch(url);
-          const data = await response.json();
-
-          // Only update if fetchId matches the latest request
-          if (currentFetchId === fetchIdRef.current) {
-            // Cache the data
-            setMenuItemsData(data);
-          }
-        } catch (error) {
-          console.error("Error fetching menu items:", error);
-        } finally {
-          if (currentFetchId === fetchIdRef.current) {
-            setLoading(false);
-          }
-        }
-      } else {
+      if (!selectedDate) {
         setMenuItemsData([]);
+        return;
+      }
+
+      const currentFetchId = ++fetchIdRef.current;
+      setLoading(true);
+
+      try {
+        const dateStr = formatDate(selectedDate);
+
+        if (new Date(dateStr) > new Date(CUT_OFF_DATE)) {
+          setIsCutOffExceeded(true);
+          setMenuItemsData([]);
+          setTemporaryMenuName(null);
+          return;
+        }
+
+        setIsCutOffExceeded(false);
+        const response = await fetch(
+          `${API_BASE_URL}/menu_items?date=${dateStr}`,
+        );
+        const data = await response.json();
+
+        console.log("Fetched menuItemsData:", data);
+
+        // Update menu items only if the fetch ID matches
+        if (fetchIdRef.current === currentFetchId) {
+          setMenuItemsData(data);
+        }
+      } catch (error) {
+        console.error("Error fetching menu items:", error);
+      } finally {
+        if (fetchIdRef.current === currentFetchId) {
+          setLoading(false);
+        }
       }
     };
 
     fetchMenuItems();
   }, [selectedDate]);
 
-  // Filter menu items based on selected locations and meal types
+  // Filter and group menu items for display
   useEffect(() => {
     const filterMenuItems = () => {
       if (menuItemsData.length > 0) {
+        console.log("Filtering menu items...");
+
+        // Start with all menu items
         let filteredData = menuItemsData;
 
+        console.log("Selected Location IDs:", selectedLocationIds);
+        console.log("Selected Meal Type IDs:", selectedMealTypeIds);
+
+        // Filter by location if selected
         if (selectedLocationIds.length > 0) {
           filteredData = filteredData.filter((item) =>
             selectedLocationIds.includes(item.location_id),
           );
         }
 
+        // Filter by meal type if selected
         if (selectedMealTypeIds.length > 0) {
           filteredData = filteredData.filter((item) =>
             selectedMealTypeIds.includes(item.meal_type_id),
           );
         }
+
+        console.log("Filtered Data:", filteredData);
 
         // Group the filtered data by location and meal type
         const groupedData = filteredData.reduce((acc: any, item: any) => {
@@ -175,8 +159,11 @@ const Menu: React.FC = () => {
           return acc;
         }, {});
 
+        console.log("Grouped Data:", groupedData);
+
         setCardsData(Object.values(groupedData));
       } else {
+        console.log("No menu items to filter.");
         setCardsData([]);
       }
     };
@@ -186,9 +173,7 @@ const Menu: React.FC = () => {
 
   // Check if the selected date is a weekend
   useEffect(() => {
-    if (selectedDate) {
-      setIsWeekendSelected(isWeekend(selectedDate));
-    }
+    setIsWeekendSelected(isWeekend(selectedDate || new Date()));
   }, [selectedDate]);
 
   return (
@@ -196,22 +181,19 @@ const Menu: React.FC = () => {
       className="relative flex min-h-screen w-full flex-col items-center justify-center pt-48 text-text-light dark:text-text-dark"
       id="menu"
     >
-      {/* Content */}
       <div className="container relative z-10">
         {/* Title */}
         <div className="text-center">
           <motion.h1
             className="text-center text-4xl font-bold sm:text-6xl"
-            initial="hidden"
-            animate="visible"
-            variants={titleVariants}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <span className="bg-accent bg-clip-text text-transparent">
               CSULB
             </span>{" "}
-            <span className="text-black dark:text-white">
-              DINING HALL MENU{" "}
-            </span>
+            <span className="text-black dark:text-white">DINING HALL MENU</span>{" "}
             <span className="text-5xl">🍽️</span>
           </motion.h1>
         </div>
@@ -220,10 +202,7 @@ const Menu: React.FC = () => {
         <TypewriterEffect words={words} className="mt-4" />
 
         <div className="flex flex-col justify-center gap-6 md:flex-row">
-          {/* Timer */}
           <MealTimer />
-
-          {/* Pickers */}
           <div className="flex flex-col gap-6 rounded-lg border border-background-borderLight bg-background-cardLight p-6 shadow-lg dark:border-background-borderDark dark:bg-background-cardDark md:flex-row">
             <DatePicker
               selectedDate={selectedDate}
@@ -244,11 +223,9 @@ const Menu: React.FC = () => {
           </div>
         </div>
 
-        {/* Display Message for Dates Exceeding Cut-Off */}
         {isCutOffExceeded ? (
-          <div className="text-mutedLight dark:text-muted Dark flex flex-col items-center gap-6 pb-6 pt-10 text-center text-3xl font-bold">
-            The menu will be updated soon when information is available. Check
-            back later.
+          <div className="text-mutedLight dark:text-mutedDark flex flex-col items-center gap-6 pb-6 pt-10 text-center text-3xl font-bold">
+            The menu will be updated soon. Check back later.
             <Image
               src="/sad-racc.jpg"
               alt="Sad Raccoon"
@@ -258,23 +235,7 @@ const Menu: React.FC = () => {
           </div>
         ) : (
           <>
-            {/* Card Grid */}
             <div className="relative mb-10 pt-10">
-              {/* Temporary Menu Name */}
-              {/* {temporaryMenuName && (
-                <div className="pb-2">
-                  <h2 className="text-2xl font-bold">{temporaryMenuName}</h2>
-                  <div className="flex items-center space-x-2">
-                    <h1 className="font-bold text-red-600">Note:</h1>
-                    <p>
-                      The finals week menu provided by the school does not
-                      include allergen information. Please confirm with dining
-                      hall staff if you have allergies.
-                    </p>
-                  </div>
-                </div>
-              )} */}
-
               {loading ? (
                 <div className="text-mutedLight dark:text-mutedDark text-center">
                   Loading menu items...
@@ -287,15 +248,8 @@ const Menu: React.FC = () => {
                 />
               )}
             </div>
-
-            {/* Always Available Cards */}
             <h2 className="text-xl font-bold">
               <span className="text-accent">Always Available:</span>
-            </h2>
-            <h2 className="mb-4 text-lg font-medium">
-              <span className="text-text-subtitleLight dark:text-text-subtitleDark">
-                These items are always available at all dining hall locations.
-              </span>
             </h2>
             <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
               {selectedMealTypeIds.map((mealTypeId) => (

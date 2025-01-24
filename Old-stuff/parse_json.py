@@ -28,7 +28,7 @@ def fix_month_abbr(week_of):
 for cycle_name, cycle_data in data["Cycle Dates"].items():
     # Extract the year from the cycle_name
     year_match = re.search(r"\b\d{4}\b", cycle_name)
-    year = year_match.group() if year_match else "2024"  # Default to 2024 if not found
+    year = year_match.group() if year_match else "2025"  # Default to 2025 if not found
     
     for entry in cycle_data:
         week_of = fix_month_abbr(entry["week_of"]) 

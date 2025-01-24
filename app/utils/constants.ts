@@ -25,7 +25,9 @@
 //   { meal_type_id: 116, meal_type_name: "Dinner" },
 // ];
 
-export const CUT_OFF_DATE = "2024-12-18";
+// CUT OFF DATE: EDIT THIS
+// YYYY - MM - DD
+export const CUT_OFF_DATE = "2025-05-12";
 
 export const temporaryMenus: {
   [date: string]: { menuName: string; menuItems: any[] };

@@ -7,7 +7,7 @@ import MealTimer from "@/components/Menu/MealTimer";
 import AlwaysAvailableCard from "@/components/Menu/AlwaysAvailableCard";
 import { TypewriterEffect } from "@/components/TypeWriterEffect";
 import { isWeekend } from "date-fns";
-import { temporaryMenus, CUT_OFF_DATE } from "@/utils/constants";
+import { CUT_OFF_DATE } from "@/utils/constants";
 import Image from "next/image";
 
 import {
@@ -104,14 +104,14 @@ const Menu: React.FC = () => {
           setIsCutOffExceeded(false);
 
           // Check if the date is in temporaryMenus
-          if (temporaryMenus[dateStr]) {
-            const { menuName, menuItems } = temporaryMenus[dateStr];
-            if (currentFetchId === fetchIdRef.current) {
-              setTemporaryMenuName(menuName);
-              setMenuItemsData(menuItems);
-            }
-            return;
-          }
+          // if (temporaryMenus[dateStr]) {
+          //   const { menuName, menuItems } = temporaryMenus[dateStr];
+          //   if (currentFetchId === fetchIdRef.current) {
+          //     setTemporaryMenuName(menuName);
+          //     setMenuItemsData(menuItems);
+          //   }
+          //   return;
+          // }
 
           // Reset temporary menu name
           setTemporaryMenuName(null);

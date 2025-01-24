@@ -12,15 +12,15 @@ type AllergenPickerProps = {
 
 // Static allergens data
 const staticAllergens: Allergen[] = [
-  { allergen_id: 226, description: "Eggs" },
-  { allergen_id: 227, description: "Milk" },
-  { allergen_id: 228, description: "Wheat" },
-  { allergen_id: 229, description: "Soy" },
-  { allergen_id: 230, description: "Peanuts" },
-  { allergen_id: 231, description: "Tree Nuts" },
-  { allergen_id: 232, description: "Fish" },
-  { allergen_id: 233, description: "Crustacean" },
-  { allergen_id: 234, description: "Sesame Seeds" },
+  { allergen_id: 1, description: "Eggs" },
+  { allergen_id: 2, description: "Milk" },
+  { allergen_id: 3, description: "Wheat" },
+  { allergen_id: 4, description: "Soy" },
+  { allergen_id: 5, description: "Peanuts" },
+  { allergen_id: 6, description: "Tree Nuts" },
+  { allergen_id: 7, description: "Fish" },
+  { allergen_id: 8, description: "Crustacean" },
+  { allergen_id: 9, description: "Sesame Seeds" },
 ];
 
 // Emoji and tag colors for allergens
@@ -72,19 +72,19 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}
-        className="w-full bg-background-cardLight dark:bg-background-cardDark text-text-light dark:text-text-dark border border-background-borderLight dark:border-background-borderDark rounded-md px-4 py-2 text-left shadow-sm flex flex-wrap gap-2 items-center"
+        className="flex w-full flex-wrap items-center gap-2 rounded-md border border-background-borderLight bg-background-cardLight px-4 py-2 text-left text-text-light shadow-sm dark:border-background-borderDark dark:bg-background-cardDark dark:text-text-dark"
       >
         {selectedAllergens.length > 0 ? (
           selectedAllergens.map((allergenId) => {
             const allergen = staticAllergens.find(
-              (a) => a.allergen_id === allergenId
+              (a) => a.allergen_id === allergenId,
             );
             if (!allergen) return null;
             const { emoji, color } = getAllergenStyle(allergen.description);
             return (
               <span
                 key={allergen.allergen_id}
-                className={`inline-flex items-center px-2 py-1 rounded-full text-sm font-medium ${color}`}
+                className={`inline-flex items-center rounded-full px-2 py-1 text-sm font-medium ${color}`}
               >
                 {emoji} {allergen.description}
                 <button
@@ -106,7 +106,7 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
           </span>
         )}
         <svg
-          className={`w-5 h-5 ml-auto transform transition-transform ${
+          className={`ml-auto h-5 w-5 transform transition-transform ${
             isOpen ? "rotate-180" : "rotate-0"
           }`}
           xmlns="http://www.w3.org/2000/svg"
@@ -125,14 +125,14 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute z-10 mt-2 w-full bg-background-light dark:bg-background-dark border border-background-borderLight dark:border-background-borderDark rounded-md shadow-lg">
-          <ul className="max-h-full overflow-auto p-2 space-y-2">
+        <div className="absolute z-10 mt-2 w-full rounded-md border border-background-borderLight bg-background-light shadow-lg dark:border-background-borderDark dark:bg-background-dark">
+          <ul className="max-h-full space-y-2 overflow-auto p-2">
             {staticAllergens.map((allergen) => {
               const { emoji } = getAllergenStyle(allergen.description);
               return (
                 <li
                   key={allergen.allergen_id}
-                  className="flex items-center hover:bg-background-boxLight dark:hover:bg-background-boxDark rounded cursor-pointer"
+                  className="flex cursor-pointer items-center rounded hover:bg-background-boxLight dark:hover:bg-background-boxDark"
                 >
                   <label>
                     <input
@@ -141,7 +141,7 @@ const AllergenPicker: React.FC<AllergenPickerProps> = ({
                       onChange={() =>
                         handleCheckboxChange(allergen.allergen_id)
                       }
-                      className="w-4 h-4 accent-accent focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark focus:outline-none rounded"
+                      className="h-4 w-4 rounded accent-accent focus:outline-none focus:ring-2 focus:ring-primary-light dark:focus:ring-primary-dark"
                     />
                     <span className="ml-3 text-text-light dark:text-text-dark">
                       {emoji} {allergen.description}

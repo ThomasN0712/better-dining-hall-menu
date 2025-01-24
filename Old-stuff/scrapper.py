@@ -121,7 +121,7 @@ def parse_sections(soup):
                                 # Attempt to check for allergens in the next sibling
                                 if tag.next_sibling.next_sibling.name == "em":
                                     allergen_tag = tag.next_sibling.next_sibling
-                                    allergens = re.findall(r'\b[A-Z]\b', allergen_tag.get_text(strip=True))
+                                    allergens = re.findall(r'\b[A-Z]{1,2}(?:-[A-Z]+)?\b', allergen_tag.get_text(strip=True))
                                     # Assign allergens to the item
                                     dining_data["Daily Menus"][current_cycle][day_name][meal_time][location][item_name] = allergens
                             except AttributeError as e:

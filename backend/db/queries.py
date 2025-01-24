@@ -15,7 +15,7 @@ from typing import List, Optional
 
 def get_cycle_number(date_obj, reference_date, cycle_length_days=7):
     delta_days = (date_obj - reference_date).days
-    cycle_number = ((delta_days // cycle_length_days) % 5) + 1 # Cycles 1-5
+    cycle_number = ((delta_days // cycle_length_days) % 5) # Cycles 1-5
     return cycle_number
 
 def get_menu_items(
@@ -27,8 +27,8 @@ def get_menu_items(
     # Convert date string to datetime object
     date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
 
-    # Reference start date for Cycle 1
-    reference_date = datetime.date(2024, 8, 26)
+    # Reference start date for Cycle 1 EDIT THIS
+    reference_date = datetime.date(2025, 1, 20)
 
     # Calculate the cycle number
     cycle_number = str(get_cycle_number(date_obj, reference_date))

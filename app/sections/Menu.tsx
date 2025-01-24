@@ -199,7 +199,11 @@ const Menu: React.FC = () => {
         </div>
 
         {/* Subtitle */}
-        <TypewriterEffect words={words} className="mt-4" />
+        <TypewriterEffect words={words} className="mb-2 mt-2" />
+
+        <div className="mb-6 justify-center text-center text-lg italic text-blue-500">
+          Spring 2025 Menu Available*
+        </div>
 
         <div className="flex flex-col justify-center gap-6 md:flex-row">
           <MealTimer />

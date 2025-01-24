@@ -219,11 +219,6 @@ const Menu: React.FC = () => {
         {/* Subtitle */}
         <TypewriterEffect words={words} className="mt-4" />
 
-        {/* Subtitle */}
-        <div className="mb-16 text-center text-blue-500">
-          Good Luck with Final Everyone!! ᕙ(⇀‸↼‶)ᕗ
-        </div>
-
         <div className="flex flex-col justify-center gap-6 md:flex-row">
           {/* Timer */}
           <MealTimer />

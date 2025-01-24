@@ -93,28 +93,28 @@ const Menu: React.FC = () => {
         try {
           const dateStr = formatDate(selectedDate);
 
-          // Check if the selected date exceeds the cut-off date
-          if (new Date(dateStr) > new Date(CUT_OFF_DATE)) {
-            setIsCutOffExceeded(true);
-            setTemporaryMenuName(null);
-            setMenuItemsData([]);
-            return;
-          }
-
-          setIsCutOffExceeded(false);
-
-          // Check if the date is in temporaryMenus
-          // if (temporaryMenus[dateStr]) {
-          //   const { menuName, menuItems } = temporaryMenus[dateStr];
-          //   if (currentFetchId === fetchIdRef.current) {
-          //     setTemporaryMenuName(menuName);
-          //     setMenuItemsData(menuItems);
-          //   }
+          // // Check if the selected date exceeds the cut-off date
+          // if (new Date(dateStr) > new Date(CUT_OFF_DATE)) {
+          //   setIsCutOffExceeded(true);
+          //   setTemporaryMenuName(null);
+          //   setMenuItemsData([]);
           //   return;
           // }
 
-          // Reset temporary menu name
-          setTemporaryMenuName(null);
+          // setIsCutOffExceeded(false);
+
+          // // Check if the date is in temporaryMenus
+          // // if (temporaryMenus[dateStr]) {
+          // //   const { menuName, menuItems } = temporaryMenus[dateStr];
+          // //   if (currentFetchId === fetchIdRef.current) {
+          // //     setTemporaryMenuName(menuName);
+          // //     setMenuItemsData(menuItems);
+          // //   }
+          // //   return;
+          // // }
+
+          // // Reset temporary menu name
+          // setTemporaryMenuName(null);
 
           const url = `${API_BASE_URL}/menu_items?date=${dateStr}`;
           const response = await fetch(url);
@@ -261,7 +261,7 @@ const Menu: React.FC = () => {
             {/* Card Grid */}
             <div className="relative mb-10 pt-10">
               {/* Temporary Menu Name */}
-              {temporaryMenuName && (
+              {/* {temporaryMenuName && (
                 <div className="pb-2">
                   <h2 className="text-2xl font-bold">{temporaryMenuName}</h2>
                   <div className="flex items-center space-x-2">
@@ -273,7 +273,7 @@ const Menu: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              )}
+              )} */}
 
               {loading ? (
                 <div className="text-mutedLight dark:text-mutedDark text-center">

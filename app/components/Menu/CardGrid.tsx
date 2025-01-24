@@ -139,7 +139,7 @@ const CardGrid: React.FC<CardGridProps> = ({
       acc[card.location].push(card);
       return acc;
     },
-    {}
+    {},
   );
 
   return (
@@ -152,7 +152,7 @@ const CardGrid: React.FC<CardGridProps> = ({
           </h2>
           {/* Cards for this location */}
           <LayoutGroup>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               <AnimatePresence>
                 {locationCards.map((card) => {
                   const cardKey = `${location}_${card.mealType}`;
@@ -160,7 +160,7 @@ const CardGrid: React.FC<CardGridProps> = ({
                   // Find the schedule for this location and meal type
                   const schedule = schedules.find(
                     (s) =>
-                      s.location === location && s.mealType === card.mealType
+                      s.location === location && s.mealType === card.mealType,
                   );
 
                   // If schedule is found, extract start and end times

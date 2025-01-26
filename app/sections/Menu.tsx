@@ -6,7 +6,7 @@ import CardGrid from "@/components/Menu/CardGrid";
 import MealTimer from "@/components/Menu/MealTimer";
 import AlwaysAvailableCard from "@/components/Menu/AlwaysAvailableCard";
 import { TypewriterEffect } from "@/components/TypeWriterEffect";
-import { isWeekend } from "date-fns";
+import { format, isWeekend } from "date-fns";
 import { CUT_OFF_DATE } from "@/utils/constants";
 import Image from "next/image";
 import {
@@ -22,7 +22,7 @@ const API_BASE_URL =
 
 // Utility to format dates as YYYY-MM-DD
 const formatDate = (date: Date): string => {
-  return date.toISOString().split("T")[0];
+  return format(date, "yyyy-MM-dd");
 };
 
 type MenuItem = {
@@ -96,8 +96,6 @@ const Menu: React.FC = () => {
         );
         const data = await response.json();
 
-        console.log("Fetched menuItemsData:", data);
-
         // Update menu items only if the fetch ID matches
         if (fetchIdRef.current === currentFetchId) {
           setMenuItemsData(data);
@@ -118,13 +116,8 @@ const Menu: React.FC = () => {
   useEffect(() => {
     const filterMenuItems = () => {
       if (menuItemsData.length > 0) {
-        console.log("Filtering menu items...");
-
         // Start with all menu items
         let filteredData = menuItemsData;
-
-        console.log("Selected Location IDs:", selectedLocationIds);
-        console.log("Selected Meal Type IDs:", selectedMealTypeIds);
 
         // Filter by location if selected
         if (selectedLocationIds.length > 0) {
@@ -139,8 +132,6 @@ const Menu: React.FC = () => {
             selectedMealTypeIds.includes(item.meal_type_id),
           );
         }
-
-        console.log("Filtered Data:", filteredData);
 
         // Group the filtered data by location and meal type
         const groupedData = filteredData.reduce((acc: any, item: any) => {
@@ -159,11 +150,8 @@ const Menu: React.FC = () => {
           return acc;
         }, {});
 
-        console.log("Grouped Data:", groupedData);
-
         setCardsData(Object.values(groupedData));
       } else {
-        console.log("No menu items to filter.");
         setCardsData([]);
       }
     };

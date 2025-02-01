@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import ChatHeader from "./ChatHeader";
 import MessageList from "./MessageList";
 import InputField from "./InputField";
 import { BotMessageSquare, X } from "lucide-react";
@@ -52,14 +53,17 @@ const ChatContainer = () => {
       {/* Toggle Button */}
       <div
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white shadow-lg hover:bg-blue-600"
+        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-blue-500 text-white hover:bg-blue-600"
       >
         {isOpen ? <X size={20} /> : <BotMessageSquare size={24} />}
       </div>
 
       {/* Chat Container */}
       {isOpen && (
-        <div className="fixed bottom-16 right-4 z-50 flex h-[500px] w-full max-w-md flex-col overflow-hidden rounded-lg border border-gray-300 bg-white shadow-lg">
+        <div className="fixed bottom-16 right-4 z-50 flex h-[500px] w-full max-w-md flex-col overflow-hidden rounded-lg bg-background-dark text-text-light dark:text-text-dark">
+          {/* Chatheader */}
+          <ChatHeader />
+
           {/* MessageList component to display the conversation */}
           <MessageList messages={messages} />
 

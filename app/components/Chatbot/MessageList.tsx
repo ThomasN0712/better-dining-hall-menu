@@ -18,7 +18,7 @@ interface MessageListProps {
 
 const MessageList = ({ messages }: MessageListProps) => {
   return (
-    <div className="flex-1 overflow-y-auto bg-gray-50 p-4">
+    <div className="flex-1 overflow-y-auto p-4">
       {/* Map through the messages and render each one */}
       {messages.map((message, index) => (
         <div
@@ -28,7 +28,7 @@ const MessageList = ({ messages }: MessageListProps) => {
           }`}
         >
           <div
-            className={`max-w-[70%] rounded-lg p-3 ${
+            className={`max-w-[70%] rounded-lg px-4 py-2 ${
               message.isUser
                 ? "bg-blue-500 text-white"
                 : "bg-gray-200 text-gray-800"

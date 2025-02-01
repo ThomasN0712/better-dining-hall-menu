@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SendHorizonal } from "lucide-react";
 
 interface InputFieldProps {
   onSendMessage: (message: string) => void;
@@ -26,22 +27,25 @@ const InputField = ({ onSendMessage }: InputFieldProps) => {
   };
 
   return (
-    <div>
+    <div className="flex">
       <input
         type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={(e) => e.key === "Enter" && handleSend()}
-        placeholder="Type your message here..."
-        className="flex-1 rounded-l-lg border border-gray-300 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        placeholder="Ask anything..."
+        className="rounded-lb-lg dark: m-3 flex-1 rounded-lg bg-background-cardLight p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-background-cardDark"
       />
 
       {/* Send button */}
       <button
         onClick={handleSend}
-        className="rounded-r-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        disabled={!input.trim()}
+        className={`my-3 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          input.trim() ? "bg-white" : "cursor-not-allowed bg-gray-500"
+        }`}
       >
-        Send
+        <SendHorizonal className="invert" />
       </button>
     </div>
   );

@@ -27,7 +27,7 @@ const InputField = ({ onSendMessage }: InputFieldProps) => {
   };
 
   return (
-    <div className="flex">
+    <div className="mb-2 flex">
       <input
         type="text"
         value={input}

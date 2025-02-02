@@ -8,7 +8,7 @@ const ChatHeader = () => {
   return (
     <div className="flex items-center border-b border-gray-500 p-4">
       {/* Chatbot Title */}
-      <h2 className="mx-2 text-lg font-bold">Chat with Dino</h2>
+      <h2 className="mx-2 text-lg font-bold">Chat with AI</h2>
 
       {/* Status Indicator (Green Beating Dot) */}
       <span

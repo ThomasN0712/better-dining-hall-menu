@@ -15,7 +15,7 @@ interface PresetPromptsProps {
 const presetPrompts: string[] = [
   "What is the menu today",
   "Do the menu have any pasta this week?",
-  "I'm allergic to shellfish, can I eat at Seaside today?",
+  "I'm allergic to shellfish, what can I eat at Seaside today?",
 ];
 
 /**

@@ -187,7 +187,9 @@ const HoverCard: React.FC<HoverCardProps> = ({
                     >
                       <span>{item.name}</span>
                       {/* Information Icon with Tooltip */}
-                      {item.allergens.length > 0 && <Tooltip item={item} />}
+                      {(item.aiDescription || item.allergens.length > 0) && (
+                        <Tooltip item={item} />
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -258,7 +260,7 @@ const Tooltip: React.FC<{ item: MenuItem }> = ({ item }) => {
       {tooltipVisible &&
         ReactDOM.createPortal(
           <div
-            className="absolute z-50 max-w-xs rounded-md bg-white p-2 text-sm text-gray-800 shadow-lg dark:bg-gray-800 dark:text-gray-200"
+            className="rounded- absolute z-50 max-w-xs bg-white p-2 text-sm text-gray-800 shadow-lg dark:bg-gray-800 dark:text-gray-200"
             style={{
               top: tooltipPosition.top,
               left: tooltipPosition.left,
@@ -268,24 +270,28 @@ const Tooltip: React.FC<{ item: MenuItem }> = ({ item }) => {
             <div>
               {item.aiDescription && (
                 <div className="mb-2">
-                  <p className="font-medium">AI Generated Description:</p>
-                  <p>{item.aiDescription}</p>
-                  <p className="text-xs italic">
+                  <p className="font-bold">AI Generated Description:</p>
+                  <p className="italic">{item.aiDescription}</p>
+                  <p className="text-xs text-red-500">
                     AI generated description might be inaccurate.
                   </p>
                 </div>
               )}
-              <p className="font-medium">Allergens:</p>
-              <ul className="mt-1 space-y-1">
-                {item.allergens.map((allergen) => (
-                  <li key={allergen.id} className="flex items-center">
-                    <span className="mr-2">
-                      {allergenEmojiMap[allergen.name] || "❓"}
-                    </span>
-                    <span>{allergen.name}</span>
-                  </li>
-                ))}
-              </ul>
+              {item.allergens && item.allergens.length > 0 && (
+                <>
+                  <p className="font-bold">Allergens:</p>
+                  <ul className="mt-1 space-y-1">
+                    {item.allergens.map((allergen) => (
+                      <li key={allergen.id} className="flex items-center">
+                        <span className="mr-2">
+                          {allergenEmojiMap[allergen.name] || "❓"}
+                        </span>
+                        <span>{allergen.name}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
           </div>,
           document.body,

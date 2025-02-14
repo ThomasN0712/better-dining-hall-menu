@@ -27,6 +27,7 @@ class MenuItem(Base):
     __tablename__ = "menu_item"
     item_id = Column(Integer, primary_key=True)
     item_name = Column(String(100), nullable=False, unique=True)
+    ai_description = Column(String(255), nullable=True) 
     
 class MenuItemAllergen(Base):
     __tablename__ = "menu_item_allergen"

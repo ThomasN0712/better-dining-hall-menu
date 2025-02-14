@@ -108,6 +108,7 @@ const weekendSchedules: LocationSchedule[] = [
 type MenuItem = {
   name: string;
   allergens: { id: number; name: string }[];
+  aiDescription?: string;
 };
 
 type CardData = {

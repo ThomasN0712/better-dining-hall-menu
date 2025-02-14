@@ -2,9 +2,11 @@ import React, { useRef, useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { CircleAlert } from "lucide-react";
 
+// Update MenuItem type to include an optional AI generated description
 type MenuItem = {
   name: string;
   allergens: { id: number; name: string }[];
+  aiDescription?: string;
 };
 
 type HoverCardProps = {
@@ -13,6 +15,7 @@ type HoverCardProps = {
   selectedAllergens: number[];
   startTime: string;
   endTime: string;
+  aiDescriptions?: string;
 };
 
 const allergenEmojiMap: Record<string, string> = {
@@ -33,6 +36,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
   selectedAllergens,
   startTime,
   endTime,
+  aiDescriptions,
 }) => {
   const isPointerInside = useRef(false);
   const refElement = useRef<HTMLDivElement>(null);
@@ -183,9 +187,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
                     >
                       <span>{item.name}</span>
                       {/* Information Icon with Tooltip */}
-                      {item.allergens.length > 0 && (
-                        <TooltipAllergens item={item} />
-                      )}
+                      {item.allergens.length > 0 && <Tooltip item={item} />}
                     </li>
                   ))}
                 </ul>
@@ -210,7 +212,7 @@ const HoverCard: React.FC<HoverCardProps> = ({
   );
 };
 
-const TooltipAllergens: React.FC<{ item: MenuItem }> = ({ item }) => {
+const Tooltip: React.FC<{ item: MenuItem }> = ({ item }) => {
   const [tooltipVisible, setTooltipVisible] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 });
   const iconRef = useRef<HTMLDivElement>(null);
@@ -264,6 +266,15 @@ const TooltipAllergens: React.FC<{ item: MenuItem }> = ({ item }) => {
             }}
           >
             <div>
+              {item.aiDescription && (
+                <div className="mb-2">
+                  <p className="font-medium">AI Generated Description:</p>
+                  <p>{item.aiDescription}</p>
+                  <p className="text-xs italic">
+                    AI generated description might be inaccurate.
+                  </p>
+                </div>
+              )}
               <p className="font-medium">Allergens:</p>
               <ul className="mt-1 space-y-1">
                 {item.allergens.map((allergen) => (

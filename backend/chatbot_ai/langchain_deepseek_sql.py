@@ -7,6 +7,7 @@ from langchain_community.utilities import SQLDatabase
 from langchain.chains import create_sql_query_chain
 from sqlalchemy import create_engine, text
 from langchain_core.messages import AIMessage  # Ensure proper type checking
+
 #TODO: Give 20 pre made prompt, design word matching system to give certain example, reduce token context length.
 
 # Load environment variables from .env

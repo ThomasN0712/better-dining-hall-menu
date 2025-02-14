@@ -31,8 +31,9 @@ function PresetPrompts({ onSelectPrompt }: PresetPromptsProps) {
         <BotMessageSquare className="mb-2 h-10 w-10 animate-bounce" />
         <span className="font-bold">Have a question about the menu?</span>
         <span className="font-small italic">
-          Information provided here may not be accurate. Please verify with the
-          appropriate kitchen staff.
+          {/* Information provided here may not be accurate. Please verify with the
+          appropriate kitchen staff. */}
+          Work in Progress. Comeback later!
         </span>
       </div>
       {presetPrompts.map((prompt, idx) => (

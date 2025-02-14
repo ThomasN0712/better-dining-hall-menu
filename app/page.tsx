@@ -2,6 +2,7 @@ import { Book, BookOpenText, Flag } from "lucide-react";
 
 import { Navbar } from "./components/NavBar";
 import Menu from "./sections/Menu";
+import ChatContainer from "./components/Chatbot/ChatContainer";
 import Footer from "./sections/Footer";
 
 const navItems = [
@@ -20,6 +21,7 @@ export default function MenuPage() {
 
       <Navbar navItems={navItems} />
       <Menu />
+      <ChatContainer />
       <Footer />
     </main>
   );

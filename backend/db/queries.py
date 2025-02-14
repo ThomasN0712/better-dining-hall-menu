@@ -85,6 +85,7 @@ def get_menu_items(
             "meal_type": ma.meal_type.meal_type_name,
             "meal_type_id": ma.meal_type.meal_type_id, 
             "allergens": allergens_list,
+            "ai_description": ma.menu_item.ai_description,
         }
         result.append(item)
     return result

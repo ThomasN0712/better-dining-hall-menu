@@ -28,6 +28,7 @@ const formatDate = (date: Date): string => {
 type MenuItem = {
   name: string;
   allergens: { id: number; name: string }[];
+  aiDescription?: string;
 };
 
 type CardData = {
@@ -146,6 +147,7 @@ const Menu: React.FC = () => {
           acc[key].menuItems.push({
             name: item.item_name,
             allergens: item.allergens,
+            aiDescription: item.ai_description,
           });
           return acc;
         }, {});

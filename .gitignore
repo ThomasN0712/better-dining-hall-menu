@@ -29,3 +29,6 @@ __pycache__/
 *.pyc
 .env
 .env
+
+# ignore venv
+.venv/

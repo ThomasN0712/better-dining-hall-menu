@@ -11,6 +11,7 @@ import { BotMessageSquare, X } from "lucide-react";
 interface Message {
   text: string;
   isUser: boolean;
+  role: "user" | "assistant";
 }
 
 /**
@@ -23,6 +24,8 @@ function ChatContainer() {
   const [messages, setMessages] = useState<Message[]>([]);
   // State to toggle the visibility of the chat container
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  // State to track loading state
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   /**
    * sendMessage sends a user's message to the backend and updates the chat.
@@ -30,29 +33,60 @@ function ChatContainer() {
    * @param message - The text message entered by the user.
    */
   const sendMessage = async (message: string) => {
+    // Create new user message
+    const userMessage: Message = {
+      text: message,
+      isUser: true,
+      role: "user",
+    };
+
     // Update the message list with the user's message
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      { text: message, isUser: true },
-    ]);
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setIsLoading(true);
 
     try {
+      // Prepare chat history for the API
+      const chatHistory = messages.map((msg) => ({
+        role: msg.role,
+        content: msg.text,
+      }));
+
       // Send the message to the backend API
-      const response = await fetch("/api/chatbot", {
+      const response = await fetch("http://localhost:8000/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({
+          message,
+          history: chatHistory,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
 
+      // Create new assistant message
+      const assistantMessage: Message = {
+        text: data.response,
+        isUser: false,
+        role: "assistant",
+      };
+
       // Update the message list with the chatbot's response
-      setMessages((prevMessages) => [
-        ...prevMessages,
-        { text: data.response, isUser: false },
-      ]);
+      setMessages((prevMessages) => [...prevMessages, assistantMessage]);
     } catch (error) {
       console.error("Error sending message:", error);
-      // Optionally, handle error UI update here.
+      // Add error message to chat
+      const errorMessage: Message = {
+        text: "Sorry, I encountered an error. Please try again.",
+        isUser: false,
+        role: "assistant",
+      };
+      setMessages((prevMessages) => [...prevMessages, errorMessage]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -87,10 +121,10 @@ function ChatContainer() {
           )}
 
           {/* Render the list of messages */}
-          <MessageList messages={messages} />
+          <MessageList messages={messages} isLoading={isLoading} />
 
           {/* Render the input field for new messages */}
-          <InputField onSendMessage={sendMessage} />
+          <InputField onSendMessage={sendMessage} isLoading={isLoading} />
         </div>
       )}
     </>

@@ -7,10 +7,22 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from pydantic import BaseModel
 from dotenv import load_dotenv
+from langchain_core.messages import HumanMessage, AIMessage
+import logging
+import uvicorn
+import threading
 
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Sendgrid for email notifications
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
+# Chatbot AI
+# from .chatbot_ai.deepseek import dining_agent
+from .chatbot_ai.openai import dining_agent
 
 # Load environment variables
 load_dotenv()
@@ -21,18 +33,10 @@ app = FastAPI()
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",  # Local development
-        "https://better-dining-hall-menu.vercel.app/", 
-        "https://better-dining-hall-menu.vercel.app", # Production
-        "https://better-dining-hall-git-52e054-thomas-nguyens-projects-bf2800ef.vercel.app", # just putting it here because why not
-        "https://better-dining-hall-menu-j3b159v6g.vercel.app",
-        "https://www.longbeachmenu.com/",
-        "https://www.longbeachmenu.com"
-    ],
+    allow_origins=["*"],  # Allows all origins
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
 )
 
 # Dependency to get DB session
@@ -47,11 +51,59 @@ def get_db():
 SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL") 
 
+# Chatbot request model
+class ChatRequest(BaseModel):
+    message: str
+    history: List[dict] = []
+
+# Chatbot response model
+class ChatResponse(BaseModel):
+    response: str
 
 # Root endpoint
 @app.get("/")
 def root():
     return {"message": "Welcome to the backend!"}
+
+# Chatbot endpoint
+@app.post("/chat", response_model=ChatResponse)
+async def chat(request: ChatRequest):
+    """
+    Endpoint for the dining hall chatbot.
+    """
+    try:
+        # logger.info(f"Received chat request: {request.message}")
+        # logger.info(f"Chat history: {request.history}")
+
+        # Convert history to LangChain messages if provided
+        messages = []
+        if request.history:
+            for msg in request.history:
+                if msg["role"] == "user":
+                    messages.append(HumanMessage(content=msg["content"]))
+                elif msg["role"] == "assistant":
+                    messages.append(AIMessage(content=msg["content"]))
+        
+        # Add the current message
+        messages.append(HumanMessage(content=request.message))
+        
+        # logger.info(f"Converted messages: {messages}")
+        
+        # Get response from agent using run method
+        result = dining_agent.run(request.message)
+        # logger.info(f"Agent result: {result}")
+        
+        # Extract the response from the result
+        response = result.get("final_answer", "I'm sorry, I couldn't process your request.")
+        # logger.info(f"Final response: {response}")
+        
+        return ChatResponse(response=response)
+    except Exception as e:
+        logger.error(f"Error in chat endpoint: {str(e)}", exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail=f"Error processing chat request: {str(e)}"
+        )
 
 # Menu endpoints
 @app.get("/menu_items")
@@ -65,6 +117,19 @@ def get_menu_items_api(
     Fetch menu items based on date, and optional multiple location_ids and meal_type_ids.
     """
     return queries.get_menu_items(db, date, location_id, meal_type_id)
+
+@app.get("/menu_items_range")
+def get_menu_items_range_api(
+    start_date: str,
+    end_date: str,
+    location_id: Optional[List[int]] = Query(None),
+    meal_type_id: Optional[List[int]] = Query(None),
+    db: Session = Depends(get_db)
+):
+    """
+    Fetch menu items for a date range.
+    """
+    return queries.get_menu_items_range(db, start_date, end_date, location_id, meal_type_id)
 
 @app.get("/always_available_items")
 def get_always_available_items_api(db: Session = Depends(get_db)):
@@ -152,9 +217,19 @@ async def report_issue(data: EmailRequest):
 def head_root():
     return None
 
-if __name__ == "__main__":
-    import uvicorn
-
-    # Retrieve the port dynamically from the environment or default to 8000 for local testing
-    port = int(os.environ.get("PORT", 8000))
+def run_api_server(port: int):
+    """Run the API server on the specified port."""
     uvicorn.run(app, host="0.0.0.0", port=port)
+
+if __name__ == "__main__":
+    # Start the main API server on port 8000
+    main_server = threading.Thread(target=run_api_server, args=(8000,))
+    main_server.start()
+    
+    # Start the tool API server on port 8001
+    tool_server = threading.Thread(target=run_api_server, args=(8001,))
+    tool_server.start()
+    
+    # Wait for both servers to complete
+    main_server.join()
+    tool_server.join()

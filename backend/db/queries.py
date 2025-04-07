@@ -140,3 +140,22 @@ def get_allergens(db: Session):
         }
         for allergen in allergens
     ]
+
+def get_menu_items_range(
+    db: Session,
+    start_date: str,
+    end_date: str,
+    location_id: Optional[List[int]] = None,
+    meal_type_id: Optional[List[int]] = None
+):
+    query = db.query(MenuItem).join(Day).filter(
+        Day.date >= start_date,
+        Day.date <= end_date
+    )
+    
+    if location_id:
+        query = query.filter(MenuItem.location_id.in_(location_id))
+    if meal_type_id:
+        query = query.filter(MenuItem.meal_type_id.in_(meal_type_id))
+        
+    return query.all()

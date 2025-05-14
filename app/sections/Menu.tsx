@@ -192,7 +192,7 @@ const Menu: React.FC = () => {
         <TypewriterEffect words={words} className="mb-2 mt-2" />
 
         <div className="mb-6 justify-center text-center text-lg italic text-blue-500">
-          Spring 2025 Menu Available*
+          Good luck on your final and have a good summer break ※\(^o^)/※
         </div>
 
         <div className="flex flex-col justify-center gap-6 md:flex-row">
@@ -218,8 +218,19 @@ const Menu: React.FC = () => {
         </div>
 
         {isCutOffExceeded ? (
-          <div className="text-mutedLight dark:text-mutedDark flex flex-col items-center gap-6 pb-6 pt-10 text-center text-3xl font-bold">
-            The menu will be updated soon. Check back later.
+          <div className="text-mutedLight dark:text-mutedDark flex flex-col items-center gap-6 pb-6 pt-10 text-center text-xl font-bold">
+            <p>Please go here to view the official Finals Menu:</p>
+            <p>
+              <a
+                href="https://www.csulb.edu/beach-shops/residential-dining-menus"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline hover:text-blue-700"
+              >
+                https://www.csulb.edu/beach-shops/residential-dining-menus
+              </a>
+            </p>
+            <p>Come back next semester (Fall) for new features!</p>
             <Image
               src="/sad-racc.jpg"
               alt="Sad Raccoon"

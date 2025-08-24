@@ -29,7 +29,7 @@ def get_menu_items(
     date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
 
     # Reference start date for Cycle 1 EDIT THIS
-    reference_date = datetime.date(2025, 8, 25)
+    reference_date = datetime.date(2025, 1, 20)
 
     # Calculate the cycle number
     cycle_number = str(get_cycle_number(date_obj, reference_date))

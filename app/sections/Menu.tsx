@@ -192,7 +192,7 @@ const Menu: React.FC = () => {
         <TypewriterEffect words={words} className="mb-2 mt-2" />
 
         <div className="mb-6 justify-center text-center text-lg italic text-blue-500">
-          Good luck on your final and have a good summer break ※\(^o^)/※
+          Fall 2025 Menu is now available!
         </div>
 
         <div className="flex flex-col justify-center gap-6 md:flex-row">
@@ -230,7 +230,6 @@ const Menu: React.FC = () => {
                 https://www.csulb.edu/beach-shops/residential-dining-menus
               </a>
             </p>
-            <p>Come back next semester (Fall) for new features!</p>
             <Image
               src="/sad-racc.jpg"
               alt="Sad Raccoon"

@@ -19,7 +19,7 @@ from typing import List, Optional
 logger = logging.getLogger(__name__)
 
 def get_cycle_number(date_obj, reference_date, cycle_length_days=7):
-    logger.debug(f"Calculating cycle number for date: {date_obj}, reference: {reference_date}")
+    logger.info(f"Calculating cycle number for date: {date_obj}, reference: {reference_date}")
     delta_days = (date_obj - reference_date).days
     cycle_number = ((delta_days // cycle_length_days) % 5) + 1 # Cycles 1-5
     logger.info(f"Calculated cycle number: {cycle_number} (delta_days: {delta_days})")
@@ -37,33 +37,33 @@ def get_menu_items(
     try:
         # Convert date string to datetime object
         date_obj = datetime.datetime.strptime(date_str, "%Y-%m-%d").date()
-        logger.debug(f"Parsed date object: {date_obj}")
+        logger.info(f"Parsed date object: {date_obj}")
     except ValueError as e:
         logger.error(f"Invalid date format '{date_str}': {e}")
         return []
 
     # Reference start date for Cycle 1 EDIT THIS
     reference_date = datetime.date(2025, 8, 25)
-    logger.debug(f"Using reference date: {reference_date}")
+    logger.info(f"Using reference date: {reference_date}")
 
     # Calculate the cycle number
     cycle_number = str(get_cycle_number(date_obj, reference_date))
     logger.info(f"Determined cycle number: {cycle_number}")
 
     # Get the cycle_id based on the cycle_number
-    logger.debug(f"Querying for cycle with identifier: {cycle_number}")
+    logger.info(f"Querying for cycle with identifier: {cycle_number}")
     cycle = db.query(Cycle).filter(Cycle.cycle_identifier == cycle_number).first()
     if not cycle:
         logger.warning(f"No cycle found for cycle_number: {cycle_number}")
         return []
-    logger.debug(f"Found cycle: {cycle.cycle_id}")
+    logger.info(f"Found cycle: {cycle.cycle_id}")
 
     # Step 2: Get day name (e.g., 'Monday')
     day_name = date_obj.strftime('%A')
-    logger.debug(f"Day name for date {date_obj}: {day_name}")
+    logger.info(f"Day name for date {date_obj}: {day_name}")
 
     # Step 3: Get the day_id corresponding to the day_name and cycle_id
-    logger.debug(f"Querying for day: {day_name} in cycle: {cycle.cycle_id}")
+    logger.info(f"Querying for day: {day_name} in cycle: {cycle.cycle_id}")
     day = db.query(Day).filter(
         Day.day_name == day_name,
         Day.cycle_id == cycle.cycle_id
@@ -72,32 +72,32 @@ def get_menu_items(
     if not day:
         logger.warning(f"No day found for day_name: {day_name} and cycle_id: {cycle.cycle_id}")
         return []
-    logger.debug(f"Found day: {day.day_id}")
+    logger.info(f"Found day: {day.day_id}")
 
     # Step 4: Build the query
-    logger.debug(f"Building query for day_id: {day.day_id}")
+    logger.info(f"Building query for day_id: {day.day_id}")
     query = db.query(MenuAvailability).join(MenuItem).join(Location).join(MealType).filter(
         MenuAvailability.day_id == day.day_id
     )
 
     if location_ids:
-        logger.debug(f"Filtering by location_ids: {location_ids}")
+        logger.info(f"Filtering by location_ids: {location_ids}")
         query = query.filter(MenuAvailability.location_id.in_(location_ids))
 
     if meal_type_ids:
-        logger.debug(f"Filtering by meal_type_ids: {meal_type_ids}")
+        logger.info(f"Filtering by meal_type_ids: {meal_type_ids}")
         query = query.filter(MenuAvailability.meal_type_id.in_(meal_type_ids))
 
-    logger.debug("Executing main menu availability query")
+    logger.info("Executing main menu availability query")
     menu_availability_list = query.all()
     logger.info(f"Found {len(menu_availability_list)} menu availability records")
 
     # Process the results
     result = []
-    logger.debug("Processing menu availability records and fetching allergens")
+    logger.info("Processing menu availability records and fetching allergens")
     
     for i, ma in enumerate(menu_availability_list):
-        logger.debug(f"Processing item {i+1}/{len(menu_availability_list)}: {ma.menu_item.item_name}")
+        logger.info(f"Processing item {i+1}/{len(menu_availability_list)}: {ma.menu_item.item_name}")
         
         try:
             # Fetch allergens for the menu item
@@ -108,7 +108,7 @@ def get_menu_items(
                 .all()
             )
             allergens_list = [{"id": a[0], "name": a[1]} for a in allergens]
-            logger.debug(f"Found {len(allergens_list)} allergens for item: {ma.menu_item.item_name}")
+            logger.info(f"Found {len(allergens_list)} allergens for item: {ma.menu_item.item_name}")
 
             item = {
                 "item_name": ma.menu_item.item_name,
@@ -135,7 +135,7 @@ def get_always_available_items(db: Session):
     
     try:
         items = db.query(AlwaysAvailable).all()
-        logger.debug(f"Found {len(items)} always available items in database")
+        logger.info(f"Found {len(items)} always available items in database")
         
         result = [
             {
@@ -158,7 +158,7 @@ def get_locations(db: Session):
     
     try:
         locations = db.query(Location).all()
-        logger.debug(f"Found {len(locations)} locations in database")
+        logger.info(f"Found {len(locations)} locations in database")
         
         result = [
             {
@@ -181,7 +181,7 @@ def get_meal_types(db: Session):
     
     try:
         meal_types = db.query(MealType).all()
-        logger.debug(f"Found {len(meal_types)} meal types in database")
+        logger.info(f"Found {len(meal_types)} meal types in database")
         
         result = [
             {
@@ -204,7 +204,7 @@ def get_days(db: Session):
     
     try:
         days = db.query(Day).all()
-        logger.debug(f"Found {len(days)} days in database")
+        logger.info(f"Found {len(days)} days in database")
         
         result = [
             {
@@ -227,7 +227,7 @@ def get_allergens(db: Session):
     
     try:
         allergens = db.query(Allergen).all()
-        logger.debug(f"Found {len(allergens)} allergens in database")
+        logger.info(f"Found {len(allergens)} allergens in database")
         
         result = [
             {

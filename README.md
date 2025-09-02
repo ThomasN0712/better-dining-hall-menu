@@ -1,4 +1,4 @@
-**Better Dining Hall Menu** is a modern web application designed to improve the usability and visual appeal of dining hall menus for students. The app allows users to effortlessly check menus by location, meal type, and date, featuring rotating daily items and always-available options. 
+**Better Dining Hall Menu** is a modern web application designed to improve the usability and visual appeal of dining hall menus for students. The app allows users to effortlessly check menus by location, meal type, and date, featuring rotating daily items and always-available options.
 
 This project leverages **Next.js**, **TypeScript**, and **Tailwind CSS**, focusing on providing a seamless and aesthetically pleasing user experience.
 
@@ -12,16 +12,16 @@ This project leverages **Next.js**, **TypeScript**, and **Tailwind CSS**, focusi
 
 ## Tech Stack
 
-- **Frontend**: 
+- **Frontend**:
   - [Next.js](https://nextjs.org/)
   - [TypeScript](https://www.typescriptlang.org/)
   - [Tailwind CSS](https://tailwindcss.com/)
   - Custom CSS components for enhanced design.
-- **Backend**: 
+- **Backend**:
   - [Python](https://www.python.org/) with [FastAPI](https://fastapi.tiangolo.com/)
   - Hosted on [Render](https://render.com/).
 - **Database**: PostgreSQL for menu data storage and management.
-- **Email Notifications**: Integrated using [SendGrid](https://sendgrid.com/).
+- **Email Notifications**: Integrated using [Mailgun](https://www.mailgun.com/).
 
 ## Project Structure
 
@@ -65,6 +65,7 @@ cd better-dining-hall-menu
 3. Set up the environment variables using `.env.example` as a guide.
 
 4. Run the FastAPI server:
+
    ```bash
    uvicorn main:app --reload
    ```
@@ -82,6 +83,7 @@ cd better-dining-hall-menu
    npm install
    ```
 3. Run the development server:
+
    ```bash
    npm run dev
    ```
@@ -116,4 +118,5 @@ For full API documentation, visit `/docs`.
 Contributions are welcome! Please follow the standard [fork and pull request workflow](https://docs.github.com/en/get-started/quickstart/contributing-to-projects).
 
 ## License
+
 This project is licensed under a custom license. See the [LICENSE](LICENSE) file for details.

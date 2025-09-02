@@ -9,8 +9,7 @@ import logging
 from pydantic import BaseModel
 from dotenv import load_dotenv
 
-from sendgrid import SendGridAPIClient
-from sendgrid.helpers.mail import Mail
+import requests
 
 
 # Load environment variables
@@ -62,12 +61,15 @@ def get_db():
         logger.debug("Closing database session")
         db.close()
 
-# SendGrid API Key from environment
-SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
+# Mailgun API configuration from environment
+MAILGUN_API_KEY = os.getenv("MAILGUN_API_KEY")
+MAILGUN_DOMAIN = os.getenv("MAILGUN_DOMAIN")
 RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL")
 
-if not SENDGRID_API_KEY:
-    logger.warning("SENDGRID_API_KEY not found in environment variables")
+if not MAILGUN_API_KEY:
+    logger.warning("MAILGUN_API_KEY not found in environment variables")
+if not MAILGUN_DOMAIN:
+    logger.warning("MAILGUN_DOMAIN not found in environment variables")
 if not RECIPIENT_EMAIL:
     logger.warning("RECIPIENT_EMAIL not found in environment variables")
 else:
@@ -79,6 +81,20 @@ else:
 def root():
     logger.info("Root endpoint accessed")
     return {"message": "Welcome to the backend!"}
+
+# Health check endpoint with environment info
+@app.get("/health")
+def health_check():
+    logger.info("Health check endpoint accessed")
+    return {
+        "status": "healthy",
+        "environment": {
+            "mailgun_api_key_set": bool(MAILGUN_API_KEY),
+            "mailgun_domain_set": bool(MAILGUN_DOMAIN),
+            "recipient_email_set": bool(RECIPIENT_EMAIL),
+            "log_level": logging.getLogger().level
+        }
+    }
 
 # Menu endpoints
 @app.get("/menu_items")
@@ -175,50 +191,102 @@ class EmailRequest(BaseModel):
     message: str
     email: Optional[str] = None  
     
+@app.get("/test-email-config")
+def test_email_config():
+    """
+    Test endpoint to check email configuration without sending an email.
+    """
+    logger.info("Testing email configuration")
+    return {
+        "mailgun_api_key_set": bool(MAILGUN_API_KEY),
+        "mailgun_api_key_length": len(MAILGUN_API_KEY) if MAILGUN_API_KEY else 0,
+        "mailgun_domain": MAILGUN_DOMAIN if MAILGUN_DOMAIN else None,
+        "recipient_email": RECIPIENT_EMAIL if RECIPIENT_EMAIL else None,
+        "all_configured": bool(MAILGUN_API_KEY and MAILGUN_DOMAIN and RECIPIENT_EMAIL)
+    }
+
 @app.post("/report-issue")
 async def report_issue(data: EmailRequest):
     """
     Sends an email containing the issue reported by the user.
     """
     logger.info(f"Received issue report: {data.errorType} from {data.email or 'Anonymous'}")
+    
+    # Debug: Check environment variables
+    logger.info(f"Environment check:")
+    logger.info(f"  MAILGUN_API_KEY: {'SET' if MAILGUN_API_KEY else 'NOT SET'} (length: {len(MAILGUN_API_KEY) if MAILGUN_API_KEY else 0})")
+    logger.info(f"  MAILGUN_DOMAIN: {MAILGUN_DOMAIN if MAILGUN_DOMAIN else 'NOT SET'}")
+    logger.info(f"  RECIPIENT_EMAIL: {RECIPIENT_EMAIL if RECIPIENT_EMAIL else 'NOT SET'}")
+    
+    # Check for missing required variables
+    if not MAILGUN_API_KEY:
+        logger.error("MAILGUN_API_KEY is not set")
+        raise HTTPException(status_code=500, detail="Email service not configured: Missing API key")
+    
+    if not MAILGUN_DOMAIN:
+        logger.error("MAILGUN_DOMAIN is not set")
+        raise HTTPException(status_code=500, detail="Email service not configured: Missing domain")
+        
+    if not RECIPIENT_EMAIL:
+        logger.error("RECIPIENT_EMAIL is not set")
+        raise HTTPException(status_code=500, detail="Email service not configured: Missing recipient email")
+    
     try:
-        message = Mail(
-            from_email="noreply@longbeachmenu.com", 
-            to_emails=RECIPIENT_EMAIL,
-            subject=f"Issue Reported: {data.errorType}",
-             html_content=f"""
-        <html>
-            <body>
-                <div style="font-family: Arial, sans-serif; line-height: 1.6;">
-                    <h2 style="color: #4CAF50;">New Issue Reported</h2>
-                    <p><strong>Problem:</strong> {data.errorType}</p>
-                    <p><strong>Message:</strong> {data.message}</p>
-                    <p><strong>Reported by:</strong> {data.email or 'Anonymous'}</p>
-                    <hr>
-                    <p style="font-size: 0.9em; color: #555;">This email was sent from the Better Dining Hall Menu system.</p>
-                </div>
-            </body>
-        </html>
-        """
+        # Prepare API URL
+        api_url = f"https://api.mailgun.net/v3/{MAILGUN_DOMAIN}/messages"
+        logger.info(f"Mailgun API URL: {api_url}")
+        
+        # Prepare email data
+        email_files = {
+            "from": (None, "Better Dining Hall Menu <noreply@longbeachmenu.com>"),
+            "to": (None, RECIPIENT_EMAIL),
+            "subject": (None, f"Issue Reported: {data.errorType}"),
+            "html": (None, f"""
+            <html>
+                <body>
+                    <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+                        <h2 style="color: #4CAF50;">New Issue Reported</h2>
+                        <p><strong>Problem:</strong> {data.errorType}</p>
+                        <p><strong>Message:</strong> {data.message}</p>
+                        <p><strong>Reported by:</strong> {data.email or 'Anonymous'}</p>
+                        <hr>
+                        <p style="font-size: 0.9em; color: #555;">This email was sent from the Better Dining Hall Menu system.</p>
+                    </div>
+                </body>
+            </html>
+            """)
+        }
+        
+        logger.info(f"Email data prepared - From: {email_files['from'][1]}, To: {email_files['to'][1]}, Subject: {email_files['subject'][1]}")
+
+        # Send the email via Mailgun
+        logger.info("Attempting to send email via Mailgun...")
+        response = requests.post(
+            api_url,
+            auth=("api", MAILGUN_API_KEY),
+            files=email_files
         )
+        
+        logger.info(f"Mailgun response status: {response.status_code}")
+        logger.info(f"Mailgun response headers: {dict(response.headers)}")
+        logger.info(f"Mailgun response body: {response.text}")
 
-        # Send the email
-        logger.info("Attempting to send email via SendGrid")
-        sg = SendGridAPIClient(SENDGRID_API_KEY)
-        response = sg.send(message)
-        logger.info(f"SendGrid response status: {response.status_code}")
-
-        if response.status_code == 202:
-            logger.info("Email sent successfully")
+        if response.status_code == 200:
+            logger.info("Email sent successfully!")
             return {"success": True, "message": "Email sent successfully!"}
         else:
             logger.error(f"Failed to send email. Status code: {response.status_code}")
+            logger.error(f"Response text: {response.text}")
             raise HTTPException(
                 status_code=500,
-                detail=f"Failed to send email. Status code: {response.status_code}",
+                detail=f"Failed to send email. Status code: {response.status_code}, Response: {response.text}",
             )
+    except requests.exceptions.RequestException as e:
+        logger.error(f"Network error when sending email: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Network error: {str(e)}")
     except Exception as e:
-        logger.error(f"Error in report_issue endpoint: {str(e)}")
+        logger.error(f"Unexpected error in report_issue endpoint: {str(e)}")
+        logger.error(f"Error type: {type(e).__name__}")
         raise HTTPException(status_code=500, detail=f"Failed to send email: {str(e)}")
 
 

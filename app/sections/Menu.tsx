@@ -192,7 +192,7 @@ const Menu: React.FC = () => {
         <TypewriterEffect words={words} className="mb-2 mt-2" />
 
         <div className="mb-6 justify-center text-center text-lg italic text-blue-500">
-          Fall 2025 Menu is now available!
+          Spring 2026 Menu is now available!
         </div>
 
         <div className="flex flex-col justify-center gap-6 md:flex-row">

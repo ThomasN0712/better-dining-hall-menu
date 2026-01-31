@@ -43,7 +43,7 @@ def get_menu_items(
         return []
 
     # Reference start date for Cycle 1 EDIT THIS
-    reference_date = datetime.date(2025, 8, 25)
+    reference_date = datetime.date(2026, 1, 20)
     logger.info(f"Using reference date: {reference_date}")
 
     # Calculate the cycle number

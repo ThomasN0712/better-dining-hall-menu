@@ -43,13 +43,22 @@ logger.info(f"  PASSWORD: {'*' * len(os.getenv('DATABASE_PASSWORD', '')) if os.g
 
 logger.info("Attempting database connection...")
 try:
-    conn = psycopg2.connect(
-        dbname=os.getenv("DATABASE_NAME"),
-        user=os.getenv("DATABASE_USER"),
-        password=os.getenv("DATABASE_PASSWORD"),
-        host=os.getenv("DATABASE_HOST"),
-        port=os.getenv("DATABASE_PORT")
-    )
+    # Prefer a full DATABASE_URL if provided (supports Supabase connection strings)
+    db_url = os.getenv("DATABASE_URL")
+    sslmode = os.getenv("DATABASE_SSLMODE", "require")
+
+    if db_url:
+        logger.info("Using DATABASE_URL from environment")
+        conn = psycopg2.connect(dsn=db_url, sslmode=sslmode)
+    else:
+        conn = psycopg2.connect(
+            dbname=os.getenv("DATABASE_NAME"),
+            user=os.getenv("DATABASE_USER"),
+            password=os.getenv("DATABASE_PASSWORD"),
+            host=os.getenv("DATABASE_HOST"),
+            port=os.getenv("DATABASE_PORT"),
+            sslmode=sslmode
+        )
     cur = conn.cursor()
     logger.info("Database connection successful!")
 except Exception as e:

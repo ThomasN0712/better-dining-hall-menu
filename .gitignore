@@ -32,3 +32,5 @@ __pycache__/
 # venv
 venv/
 
+dining-hall-scrapper/dining_menu.json
+dining-hall-scrapper/dining_menu.json

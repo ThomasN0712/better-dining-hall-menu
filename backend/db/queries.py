@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 def get_cycle_number(date_obj, reference_date, cycle_length_days=7):
     logger.info(f"Calculating cycle number for date: {date_obj}, reference: {reference_date}")
     delta_days = (date_obj - reference_date).days
-    cycle_number = ((delta_days // cycle_length_days) % 5) + 1 # Cycles 1-5
+    cycle_number = ((delta_days // cycle_length_days) % 5) # Cycles 1-5
     logger.info(f"Calculated cycle number: {cycle_number} (delta_days: {delta_days})")
     return cycle_number
 
